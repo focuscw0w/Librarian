@@ -1,0 +1,19 @@
+.main-header {
+    .navigation-icon {
+        @include icon-width-small;
+    }
+}
+
+.about-library-media {
+    .like-btn,
+    .save-btn {
+        height: 100%;
+        border-radius: $border-radius;
+    }
+}
+
+.features__icon {
+    border: 1px solid $primary-background;
+    background-color: $primary-sec-background;
+    padding: .3em;
+}

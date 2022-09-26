@@ -1,0 +1,22 @@
+@mixin container {
+    max-width: $container-width;
+    padding: 0 1em;
+}
+
+@mixin icon-width-small {
+    width: 15px;
+}
+
+@mixin icon-width-medium {
+    width: 42px;
+}
+
+@mixin direction-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin direction-row {
+    display: flex;
+    align-items: center;
+}

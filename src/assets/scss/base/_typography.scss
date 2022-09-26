@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap');
+
+body {
+    font-family: $font-family;
+}
+
+a {
+    color: $text-color-dark;
+}
+
+.main-header {
+    a {
+        font-size: $font-size-small;
+        font-weight: $font-weight-regular;
+    }
+
+}
+
+.main-heading {
+    font-size: $font-size-large;
+    font-weight: $font-weight-medium;
+}
+
+.heading-figcaption {
+    color: $text-color-primary;
+    font-size: $font-size-small;
+    font-weight: $font-weight-medium;
+}
+
+.navigate-btn {
+    font-size: $font-size-small;
+    color: $text-color-very-light;
+}
+
+.secondary-nav {
+    a.active {
+        font-weight: $font-weight-medium;
+        color: $text-color-dark;
+    }
+
+    a {
+        color: $text-color-light;
+    }
+}
+
+.news__article {
+    .article-heading {
+        font-size: $font-size-small;
+        font-weight: $font-weight-medium;
+        color: $text-color-dark;
+    }
+
+    .date-figcaption {
+        font-size: $font-size-very-small;
+        color: $text-color-light;
+    }
+
+    .news__article__footer {
+        .location {
+            font-size: $font-size-very-small;
+            color: $text-color-primary;
+        }
+
+        p {
+            font-size: $font-size-small;
+            color: $text-color-dark;
+        }
+
+        .details {
+            p {
+                font-size: $font-size-very-small;
+                color: $text-color-dark;
+            }
+
+            .mark {
+                color: $text-color-very-light;
+            }
+    
+            .date {
+                font-weight: $font-weight-medium;
+                color: $text-color-primary;
+            }
+        }
+
+    }
+}
+
+.aside {
+    .aside__heading {
+        color: $text-color-dark;
+    }
+
+    .aside__informations__heading {
+        font-size: $font-size-very-small;
+        font-weight: $font-weight-medium;
+        color: $text-color-light;
+    }
+
+    p {
+        font-size: $font-size-small;
+        font-weight: $font-weight-medium;
+        color: $text-color-dark;
+    }
+
+    .opened {
+        font-size: $font-size-small;
+        font-weight: $font-weight-medium;
+        color: $text-color-opened;
+    }
+
+    .more-informations {
+        font-size: $font-size-very-small;
+        color: $text-color-light;
+    }
+}

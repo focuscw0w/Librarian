@@ -1,0 +1,33 @@
+.aside {
+    flex: 1;
+
+    article {
+        padding: $padding-2em;
+    }
+
+    .aside__informations {
+        @include direction-column;
+        gap: 1.5em;
+        margin-top: 1.5em;
+
+        .aside__informations__heading {
+            margin-bottom: .2em
+        }
+
+        .more-informations {
+            text-decoration: underline solid $text-color-light;
+        }
+
+        .features {
+            @include direction-row;
+            justify-content: space-between;
+
+            p {
+                @include direction-row;
+                gap: 1em;
+                margin-top: 1em;
+            }
+
+        }
+    }
+}

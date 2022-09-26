@@ -1,19 +1,25 @@
+
+
 /* 
     IMPORTING FILES
                     */
+                    
+/* scss utilities */
+@import './scss-utils/variables';
+@import './scss-utils/mixins';
 
 /* base */
-@import './base/reset';
 @import './base/typography';
+@import './base/reset';
 
 /* components */
 @import './components/buttons';
 @import './components/icons';
 @import './components/navigation';
+@import './components/secondary-navigation';
+@import './components/news';
+@import './components/news-aside';
 
 /* page layout */
 @import './page-layout/home-page';
 
-/* scss utilities */
-@import './scss-utils/mixins';
-@import './scss-utils/variables';
