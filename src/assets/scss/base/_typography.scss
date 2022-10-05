@@ -113,3 +113,18 @@ a {
         color: $text-color-light;
     }
 }
+
+.search-article {
+    #search-book {
+        font-size: $font-size-small;
+    }
+
+    .drop-down {
+        font-weight: $font-weight-medium;
+    }
+
+    .find-book {
+        font-size: $font-size-small;
+        color: $text-color-very-light;
+    }
+}

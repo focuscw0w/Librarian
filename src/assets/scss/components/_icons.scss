@@ -1,6 +1,6 @@
 .main-header {
     .navigation-icon {
-        @include icon-width-small;
+        width: $icon-width-small;
     }
 }
 
@@ -15,5 +15,7 @@
 .features__icon {
     border: 1px solid $primary-background;
     background-color: $primary-sec-background;
+    border-radius: $border-radius;
     padding: .3em;
 }
+

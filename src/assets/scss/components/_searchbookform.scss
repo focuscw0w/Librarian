@@ -1,0 +1,50 @@
+.search-article {
+    position: absolute;
+    padding: .7em .7em .7em 1.5em;
+    background-color: $background-very-light;
+    width: 33em;
+    
+    left: 50%;
+    transform: translateX(-50%);
+    top: 7em;
+    z-index: 100;
+
+    .flex-container {
+        @include direction-row;
+        justify-content: space-between;
+    }
+
+    .search-container.flex-container {
+        gap: .5em;
+    }
+
+    .split {
+        width: 1px;
+        height: 1.5em;
+        background-color: #000;
+    }
+
+    #search-book {
+        padding: .5em 0;
+        border: none;
+ 
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .drop-down.flex-container {
+        gap: .7em;
+    }
+
+    .find-book {
+        background-color: $primary-background;
+        border-radius: $border-radius;
+        box-shadow: 0px 12px 15px -10px lighten($primary-background, 5%);
+        border: none;
+        padding: .8em 1.9em;
+        cursor: pointer;
+    }
+
+}
