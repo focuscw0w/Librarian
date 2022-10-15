@@ -85,6 +85,12 @@ a {
     }
 }
 
+.opened {
+    font-size: $font-size-small;
+    font-weight: $font-weight-medium;
+    color: $text-color-opened;
+}
+
 .aside {
     .aside__heading {
         color: $text-color-dark;
@@ -100,12 +106,6 @@ a {
         font-size: $font-size-small;
         font-weight: $font-weight-medium;
         color: $text-color-dark;
-    }
-
-    .opened {
-        font-size: $font-size-small;
-        font-weight: $font-weight-medium;
-        color: $text-color-opened;
     }
 
     .more-informations {
@@ -126,5 +126,35 @@ a {
     .find-book {
         font-size: $font-size-small;
         color: $text-color-very-light;
+    }
+}
+
+.sub-menu {
+    a {
+        font-size: $font-size-small;
+        font-weight: $font-weight-medium;
+    }
+}
+
+.info-window {
+    .store-informations {
+        .store-informations__heading {
+            font-size: $font-size-medium;
+            font-weight: $font-weight-medium;       
+        }
+
+        .opened-p {
+            font-size: $font-size-small;
+            font-weight: $font-weight-medium;
+        }
+
+        .store-informations__address {
+            font-size: $font-size-small;
+        }
+
+        .book-list {
+            font-size: $font-size-very-small;
+            color: $text-color-very-light;
+        }
     }
 }

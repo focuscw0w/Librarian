@@ -28,7 +28,7 @@
                   class="navigation-icon"
               /></a>
             </li>
-            <li><a href="#">O aplikácii</a></li>
+            <router-link to="/details">O aplikácii</router-link>
           </ul>
         </nav>
       </div>

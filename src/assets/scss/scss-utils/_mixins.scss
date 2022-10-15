@@ -12,3 +12,16 @@
     display: flex;
     align-items: center;
 }
+
+@mixin column-space-around {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+@mixin live-map-btn {
+    background-color: $primary-background;
+    border-radius: $border-radius;
+    border: none;
+    cursor: pointer;
+}

@@ -14,8 +14,10 @@
 
           <div class="about__library__media">
             <div class="flex-container">
-              <!-- router link -->
-              <router-link tag="a" to="/livemap" class="navigate-btn">Navigovať</router-link>
+
+              <router-link tag="a" to="/" class="navigate-btn"
+                >Navigovať</router-link
+              >
 
               <button class="like-btn">
                 <img src="../assets/icons/bx-heart.svg" alt="like button" />
@@ -28,15 +30,17 @@
         </div>
       </article>
 
-      <SecondaryNavigation />
+      <SecondaryNavigation @showContent="showComponent($event)" />
     </div>
   </section>
 
   <main class="main">
     <div class="split-page container">
-      <News />
+      <!-- Refactor it with dynamic component -->
+      <News v-if="showNews"/>
+      <NewsAside v-if="showNews" />
 
-      <NewsAside />
+      <Gallery v-if="showGallery" />
     </div>
   </main>
 
@@ -47,10 +51,31 @@
 import SecondaryNavigation from "../components/SecondaryNavigation.vue";
 import News from "../components/News.vue";
 import NewsAside from "../components/NewsAside.vue";
+import Gallery from "../components/Gallery.vue";
 
 export default {
+  emits: ["showContent"],
   name: "HomePage",
-  components: { SecondaryNavigation, News, NewsAside },
+  components: { SecondaryNavigation, News, NewsAside, Gallery },
+  data() {
+    return {
+      show: "",
+      showNews: true,
+      showGallery: false,
+    };
+  },
+  methods: {
+    showComponent(contentToShow) {
+      // REFACTOR IT
+      if (contentToShow == "gallery") {
+        this.showGallery = true;
+        this.showNews = false;
+      } else {
+        this.showNews = true;
+        this.showGallery = false;
+      }
+    },
+  },
 };
 </script>
 

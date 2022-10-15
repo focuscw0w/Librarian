@@ -9,20 +9,36 @@
 
             <span class="split"></span>
 
-            <a href="#" class="drop-down flex-container">
+            <a href="#" class="drop-down flex-container" @click="dropDown">
                 Knihy
-                <span class="drop-down__symbol">˅</span>
+                <img src="../assets/icons/bx-down-arrow-alt.svg" alt="arrow icon">
             </a>
 
             <button type="submit" class="find-book">Hľadaj</button>
 
+        </div>
+
+        <div v-if="showDropDown" class="sub-menu">
+            <ul class="sub-menu__ul">
+                <li><a href="#">Knižnice</a></li>
+                <li><a href="#">Autori</a></li>
+            </ul>
         </div>
     </article>
 </template>
 
 <script>
     export default {
-        
+        data() {
+            return {
+                showDropDown: false
+            }
+        },
+        methods: {
+            dropDown() {
+                this.showDropDown = !this.showDropDown
+            }
+        }
     }
 </script>
 

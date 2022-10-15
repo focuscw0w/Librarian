@@ -28,6 +28,9 @@
                 margin-top: 1em;
             }
 
+            img {
+                filter: invert(16%) sepia(95%) saturate(4232%) hue-rotate(298deg) brightness(120%) contrast(120%);
+            }
         }
     }
 }

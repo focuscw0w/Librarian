@@ -1,10 +1,10 @@
 <template>
   <aside class="aside">
     <article>
-      <h3 class="aside__heading">Zakladne informacie</h3>
+      <h3 class="aside__heading">Základné informacie</h3>
       <div class="aside__informations">
         <div>
-          <h5 class="aside__informations__heading">Typ kniznice</h5>
+          <h5 class="aside__informations__heading">Typ knižnice</h5>
           <p>Verejna kniznica</p>
         </div>
 
@@ -14,8 +14,8 @@
         </div>
 
         <div>
-          <h5 class="aside__informations__heading">Otvaracie hodiny</h5>
-          <p><strong class="opened">Opened</strong> do 16:00</p>
+          <h5 class="aside__informations__heading">Otváracie hodiny</h5>
+          <p><strong class="opened">Otvorené</strong> do 16:00</p>
         </div>
 
         <a href="#" class="more-informations">Viac informácii</a>
@@ -31,35 +31,45 @@
         <div class="features">
           <div>
             <p>
-              <img
-                src="../assets/icons/bx-wifi.svg"
+              <span class="features__icon">
+                <img
+                src="../assets/icons/wifi.png"
                 alt="wifi icon"
-                class="features__icon"
-              />Wi-fi pripojenie
+                
+              />
+              </span>
+              Wi-fi pripojenie
             </p>
             <p>
-              <img
-                src="../assets/icons/bx-handicap.svg"
+              <span class="features__icon">
+                <img
+                src="../assets/icons/handicap-icon.svg"
                 alt="handicap icon"
-                class="features__icon"
-              />Bezbarierovy prístup
+        
+              />
+              </span>
+              Bezbarierový prístup
             </p>
           </div>
 
           <div>
             <p>
-              <img
-                src="../assets/icons/bx-coffee-togo.svg"
+              <span class="features__icon">
+                <img
+                src="../assets/icons/coffee.png"
                 alt="coffee icon"
-                class="features__icon"
-              />Kaviareň
+              />
+              </span>
+            Kaviareň
             </p>
             <p>
-              <img
+              <span class="features__icon">
+                <img
                 src="../assets/icons/bx-printer.svg"
                 alt="printer logo"
-                class="features__icon"
-              />Moznost tlace
+              />
+              </span>
+              Možnosť tlače
             </p>
           </div>
         </div>

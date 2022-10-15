@@ -1,0 +1,49 @@
+.gm-ui-hover-effect {
+    display: none!important;
+}
+
+.info-window {
+    background-color: $background-very-light;
+    width: 500px;
+    height: 180px;
+
+    .flex-container {
+        gap: 2em;
+    }
+
+    .store-img {
+        width: 230px;
+        height: 180px;
+    }
+
+    .store-informations {
+
+        .opened {
+            margin-right: .5em;
+        }
+
+        .flex-container{
+           @include direction-column;
+           gap: 1em;
+        }
+
+        .store-informations__media {
+            .media-icon {
+                padding: .5em;
+                background-color: $background-dark;
+                border-radius: $border-radius;
+                cursor: pointer;
+
+                img {
+                    width: 30px;
+                    height: 25px;
+                }
+            }
+
+            .flex-container {
+                flex-direction: row;
+                gap: .5em;
+            }
+        }
+    }
+}

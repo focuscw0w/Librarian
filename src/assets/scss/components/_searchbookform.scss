@@ -34,17 +34,29 @@
         }
     }
 
-    .drop-down.flex-container {
-        gap: .7em;
+    .drop-down {
+        img {
+            width: 20px;
+        }
     }
 
-    .find-book {
-        background-color: $primary-background;
+    .drop-down.flex-container {
+        gap: .3em;
+    }
+
+    .sub-menu {
+        position: absolute;
+        padding: 0 .5em .5em .5em;
+        top: 3em;
+        left: 20em;
+        background-color: $background-very-light;
         border-radius: $border-radius;
-        box-shadow: 0px 12px 15px -10px lighten($primary-background, 5%);
-        border: none;
-        padding: .8em 1.9em;
-        cursor: pointer;
+
+        .sub-menu__ul {
+            li {
+                margin-top: .7em;
+            }
+        }
     }
 
 }
