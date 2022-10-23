@@ -1,0 +1,68 @@
+.filter-product__label {
+  display: block;
+  margin-bottom: 0.7em;
+}
+
+.filter-product {
+  position: absolute;
+  padding: 8em 1.5em;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  background-color: $background-very-light;
+  box-shadow: $shadow-bottom;
+  width: 25em;
+  height: 100vh;
+
+  .filter-product__heading {
+    margin-bottom: 1em;
+  }
+
+  .flex-container {
+    @include direction-row;
+  }
+
+  .search-location {
+    position: relative;
+
+    input[name="place"] {
+      width: 15em;
+      background-color: $background-light;
+      border-radius: $border-radius;
+      border: none;
+      padding: 1em 1.5em 1em 3em;
+      margin-right: 1em;
+      outline: none;
+    }
+
+    .radius {
+      .flex-container {
+        gap: 0.5em;
+      }
+    }
+  }
+}
+
+.filter-split {
+    margin-top: 1em;
+  .flex-container {
+    align-items: flex-start;
+    justify-content: space-between;
+
+    .left,
+    .right {
+      flex: 1;
+    }
+  }
+
+  .filter-split__type.flex-container {
+    align-items: center;
+    justify-content: flex-start;
+    gap: .5em;
+    margin-bottom: .6em;
+  }
+
+  input[type="checkbox"] {
+    cursor: pointer;
+  }
+}

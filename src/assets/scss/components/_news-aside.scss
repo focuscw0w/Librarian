@@ -14,6 +14,11 @@
             margin-bottom: .2em
         }
 
+        .opened {
+            display: block;
+            margin: .4em 0;
+        }
+
         .more-informations {
             text-decoration: underline solid $text-color-light;
         }

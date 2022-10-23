@@ -1,5 +1,5 @@
 <template>
-   <section class="gallery">
+   <section class="gallery container">
       <div class="grid-container">
         <img src="../assets/images/book.png" alt="book image" />
         <img src="../assets/images/book.png" alt="book image" />

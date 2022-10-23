@@ -1,5 +1,7 @@
 <template>
 
+<div class="split-page container">
+
     <section class="news">
       <article class="news__article">
         <div class="flex-container padding">
@@ -139,10 +141,15 @@
       </article>
     </section>
 
+    <NewsAside />
+  </div>
+
 </template>
 
 <script>
+import NewsAside from '../components/NewsAside.vue';
 export default {
+  components: { NewsAside }
 };
 </script>
 

@@ -1,160 +1,196 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap");
 
 body {
-    font-family: $font-family;
+  font-family: $font-family;
 }
 
 a {
-    color: $text-color-dark;
+  color: $text-color-dark;
 }
 
 .main-header {
-    a {
-        font-size: $font-size-small;
-        font-weight: $font-weight-regular;
-    }
-
+  a {
+    font-size: $font-size-small;
+    font-weight: $font-weight-regular;
+  }
 }
 
 .main-heading {
-    font-size: $font-size-large;
-    font-weight: $font-weight-medium;
+  font-size: $font-size-large;
+  font-weight: $font-weight-medium;
 }
 
 .heading-figcaption {
-    color: $text-color-primary;
-    font-size: $font-size-small;
-    font-weight: $font-weight-medium;
+  color: $text-color-primary;
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
 }
 
 .navigate-btn {
-    font-size: $font-size-small;
-    color: $text-color-very-light;
+  font-size: $font-size-small;
+  color: $text-color-very-light;
 }
 
 .secondary-nav {
-    a.active {
-        font-weight: $font-weight-medium;
-        color: $text-color-dark;
-    }
+  a.active {
+    font-weight: $font-weight-medium;
+    color: $text-color-dark;
+  }
 
-    a {
-        color: $text-color-light;
-    }
+  a {
+    color: $text-color-light;
+  }
 }
 
 .news__article {
-    .article-heading {
-        font-size: $font-size-small;
-        font-weight: $font-weight-medium;
-        color: $text-color-dark;
-    }
-
-    .date-figcaption {
-        font-size: $font-size-very-small;
-        color: $text-color-light;
-    }
-
-    .news__article__footer {
-        .location {
-            font-size: $font-size-very-small;
-            color: $text-color-primary;
-        }
-
-        p {
-            font-size: $font-size-small;
-            color: $text-color-dark;
-        }
-
-        .details {
-            p {
-                font-size: $font-size-very-small;
-                color: $text-color-dark;
-            }
-
-            .mark {
-                color: $text-color-very-light;
-            }
-    
-            .date {
-                font-weight: $font-weight-medium;
-                color: $text-color-primary;
-            }
-        }
-
-    }
-}
-
-.opened {
+  .article-heading {
     font-size: $font-size-small;
     font-weight: $font-weight-medium;
-    color: $text-color-opened;
-}
+    color: $text-color-dark;
+  }
 
-.aside {
-    .aside__heading {
-        color: $text-color-dark;
-    }
+  .date-figcaption {
+    font-size: $font-size-very-small;
+    color: $text-color-light;
+  }
 
-    .aside__informations__heading {
-        font-size: $font-size-very-small;
-        font-weight: $font-weight-medium;
-        color: $text-color-light;
+  .news__article__footer {
+    .location {
+      font-size: $font-size-very-small;
+      color: $text-color-primary;
     }
 
     p {
-        font-size: $font-size-small;
-        font-weight: $font-weight-medium;
-        color: $text-color-dark;
+      font-size: $font-size-small;
+      color: $text-color-dark;
     }
 
-    .more-informations {
+    .details {
+      p {
         font-size: $font-size-very-small;
-        color: $text-color-light;
+        color: $text-color-dark;
+      }
+
+      .mark {
+        color: $text-color-very-light;
+      }
+
+      .date {
+        font-weight: $font-weight-medium;
+        color: $text-color-primary;
+      }
     }
+  }
+}
+
+.opened {
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
+  color: $text-color-opened;
+}
+
+.aside {
+  .aside__heading {
+    color: $text-color-dark;
+  }
+
+  .aside__informations__heading {
+    font-size: $font-size-very-small;
+    font-weight: $font-weight-medium;
+    color: $text-color-light;
+  }
+
+  p {
+    font-size: $font-size-small;
+    font-weight: $font-weight-medium;
+    color: $text-color-dark;
+  }
+
+  .more-informations {
+    font-size: $font-size-very-small;
+    color: $text-color-light;
+  }
 }
 
 .search-article {
-    #search-book {
-        font-size: $font-size-small;
-    }
+  #search-book {
+    font-size: $font-size-small;
+  }
 
-    .drop-down {
-        font-weight: $font-weight-medium;
-    }
+  .drop-down {
+    font-weight: $font-weight-regular;
+  }
 
-    .find-book {
-        font-size: $font-size-small;
-        color: $text-color-very-light;
-    }
+  .find-book {
+    font-size: $font-size-small;
+    color: $text-color-very-light;
+  }
 }
 
 .sub-menu {
-    a {
-        font-size: $font-size-small;
-        font-weight: $font-weight-medium;
-    }
+  a {
+    font-size: $font-size-small;
+    font-weight: $font-weight-medium;
+  }
 }
 
 .info-window {
-    .store-informations {
-        .store-informations__heading {
-            font-size: $font-size-medium;
-            font-weight: $font-weight-medium;       
-        }
-
-        .opened-p {
-            font-size: $font-size-small;
-            font-weight: $font-weight-medium;
-        }
-
-        .store-informations__address {
-            font-size: $font-size-small;
-        }
-
-        .book-list {
-            font-size: $font-size-very-small;
-            color: $text-color-very-light;
-        }
+  .store-informations {
+    .store-informations__heading {
+      font-size: $font-size-medium;
+      font-weight: $font-weight-medium;
     }
+
+    .opened-p {
+      font-size: $font-size-small;
+      font-weight: $font-weight-medium;
+    }
+
+    .store-informations__address {
+      font-size: $font-size-small;
+    }
+
+    .book-list {
+      font-size: $font-size-very-small;
+      color: $text-color-very-light;
+    }
+  }
+}
+
+.books {
+  .books__name {
+    font-weight: $font-weight-regular;
+    font-size: $font-size-small;
+  }
+
+  .books__author {
+    font-size: $font-size-very-small;
+    color: $text-color-light;
+  }
+}
+
+.filter-product {
+  .filter-product__heading {
+    font-size: $font-size-filter-h2;
+  }
+
+  .filter-product__label {
+    font-weight: $font-weight-medium;
+    font-size: $font-size-very-small;
+    color: $text-color-light;
+  }
+
+  input[name="place"] {
+    font-weight: $font-weight-regular;
+    font-size: $font-size-small;
+    color: $text-color-emphasys;
+  }
+
+  .filter-split__type {
+    label {
+      font-weight: $font-weight-regular;
+      font-size: $font-size-small;
+      color: $text-color-dark;
+    }
+  }
 }

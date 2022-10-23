@@ -35,13 +35,13 @@
   </section>
 
   <main class="main">
-    <div class="split-page container">
-      <!-- Refactor it with dynamic component -->
-      <News v-if="showNews"/>
-      <NewsAside v-if="showNews" />
+      <component :is="currentComponent"></component>
+      <!--
+        <News v-if="showNews"/>
+        <NewsAside v-if="showNews" />
+        <Gallery v-if="showGallery" />
+      -->
 
-      <Gallery v-if="showGallery" />
-    </div>
   </main>
 
   <router-view />
@@ -50,30 +50,20 @@
 <script>
 import SecondaryNavigation from "../components/SecondaryNavigation.vue";
 import News from "../components/News.vue";
-import NewsAside from "../components/NewsAside.vue";
 import Gallery from "../components/Gallery.vue";
 
 export default {
   emits: ["showContent"],
   name: "HomePage",
-  components: { SecondaryNavigation, News, NewsAside, Gallery },
+  components: { SecondaryNavigation, News, Gallery },
   data() {
     return {
-      show: "",
-      showNews: true,
-      showGallery: false,
+      currentComponent: 'news'
     };
   },
   methods: {
     showComponent(contentToShow) {
-      // REFACTOR IT
-      if (contentToShow == "gallery") {
-        this.showGallery = true;
-        this.showNews = false;
-      } else {
-        this.showNews = true;
-        this.showGallery = false;
-      }
+      this.currentComponent = contentToShow
     },
   },
 };

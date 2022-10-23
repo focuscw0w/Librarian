@@ -21,8 +21,9 @@ export default {
   },
   methods: {
     emitId(selector) {
+      // REFACTOR IT WITH ACTIVE CLASS
       if (selector.classList == 'info'){
-        this.$emit('showContent', 'info')
+        this.$emit('showContent', 'news')
         this.activeInfo = true
         this.activeGallery = false
       } 

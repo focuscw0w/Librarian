@@ -21,3 +21,19 @@
     height: 35px;
 }
 
+.filter-product {
+    .search-icon {
+        position: absolute;
+        top: 2.3em;
+        left: .8em;
+    }
+
+    .marker-icon {
+        width: 15px;
+    }
+
+    .radius-dropdown {
+        width: 20px;
+        cursor: pointer;
+    }
+}

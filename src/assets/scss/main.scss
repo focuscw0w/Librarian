@@ -7,6 +7,7 @@
 /* scss utilities */
 @import './scss-utils/variables';
 @import './scss-utils/mixins';
+@import './scss-utils/containers';
 
 /* base */
 @import './base/typography';
@@ -22,6 +23,8 @@
 @import './components/searchbookform';
 @import './components/gallery';
 @import './components/infowindow';
+@import './components/filterproduct';
+@import './components/searchbooklist';
 
 /* page layout */
 @import './page-layout/home-page';

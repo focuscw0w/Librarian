@@ -1,62 +1,90 @@
 .search-article {
+  padding: 0.7em 0.7em 0.7em 1.5em;
+  background-color: $background-very-light;
+  box-shadow: $shadow-bottom;
+  width: 100%;
+
+  .flex-container {
+    @include direction-row;
+    justify-content: space-between;
+  }
+
+  .search-container.flex-container {
+    gap: 0.5em;
+  }
+
+  .split {
+    width: 1px;
+    height: 1.5em;
+    background-color: #000;
+  }
+
+  #search-book {
+    padding: 0.5em 0;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .drop-down {
+    img {
+      width: 20px;
+    }
+  }
+
+  .drop-down.flex-container {
+    gap: 0.3em;
+  }
+
+  .sub-menu {
     position: absolute;
-    padding: .7em .7em .7em 1.5em;
+    padding: 0 0.5em 0.5em 0.5em;
+    top: 3em;
+    left: 20em;
     background-color: $background-very-light;
-    width: 33em;
-    
-    left: 50%;
-    transform: translateX(-50%);
-    top: 7em;
-    z-index: 100;
+    border-radius: $border-radius;
+
+    .sub-menu__ul {
+      li {
+        margin-top: 1em;
+      }
+    }
+  }
+}
+
+.books {
+  border-radius: $border-radius;
+  padding: 1em;
+  padding-bottom: 1.5em;
+  .books__ul {
+    background-color: $background-very-light;
+    border-radius: $border-radius;
+    margin-top: 0.5em;
+    width: 100%;
+    cursor: pointer;
+    transition: .2s ease;
+
+    &:hover {
+      background-color: $background-dark;
+    }
 
     .flex-container {
-        @include direction-row;
-        justify-content: space-between;
+      align-items: center;
+      gap: 1em;
     }
 
-    .search-container.flex-container {
-        gap: .5em;
+    .books__li {
+      .product-img {
+        width: 40px;
+        height: 65px;
+
+      }
+      .books__info {
+        @include direction-column;
+        gap: .4em;
+      }
     }
-
-    .split {
-        width: 1px;
-        height: 1.5em;
-        background-color: #000;
-    }
-
-    #search-book {
-        padding: .5em 0;
-        border: none;
- 
-
-        &:focus {
-            outline: none;
-        }
-    }
-
-    .drop-down {
-        img {
-            width: 20px;
-        }
-    }
-
-    .drop-down.flex-container {
-        gap: .3em;
-    }
-
-    .sub-menu {
-        position: absolute;
-        padding: 0 .5em .5em .5em;
-        top: 3em;
-        left: 20em;
-        background-color: $background-very-light;
-        border-radius: $border-radius;
-
-        .sub-menu__ul {
-            li {
-                margin-top: .7em;
-            }
-        }
-    }
-
+  }
 }

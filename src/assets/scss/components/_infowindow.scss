@@ -5,7 +5,7 @@
 .info-window {
     background-color: $background-very-light;
     width: 500px;
-    height: 180px;
+    height: 230px;
 
     .flex-container {
         gap: 2em;
@@ -13,7 +13,7 @@
 
     .store-img {
         width: 230px;
-        height: 180px;
+        height: 100%;
     }
 
     .store-informations {
@@ -24,7 +24,12 @@
 
         .flex-container{
            @include direction-column;
+           height: 100%;
            gap: 1em;
+        }
+
+        a {
+            text-decoration: underline;
         }
 
         .store-informations__media {
