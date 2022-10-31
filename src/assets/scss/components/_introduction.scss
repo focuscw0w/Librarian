@@ -1,0 +1,56 @@
+.first-introduction {
+  overflow: hidden;
+  position: absolute;
+  z-index: 9999;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $background-very-light;
+  border-radius: $border-radius;
+  box-shadow: $shadow-bottom;
+  width: 56.25em;
+  height: 37.5em;
+
+  .flex-container {
+    justify-content: space-between;
+    height: 100%;
+    .first-introduction__text {
+      position: relative;
+      padding: 0 2em;
+      flex: 1;
+      flex-basis: 3.75em;
+
+      .flex-container {
+        @include direction-column;
+
+        .slide-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          flex: 3;
+
+          .slide-heading {
+            display: inline-block;
+            padding: 0 .2em;
+            margin-bottom: 1.2em;
+            line-height: 1.2em;
+          }
+        }
+      }
+    }
+
+    .first-introduction__illustration {
+      flex: 2;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    .controls {
+      padding: 0 0 1.5em .3em;
+    }
+  }
+}

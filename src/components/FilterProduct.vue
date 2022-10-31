@@ -84,6 +84,10 @@
         </div>
       </div>
     </div>
+    <div class="filter-book-wrapper">
+      <button class="filter-book">Aplikuj filter</button>
+      <img class="close-icon" src="../assets/icons/close-icon.svg" alt="close icon" @click="$emit('closeSelectedBook')">
+    </div>
   </div>
 </template>
 

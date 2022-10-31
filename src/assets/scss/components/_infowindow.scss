@@ -1,54 +1,53 @@
 .gm-ui-hover-effect {
-    display: none!important;
+  display: none !important;
 }
 
 .info-window {
-    background-color: $background-very-light;
-    width: 500px;
-    height: 230px;
+  background-color: $background-very-light;
+  width: 500px;
+  height: 230px;
+
+  .flex-container {
+    gap: 2em;
+  }
+
+  .store-img {
+    width: 230px;
+    height: 100%;
+  }
+
+  .store-informations {
+    .opened {
+      margin-right: 0.5em;
+    }
 
     .flex-container {
-        gap: 2em;
+      @include direction-column;
+      height: 100%;
+      gap: 1em;
     }
 
-    .store-img {
-        width: 230px;
-        height: 100%;
+    a {
+      text-decoration: underline;
     }
 
-    .store-informations {
+    .store-informations__media {
+      .media-icon {
+        padding: 0.5em;
+        background-color: $background-dark;
+        border-radius: $border-radius;
+        cursor: pointer;
 
-        .opened {
-            margin-right: .5em;
+        img {
+          width: 30px;
+          height: 25px;
         }
+      }
 
-        .flex-container{
-           @include direction-column;
-           height: 100%;
-           gap: 1em;
-        }
-
-        a {
-            text-decoration: underline;
-        }
-
-        .store-informations__media {
-            .media-icon {
-                padding: .5em;
-                background-color: $background-dark;
-                border-radius: $border-radius;
-                cursor: pointer;
-
-                img {
-                    width: 30px;
-                    height: 25px;
-                }
-            }
-
-            .flex-container {
-                flex-direction: row;
-                gap: .5em;
-            }
-        }
+      .flex-container {
+        flex-direction: row;
+        gap: 0.5em;
+      }
     }
+  }
 }

@@ -1,39 +1,43 @@
 .main-header {
-    .navigation-icon {
-        width: $icon-width-small;
-    }
+  .navigation-icon {
+    width: $icon-width-small;
+  }
 }
 
 .about-library-media {
-    .like-btn,
-    .save-btn {
-        height: 100%;
-        border-radius: $border-radius;
-    }
+  .like-btn,
+  .save-btn {
+    height: 100%;
+    border-radius: $border-radius;
+  }
 }
 
 .features__icon {
-    border: 1px solid $primary-background;
-    background-color: $primary-sec-background;
-    border-radius: $border-radius;
-    padding: .3em;
-    width: 35px;
-    height: 35px;
+  border: 1px solid $primary-background;
+  background-color: $primary-sec-background;
+  border-radius: $border-radius;
+  padding: 0.3em;
+  width: 35px;
+  height: 35px;
 }
 
 .filter-product {
-    .search-icon {
-        position: absolute;
-        top: 2.3em;
-        left: .8em;
-    }
+  .search-icon {
+    position: absolute;
+    top: 2.3em;
+    left: 0.8em;
+  }
 
-    .marker-icon {
-        width: 15px;
-    }
+  .marker-icon {
+    width: 15px;
+  }
 
-    .radius-dropdown {
-        width: 20px;
-        cursor: pointer;
-    }
+  .radius-dropdown {
+    width: 20px;
+    cursor: pointer;
+  }
+}
+
+.close-icon {
+  cursor: pointer;
 }

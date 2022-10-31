@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomePage.vue'
+import AboutApp from '../views/AboutApp.vue'
 import LiveMap from '../views/LiveMap.vue'
 
 const routes = [
@@ -11,7 +11,7 @@ const routes = [
   {
     path: '/details',
     name: 'details',
-    component: HomeView
+    component: AboutApp
   }
 ]
 

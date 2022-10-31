@@ -157,7 +157,6 @@ a {
   }
 }
 
-.books {
   .books__name {
     font-weight: $font-weight-regular;
     font-size: $font-size-small;
@@ -167,7 +166,6 @@ a {
     font-size: $font-size-very-small;
     color: $text-color-light;
   }
-}
 
 .filter-product {
   .filter-product__heading {
@@ -193,4 +191,26 @@ a {
       color: $text-color-dark;
     }
   }
+}
+
+.slide-item {
+  .slide-heading {
+    font-weight: $font-weight-regular;
+    font-size: $font-size-filter-h2;
+    color: $text-color-very-light;
+    background-color: $text-color-dark;
+  }
+
+  .slide-paragraph {
+    font-size: $font-size-small;
+  }
+
+  .new-slide {
+    font-size: $font-size-small;
+  }
+}
+
+.filter-book {
+  font-size: $font-size-small;
+  color: $text-color-very-light;
 }

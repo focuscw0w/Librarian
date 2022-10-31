@@ -36,8 +36,14 @@
     </div>
   </article>
 
-  <div v-if="this.searchForBook != ''" class="books">
-    <ul v-for="book in filteredBooks" :key="book.id" ref="book" class="books__ul">
+  <div v-if="this.searchForBook != '' && visibleBlookList" class="books">
+    <ul
+      v-for="book in filteredBooks.slice(0, 9)"
+      :key="book.id"
+      ref="book"
+      class="books__ul"
+      @click="addBook(book)"
+    >
       <li class="books__li">
         <div class="flex-container">
           <img
@@ -46,10 +52,9 @@
             class="product-img"
           />
           <div class="books__info">
-            <h3 class="books__name">{{ book.name }}</h3>
+            <h3 class="books__name">{{bookName = book.name }}</h3>
             <p class="books__author">Andrzej Sapkowski</p>
           </div>
-
         </div>
       </li>
     </ul>
@@ -62,17 +67,18 @@ import axios from "axios";
 import SearchBookList from "../components/SearchBookList.vue";
 export default {
   components: { SearchBookList },
+  emits: ['addBook'],
   data() {
     return {
       showDropDown: false,
       visibleBlookList: false,
       searchForBook: '',
+      bookName: '',
       books: [],
     };
   },
   watch: {
     searchForBook: function (inputValue) {
-      console.log(this.filteredBooks.length)
       if (inputValue === "") this.visibleBlookList = false;
       else this.visibleBlookList = true;
     },
@@ -81,6 +87,11 @@ export default {
     dropDown() {
       this.showDropDown = !this.showDropDown;
     },
+    addBook(book) {
+      this.$emit('addBook', book.name)
+      this.visibleBlookList = false
+      this.searchForBook = ''
+    }
   },
   computed: {
     filteredBooks: function () {
@@ -102,7 +113,7 @@ export default {
 
     await axios
       .get("https://www.librarian.sk/api/v1/books")
-      .then((response) => (this.books = response.data.external));
+      .then((response) => (this.books = response.data));
   },
 };
 </script>

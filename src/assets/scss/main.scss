@@ -8,6 +8,7 @@
 @import './scss-utils/variables';
 @import './scss-utils/mixins';
 @import './scss-utils/containers';
+@import './scss-utils/animations';
 
 /* base */
 @import './base/typography';
@@ -25,6 +26,8 @@
 @import './components/infowindow';
 @import './components/filterproduct';
 @import './components/searchbooklist';
+@import './components/selectedbook';
+@import './components/introduction';
 
 /* page layout */
 @import './page-layout/home-page';

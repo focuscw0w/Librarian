@@ -1,23 +1,23 @@
 .secondary-nav {
-    margin-top: 1.5em;
+  margin-top: 1.5em;
 
-    ul {
-        display: flex;
-        gap: 2.5em;
+  ul {
+    display: flex;
+    gap: 2.5em;
 
-        a {
-            position: relative;
-            cursor: pointer;
+    a {
+      position: relative;
+      cursor: pointer;
 
-            &.active::after {
-                content: '';
-                position: absolute;
-                bottom: -1em;
-                left: 0;
-                width: 100%;
-                height: 2px;
-                background-color: $primary-background;
-            }
-        }
+      &.active::after {
+        content: "";
+        position: absolute;
+        bottom: -1em;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $primary-background;
+      }
     }
+  }
 }

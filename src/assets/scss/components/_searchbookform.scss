@@ -64,7 +64,7 @@
     margin-top: 0.5em;
     width: 100%;
     cursor: pointer;
-    transition: .2s ease;
+    transition: 0.2s ease;
 
     &:hover {
       background-color: $background-dark;
@@ -77,13 +77,11 @@
 
     .books__li {
       .product-img {
-        width: 40px;
-        height: 65px;
-
+        @include product-img;
       }
       .books__info {
         @include direction-column;
-        gap: .4em;
+        gap: 0.4em;
       }
     }
   }

@@ -44,7 +44,7 @@
 }
 
 .filter-split {
-    margin-top: 1em;
+  margin-top: 1em;
   .flex-container {
     align-items: flex-start;
     justify-content: space-between;
@@ -58,11 +58,23 @@
   .filter-split__type.flex-container {
     align-items: center;
     justify-content: flex-start;
-    gap: .5em;
-    margin-bottom: .6em;
+    gap: 0.5em;
+    margin-bottom: 0.6em;
   }
 
   input[type="checkbox"] {
+    cursor: pointer;
+  }
+
+}
+
+.filter-book-wrapper {
+  margin-top: 1.5em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  .close-icon {
     cursor: pointer;
   }
 }

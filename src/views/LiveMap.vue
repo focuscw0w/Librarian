@@ -30,25 +30,38 @@
 
     <!-- Spraviť scss file na containeri -->
     <div class="search-wrapper">
-      <SearchBookForm />
+      <SearchBookForm @addBook="this.bookName = $event" />
     </div>
   </div>
-  
-  <FilterProduct />
 
+  <FilterProduct @closeSelectedBook="close = false" />
+
+  <SelectedBook :bookName="bookName" :closeSelectedBook="close" />
+
+  <Introduction />
 </template>
 
 <script>
-import axios from "axios";
 import SearchBookForm from "../components/SearchBookForm.vue";
-import SearchBookList from '../components/SearchBookList.vue';
-import InfoWindow from '../components/InfoWindow.vue';
-import FilterProduct from '../components/FilterProduct.vue';
+import SearchBookList from "../components/SearchBookList.vue";
+import InfoWindow from "../components/InfoWindow.vue";
+import FilterProduct from "../components/FilterProduct.vue";
+import SelectedBook from "../components/SelectedBook.vue";
+import Introduction from "../components/Introduction.vue";
 
 export default {
-  components: { SearchBookForm, SearchBookList, InfoWindow, FilterProduct },
+  components: {
+    SearchBookForm,
+    SearchBookList,
+    InfoWindow,
+    FilterProduct,
+    SelectedBook,
+    Introduction,
+  },
   data() {
     return {
+      bookName: "",
+      close: false,
       showBook: null,
       openedInfo: false,
       zoom: 11,
@@ -105,13 +118,5 @@ export default {
 </script>
 
 <style lang="scss">
-.search-wrapper {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 7em;
-  z-index: 100;
-  width: 33em;
-}
 @import "../assets/scss/main.scss";
 </style>
