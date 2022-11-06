@@ -12,6 +12,7 @@
           id="search-book"
           name="search"
           size="25"
+          autocomplete="off"
           placeholder="Akú knihu hľadáš?"
           @keypress="showBookList"
           v-model="searchForBook"
@@ -67,7 +68,7 @@ import axios from "axios";
 import SearchBookList from "../components/SearchBookList.vue";
 export default {
   components: { SearchBookList },
-  emits: ['addBook'],
+  emits: ['addBook', 'activeFilterProduct'],
   data() {
     return {
       showDropDown: false,
@@ -89,6 +90,7 @@ export default {
     },
     addBook(book) {
       this.$emit('addBook', book.name)
+      this.$emit('activeFilterProduct', true)
       this.visibleBlookList = false
       this.searchForBook = ''
     }

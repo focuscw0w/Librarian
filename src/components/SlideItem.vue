@@ -7,25 +7,23 @@
       </div>
     </transition-group>
   </div>
-  <a class="new-slide" @click="emitNext" v-if="currentSlide == index">{{
-    slide.buttonText
-  }} ></a>
+  <a class="new-slide" @click="emitNext" v-if="currentSlide == index"
+    >{{ slide.buttonText }} ></a
+  >
 </template>
 
 <script>
-import mitt from 'mitt'
-const emitter = mitt()
-
 export default {
   props: ["slide", "currentSlide", "index"],
-  emits: ["next", "hideIntroduction"],
+  emits: ["next", "hideBlurEffect", "test"],
   methods: {
     emitNext() {
       if (this.slide.buttonText != "Dokončiť") {
         this.$emit("next");
       } else {
-        this.$emit("hideIntroduction");
-        emitter.emit("hideBlur", false)
+        this.$emit("hideBlurEffect");
+        this.$emit("test")
+        localStorage.setItem("activeIntroduction", false);
       }
     },
   },

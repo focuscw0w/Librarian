@@ -2,21 +2,24 @@
   <article v-if="activeIntroduction" class="first-introduction">
     <div class="flex-container">
       <div class="first-introduction__text">
-        <div class="flex-container">  
-          
-            <SlideItem
-              v-for="(slide, index) in this.slides"
-              :slide="slide"
-              :key="index"
-              :current-slide="currentSlide"
-              :index="index"
-              @next="nextSlide"
-              @hideIntroduction="blurEffect"
-            />
-        
+        <div class="flex-container">
+          <SlideItem
+            v-for="(slide, index) in this.slides"
+            :slide="slide"
+            :key="index"
+            :current-slide="currentSlide"
+            :index="index"
+            @next="nextSlide"
+            @hideBlurEffect="hideBlurEffect"
+            @test="$emit('test')"
+          />
+
           <div class="controls">
             <div class="flex-container">
-              <SlideIndicator :total="this.slides.length" :current-index="currentSlide"/>
+              <SlideIndicator
+                :total="this.slides.length"
+                :current-index="currentSlide"
+              />
             </div>
           </div>
         </div>
@@ -33,15 +36,15 @@
 
 <script>
 import SlideItem from "../components/SlideItem.vue";
-import SlideIndicator from '../components/SlideIndicator.vue';
-import 'swiper/css';
+import SlideIndicator from "../components/SlideIndicator.vue";
 export default {
+  emits: ['test'],
   components: { SlideItem, SlideIndicator },
   data() {
     return {
       currentSlide: 0,
       slideInterval: null,
-      activeIntroduction: true,
+      activeIntroduction: null,
       slides: [
         {
           heading: "Vítajte vo svete librarianu",
@@ -73,18 +76,21 @@ export default {
         this.currentSlide < this.slides.length - 1 ? this.currentSlide + 1 : 0;
       this.setCurrentSlide(index);
     },
-    blurEffect() {
-      this.activeIntroduction = false
-      this.$emit("blurEffect", false)
-    }
+    hideBlurEffect() {
+      this.activeIntroduction = false;
+    },
   },
-  mounted() {},
+  computed: {
+    getData() {
+      return localStorage.getItem("activeIntroduction");
+    },
+  },
+  created() {
+    this.activeIntroduction = this.getData == null ? true : false;
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../assets/scss/main.scss";
-.my-swiper {
-  width: 400px;
-}
 </style>

@@ -1,44 +1,43 @@
 <template>
-  <div class="map-container">
-    <GMapMap
-      :center="center"
-      :zoom="zoom"
-      map-type-id="terrain"
-      style="width: 100%; height: 100vh"
-      @click="this.openedInfo = false"
-    >
-      <!--
-      <GMapCluster>
-    -->
-
-      <GMapMarker
-        :key="index"
-        v-for="(m, index) in markers"
-        :position="m.position"
-        :clickable="true"
-        :draggable="true"
-        @click="showStore"
+  <div :class="{blur: blurEffect}">
+    <div class="map-container">
+      <GMapMap
+        :center="center"
+        :zoom="zoom"
+        map-type-id="terrain"
+        style="width: 100%; height: 100vh"
+        @click="this.openedInfo = false"
       >
-        <GMapInfoWindow :opened="openedInfo">
-          <InfoWindow />
-        </GMapInfoWindow>
-      </GMapMarker>
-      <!--
-    </GMapCluster>  
-    -->
-    </GMapMap>
-
-    <!-- Spraviť scss file na containeri -->
-    <div class="search-wrapper">
-      <SearchBookForm @addBook="this.bookName = $event" />
+        <GMapMarker
+          :key="index"
+          v-for="(m, index) in markers"
+          :position="m.position"
+          :clickable="true"
+          :draggable="true"
+          @click="showStore"
+        >
+          <GMapInfoWindow :opened="openedInfo">
+            <InfoWindow />
+          </GMapInfoWindow>
+        </GMapMarker>
+      </GMapMap>
+  
+      <div class="search-wrapper">
+        <SearchBookForm
+          @addBook="this.bookName = $event"
+          @activeFilterProduct="this.activeFilterProduct = $event"
+        />
+      </div>
     </div>
   </div>
 
-  <FilterProduct @closeSelectedBook="close = false" />
+  <FilterProduct
+    :activeFilterProduct="activeFilterProduct"
+  />
 
-  <SelectedBook :bookName="bookName" :closeSelectedBook="close" />
+  <SelectedBook :bookName="bookName" @hideFilterProduct="activeFilterProduct = $event"/>
 
-  <Introduction />
+  <Introduction @test="blur"/>
 </template>
 
 <script>
@@ -50,6 +49,7 @@ import SelectedBook from "../components/SelectedBook.vue";
 import Introduction from "../components/Introduction.vue";
 
 export default {
+  emits: ['hideBlurEffect', 'test'],
   components: {
     SearchBookForm,
     SearchBookList,
@@ -61,9 +61,12 @@ export default {
   data() {
     return {
       bookName: "",
-      close: false,
       showBook: null,
+      hideFilterProduct: null,
+      blurEffect: true,
+      close: false,
       openedInfo: false,
+      activeFilterProduct: false,
       zoom: 11,
       center: { lat: 49.219631, lng: 18.74222 },
       markers: [
@@ -74,6 +77,9 @@ export default {
           },
         },
       ],
+      iconSettings: {
+        url: require('../assets/icons/bx-book-open.svg'),
+      }
     };
   },
   methods: {
@@ -110,6 +116,13 @@ export default {
     showStore() {
       this.openedInfo = !this.openedInfo;
     },
+    blur() {
+      this.$emit('test')
+      this.blurEffect = false
+    }
+  },
+  created() {
+    this.blurEffect = localStorage.getItem("activeIntroduction") == null ? true : false
   },
   mounted() {
     this.getCurrentPosition();
@@ -119,4 +132,7 @@ export default {
 
 <style lang="scss">
 @import "../assets/scss/main.scss";
+.blur {
+  filter: blur(5px);
+}
 </style>

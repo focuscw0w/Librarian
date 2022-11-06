@@ -1,5 +1,5 @@
 <template>
-  <div class="filter-product">
+  <div v-if="activeFilterProduct" class="filter-product">
     <h2 class="filter-product__heading">Filtrovanie</h2>
 
     <div class="search-location">
@@ -10,7 +10,12 @@
           src="../assets/icons/bx-search-alt-2.svg"
           alt="search icon"
         />
-        <input type="text" name="place" placeholder="Zadajte miesto..." />
+        <input
+          type="text"
+          name="place"
+          placeholder="Zadajte miesto..."
+          autocomplete="off"
+        />
         <span class="radius">
           <div class="flex-container">
             <img
@@ -34,25 +39,50 @@
       <div class="flex-container">
         <div class="left">
           <div class="filter-split__type flex-container">
-            <input type="checkbox" name="academic" />
+            <input
+              value="academic"
+              type="checkbox"
+              name="academic"
+              v-model="checkedInputs"
+            />
             <label for="academic">Akademická</label>
           </div>
           <div class="filter-split__type flex-container">
-            <input type="checkbox" name="corporate" />
+            <input
+              value="corporate"
+              type="checkbox"
+              name="corporate"
+              v-model="checkedInputs"
+            />
             <label for="corporate">Firemná</label>
           </div>
           <div class="filter-split__type flex-container">
-            <input type="checkbox" name="regional" />
+            <input
+              value="country"
+              type="checkbox"
+              name="regional"
+              v-model="checkedInputs"
+            />
             <label for="regional">Krajská</label>
           </div>
         </div>
         <div class="right">
           <div class="filter-split__type flex-container">
-            <input type="checkbox" name="communal" />
+            <input
+              value="communal"
+              type="checkbox"
+              name="communal"
+              v-model="checkedInputs"
+            />
             <label for="communal">Obecná</label>
           </div>
           <div class="filter-split__type flex-container">
-            <input type="checkbox" name="regional" />
+            <input
+              value="regional"
+              type="checkbox"
+              name="regional"
+              v-model="checkedInputs"
+            />
             <label for="regional">Regionálna</label>
           </div>
         </div>
@@ -64,35 +94,52 @@
       <div class="flex-container">
         <div class="left">
           <div class="filter-split__type flex-container">
-            <input type="checkbox" name="wifi" />
+            <input value="wifi" type="checkbox" name="wifi" v-model="checkedInputs"/>
             <label for="wifi">Wi-fi pripojenie</label>
           </div>
           <div class="filter-split__type flex-container">
-            <input type="checkbox" name="printer" />
+            <input value="printer" type="checkbox" name="printer" v-model="checkedInputs"/>
             <label for="printer">Možnosť tlače</label>
-          </div>         
+          </div>
         </div>
         <div class="right">
           <div class="filter-split__type flex-container">
-            <input type="checkbox" name="cafe" />
+            <input value="cafe" type="checkbox" name="cafe" v-model="checkedInputs"/>
             <label for="cafe">Kaviareň</label>
           </div>
           <div class="filter-split__type flex-container">
-            <input type="checkbox" name="access" />
+            <input value="access" type="checkbox" name="access" v-model="checkedInputs"/>
             <label for="access">Bezbarierový prístup</label>
           </div>
         </div>
       </div>
     </div>
-    <div class="filter-book-wrapper">
+    <div v-if="visibleFilterButton" class="filter-book-wrapper">
       <button class="filter-book">Aplikuj filter</button>
-      <img class="close-icon" src="../assets/icons/close-icon.svg" alt="close icon" @click="$emit('closeSelectedBook')">
+      <img
+        class="close-icon"
+        src="../assets/icons/close-icon.svg"
+        alt="close icon"
+      />
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['activeFilterProduct', 'hideFilterProduct'],
+  data() {
+    return {
+      checkedInputs: [],
+      visibleFilterButton: false,
+    };
+  },
+  watch: {
+    checkedInputs() {
+      this.visibleFilterButton = this.checkedInputs.length == 0 ? false : true
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

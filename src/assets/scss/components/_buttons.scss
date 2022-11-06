@@ -62,6 +62,7 @@
 
 .filter-book {
   @include live-map-btn;
+  box-shadow: $shadow-bottom;
   display: flex;
   align-items: center;
   padding: .9em 1.5em;

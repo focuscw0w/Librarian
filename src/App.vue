@@ -1,30 +1,30 @@
 <template>
   <div :class="{blur: this.blurEffect}">
     <MainNavigation />
+  </div>
   
     <main id="main-content">
-      <router-view />
+      <router-view @test="test"/>
     </main>
-  </div>
 </template>
 
 <script>
 import RegisterButton from "./components/RegisterButton.vue";
 import MainNavigation from "./components/MainNavigation.vue";
-
-import mitt from 'mitt'
-
-const emitter = mitt()
-
 export default {
   components: { RegisterButton, MainNavigation },
   data() {
     return {
-      blurEffect: false
+      blurEffect: true
     }
   },
-  mounted() {
-    emitter.on("hideBlur", e => console.log(e))
+  methods: {
+    test() {
+      this.blurEffect = false
+    }
+  },
+  created() {
+    this.blurEffect = localStorage.getItem("activeIntroduction") == null ? true : false
   }
 };
 </script>

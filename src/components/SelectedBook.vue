@@ -11,14 +11,15 @@
         <p class="books__author">Andrzej Sapkowski</p>
       </div>
 
-      <img @click="selectedBook = false" src="../assets/icons/close-icon.svg" alt="close icon" class="close-icon">
+      <img @click="hideFilterProduct" src="../assets/icons/close-icon.svg" alt="close icon" class="close-icon">
     </div>
   </article>
 </template>
 
 <script>
 export default {
-  props: ['bookName', 'closeSelectedBook'],
+  props: ['bookName'],
+  emits: ['hideFilterProduct'],
   data() {
     return {
       selectedBook: false
@@ -28,11 +29,13 @@ export default {
     bookName() {
       this.selectedBook = true
     },
-    closeSelectedBook() {
-      this.selectedBook = true
-      console.log(this.selectedBook)
-    }
   },
+  methods: {
+    hideFilterProduct() {
+      this.selectedBook = false
+      this.$emit('hideFilterProduct', false)
+    }
+  }
 };
 </script>
 
