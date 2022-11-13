@@ -24,6 +24,7 @@
 
   .search-location {
     position: relative;
+    margin-bottom: 1.5em;
 
     input[name="place"] {
       width: 15em;
@@ -63,9 +64,13 @@
   }
 
   input[type="checkbox"] {
+    accent-color: white;
     cursor: pointer;
+    width: 16px;
+    height: 16px;
+    border-radius: $border-radius;
+    display: flex;
   }
-
 }
 
 .filter-book-wrapper {
@@ -77,4 +82,13 @@
   .close-icon {
     cursor: pointer;
   }
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
 }

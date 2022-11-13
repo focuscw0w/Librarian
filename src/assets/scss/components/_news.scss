@@ -4,6 +4,12 @@
   .flex-container {
     justify-content: space-between;
     @include direction-row;
+
+    .news__article__settings {
+      width: 16px;
+      height: 19px;
+      margin-right: 1em;
+    }
   }
 
   .news__article {
@@ -32,10 +38,13 @@
         flex: 1;
         display: flex;
         justify-content: flex-end;
-        gap: 1em;
+        gap: 1.5em;
+        margin-right: 1em;
 
         img {
           cursor: pointer;
+          width: 19px;
+          height: 19px;
         }
       }
 

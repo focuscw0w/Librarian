@@ -20,10 +20,10 @@
               >
 
               <button class="like-btn">
-                <img src="../assets/icons/bx-heart.svg" alt="like button" />
+                <img src="../assets/icons/heart.svg" alt="like button" />
               </button>
               <button class="save-btn">
-                <img src="../assets/icons/bx-save.svg" alt="save button" />
+                <img src="../assets/icons/bookmark.svg" alt="save button" />
               </button>
             </div>
           </div>
@@ -36,12 +36,6 @@
 
   <main class="main">
       <component :is="currentComponent"></component>
-      <!--
-        <News v-if="showNews"/>
-        <NewsAside v-if="showNews" />
-        <Gallery v-if="showGallery" />
-      -->
-
   </main>
 
   <router-view />
@@ -53,7 +47,7 @@ import News from "../components/News.vue";
 import Gallery from "../components/Gallery.vue";
 
 export default {
-  emits: ["showContent"],
+  emits: ['showContent', 'test'],
   name: "HomePage",
   components: { SecondaryNavigation, News, Gallery },
   data() {
@@ -66,6 +60,9 @@ export default {
       this.currentComponent = contentToShow
     },
   },
+  created() {
+    this.$emit('test')
+  }
 };
 </script>
 

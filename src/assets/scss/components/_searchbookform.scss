@@ -7,6 +7,7 @@
   .flex-container {
     @include direction-row;
     justify-content: space-between;
+    gap: 1.8em;
   }
 
   .search-container.flex-container {
@@ -30,12 +31,12 @@
 
   .drop-down {
     img {
-      width: 20px;
+      width: 12px;
     }
   }
 
   .drop-down.flex-container {
-    gap: 0.3em;
+    gap: 1em;
   }
 
   .sub-menu {
@@ -85,4 +86,8 @@
       }
     }
   }
+}
+
+.dark {
+  filter: brightness(0.5);
 }

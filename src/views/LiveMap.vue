@@ -1,12 +1,13 @@
 <template>
-  <div :class="{blur: blurEffect}">
+  <div :class="{ blur: blurEffect}">
     <div class="map-container">
       <GMapMap
         :center="center"
         :zoom="zoom"
         map-type-id="terrain"
         style="width: 100%; height: 100vh"
-        @click="this.openedInfo = false"
+        :class="{dark: darkGoogleMap}"
+        @click=" openedInfo = false;"
       >
         <GMapMarker
           :key="index"
@@ -21,23 +22,25 @@
           </GMapInfoWindow>
         </GMapMarker>
       </GMapMap>
-  
+
       <div class="search-wrapper">
         <SearchBookForm
           @addBook="this.bookName = $event"
           @activeFilterProduct="this.activeFilterProduct = $event"
+          @darkGoogleMap="darkGoogleMap = $event"
         />
       </div>
     </div>
   </div>
 
-  <FilterProduct
-    :activeFilterProduct="activeFilterProduct"
+  <FilterProduct :activeFilterProduct="activeFilterProduct" />
+
+  <SelectedBook
+    :bookName="bookName"
+    @hideFilterProduct="activeFilterProduct = $event"
   />
 
-  <SelectedBook :bookName="bookName" @hideFilterProduct="activeFilterProduct = $event"/>
-
-  <Introduction @test="blur"/>
+  <Introduction @test="blur" />
 </template>
 
 <script>
@@ -49,7 +52,7 @@ import SelectedBook from "../components/SelectedBook.vue";
 import Introduction from "../components/Introduction.vue";
 
 export default {
-  emits: ['hideBlurEffect', 'test'],
+  emits: ["hideBlurEffect", "test"],
   components: {
     SearchBookForm,
     SearchBookList,
@@ -64,6 +67,7 @@ export default {
       showBook: null,
       hideFilterProduct: null,
       blurEffect: true,
+      darkGoogleMap: false,
       close: false,
       openedInfo: false,
       activeFilterProduct: false,
@@ -78,8 +82,8 @@ export default {
         },
       ],
       iconSettings: {
-        url: require('../assets/icons/bx-book-open.svg'),
-      }
+        url: require("../assets/icons/bx-book-open.svg"),
+      },
     };
   },
   methods: {
@@ -117,12 +121,13 @@ export default {
       this.openedInfo = !this.openedInfo;
     },
     blur() {
-      this.$emit('test')
-      this.blurEffect = false
-    }
+      this.$emit("test");
+      this.blurEffect = false;
+    },
   },
   created() {
-    this.blurEffect = localStorage.getItem("activeIntroduction") == null ? true : false
+    this.blurEffect =
+      localStorage.getItem("activeIntroduction") == null ? true : false;
   },
   mounted() {
     this.getCurrentPosition();

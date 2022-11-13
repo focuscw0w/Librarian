@@ -138,16 +138,20 @@ a {
   .store-informations {
     .store-informations__heading {
       font-size: $font-size-medium;
-      font-weight: $font-weight-medium;
+      font-weight: $font-weight-bold;
+      color: $text-color-dark;
     }
 
     .opened-p {
       font-size: $font-size-small;
-      font-weight: $font-weight-medium;
+      font-weight: normal;
+      color: $text-color-dark;
     }
 
     .store-informations__address {
       font-size: $font-size-small;
+      font-weight: normal;
+      color: $text-color-light;
     }
 
     .book-list {
@@ -158,8 +162,8 @@ a {
 }
 
   .books__name {
-    font-weight: $font-weight-regular;
     font-size: $font-size-small;
+    font-weight: $font-weight-regular;
   }
 
   .books__author {
@@ -173,7 +177,7 @@ a {
   }
 
   .filter-product__label {
-    font-weight: $font-weight-medium;
+    font-weight: normal;
     font-size: $font-size-very-small;
     color: $text-color-light;
   }

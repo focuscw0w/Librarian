@@ -11,7 +11,6 @@
   .flex-container {
     @include direction-row;
     justify-content: space-between;
-    gap: 2em;
   }
 
   .product-img {
@@ -20,6 +19,8 @@
   }
 
   .books__info {
+    margin: 0 1em;
+
     .books__name {
       margin-bottom: 0.5em;
     }

@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  emits: ['showContent'],
   data() {
     return {
       activeInfo: true,

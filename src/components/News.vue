@@ -12,8 +12,8 @@
             <figcaption class="date-figcaption">8. augusta</figcaption>
           </header>
 
-          <a href="#"
-            ><img src="../assets/icons/bx-cog.svg" alt="settings icon"
+          <a class="news__article__settings" href="#"
+            ><img src="../assets/icons/ellipsis.svg" alt="settings icon"
           /></a>
         </div>
 
@@ -37,9 +37,9 @@
             </p>
 
             <div class="media">
-              <img src="../assets/icons/bx-heart.svg" alt="like button" />
-              <img src="../assets/icons/bx-save.svg" alt="save button" />
-              <img src="../assets/icons/bx-comment.svg" alt="comment button" />
+              <img src="../assets/icons/heart.svg" alt="like button" />
+              <img src="../assets/icons/bookmark.svg" alt="save button" />
+              <img src="../assets/icons/share.svg" alt="share button" />
             </div>
           </div>
         </footer>
@@ -54,8 +54,8 @@
             <figcaption class="date-figcaption">8. augusta</figcaption>
           </header>
 
-          <a href="#"
-            ><img src="../assets/icons/bx-cog.svg" alt="settings icon"
+          <a class="news__article__settings" href="#"
+            ><img src="../assets/icons/ellipsis.svg" alt="settings icon"
           /></a>
         </div>
 
@@ -84,9 +84,9 @@
             </div>
 
             <div class="media">
-              <img src="../assets/icons/bx-heart.svg" alt="like button" />
-              <img src="../assets/icons/bx-save.svg" alt="save button" />
-              <img src="../assets/icons/bx-comment.svg" alt="comment button" />
+              <img src="../assets/icons/heart.svg" alt="like button" />
+              <img src="../assets/icons/bookmark.svg" alt="save button" />
+              <img src="../assets/icons/share.svg" alt="share button" />
             </div>
           </div>
         </footer>
@@ -101,8 +101,8 @@
             <figcaption class="date-figcaption">8. augusta</figcaption>
           </header>
 
-          <a href="#"
-            ><img src="../assets/icons/bx-cog.svg" alt="settings icon"
+          <a class="news__article__settings" href="#"
+            ><img src="../assets/icons/ellipsis.svg" alt="settings icon"
           /></a>
         </div>
 
@@ -132,9 +132,9 @@
             </div>
 
             <div class="media">
-              <img src="../assets/icons/bx-heart.svg" alt="like button" />
-              <img src="../assets/icons/bx-save.svg" alt="save button" />
-              <img src="../assets/icons/bx-comment.svg" alt="comment button" />
+              <img src="../assets/icons/heart.svg" alt="like button" />
+              <img src="../assets/icons/bookmark.svg" alt="save button" />
+              <img src="../assets/icons/share.svg" alt="share button" />
             </div>
           </div>
         </footer>

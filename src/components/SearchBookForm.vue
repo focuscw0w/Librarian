@@ -1,41 +1,42 @@
 <template>
-  <article class="search-article">
-    <div class="flex-container">
-      <div class="search-container flex-container">
-        <img
-          src="../assets/icons/bx-search-alt-2.svg"
-          alt="search icon"
-          class="search-icon"
-        />
-        <input
-          type="text"
-          id="search-book"
-          name="search"
-          size="25"
-          autocomplete="off"
-          placeholder="Akú knihu hľadáš?"
-          @keypress="showBookList"
-          v-model="searchForBook"
-        />
+  <div :class="{dark: darkBackground}">
+    <article class="search-article">
+      <div class="flex-container">
+        <div class="search-container flex-container">
+          <img
+            src="../assets/icons/bx-search.svg"
+            alt="search icon"
+            class="search-icon"
+          />
+          <input
+            type="text"
+            id="search-book"
+            name="search"
+            size="25"
+            autocomplete="off"
+            placeholder="Akú knihu hľadáš?"
+            v-model="searchForBook"
+          />
+        </div>
+  
+        <span class="split"></span>
+  
+        <a href="#" class="drop-down flex-container" @click="dropDown">
+          Knihy
+          <img src="../assets/icons/angle-down.svg" alt="arrow icon" />
+        </a>
+  
+        <button type="submit" class="find-book">Hľadaj</button>
       </div>
-
-      <span class="split"></span>
-
-      <a href="#" class="drop-down flex-container" @click="dropDown">
-        Knihy
-        <img src="../assets/icons/bx-down-arrow-alt.svg" alt="arrow icon" />
-      </a>
-
-      <button type="submit" class="find-book">Hľadaj</button>
-    </div>
-
-    <div v-if="showDropDown" class="sub-menu">
-      <ul class="sub-menu__ul">
-        <li><a href="#">Knižnice</a></li>
-        <li><a href="#">Autori</a></li>
-      </ul>
-    </div>
-  </article>
+  
+      <div v-if="showDropDown" class="sub-menu">
+        <ul class="sub-menu__ul">
+          <li><a href="#">Knižnice</a></li>
+          <li><a href="#">Autori</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
 
   <div v-if="this.searchForBook != '' && visibleBlookList" class="books">
     <ul
@@ -68,11 +69,12 @@ import axios from "axios";
 import SearchBookList from "../components/SearchBookList.vue";
 export default {
   components: { SearchBookList },
-  emits: ['addBook', 'activeFilterProduct'],
+  emits: ['addBook', 'activeFilterProduct', 'darkGoogleMap'],
   data() {
     return {
       showDropDown: false,
       visibleBlookList: false,
+      darkBackground: false,
       searchForBook: '',
       bookName: '',
       books: [],
@@ -80,8 +82,8 @@ export default {
   },
   watch: {
     searchForBook: function (inputValue) {
-      if (inputValue === "") this.visibleBlookList = false;
-      else this.visibleBlookList = true;
+      this.visibleBlookList = inputValue === '' ? false : true
+      this.darkBackground = inputValue === '' ? this.$emit('darkGoogleMap', false) : this.$emit('darkGoogleMap', true)
     },
   },
   methods: {
@@ -91,8 +93,13 @@ export default {
     addBook(book) {
       this.$emit('addBook', book.name)
       this.$emit('activeFilterProduct', true)
+      this.$emit('darkGoogleMap', false)
+      
       this.visibleBlookList = false
       this.searchForBook = ''
+    },
+    emitDarkBackground() {
+      this.$emit('darkGoogleMap', true)
     }
   },
   computed: {
@@ -114,7 +121,7 @@ export default {
     */
 
     await axios
-      .get("https://www.librarian.sk/api/v1/books")
+      .get("https://www.librarian.sk/api/books")
       .then((response) => (this.books = response.data));
   },
 };
