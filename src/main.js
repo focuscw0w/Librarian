@@ -11,6 +11,7 @@ createApp(App)
     .use(VueGoogleMaps, {
         load: {
             key: 'AIzaSyBP60P7ybKdFyuKV9PwIBnW9rqNOC6HOD8',
+            v: 'weekly'
         },
     })
     .use(VueAxios, axios)

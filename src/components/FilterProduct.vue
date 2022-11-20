@@ -25,9 +25,9 @@
             />
             +10km
             <img
-              src="../assets/icons/bx-down-arrow-alt.svg"
+              src="../assets/icons/angle-down.svg"
               alt="arrow icon"
-              class="radius-dropdown"
+              class="drop-down-icon"
             />
           </div>
         </span>
@@ -39,50 +39,73 @@
       <div class="flex-container">
         <div class="left">
           <div class="filter-split__type flex-container">
-            <input
-              value="academic"
-              type="checkbox"
-              name="academic"
-              v-model="checkedInputs"
-            />
+            <label class="label">
+              <input
+                value="academic"
+                type="checkbox"
+                name="academic"
+                v-model="checkedInputs"
+              />
+              <span class="checkmark"></span>
+            </label>
+            <!--
+              <input
+                value="academic"
+                type="checkbox"
+                name="academic"
+                v-model="checkedInputs"
+              />
+            -->
             <label for="academic">Akademická</label>
           </div>
           <div class="filter-split__type flex-container">
-            <input
-              value="corporate"
-              type="checkbox"
-              name="corporate"
-              v-model="checkedInputs"
-            />
+            <label class="label">
+              <input
+                value="corporate"
+                type="checkbox"
+                name="corporate"
+                v-model="checkedInputs"
+              />
+              <span class="checkmark"></span>
+            </label>
             <label for="corporate">Firemná</label>
           </div>
           <div class="filter-split__type flex-container">
-            <input
-              value="country"
-              type="checkbox"
-              name="regional"
-              v-model="checkedInputs"
-            />
+            <label class="label">
+              <input
+                value="country"
+                type="checkbox"
+                name="regional"
+                v-model="checkedInputs"
+              />
+              <span class="checkmark"></span>
+            </label>
             <label for="regional">Krajská</label>
           </div>
         </div>
         <div class="right">
           <div class="filter-split__type flex-container">
-            <input
-              value="communal"
-              type="checkbox"
-              name="communal"
-              v-model="checkedInputs"
-            />
+            <label class="label">
+              <input
+                value="communal"
+                type="checkbox"
+                name="communal"
+                v-model="checkedInputs"
+              />
+              <span class="checkmark"></span>
+            </label>
             <label for="communal">Obecná</label>
           </div>
           <div class="filter-split__type flex-container">
-            <input
-              value="regional"
-              type="checkbox"
-              name="regional"
-              v-model="checkedInputs"
-            />
+            <label class="label">
+              <input
+                value="regional"
+                type="checkbox"
+                name="regional"
+                v-model="checkedInputs"
+              />
+              <span class="checkmark"></span>
+            </label>
             <label for="regional">Regionálna</label>
           </div>
         </div>
@@ -94,21 +117,53 @@
       <div class="flex-container">
         <div class="left">
           <div class="filter-split__type flex-container">
-            <input value="wifi" type="checkbox" name="wifi" v-model="checkedInputs"/>
+            <label class="label">
+              <input
+                value="wifi"
+                type="checkbox"
+                name="wifi"
+                v-model="checkedInputs"
+              />
+              <span class="checkmark"></span>
+            </label>
             <label for="wifi">Wi-fi pripojenie</label>
           </div>
           <div class="filter-split__type flex-container">
-            <input value="printer" type="checkbox" name="printer" v-model="checkedInputs"/>
+            <label class="label">
+              <input
+                value="printer"
+                type="checkbox"
+                name="printer"
+                v-model="checkedInputs"
+              />
+              <span class="checkmark"></span>
+            </label>
             <label for="printer">Možnosť tlače</label>
           </div>
         </div>
         <div class="right">
           <div class="filter-split__type flex-container">
-            <input value="cafe" type="checkbox" name="cafe" v-model="checkedInputs"/>
+            <label class="label">
+              <input
+                value="cafe"
+                type="checkbox"
+                name="cafe"
+                v-model="checkedInputs"
+              />
+              <span class="checkmark"></span>
+            </label>
             <label for="cafe">Kaviareň</label>
           </div>
           <div class="filter-split__type flex-container">
-            <input value="access" type="checkbox" name="access" v-model="checkedInputs"/>
+            <label class="label">
+              <input
+                value="access"
+                type="checkbox"
+                name="access"
+                v-model="checkedInputs"
+              />
+              <span class="checkmark"></span>
+            </label>
             <label for="access">Bezbarierový prístup</label>
           </div>
         </div>
@@ -127,7 +182,7 @@
 
 <script>
 export default {
-  props: ['activeFilterProduct', 'hideFilterProduct'],
+  props: ["activeFilterProduct", "hideFilterProduct"],
   data() {
     return {
       checkedInputs: [],
@@ -136,7 +191,7 @@ export default {
   },
   watch: {
     checkedInputs() {
-      this.visibleFilterButton = this.checkedInputs.length == 0 ? false : true
+      this.visibleFilterButton = this.checkedInputs.length == 0 ? false : true;
     },
   },
 };

@@ -29,12 +29,6 @@
     }
   }
 
-  .drop-down {
-    img {
-      width: 12px;
-    }
-  }
-
   .drop-down.flex-container {
     gap: 1em;
   }
@@ -57,12 +51,13 @@
 
 .books {
   border-radius: $border-radius;
-  padding: 1em;
-  padding-bottom: 1.5em;
+  padding: 1em 0;
   .books__ul {
     background-color: $background-very-light;
     border-radius: $border-radius;
-    margin-top: 0.5em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: 1em;
     width: 100%;
     cursor: pointer;
     transition: 0.2s ease;
@@ -85,6 +80,9 @@
         gap: 0.4em;
       }
     }
+  }
+  .no-books-msg {
+    padding-left: 1em;
   }
 }
 

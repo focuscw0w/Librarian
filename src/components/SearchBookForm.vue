@@ -1,5 +1,5 @@
 <template>
-  <div :class="{dark: darkBackground}">
+  <div :class="{ dark: darkBackground }">
     <article class="search-article">
       <div class="flex-container">
         <div class="search-container flex-container">
@@ -18,17 +18,21 @@
             v-model="searchForBook"
           />
         </div>
-  
+
         <span class="split"></span>
-  
+
         <a href="#" class="drop-down flex-container" @click="dropDown">
           Knihy
-          <img src="../assets/icons/angle-down.svg" alt="arrow icon" />
+          <img
+            class="drop-down-icon"
+            src="../assets/icons/angle-down.svg"
+            alt="arrow icon"
+          />
         </a>
-  
+
         <button type="submit" class="find-book">Hľadaj</button>
       </div>
-  
+
       <div v-if="showDropDown" class="sub-menu">
         <ul class="sub-menu__ul">
           <li><a href="#">Knižnice</a></li>
@@ -54,13 +58,15 @@
             class="product-img"
           />
           <div class="books__info">
-            <h3 class="books__name">{{bookName = book.name }}</h3>
+            <h3 class="books__name">{{ (bookName = book.name) }}</h3>
             <p class="books__author">Andrzej Sapkowski</p>
           </div>
         </div>
       </li>
     </ul>
-    <p v-if="filteredBooks.length == 0">Žiadne knihy sa nenašli.</p>
+    <p class="no-books-msg" v-if="filteredBooks.length == 0">
+      Žiadne knihy sa nenašli.
+    </p>
   </div>
 </template>
 
@@ -69,21 +75,24 @@ import axios from "axios";
 import SearchBookList from "../components/SearchBookList.vue";
 export default {
   components: { SearchBookList },
-  emits: ['addBook', 'activeFilterProduct', 'darkGoogleMap'],
+  emits: ["addBook", "activeFilterProduct", "darkGoogleMap"],
   data() {
     return {
       showDropDown: false,
       visibleBlookList: false,
       darkBackground: false,
-      searchForBook: '',
-      bookName: '',
+      searchForBook: "",
+      bookName: "",
       books: [],
     };
   },
   watch: {
     searchForBook: function (inputValue) {
-      this.visibleBlookList = inputValue === '' ? false : true
-      this.darkBackground = inputValue === '' ? this.$emit('darkGoogleMap', false) : this.$emit('darkGoogleMap', true)
+      this.visibleBlookList = inputValue === "" ? false : true;
+      this.darkBackground =
+        inputValue === ""
+          ? this.$emit("darkGoogleMap", false)
+          : this.$emit("darkGoogleMap", true);
     },
   },
   methods: {
@@ -91,16 +100,16 @@ export default {
       this.showDropDown = !this.showDropDown;
     },
     addBook(book) {
-      this.$emit('addBook', book.name)
-      this.$emit('activeFilterProduct', true)
-      this.$emit('darkGoogleMap', false)
-      
-      this.visibleBlookList = false
-      this.searchForBook = ''
+      this.$emit("addBook", book.name);
+      this.$emit("activeFilterProduct", true);
+      this.$emit("darkGoogleMap", false);
+
+      this.visibleBlookList = false;
+      this.searchForBook = "";
     },
     emitDarkBackground() {
-      this.$emit('darkGoogleMap', true)
-    }
+      this.$emit("darkGoogleMap", true);
+    },
   },
   computed: {
     filteredBooks: function () {
