@@ -2,7 +2,7 @@
   <section class="introduction">
     <div class="container">
       <div class="introduction__background">
-        <img src="../assets/images/background.webp" alt="background image" />
+        <img src="../assets/images/background.webp" alt="background image"/>
       </div>
 
       <article class="about">
@@ -16,49 +16,84 @@
             <div class="flex-container">
 
               <router-link tag="a" to="/" class="navigate-btn"
-                >Navigovať</router-link
+              >Navigovať
+              </router-link
               >
 
               <button class="like-btn">
-                <img src="../assets/icons/heart.svg" alt="like button" />
+              <span class="media-icon" @click="toggle">
+                <AnimationIcon
+                    class="toggle-favorite__icon"
+                    :class="iconClasses"
+                    @animationend="onIconAnimationEnds"
+                />
+                <transition name="favorite-particles-transition">
+                  <div
+                      v-if="animating"
+                      class="toggle-favorite__particles"
+                  ></div>
+                </transition>
+              </span>
               </button>
-              <button class="save-btn">
-                <img src="../assets/icons/bookmark.svg" alt="save button" />
-              </button>
+
+
+              <!--                              <img src="../assets/icons/heart.svg" alt="like button" />-->
             </div>
           </div>
         </div>
       </article>
 
-      <SecondaryNavigation @showContent="showComponent($event)" />
+      <SecondaryNavigation @showContent="showComponent($event)"/>
     </div>
   </section>
 
-  <main class="main">
-      <component :is="currentComponent"></component>
+  <main class="main flex-container">
+    <component :is="currentComponent"></component>
   </main>
 
-  <router-view />
+  <router-view/>
 </template>
 
 <script>
 import SecondaryNavigation from "../components/SecondaryNavigation.vue";
 import News from "../components/News.vue";
 import Gallery from "../components/Gallery.vue";
+import AnimationIcon from "../components/AnimationIcon.vue";
 
 export default {
   emits: ['showContent', 'test'],
   name: "HomePage",
-  components: { SecondaryNavigation, News, Gallery },
+  components: {SecondaryNavigation, News, Gallery, AnimationIcon},
   data() {
     return {
-      currentComponent: 'news'
+      currentComponent: 'news',
+      favorited: false,
+      animating: false,
     };
+  },
+
+  computed: {
+    iconClasses() {
+      return {
+        "toggle-favorite__icon--favorited": this.favorited,
+        "toggle-favorite__icon--animate": this.animating,
+      };
+    },
   },
   methods: {
     showComponent(contentToShow) {
       this.currentComponent = contentToShow
     },
+    toggle() {
+      if (!this.favorited) {
+        this.animating = true;
+      }
+
+      this.favorited = !this.favorited;
+    },
+    onIconAnimationEnds() {
+      this.animating = false;
+    }
   },
   created() {
     this.$emit('test')

@@ -18,8 +18,8 @@
           </router-link>
           <p class="opened-p"><span class="opened">Otvorené</span>do 19:00</p>
           <p class="store-informations__address">
-            Samuela Nováka 1763, 026 01 <br />
-            Dolný Kubín
+            Samuela Nováka 1763 <br />
+            026 01 Dolný Kubín
           </p>
           <div class="store-informations__media">
             <div class="flex-container">
