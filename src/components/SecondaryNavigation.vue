@@ -1,12 +1,8 @@
 <template>
   <nav class="secondary-nav">
     <ul>
-      <li class="info" ref="" @click="emitId(this.$el.querySelector('.info'))"><a :class="{active: activeInfo}">Informácie o knižnici</a></li>
-      <li class="gallery" ref="gallery" @click="emitId(this.$el.querySelector('.gallery'))"><a :class="{active: activeGallery}">Galéria (27)</a></li>
-      <!--
-        <li><a href="#">Knihy</a></li>
-        <li><a href="#">Výpožičky</a></li>
-      -->
+      <li class="info" @click="emitId(this.$el.querySelector('.info'))"><a :class="{active: activeInfo}">Informácie o knižnici</a></li>
+      <li class="gallery" @click="emitId(this.$el.querySelector('.gallery'))"><a :class="{active: activeGallery}">Galéria (27)</a></li>
     </ul>
   </nav>
 </template>

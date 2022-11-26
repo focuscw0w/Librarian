@@ -1,6 +1,6 @@
 .search-article {
   padding: 0.7em 0.7em 0.7em 1.5em;
-  background-color: $background-very-light;
+  background-color: $high-emphasys-inverse;
   box-shadow: $shadow-bottom;
   width: 100%;
 
@@ -17,7 +17,7 @@
   .split {
     width: 1px;
     height: 1.5em;
-    background-color: #000;
+    background-color: $color-000000;
   }
 
   #search-book {
@@ -38,7 +38,7 @@
     padding: 0 0.5em 0.5em 0.5em;
     top: 3em;
     left: 20em;
-    background-color: $background-very-light;
+    background-color: $high-emphasys-inverse;
     border-radius: $border-radius;
 
     .sub-menu__ul {
@@ -53,7 +53,7 @@
   border-radius: $border-radius;
   padding: 1em 0;
   .books__ul {
-    background-color: $background-very-light;
+    background-color: $high-emphasys-inverse;
     border-radius: $border-radius;
     padding-top: .5em;
     padding-bottom: .5em;
@@ -63,7 +63,7 @@
     transition: 0.2s ease;
 
     &:hover {
-      background-color: $background-dark;
+      background-color: $grey-10;
     }
 
     .flex-container {

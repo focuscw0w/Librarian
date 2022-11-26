@@ -13,12 +13,16 @@
 }
 
 .features__icon {
-  border: 1px solid $primary-background;
-  background-color: $primary-sec-background;
+  border: 1px solid $primary;
+  background-color: $primary-10;
   border-radius: $border-radius;
   padding: 0.3em;
   width: 35px;
   height: 35px;
+}
+
+.features__icon-grey {
+  border: 1px solid $grey-10;
 }
 
 .filter-product {
@@ -45,7 +49,7 @@
 .store-informations__media {
   .media-icon {
     padding: 0.5em;
-    background-color: $background-dark;
+    background-color: $grey-10;
     border-radius: $border-radius;
     cursor: pointer;
     width: 32px;
@@ -62,5 +66,9 @@
 }
 
 .close-icon {
+  cursor: pointer;
+}
+
+.toggle-favorite__icon {
   cursor: pointer;
 }

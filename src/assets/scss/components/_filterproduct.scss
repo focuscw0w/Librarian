@@ -9,7 +9,7 @@
   top: 0;
   left: 0;
   z-index: 900;
-  background-color: $background-very-light;
+  background-color: $high-emphasys-inverse;
   box-shadow: $shadow-bottom;
   width: 25em;
   height: 100vh;
@@ -28,7 +28,7 @@
 
     input[name="place"] {
       width: 15em;
-      background-color: $background-light;
+      background-color: $background;
       border-radius: $border-radius;
       border: none;
       padding: 1em 1.5em 1em 3em;
@@ -93,7 +93,6 @@
   user-select: none;
 }
 
-/* Hide the browser's default checkbox */
 .label input {
   position: absolute;
   opacity: 0;
@@ -102,47 +101,41 @@
   width: 0;
 }
 
-/* Create a custom checkbox */
 .checkmark {
   position: absolute;
   top: 0;
   left: 0;
   height: 13px;
   width: 13px;
-  background-color: $background-very-light;
+  background-color: $high-emphasys-inverse;
   border-radius: .1em;
-  outline: 1px solid $text-color-dark;
+  outline: 1px solid $high-emphasys;
 }
 
-/* On mouse-over, add a grey background color */
 .label:hover input ~ .checkmark {
-  background-color: $background-very-light;
+  background-color: $high-emphasys-inverse;
 }
 
-/* When the checkbox is checked, add a blue background */
 .label input:checked ~ .checkmark {
-  outline: 1px solid $primary-background;
+  outline: 1px solid $primary;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the checkmark when checked */
 .label input:checked ~ .checkmark:after {
   display: block;
 }
 
-/* Style the checkmark/indicator */
 .label .checkmark:after {
   left: 3.5px;
   top: 1px;
   width: 3px;
   height: 7px;
-  border: solid $primary-background;
+  border: solid $primary;
   border-width: 0 1.99px 1.99px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);

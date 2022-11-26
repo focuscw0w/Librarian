@@ -5,7 +5,7 @@
   top: 20%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: $background-very-light;
+  background-color: $high-emphasys-inverse;
   border-radius: $border-radius;
   box-shadow: $shadow-bottom;
   width: 56.25em;
@@ -46,6 +46,7 @@
 
       img {
         height: 100%;
+        width: 100%;
       }
     }
 

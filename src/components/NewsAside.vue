@@ -54,7 +54,7 @@
 
           <div>
             <p>
-              <span class="features__icon">
+              <span class="features__icon features__icon-grey">
                 <img
                 src="../assets/icons/coffee.png"
                 alt="coffee icon"
