@@ -42,7 +42,7 @@
             class="navigation-icon"
         /></a>
 
-        <RegisterButton />
+        <RegisterButton @click="$emit('openRegister')"/>
       </div>
     </div>
   </header>
@@ -52,7 +52,14 @@
 import RegisterButton from "./RegisterButton.vue";
 
 export default {
+  emits: ['openRegister', 'blurEffect'],
   components: { RegisterButton },
+  methods: {
+    sendEmits() {
+      this.$emit('openRegister')
+      this.$emit('blurEffect')
+    }
+  }
 };
 </script>
 

@@ -14,17 +14,23 @@
 
           <div class="about__library__media">
             <div class="flex-container">
-
               <router-link tag="a" to="/" class="navigate-btn"
                 >Navigovať</router-link
               >
 
-              <button class="like-btn">
-                <img src="../assets/icons/heart.svg" alt="like button" />
+              <button class="like-btn" @click="toggle">
+                <AnimationIcon
+                  class="toggle-favorite__icon"
+                  :class="iconClasses"
+                  @animationend="onIconAnimationEnds"
+                />
               </button>
-              <button class="save-btn">
-                <img src="../assets/icons/bookmark.svg" alt="save button" />
-              </button>
+
+              <!--
+                <button class="save-btn">
+                  <img src="../assets/icons/bookmark.svg" alt="save button" />
+                </button>
+              -->
             </div>
           </div>
         </div>
@@ -35,7 +41,7 @@
   </section>
 
   <main class="main">
-      <component :is="currentComponent"></component>
+    <component :is="currentComponent"></component>
   </main>
 
   <router-view />
@@ -45,19 +51,41 @@
 import SecondaryNavigation from "../components/SecondaryNavigation.vue";
 import News from "../components/News.vue";
 import Gallery from "../components/Gallery.vue";
+import AnimationIcon from "../components/AnimationIcon.vue";
 
 export default {
+  props: ['openRegister'],
   emits: ['showContent', 'hideBlur'],
   name: "HomePage",
-  components: { SecondaryNavigation, News, Gallery },
+  components: { SecondaryNavigation, News, Gallery, AnimationIcon },
   data() {
     return {
-      currentComponent: 'news'
+      currentComponent: "news",
+      favorited: false,
+      animating: false,
     };
+  },
+  computed: {
+    iconClasses() {
+      return {
+        "toggle-favorite__icon--favorited": this.favorited,
+        "toggle-favorite__icon--animate": this.animating,
+      };
+    },
   },
   methods: {
     showComponent(contentToShow) {
-      this.currentComponent = contentToShow
+      this.currentComponent = contentToShow;
+    },
+    toggle() {
+      if (!this.favorited) {
+        this.animating = true;
+      }
+
+      this.favorited = !this.favorited;
+    },
+    onIconAnimationEnds() {
+      this.animating = false;
     },
   },
   created() {

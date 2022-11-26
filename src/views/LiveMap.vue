@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ blur: blurEffect}">
+  <div :class="{ blur: blurEffect || openRegister }">
     <div class="map-container">
       <GMapMap
         :center="center"
@@ -42,7 +42,8 @@
 
   <Introduction @hideBlur="blur" />
 
-  <Register />
+  <Register :visibleRegister="openRegister" @hideBlur="blur" @hideRegister="$emit('hideRegister')"/>
+
 </template>
 
 <script>
@@ -55,7 +56,8 @@ import Introduction from "../components/Introduction.vue";
 import Register from "../components/Register.vue";
 
 export default {
-  emits: ["hideBlur"],
+  props: ['openRegister'],
+  emits: ['hideBlur', 'hideRegister'],
   components: {
     SearchBookForm,
     SearchBookList,

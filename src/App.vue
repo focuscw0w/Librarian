@@ -1,10 +1,10 @@
 <template>
-  <div :class="{blur: this.blurEffect}">
-    <MainNavigation />
+  <div :class="{blur: blurEffect}">
+    <MainNavigation @openRegister="openRegister" />
   </div>
   
     <main id="main-content">
-      <router-view @hideBlur="hideBlur"/>
+      <router-view @hideBlur="hideBlur" @hideRegister="closeRegister" :openRegister="visibleRegister"/>
     </main>
 </template>
 
@@ -15,11 +15,20 @@ export default {
   components: { RegisterButton, MainNavigation },
   data() {
     return {
-      blurEffect: true
+      blurEffect: true,
+      visibleRegister: false
     }
   },
   methods: {
     hideBlur() {
+      this.blurEffect = false
+    },
+    openRegister() {
+      this.blurEffect = true
+      this.visibleRegister = true
+    },
+    closeRegister() {
+      this.visibleRegister = false
       this.blurEffect = false
     }
   },

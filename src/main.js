@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-
 import VueGoogleMaps from '@fawmi/vue-google-maps'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueLazyload from 'vue-lazyload'
 
 createApp(App)
     .use(router)
@@ -14,5 +14,6 @@ createApp(App)
             v: 'weekly'
         },
     })
+    .use(VueLazyload)
     .use(VueAxios, axios)
     .mount('#app')

@@ -6,7 +6,7 @@ article {
     border-radius: $border-radius;
 }
 .introduction {
-    background-color: $background-dark;
+    background-color: $grey-10;
     padding-bottom: 1em;
 
     .introduction__background {
@@ -20,7 +20,7 @@ article {
     }
 
     article {
-        background-color: $background-light;
+        background-color: $background;
         padding: 1em;
         margin-top: .5em;
 
@@ -46,10 +46,10 @@ article {
 
 .main {
     padding-top: 2em;
-    background-color: $background-light;
+    background-color: $background;
 
     article {
-        background-color: $background-very-light;
+        background-color: $high-emphasys-inverse;
     }
 }
 

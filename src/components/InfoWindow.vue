@@ -33,12 +33,14 @@
                   :class="iconClasses"
                   @animationend="onIconAnimationEnds"
                 />
-                <transition name="favorite-particles-transition">
-                  <div
-                    v-if="animating"
-                    class="toggle-favorite__particles"
-                  ></div>
-                </transition>
+                <!--
+                  <transition name="favorite-particles-transition">
+                    <div
+                      v-if="animating"
+                      class="toggle-favorite__particles"
+                    ></div>
+                  </transition>
+                -->
               </span>
             </div>
           </div>
@@ -71,7 +73,6 @@ export default {
       if (!this.favorited) {
         this.animating = true;
       }
-
       this.favorited = !this.favorited;
     },
     onIconAnimationEnds() {

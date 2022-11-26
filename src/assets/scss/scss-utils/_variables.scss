@@ -2,45 +2,63 @@
 /* FONT */
 $font-family: 'Work Sans', sans-serif;
 
-$font-weight-regular: 400;
-$font-weight-medium: 500;
-$font-weight-bold: 600;
+/* FONT WEIGHT */
+$font-weight-600: 600px;
+$font-weight-normal: normal;
+$font-weight-medium: medium;
+$font-weight-bold: bold;
 
-$font-size-very-small: 13px;
-$font-size-small: 15px;
-$font-size-medium: 17px;
-$font-size-large: 26px;
-$font-size-filter-h2: 22px;
+/* FONT SIZE */
+$font-size-10: 10px;
+$font-size-13: 13px;
+$font-size-15: 15px;
+$font-size-17: 17px;
+$font-size-19: 19px;
+$font-size-22: 22px;
+$font-size-26: 26px;
+
+/* FONT SPACING */
+$character-spacing-0: 0px;
+$character-spacing-0-02: 0.02px;
+
+$line-spacing-15: 15px;
+$line-spacing-18: 18px;
+$line-spacing-21: 21px;
 
 /* COLORS */
-$background-very-light: #FFFFFF;
-$background-light: #F2F2F2;
-$background-dark-medium: #333333;
-$background-dark: #E6E6E6;
-$background-grey: #ccc;
-
-$primary-sec-background: #FBE7FD;
-$primary-background: #FF00FF;
-$primary-dark-background: #450B49;
-
-$text-color-very-light: #FFFFFF;
-$text-color-light: #00000099;
-$text-color-emphasys: #00000061;
-$text-color-dark: #000000DE;
-$text-color-darkest: #000000;
-$text-color-primary: #450B49;
-$text-color-primary-ligth: #FF00FF;
 $text-color-opened: #00B200DE;
+$background: #F2F2F2;
+$border-radius: .3em;
+$border-radius-bottom: 0 0 .3em .3em;
+$low-emphasys-inverse: #FFFFFF61;
+$medium-emphasys-inverse: #FFFFFF99;
+$high-emphasys-inverse: #FFFFFF;
+$low-emphasys: #00000061;
+$medium-emphasys: #00000099;
+$high-emphasys: #000000DE;
+$grey-10: #E6E6E6;
+$grey-20: #CCCCCC;
+$grey-30: #B3B3B3;
+$black-30: #4D4D4D;
+$black-20: #333333;
+$black-10: #1A1A1A;
+$primary-30: #F4B7FA;
+$primary-10: #FBE7FD;
+$primary-80: #450B49;
+$primary: #FF00FF;
+$color-000000: #000000;
 
 /* PROPERTIES */
 $shadow-bottom: 0px 6px 18px #0000001A;
 $container-width: 1440px;
-
 $intro-image-height: 500px;
 $icon-width-small: 15px;
 $icon-width-medium: 42px;
-
-$border-radius: .3em;
-$border-radius-bottom: 0 0 .3em .3em;
-
 $padding-2em: 2em;
+
+/* Font/text values */
+$font-family-work-sans: Work Sans;
+$font-family-font-awesome-6-pro: Font Awesome 6 Pro;
+$font-style-normal: normal;
+
+

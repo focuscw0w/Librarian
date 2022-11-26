@@ -4,7 +4,7 @@
   top: 20%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: $background-very-light;
+  background-color: $high-emphasys-inverse;
   border-radius: $border-radius;
   width: 62.5em;
   height: 42.5em;
@@ -23,13 +23,37 @@
     .register__interface__header {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       margin-bottom: 1.5625em;
     }
 
     .register__interface__integration {
-      margin-top: 1.5625em;
+      margin: 1.5625em 0;
+      @include direction-column;
+    }
+
+    .register__interface__paragraph {
+      text-align: center;
+      margin: 1.5em 0;
+    }
+
+    .register__interface__registration-box {
       @include direction-column;
       
+      &:not(:last-child) {
+        margin-bottom: 1.5em;
+      }
+
+      label {
+        margin-bottom: .5em;
+      }
+
+      input {
+        padding: .8125em 1em;
+        background-color: $background;
+        border-radius: 4px;
+        border: none;
+      }
     }
   }
 
