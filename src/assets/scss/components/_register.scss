@@ -15,7 +15,22 @@
   }
 
   .register__interface {
-    /*padding: 3.625em 3em;*/
+
+    .register__interface__wrapper {
+      padding: 3.625em 3em;
+    }
+
+    .register__interface__header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5625em;
+    }
+
+    .register__interface__integration {
+      margin-top: 1.5625em;
+      @include direction-column;
+      
+    }
   }
 
   .register__illustration {
