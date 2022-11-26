@@ -47,7 +47,7 @@ import News from "../components/News.vue";
 import Gallery from "../components/Gallery.vue";
 
 export default {
-  emits: ['showContent', 'test'],
+  emits: ['showContent', 'hideBlur'],
   name: "HomePage",
   components: { SecondaryNavigation, News, Gallery },
   data() {
@@ -61,7 +61,7 @@ export default {
     },
   },
   created() {
-    this.$emit('test')
+    this.$emit('hideBlur')
   }
 };
 </script>

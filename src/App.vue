@@ -4,7 +4,7 @@
   </div>
   
     <main id="main-content">
-      <router-view @test="test"/>
+      <router-view @hideBlur="hideBlur"/>
     </main>
 </template>
 
@@ -19,7 +19,7 @@ export default {
     }
   },
   methods: {
-    test() {
+    hideBlur() {
       this.blurEffect = false
     }
   },

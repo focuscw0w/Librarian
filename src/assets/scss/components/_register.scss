@@ -1,0 +1,26 @@
+.register {
+  position: absolute;
+  z-index: 9999;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $background-very-light;
+  border-radius: $border-radius;
+  width: 62.5em;
+  height: 42.5em;
+
+  .flex-container {
+    @include split-equally;
+    height: 100%;
+  }
+
+  .register__interface {
+    /*padding: 3.625em 3em;*/
+  }
+
+  .register__illustration {
+    img {
+      height: 100%;
+    }
+  }
+}

@@ -40,19 +40,22 @@
     @hideFilterProduct="activeFilterProduct = $event"
   />
 
-  <Introduction @test="blur" />
+  <Introduction @hideBlur="blur" />
+
+  <Register />
 </template>
 
 <script>
 import SearchBookForm from "../components/SearchBookForm.vue";
 import SearchBookList from "../components/SearchBookList.vue";
+import SelectedBook from "../components/SelectedBook.vue";
 import InfoWindow from "../components/InfoWindow.vue";
 import FilterProduct from "../components/FilterProduct.vue";
-import SelectedBook from "../components/SelectedBook.vue";
 import Introduction from "../components/Introduction.vue";
+import Register from "../components/Register.vue";
 
 export default {
-  emits: ["hideBlurEffect", "test"],
+  emits: ["hideBlur"],
   components: {
     SearchBookForm,
     SearchBookList,
@@ -60,6 +63,7 @@ export default {
     FilterProduct,
     SelectedBook,
     Introduction,
+    Register
   },
   data() {
     return {
@@ -121,7 +125,7 @@ export default {
       this.openedInfo = !this.openedInfo;
     },
     blur() {
-      this.$emit("test");
+      this.$emit("hideBlur");
       this.blurEffect = false;
     },
   },

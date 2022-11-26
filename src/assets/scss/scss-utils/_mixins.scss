@@ -3,6 +3,13 @@
     padding: 0 1em;
 }
 
+@mixin split-equally {
+    display: flex;
+    & > * {
+        flex: 1;
+    }
+}
+
 @mixin direction-column {
     display: flex;
     flex-direction: column;

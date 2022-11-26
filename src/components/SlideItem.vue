@@ -15,14 +15,14 @@
 <script>
 export default {
   props: ["slide", "currentSlide", "index"],
-  emits: ["next", "hideBlurEffect", "test"],
+  emits: ["next", "hideBlur", "hideIntroduction"],
   methods: {
     emitNext() {
       if (this.slide.buttonText != "Dokončiť") {
         this.$emit("next");
       } else {
-        this.$emit("hideBlurEffect");
-        this.$emit("test")
+        this.$emit("hideIntroduction");
+        this.$emit("hideBlur")
         localStorage.setItem("activeIntroduction", false);
       }
     },
