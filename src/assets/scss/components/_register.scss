@@ -4,8 +4,8 @@
   top: 20%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: $high-emphasys-inverse;
   border-radius: $border-radius;
+  background-color: $high-emphasys-inverse;
   width: 62.5em;
   height: 42.5em;
 
@@ -15,7 +15,6 @@
   }
 
   .register__interface {
-
     .register__interface__wrapper {
       padding: 3.625em 3em;
     }
@@ -60,6 +59,7 @@
   .register__illustration {
     img {
       height: 100%;
+      border-radius: 0 4px 4px 0;
     }
   }
 }

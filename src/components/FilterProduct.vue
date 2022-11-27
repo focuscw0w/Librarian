@@ -1,5 +1,5 @@
 <template>
-  <div v-if="activeFilterProduct" class="filter-product">
+  <div class="filter-product">
     <h2 class="filter-product__heading">Filtrovanie</h2>
 
     <div class="search-location">
@@ -48,14 +48,6 @@
               />
               <span class="checkmark"></span>
             </label>
-            <!--
-              <input
-                value="academic"
-                type="checkbox"
-                name="academic"
-                v-model="checkedInputs"
-              />
-            -->
             <label for="academic">Akademická</label>
           </div>
           <div class="filter-split__type flex-container">
@@ -175,6 +167,7 @@
         class="close-icon"
         src="../assets/icons/close-icon.svg"
         alt="close icon"
+        @click="hideFilter"
       />
     </div>
   </div>
@@ -194,6 +187,12 @@ export default {
       this.visibleFilterButton = this.checkedInputs.length == 0 ? false : true;
     },
   },
+  methods: {
+    hideFilter() {
+      this.$emit('hideFilterProduct')
+      this.checkedInputs.length = 0
+    }
+  }
 };
 </script>
 

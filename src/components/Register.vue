@@ -22,11 +22,11 @@
             </div>
             <div class="register__interface__registration-box">
               <label for="mail">Email</label>
-              <input type="text" name="mail">
+              <input type="email" name="mail">
             </div>
             <div class="register__interface__registration-box">
-              <label for="password">Email</label>
-              <input type="text" name="mail">
+              <label for="password">Password</label>
+              <input type="text" name="password">
             </div>
           </div>
           <LoginBtn />

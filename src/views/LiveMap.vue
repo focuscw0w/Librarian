@@ -25,25 +25,27 @@
 
       <div class="search-wrapper">
         <SearchBookForm
-          @addBook="this.bookName = $event"
-          @activeFilterProduct="this.activeFilterProduct = $event"
+          @addBook="bookName = $event"
+          @activeFilterProduct="activeFilterProduct = true"
           @darkGoogleMap="darkGoogleMap = $event"
         />
       </div>
     </div>
   </div>
 
-  <FilterProduct :activeFilterProduct="activeFilterProduct" />
+  <FilterProduct v-if="activeFilterProduct" @hideFilterProduct="activeFilterProduct = false"/>
 
   <SelectedBook
+    v-if="activeFilterProduct"
     :bookName="bookName"
-    @hideFilterProduct="activeFilterProduct = $event"
+    @hideFilterProduct="activeFilterProduct = false"
   />
 
   <Introduction @hideBlur="blur" />
 
   <Register :visibleRegister="openRegister" @hideBlur="blur" @hideRegister="$emit('hideRegister')"/>
 
+  <div v-if="openRegister" class="dead-background"></div>
 </template>
 
 <script>
@@ -145,5 +147,13 @@ export default {
 @import "../assets/scss/main.scss";
 .blur {
   filter: blur(5px);
+}
+.dead-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 500;
 }
 </style>

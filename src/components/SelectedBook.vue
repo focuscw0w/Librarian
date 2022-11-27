@@ -1,5 +1,5 @@
 <template>
-  <article v-if="selectedBook" class="selected-book">
+  <article class="selected-book">
     <div class="flex-container">
       <img
         src="../assets/images/book-product.jpg"
@@ -7,7 +7,7 @@
         class="product-img"
       />
       <div class="books__info">
-        <h3 class="books__name">{{this.bookName}}</h3>
+        <h3 class="books__name">{{bookName}}</h3>
         <p class="books__author">Andrzej Sapkowski</p>
       </div>
 
@@ -33,7 +33,7 @@ export default {
   methods: {
     hideFilterProduct() {
       this.selectedBook = false
-      this.$emit('hideFilterProduct', false)
+      this.$emit('hideFilterProduct')
     }
   }
 };

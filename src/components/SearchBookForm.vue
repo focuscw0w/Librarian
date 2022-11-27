@@ -101,7 +101,7 @@ export default {
     },
     addBook(book) {
       this.$emit("addBook", book.name);
-      this.$emit("activeFilterProduct", true);
+      this.$emit("activeFilterProduct");
       this.$emit("darkGoogleMap", false);
 
       this.visibleBlookList = false;

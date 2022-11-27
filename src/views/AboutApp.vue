@@ -55,7 +55,7 @@ import AnimationIcon from "../components/AnimationIcon.vue";
 
 export default {
   props: ['openRegister'],
-  emits: ['showContent', 'hideBlur'],
+  emits: ['showContent', 'hideBlur', 'hideRegister'],
   name: "HomePage",
   components: { SecondaryNavigation, News, Gallery, AnimationIcon },
   data() {
@@ -90,6 +90,7 @@ export default {
   },
   created() {
     this.$emit('hideBlur')
+    this.$emit('hideRegister')
   }
 };
 </script>

@@ -6,6 +6,8 @@
     <main id="main-content">
       <router-view @hideBlur="hideBlur" @hideRegister="closeRegister" :openRegister="visibleRegister"/>
     </main>
+
+    <div v-if="blurEffect" class="dead-background"></div>
 </template>
 
 <script>
@@ -24,8 +26,8 @@ export default {
       this.blurEffect = false
     },
     openRegister() {
-      this.blurEffect = true
       this.visibleRegister = true
+      this.blurEffect = true
     },
     closeRegister() {
       this.visibleRegister = false
@@ -34,6 +36,7 @@ export default {
   },
   created() {
     this.blurEffect = localStorage.getItem("activeIntroduction") == null ? true : false
+  
   }
 };
 </script>
@@ -42,5 +45,13 @@ export default {
 @import "./assets/scss/main.scss";
 .blur {
   filter: blur(5px);
+}
+.dead-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 500;
 }
 </style>
