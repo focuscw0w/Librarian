@@ -51,10 +51,11 @@
 
 .books {
   border-radius: $border-radius;
+  background-color: $high-emphasys-inverse;
+  margin-top: .5em;
   padding: 1em 0;
   .books__ul {
     background-color: $high-emphasys-inverse;
-    border-radius: $border-radius;
     padding-top: .5em;
     padding-bottom: .5em;
     padding-left: 1em;
