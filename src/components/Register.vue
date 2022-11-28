@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visibleRegister" class="register">
+  <div class="register">
     <div class="flex-container">
       <div class="register__interface">
         <div class="register__interface__wrapper">
@@ -42,12 +42,10 @@
 <script>
 import LoginBtn from './LoginBtn.vue'
 export default {
-  props:['visibleRegister'],
   emits: ['hideRegister'],
   components: { LoginBtn },
   data() {
     return {
-      activeRegister: false,
       user: {
         emial: '',
         password: ''
@@ -56,7 +54,6 @@ export default {
   },
   methods: { 
     closeRegister() {
-      this.activeRegister = false
       this.$emit('hideRegister')
     }
   }

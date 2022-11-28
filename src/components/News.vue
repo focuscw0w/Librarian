@@ -41,7 +41,6 @@
                 @animationend="onIconAnimationEnds"
                 @click="toggle"
               />
-              <img src="../assets/icons/bookmark.svg" alt="save button" />
               <img src="../assets/icons/share.svg" alt="share button" />
             </div>
           </div>

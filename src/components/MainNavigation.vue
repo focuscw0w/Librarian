@@ -1,5 +1,5 @@
 <template>
-  <header class="main-header">
+  <header class="main-header" :class="{blur: hideBlurProp}">
     <div class="flex-container">
       <div class="logo">
         <router-link to="/"
@@ -33,16 +33,10 @@
         </nav>
       </div>
 
-      <div class="main-headaer__aside">
-        <a href="#" class="language-btn"
-          >SK
-          <img
-            src="../assets/icons/bx-world.svg"
-            alt="change language icon"
-            class="navigation-icon"
-        /></a>
+      <div class="main-header__aside">
+        <LoginButton />
 
-        <RegisterButton @click="$emit('openRegister')"/>
+        <RegisterButton @click="hideBlur"/>
       </div>
     </div>
   </header>
@@ -50,19 +44,27 @@
 
 <script>
 import RegisterButton from "./RegisterButton.vue";
+import LoginButton from "./LoginButton.vue"
 
 export default {
-  emits: ['openRegister', 'blurEffect'],
-  components: { RegisterButton },
-  methods: {
-    sendEmits() {
-      this.$emit('openRegister')
-      this.$emit('blurEffect')
+  props:['hideBlurProp'],
+  emits: ['openRegister'],
+  components: { RegisterButton, LoginButton },
+  data() {
+    return {
     }
-  }
+  },
+  methods: {
+    hideBlur() {
+      this.$emit('openRegister')
+    }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../assets/scss/main.scss";
+.blur {
+  filter: blur(5px) !important;
+}
 </style>

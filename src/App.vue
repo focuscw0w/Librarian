@@ -1,28 +1,30 @@
 <template>
-  <div :class="{blur: blurEffect}">
-    <MainNavigation @openRegister="openRegister" />
-  </div>
+ 
+    <MainNavigation @openRegister="openRegister" :hideBlurProp="blurEffect"/>
   
     <main id="main-content">
-      <router-view @hideBlur="hideBlur" @hideRegister="closeRegister" :openRegister="visibleRegister"/>
+      <router-view @hideBlur="blurOff" :openRegister="visibleRegister"/>
     </main>
 
-    <div v-if="blurEffect" class="dead-background"></div>
+    <Register v-if="visibleRegister" @hideBlur="blurEffect = false" @hideRegister="closeRegister"/>
+
+    <div v-if="blurEffect" class="dead-background" @click="closeRegister"></div>
 </template>
 
 <script>
 import RegisterButton from "./components/RegisterButton.vue";
+import Register from "./components/Register.vue";
 import MainNavigation from "./components/MainNavigation.vue";
 export default {
-  components: { RegisterButton, MainNavigation },
+  components: { RegisterButton, MainNavigation, Register },
   data() {
     return {
-      blurEffect: true,
+      blurEffect: false,
       visibleRegister: false
     }
   },
   methods: {
-    hideBlur() {
+    blurOff() {
       this.blurEffect = false
     },
     openRegister() {
@@ -36,7 +38,6 @@ export default {
   },
   created() {
     this.blurEffect = localStorage.getItem("activeIntroduction") == null ? true : false
-  
   }
 };
 </script>
@@ -45,6 +46,8 @@ export default {
 @import "./assets/scss/main.scss";
 .blur {
   filter: blur(5px);
+  max-height: 100vh;
+  overflow-y: hidden;
 }
 .dead-background {
   position: absolute;

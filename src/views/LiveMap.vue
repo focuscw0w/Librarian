@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <FilterProduct v-if="activeFilterProduct" @hideFilterProduct="activeFilterProduct = false"/>
+  <FilterProduct v-if="activeFilterProduct"/>
 
   <SelectedBook
     v-if="activeFilterProduct"
@@ -42,8 +42,6 @@
   />
 
   <Introduction @hideBlur="blur" />
-
-  <Register :visibleRegister="openRegister" @hideBlur="blur" @hideRegister="$emit('hideRegister')"/>
 
   <div v-if="openRegister" class="dead-background"></div>
 </template>

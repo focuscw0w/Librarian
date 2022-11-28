@@ -167,7 +167,7 @@
         class="close-icon"
         src="../assets/icons/close-icon.svg"
         alt="close icon"
-        @click="hideFilter"
+        @click="checkedInputs.length = 0"
       />
     </div>
   </div>
@@ -175,7 +175,6 @@
 
 <script>
 export default {
-  props: ["activeFilterProduct", "hideFilterProduct"],
   data() {
     return {
       checkedInputs: [],
@@ -187,12 +186,6 @@ export default {
       this.visibleFilterButton = this.checkedInputs.length == 0 ? false : true;
     },
   },
-  methods: {
-    hideFilter() {
-      this.$emit('hideFilterProduct')
-      this.checkedInputs.length = 0
-    }
-  }
 };
 </script>
 
