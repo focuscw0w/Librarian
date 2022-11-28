@@ -29,8 +29,6 @@
             alt="arrow icon"
           />
         </a>
-
-        <button type="submit" class="find-book">Hľadaj</button>
       </div>
 
       <div v-if="showDropDown" class="sub-menu">

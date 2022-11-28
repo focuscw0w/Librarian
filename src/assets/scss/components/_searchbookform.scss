@@ -7,7 +7,6 @@
   .flex-container {
     @include direction-row;
     justify-content: space-between;
-    gap: 1.8em;
   }
 
   .search-container.flex-container {
@@ -31,13 +30,14 @@
 
   .drop-down.flex-container {
     gap: 1em;
+    margin-right: 1em;
   }
 
   .sub-menu {
     position: absolute;
     padding: 0 0.5em 0.5em 0.5em;
     top: 3em;
-    left: 20em;
+    right: 0;
     background-color: $high-emphasys-inverse;
     border-radius: $border-radius;
 
