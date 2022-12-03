@@ -72,3 +72,14 @@
 .toggle-favorite__icon {
   cursor: pointer;
 }
+
+.login-interface__integration__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background-color: $grey-10;
+  border-radius: 4px;
+  cursor: pointer;
+}

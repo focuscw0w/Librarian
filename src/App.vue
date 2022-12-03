@@ -1,26 +1,30 @@
 <template>
  
-    <MainNavigation @openRegister="openRegister" :hideBlurProp="blurEffect"/>
+    <MainNavigation @openRegister="openRegister" @openLogin="openLogin" :hideBlurProp="blurEffect"/>
   
     <main id="main-content">
-      <router-view @hideBlur="blurOff" :openRegister="visibleRegister"/>
+      <router-view @hideBlur="blurOff" :openRegister="visibleRegister" :openLogin="visibleLogin"/>
     </main>
 
-    <Register v-if="visibleRegister" @hideBlur="blurEffect = false" @hideRegister="closeRegister"/>
+    <Register v-if="visibleRegister" @hideRegister="closeRegister"/>
 
-    <div v-if="blurEffect" class="dead-background" @click="closeRegister"></div>
+    <Login v-if="visibleLogin" @hideLogin="closeLogin"/>
+
+    <div v-if="blurEffect" class="dead-background" @click="closeAll"></div>
 </template>
 
 <script>
 import RegisterButton from "./components/RegisterButton.vue";
 import Register from "./components/Register.vue";
+import Login from './components/Login.vue';
 import MainNavigation from "./components/MainNavigation.vue";
 export default {
-  components: { RegisterButton, MainNavigation, Register },
+  components: { RegisterButton, MainNavigation, Register, Login },
   data() {
     return {
       blurEffect: false,
-      visibleRegister: false
+      visibleRegister: false,
+      visibleLogin: false
     }
   },
   methods: {
@@ -33,6 +37,19 @@ export default {
     },
     closeRegister() {
       this.visibleRegister = false
+      this.blurEffect = false
+    },
+    openLogin() {
+      this.visibleLogin = true
+      this.blurEffect = true
+    },
+    closeLogin() {
+      this.visibleLogin = false
+      this.blurEffect = false
+    },
+    closeAll() {
+      this.visibleRegister = false
+      this.visibleLogin = false
       this.blurEffect = false
     }
   },

@@ -165,15 +165,15 @@ a {
   }
 }
 
-  .books__name {
-    font-size: $font-size-15;
-    font-weight: $font-weight-normal;
-  }
+.books__name {
+  font-size: $font-size-15;
+  font-weight: $font-weight-normal;
+}
 
-  .books__author {
-    font-size: $font-size-13;
-    color: $medium-emphasys;
-  }
+.books__author {
+  font-size: $font-size-13;
+  color: $medium-emphasys;
+}
 
 .filter-product {
   .filter-product__heading {
@@ -223,48 +223,75 @@ a {
   color: $high-emphasys-inverse;
 }
 
-.register {
-  .register__interface__heading {
-    font-weight: $font-weight-600;
-    font-size: $font-size-22;
+.user-access__heading {
+  font-weight: $font-weight-600;
+  font-size: $font-size-22;
+  color: $high-emphasys;
+}
+
+.user-access__figcaption {
+  font-weight: $font-weight-normal;
+  font-size: $font-size-13;
+  color: $high-emphasys;
+}
+
+.user-access__get-in__box {
+  input {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
     color: $high-emphasys;
   }
 
-  .register__interface__figcaption {
+  label {
     font-weight: $font-weight-normal;
     font-size: $font-size-13;
     color: $high-emphasys;
   }
+}
 
+.login__interface__stay-logged-ing {
+  input {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $high-emphasys;
+  }
+
+  .forgotten-password {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $medium-emphasys;
+  }
+}
+
+.login-btn {
+  font-weight: $font-weight-normal;
+  font-size: $font-size-15;
+  color: $high-emphasys-inverse;
+}
+
+.user-access__paragraph {
+  font-weight: $font-weight-normal;
+  font-size: $font-size-15;
+  color: $medium-emphasys;
+}
+
+.register {
   .integration__btn {
     font-weight: $font-weight-bold;
     font-size: $font-size-15;
     color: $high-emphasys;
   }
+}
 
-  .register__interface__paragraph {
-    font-weight: $font-weight-normal;
-    font-size: $font-size-15;
-    color: $medium-emphasys;
+.login {
+  .user-access__figcaption {
+    line-height: $line-spacing-21;
   }
+}
 
-  .register__interface__registration-box {
-    input {
-      font-weight: $font-weight-normal;
-      font-size: $font-size-15;
-      color: $high-emphasys;
-    }
-
-    label {
-      font-weight: $font-weight-normal;
-      font-size: $font-size-13;
-      color: $high-emphasys;
-    }
-  }
-
-  .login-btn {
-    font-weight: $font-weight-normal;
-    font-size: $font-size-15;
-    color: $high-emphasys-inverse;
-  }
+.create-account-btn {
+  font-weight: $font-weight-medium;
+  font-size: $font-size-15;
+  color: $high-emphasys;
+  line-height: $line-spacing-21;
 }

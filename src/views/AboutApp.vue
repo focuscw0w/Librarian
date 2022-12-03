@@ -1,5 +1,5 @@
 <template>
-  <div :class="{blur: openRegister}">
+  <div :class="{blur: openRegister || openLogin}">
     <section class="introduction">
       <div class="container">
         <div class="introduction__background">
@@ -47,6 +47,9 @@
     </main>
 
     <router-view />
+
+    <div v-if="(openRegister || openLogin)" class="dead-background"></div>
+
   </div>
 </template>
 
@@ -57,8 +60,8 @@ import Gallery from "../components/Gallery.vue";
 import AnimationIcon from "../components/AnimationIcon.vue";
 
 export default {
-  props: ["openRegister"],
-  emits: ["showContent", "hideBlur", "hideRegister"],
+  props: ['openRegister', 'openLogin'],
+  emits: ['showContent', 'hideBlur', 'hideRegister'],
   name: "HomePage",
   components: { SecondaryNavigation, News, Gallery, AnimationIcon },
   data() {
@@ -90,6 +93,9 @@ export default {
     onIconAnimationEnds() {
       this.animating = false;
     },
+    closeAll() {
+
+    }
   },
   created() {
     this.$emit("hideBlur");

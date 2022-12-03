@@ -34,9 +34,9 @@
       </div>
 
       <div class="main-header__aside">
-        <LoginButton />
+        <LoginButton @click="$emit('openLogin')"/>
 
-        <RegisterButton @click="hideBlur"/>
+        <RegisterButton @click="$emit('openRegister')"/>
       </div>
     </div>
   </header>
@@ -48,15 +48,10 @@ import LoginButton from "./LoginButton.vue"
 
 export default {
   props:['hideBlurProp'],
-  emits: ['openRegister'],
+  emits: ['openRegister', 'openLogin'],
   components: { RegisterButton, LoginButton },
   data() {
     return {
-    }
-  },
-  methods: {
-    hideBlur() {
-      this.$emit('openRegister')
     }
   },
 };

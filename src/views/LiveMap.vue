@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ blur: blurEffect || openRegister }">
+  <div :class="{ blur: blurEffect || openRegister || openLogin}">
     <div class="map-container">
       <GMapMap
         :center="center"
@@ -53,10 +53,9 @@ import SelectedBook from "../components/SelectedBook.vue";
 import InfoWindow from "../components/InfoWindow.vue";
 import FilterProduct from "../components/FilterProduct.vue";
 import Introduction from "../components/Introduction.vue";
-import Register from "../components/Register.vue";
 
 export default {
-  props: ['openRegister'],
+  props: ['openRegister', 'openLogin'],
   emits: ['hideBlur', 'hideRegister'],
   components: {
     SearchBookForm,
@@ -65,7 +64,6 @@ export default {
     FilterProduct,
     SelectedBook,
     Introduction,
-    Register
   },
   data() {
     return {
