@@ -19,9 +19,8 @@
           />
         </div>
 
-        <span class="split"></span>
-
         <a href="#" class="drop-down flex-container" @click="dropDown">
+          <span class="split"></span>
           Knihy
           <img
             class="drop-down-icon"

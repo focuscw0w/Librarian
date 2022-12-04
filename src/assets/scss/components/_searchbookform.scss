@@ -17,8 +17,7 @@
     width: 1px;
     height: 1.5em;
     background-color: $color-000000;
-    position: relative;
-    left: 2.5em;
+    margin-right: 2.15625em;
   }
 
   #search-book {
@@ -31,7 +30,6 @@
   }
 
   .drop-down.flex-container {
-    gap: 1em;
     margin-right: 1em;
   }
 
