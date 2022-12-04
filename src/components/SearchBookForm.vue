@@ -4,7 +4,7 @@
       <div class="flex-container">
         <div class="search-container flex-container">
           <img
-            src="../assets/icons/bx-search.svg"
+            :src="require('../assets/icons/bx-search.svg')"
             alt="search icon"
             class="search-icon"
           />
@@ -25,7 +25,7 @@
           Knihy
           <img
             class="drop-down-icon"
-            src="../assets/icons/angle-down.svg"
+            :src="require('../assets/icons/angle-down.svg')"
             alt="arrow icon"
           />
         </a>
@@ -51,7 +51,7 @@
       <li class="books__li">
         <div class="flex-container">
           <img
-            src="../assets/images/book-product.jpg"
+            :src="require('../assets/images/book-product.jpg')"
             alt="book"
             class="product-img"
           />

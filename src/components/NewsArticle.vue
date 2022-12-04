@@ -7,13 +7,13 @@
       </header>
 
       <a class="news__article__settings" href="#"
-        ><img src="../assets/icons/ellipsis.svg" alt="settings icon"
+        ><img :src="require('../assets/icons/ellipsis.svg')" alt="settings icon"
       /></a>
     </div>
 
     <div class="news__article__image">
       <img
-        src="../assets/images/background-competition.png"
+        :src="require('../assets/images/background-competition.png')"
         alt="Article image"
       />
     </div>
@@ -23,7 +23,7 @@
         <div class="wrapper">
           <div class="details">
             <p class="mark">
-              <img src="../assets/icons/bx-trophy.svg" alt="" />Súťaž
+              <img :src="require('../assets/icons/bx-trophy.svg')" alt="competition icon" />Súťaž
             </p>
             <p>Dátum a čas <span class="date">15. August, 15:00</span></p>
             <p>Trvanie: <span class="date">2 hodiny</span></p>
@@ -42,7 +42,7 @@
             @animationend="onIconAnimationEnds"
             @click="toggle"
           />
-          <img src="../assets/icons/share.svg" alt="share button" />
+          <img :src="require('../assets/icons/share.svg')" alt="share button" />
         </div>
       </div>
     </footer>

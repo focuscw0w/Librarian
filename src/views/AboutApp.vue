@@ -3,7 +3,7 @@
     <section class="introduction">
       <div class="container">
         <div class="introduction__background">
-          <img src="../assets/images/background.webp" alt="background image" />
+          <img :src="require('../assets/images/background.webp')" alt="background image" />
         </div>
 
         <article class="about">

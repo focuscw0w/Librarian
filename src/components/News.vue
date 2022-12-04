@@ -11,12 +11,12 @@
           </header>
 
           <a class="news__article__settings" href="#"
-            ><img src="../assets/icons/ellipsis.svg" alt="settings icon"
+            ><img :src="require('../assets/icons/ellipsis.svg')" alt="settings icon"
           /></a>
         </div>
 
         <div class="news__article__image">
-          <img src="../assets/images/article-img.jpg" alt="Article image" />
+          <img :src="require('../assets/images/article-img.jpg')" alt="Article image" />
         </div>
 
         <footer class="news__article__footer padding">
@@ -25,7 +25,7 @@
               <span class="location"
                 ><img
                   class="location-img"
-                  src="../assets/icons/bx-current-location.svg"
+                  :src="require('../assets/icons/bx-current-location.svg')"
                   alt="location icon"
                 />
                 Zemianská Lúčka</span
@@ -41,7 +41,7 @@
                 @animationend="onIconAnimationEnds"
                 @click="toggle"
               />
-              <img src="../assets/icons/share.svg" alt="share button" />
+              <img :src="require('../assets/icons/share.svg')" alt="share button" />
             </div>
           </div>
         </footer>

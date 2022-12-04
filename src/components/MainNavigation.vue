@@ -3,7 +3,7 @@
     <div class="flex-container">
       <div class="logo">
         <router-link to="/"
-          ><img src="../assets/images/logo-web.png" alt="logo" class="logo"
+          ><img :src="require('../assets/images/logo-web.png')" alt="logo" class="logo"
         /></router-link>
       </div>
 
@@ -14,7 +14,7 @@
               <a href="#"
                 >Zoznam kníh
                 <img
-                  src="../assets/icons/bx-book.svg"
+                  :src="require('../assets/icons/bx-book.svg')"
                   alt="book icon"
                   class="navigation-icon"
               /></a>
@@ -23,7 +23,7 @@
               <a href="#"
                 >Zoznam autorov
                 <img
-                  src="../assets/icons/bx-pen.svg"
+                  :src="require('../assets/icons/bx-pen.svg')"
                   alt="pen icon"
                   class="navigation-icon"
               /></a>

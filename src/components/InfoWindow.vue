@@ -3,7 +3,7 @@
     <div class="flex-container info-window-container">
       <div class="info-window__store">
         <img
-          src="../assets/images/book-store-illustration.jpg"
+          :src="require('../assets/images/book-store-illustration.jpg')"
           alt="store image"
           class="store-img"
         />
@@ -25,7 +25,7 @@
             <div class="flex-container">
               <button class="book-list">Zoznam kníh</button>
               <span class="media-icon"
-                ><img src="../assets/icons/location-arrow.svg" alt="route icon"
+                ><img :src="require('../assets/icons/location-arrow.svg')" alt="route icon"
               /></span>
               <span class="media-icon" @click="toggle">
                 <AnimationIcon

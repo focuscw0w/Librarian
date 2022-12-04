@@ -30,6 +30,7 @@
 }
 
 .user-access__get-in__box {
+  position: relative;
   @include direction-column;
 
   &:not(:last-child) {

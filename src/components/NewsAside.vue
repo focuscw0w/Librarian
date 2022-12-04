@@ -33,7 +33,7 @@
             <p>
               <span class="features__icon">
                 <img
-                src="../assets/icons/wifi.png"
+                :src="require('../assets/icons/wifi.png')"
                 alt="wifi icon"
                 
               />
@@ -43,7 +43,7 @@
             <p>
               <span class="features__icon">
                 <img
-                src="../assets/icons/handicap-icon.svg"
+                :src="require('../assets/icons/handicap-icon.svg')"
                 alt="handicap icon"
         
               />
@@ -56,7 +56,7 @@
             <p>
               <span class="features__icon features__icon-grey">
                 <img
-                src="../assets/icons/coffee.png"
+                :src="require('../assets/icons/coffee.png')"
                 alt="coffee icon"
               />
               </span>
@@ -65,7 +65,7 @@
             <p>
               <span class="features__icon">
                 <img
-                src="../assets/icons/bx-printer.svg"
+                :src="require('../assets/icons/bx-printer.svg')"
                 alt="printer logo"
               />
               </span>

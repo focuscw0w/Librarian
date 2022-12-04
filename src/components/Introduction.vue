@@ -26,7 +26,7 @@
       </div>
       <div class="first-introduction__illustration">
         <img
-          src="../assets/images/introduction-img.png"
+          :src="require('../assets/images/introduction-img.png')"
           alt="introduction image"
         />
       </div>
