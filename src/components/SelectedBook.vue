@@ -2,7 +2,7 @@
   <article class="selected-book">
     <div class="flex-container">
       <img
-        src="../assets/images/book-product.jpg"
+        :src="require('../assets/images/book-product.jpg')"
         alt="book"
         class="product-img"
       />
@@ -11,7 +11,7 @@
         <p class="books__author">Andrzej Sapkowski</p>
       </div>
 
-      <img @click="hideFilterProduct" src="../assets/icons/close-icon.svg" alt="close icon" class="close-icon">
+      <img @click="hideFilterProduct" :src="require('../assets/icons/close-icon.svg')" alt="close icon" class="close-icon">
     </div>
   </article>
 </template>

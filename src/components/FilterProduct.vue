@@ -7,7 +7,7 @@
       <div class="flex-container">
         <img
           class="search-icon"
-          src="../assets/icons/bx-search-alt-2.svg"
+          :src="require('../assets/icons/bx-search-alt-2.svg')"
           alt="search icon"
         />
         <input
@@ -19,13 +19,13 @@
         <span class="radius">
           <div class="flex-container">
             <img
-              src="../assets/icons/marker-icon.svg"
+              :src="require('../assets/icons/marker-icon.svg')"
               alt="marker icon"
               class="marker-icon"
             />
             +10km
             <img
-              src="../assets/icons/angle-down.svg"
+              :src="require('../assets/icons/angle-down.svg')"
               alt="arrow icon"
               class="drop-down-icon"
             />
