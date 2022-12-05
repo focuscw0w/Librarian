@@ -1,9 +1,10 @@
 .selected-book {
   position: absolute;
   padding: 0.4em;
-  top: 6em;
+  top: 5em;
   left: 25.5em;
   z-index: 500;
+  height: 4.25em;
   background-color: $high-emphasys-inverse;
   border-radius: $border-radius;
   box-shadow: $shadow-bottom;
@@ -11,11 +12,13 @@
   .flex-container {
     @include direction-row;
     justify-content: space-between;
+    height: 100%;
   }
 
   .product-img {
     width: 34px;
     height: 52px;
+    height: 100%;
   }
 
   .books__info {

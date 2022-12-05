@@ -1,12 +1,16 @@
 .search-article {
+  display: flex;
+  align-items: center;
   padding: 0.7em 0.7em 0.7em 1.5em;
   background-color: $high-emphasys-inverse;
   box-shadow: $shadow-bottom;
+  height: 4.25em;
   width: 100%;
 
   .flex-container {
     @include direction-row;
     justify-content: space-between;
+    width: 100%;
   }
 
   .search-container.flex-container {
@@ -31,6 +35,7 @@
 
   .drop-down.flex-container {
     margin-right: 1em;
+    justify-content: flex-end;
   }
 
   .sub-menu {
