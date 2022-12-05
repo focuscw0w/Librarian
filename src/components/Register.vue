@@ -60,7 +60,7 @@ export default {
   components: { LoginBtn },
   data() {
     return {
-      type: "text",
+      type: "password",
       user: {
         emial: "",
         password: "",

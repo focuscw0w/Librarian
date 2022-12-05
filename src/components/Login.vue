@@ -82,7 +82,7 @@ export default {
   components: { LoginBtn, CreateAccount },
   data() {
     return {
-      type: "text",
+      type: "password",
     };
   },
   methods: {
