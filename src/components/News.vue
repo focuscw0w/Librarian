@@ -1,57 +1,13 @@
 <template>
   <div class="split-page container">
     <section class="news">
-      <article class="news__article">
-        <div class="flex-container padding">
-          <header class="news__article__header">
-            <h4 class="article-heading">
-              Oravská knižnica Antóna Hrabovštiaka
-            </h4>
-            <figcaption class="date-figcaption">8. augusta</figcaption>
-          </header>
-
-          <a class="news__article__settings" href="#"
-            ><img :src="require('../assets/icons/ellipsis.svg')" alt="settings icon"
-          /></a>
-        </div>
-
-        <div class="news__article__image">
-          <img :src="require('../assets/images/article-img.jpg')" alt="Article image" />
-        </div>
-
-        <footer class="news__article__footer padding">
-          <div class="flex-container">
-            <p class="about-event">
-              <span class="location"
-                ><img
-                  class="location-img"
-                  :src="require('../assets/icons/bx-current-location.svg')"
-                  alt="location icon"
-                />
-                Zemianská Lúčka</span
-              >
-              | Túto krásnu lúku sme kúpili, aby sme ju zaliali betónom a
-              postavili na nom garáže a parkovacie miesta pre vás všetkých
-            </p>
-
-            <div class="media">
-              <AnimationIcon
-                class="toggle-favorite__icon"
-                :class="iconClasses"
-                @animationend="onIconAnimationEnds"
-                @click="toggle"
-              />
-              <img :src="require('../assets/icons/share.svg')" alt="share button" />
-            </div>
-          </div>
-        </footer>
-      </article>
-
-      <!--In future add props for date, text, competition -->
-      <NewsArticle />
-
-      <NewsArticle />
-
+      <div class="articles" v-for="article in articleData" :key="article.id">
+        <NewsArticle
+          :text="article.text"
+          :image="article.image"
+          :competition="article.competition"
+        />
+      </div>
     </section>
 
     <NewsAside />
@@ -61,13 +17,33 @@
 <script>
 import NewsAside from "../components/NewsAside.vue";
 import AnimationIcon from "../components/AnimationIcon.vue";
-import NewsArticle from '../components/NewsArticle.vue';
+import NewsArticle from "../components/NewsArticle.vue";
 export default {
   components: { NewsAside, AnimationIcon, NewsArticle },
   data() {
     return {
       favorited: false,
       animating: false,
+      articleData: [
+        {
+          id: 0,
+          text: "| Túto krásnu lúku sme kúpili, aby sme ju zaliali betónom a postavili na nom garáže a parkovacie miesta pre vás všetkých",
+          image: "article-img.jpg",
+          competition: false,
+        },
+        {
+          id: 1,
+          text: "Chcete vyhrať balíček kníh od Ikaru? Zapojte sa do súťaže tak , že nám na email tvojpipikjekratky@haha.com fotku vašej poličky s ...",
+          image: "background-competition.png",
+          competition: true,
+        },
+        {
+          id: 2,
+          text: "Chcete vyhrať balíček kníh od Ikaru? Zapojte sa do súťaže tak , že nám na email tvojpipikjekratky@haha.com fotku vašej poličky s ...",
+          image: "background-competition.png",
+          competition: true,
+        },
+      ],
     };
   },
   computed: {
@@ -89,6 +65,7 @@ export default {
       this.animating = false;
     },
   },
+  created() {},
 };
 </script>
 

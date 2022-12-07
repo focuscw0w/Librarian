@@ -1,5 +1,5 @@
 <template>
-  <article class="news__article margin-top">
+  <article class="news__article">
     <div class="flex-container padding">
       <header class="news__article__header">
         <h4 class="article-heading">Oravská knižnica Antóna Hrabovštiaka</h4>
@@ -7,31 +7,40 @@
       </header>
 
       <a class="news__article__settings" href="#"
-        ><img :src="require('../assets/icons/ellipsis.svg')" alt="settings icon"
+        ><img
+          :src="require('../assets/icons/ellipsis.svg')"
+          alt="settings icon"
       /></a>
     </div>
 
     <div class="news__article__image">
-      <img
-        :src="require('../assets/images/background-competition.png')"
-        alt="Article image"
-      />
+      <img :src="require(`../assets/images/${image}`)" alt="Article image" />
     </div>
 
     <footer class="news__article__footer padding">
       <div class="flex-container">
         <div class="wrapper">
-          <div class="details">
+          <div class="details" v-if="competition">
             <p class="mark">
-              <img :src="require('../assets/icons/bx-trophy.svg')" alt="competition icon" />Súťaž
+              <img
+                :src="require('../assets/icons/bx-trophy.svg')"
+                alt="competition icon"
+              />Súťaž
             </p>
             <p>Dátum a čas <span class="date">15. August, 15:00</span></p>
             <p>Trvanie: <span class="date">2 hodiny</span></p>
           </div>
 
           <p class="about-event">
-            Chcete vyhrať balíček kníh od Ikaru? Zapojte sa do súťaže tak , že
-            nám na email tvojpipikjekratky@haha.com fotku vašej poličky s ...
+            <span class="location" v-if="!competition"
+              ><img
+                class="location-img"
+                :src="require('../assets/icons/bx-current-location.svg')"
+                alt="location icon"
+              />
+              Zemianská Lúčka</span
+            >
+            {{ text }}
           </p>
         </div>
 
@@ -52,8 +61,9 @@
 <script>
 import AnimationIcon from "../components/AnimationIcon.vue";
 export default {
-    components: {AnimationIcon},
-    data() {
+  props: ["text", "image", "competition"],
+  components: { AnimationIcon },
+  data() {
     return {
       favorited: false,
       animating: false,
@@ -78,9 +88,10 @@ export default {
       this.animating = false;
     },
   },
+  created() {},
 };
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/main.scss';
+@import "../assets/scss/main.scss";
 </style>

@@ -13,6 +13,8 @@
   }
 
   .news__article {
+    margin-bottom: 1em;
+
     .article-heading {
       margin-bottom: 0.3em;
     }
@@ -50,6 +52,7 @@
 
       .wrapper {
         flex: 2;
+        align-items: flex-start;
 
         .details {
           @include direction-row;

@@ -1,9 +1,12 @@
 <template>
-  <div :class="{blur: openRegister || openLogin}">
+  <div :class="{ blur: openRegister || openLogin }">
     <section class="introduction">
       <div class="container">
         <div class="introduction__background">
-          <img :src="require('../assets/images/background.webp')" alt="background image" />
+          <img
+            :src="require('../assets/images/background.webp')"
+            alt="background image"
+          />
         </div>
 
         <article class="about">
@@ -48,8 +51,7 @@
 
     <router-view />
 
-    <div v-if="(openRegister || openLogin)" class="dead-background"></div>
-
+    <div v-if="openRegister || openLogin" class="dead-background"></div>
   </div>
 </template>
 
@@ -60,8 +62,8 @@ import Gallery from "../components/Gallery.vue";
 import AnimationIcon from "../components/AnimationIcon.vue";
 
 export default {
-  props: ['openRegister', 'openLogin'],
-  emits: ['showContent', 'hideBlur', 'hideRegister'],
+  props: ["openRegister", "openLogin"],
+  emits: ["showContent", "hideBlur", "hideRegister"],
   name: "HomePage",
   components: { SecondaryNavigation, News, Gallery, AnimationIcon },
   data() {
@@ -93,9 +95,7 @@ export default {
     onIconAnimationEnds() {
       this.animating = false;
     },
-    closeAll() {
-
-    }
+    closeAll() {},
   },
   created() {
     this.$emit("hideBlur");
