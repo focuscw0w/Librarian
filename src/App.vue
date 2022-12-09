@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import RegisterButton from "./components/RegisterButton.vue";
-import Register from "./components/Register.vue";
-import Login from "./components/Login.vue";
-import MainNavigation from "./components/MainNavigation.vue";
+import RegisterButton from "./components/main-navigation/RegisterButton.vue";
+import Register from "./components/login-register/Register.vue";
+import Login from "./components/login-register/Login.vue";
+import MainNavigation from "./components/main-navigation/MainNavigation.vue";
 export default {
   components: { RegisterButton, MainNavigation, Register, Login },
   data() {

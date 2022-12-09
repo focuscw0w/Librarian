@@ -57,8 +57,8 @@
 
 <script>
 import SecondaryNavigation from "../components/SecondaryNavigation.vue";
-import News from "../components/News.vue";
-import Gallery from "../components/Gallery.vue";
+import News from "../components/news/News.vue";
+import Gallery from "../components/news/Gallery.vue";
 import AnimationIcon from "../components/AnimationIcon.vue";
 
 export default {

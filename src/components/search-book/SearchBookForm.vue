@@ -4,7 +4,7 @@
       <div class="flex-container">
         <div class="search-container flex-container">
           <img
-            :src="require('../assets/icons/bx-search.svg')"
+            :src="require('@/assets/icons/bx-search.svg')"
             alt="search icon"
             class="search-icon"
           />
@@ -24,7 +24,7 @@
           Knihy
           <img
             class="drop-down-icon"
-            :src="require('../assets/icons/angle-down.svg')"
+            :src="require('@/assets/icons/angle-down.svg')"
             alt="arrow icon"
           />
         </a>
@@ -50,7 +50,7 @@
       <li class="books__li">
         <div class="flex-container">
           <img
-            :src="require('../assets/images/book-product.jpg')"
+            :src="require('@/assets/images/book-product.jpg')"
             alt="book"
             class="product-img"
           />
@@ -69,7 +69,7 @@
 
 <script>
 import axios from "axios";
-import SearchBookList from "../components/SearchBookList.vue";
+import SearchBookList from "./SearchBookList.vue";
 export default {
   components: { SearchBookList },
   emits: ["addBook", "activeFilterProduct", "darkGoogleMap"],
@@ -134,5 +134,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/main.scss";
+@import "@/assets/scss/main.scss";
 </style>

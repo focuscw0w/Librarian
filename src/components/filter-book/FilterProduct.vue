@@ -7,7 +7,7 @@
       <div class="flex-container">
         <img
           class="search-icon"
-          :src="require('../assets/icons/bx-search-alt-2.svg')"
+          :src="require('@/assets/icons/bx-search-alt-2.svg')"
           alt="search icon"
         />
         <input
@@ -19,13 +19,13 @@
         <span class="radius">
           <div class="flex-container">
             <img
-              :src="require('../assets/icons/marker-icon.svg')"
+              :src="require('@/assets/icons/marker-icon.svg')"
               alt="marker icon"
               class="marker-icon"
             />
             +10km
             <img
-              :src="require('../assets/icons/angle-down.svg')"
+              :src="require('@/assets/icons/angle-down.svg')"
               alt="arrow icon"
               class="drop-down-icon"
             />
@@ -165,7 +165,7 @@
       <button class="filter-book">Aplikuj filter</button>
       <img
         class="close-icon"
-        src="../assets/icons/close-icon.svg"
+        src="@/assets/icons/close-icon.svg"
         alt="close icon"
         @click="checkedInputs.length = 0"
       />
@@ -190,5 +190,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/main.scss";
+@import "@/assets/scss/main.scss";
 </style>

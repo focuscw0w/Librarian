@@ -8,13 +8,13 @@
 
       <a class="news__article__settings" href="#"
         ><img
-          :src="require('../assets/icons/ellipsis.svg')"
+          :src="require('@/assets/icons/ellipsis.svg')"
           alt="settings icon"
       /></a>
     </div>
 
     <div class="news__article__image">
-      <img :src="require(`../assets/images/${image}`)" alt="Article image" />
+      <img :src="require(`@/assets/images/${image}`)" alt="Article image" />
     </div>
 
     <footer class="news__article__footer padding">
@@ -23,7 +23,7 @@
           <div class="details" v-if="competition">
             <p class="mark">
               <img
-                :src="require('../assets/icons/bx-trophy.svg')"
+                :src="require('@/assets/icons/bx-trophy.svg')"
                 alt="competition icon"
               />Súťaž
             </p>
@@ -35,7 +35,7 @@
             <span class="location" v-if="!competition"
               ><img
                 class="location-img"
-                :src="require('../assets/icons/bx-current-location.svg')"
+                :src="require('@/assets/icons/bx-current-location.svg')"
                 alt="location icon"
               />
               Zemianská Lúčka</span
@@ -51,7 +51,7 @@
             @animationend="onIconAnimationEnds"
             @click="toggle"
           />
-          <img :src="require('../assets/icons/share.svg')" alt="share button" />
+          <img :src="require('@/assets/icons/share.svg')" alt="share button" />
         </div>
       </div>
     </footer>
@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import AnimationIcon from "../components/AnimationIcon.vue";
+import AnimationIcon from "../AnimationIcon.vue";
 export default {
   props: ["text", "image", "competition"],
   components: { AnimationIcon },
@@ -93,5 +93,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/main.scss";
+@import "@/assets/scss/main.scss";
 </style>

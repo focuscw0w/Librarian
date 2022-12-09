@@ -1,0 +1,28 @@
+.book-list__header {
+  background-color: $high-emphasys-inverse;
+  margin-top: 4em;
+  height: 5em;
+
+  .container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    .flex-container {
+      align-items: center;
+      gap: 1.5625em;
+    }
+  }
+
+  .book-list__btn-previous {
+    img {
+        width: 16px;
+        height: 19px;
+    }
+  }
+
+  .book-list__header__heading {
+    display: flex;
+    gap: .75em;
+  }
+}

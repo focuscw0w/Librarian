@@ -47,12 +47,12 @@
 </template>
 
 <script>
-import SearchBookForm from "../components/SearchBookForm.vue";
-import SearchBookList from "../components/SearchBookList.vue";
-import SelectedBook from "../components/SelectedBook.vue";
+import SearchBookForm from "../components/search-book/SearchBookForm.vue";
+import SearchBookList from "../components/search-book/SearchBookList.vue";
+import SelectedBook from "../components/filter-book/SelectedBook.vue";
 import InfoWindow from "../components/InfoWindow.vue";
-import FilterProduct from "../components/FilterProduct.vue";
-import Introduction from "../components/Introduction.vue";
+import FilterProduct from "../components/filter-book/FilterProduct.vue";
+import Introduction from "../components/web-introduction/Introduction.vue";
 
 export default {
   props: ['openRegister', 'openLogin'],

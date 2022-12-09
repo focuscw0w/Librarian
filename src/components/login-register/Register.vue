@@ -6,7 +6,7 @@
           <header class="user-access__header">
             <h3 class="user-access__heading">Registrácia</h3>
             <img
-              :src="require('../assets/icons/close-icon.svg')"
+              :src="require('@/assets/icons/close-icon.svg')"
               alt="close icon"
               class="close-icon"
               @click="$emit('hideRegister')"
@@ -33,7 +33,7 @@
               <label for="password">Password</label>
               <input :type="type" name="password" />
               <img
-                :src="require('../assets/icons/eye.svg')"
+                :src="require('@/assets/icons/eye.svg')"
                 alt="show password icon"
                 class="password-toggle"
                 @click="togglePasswordVisibility"
@@ -45,7 +45,7 @@
       </div>
       <div class="register__illustration">
         <img
-          :src="require('../assets/images/illustration.png')"
+          :src="require('@/assets/images/illustration.png')"
           alt="illustration image"
         />
       </div>
@@ -76,5 +76,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/main.scss";
+@import "@/assets/scss/main.scss";
 </style>

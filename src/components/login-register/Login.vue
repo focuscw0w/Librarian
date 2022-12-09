@@ -6,7 +6,7 @@
           <header class="user-access__header">
             <h3 class="user-access__heading">Prihlásenie</h3>
             <img
-              :src="require('../assets/icons/close-icon.svg')"
+              :src="require('@/assets/icons/close-icon.svg')"
               alt="close icon"
               class="close-icon"
               @click="$emit('hideLogin')"
@@ -25,7 +25,7 @@
               <label for="password">Password</label>
               <input :type="type" name="password" />
               <img
-                :src="require('../assets/icons/eye.svg')"
+                :src="require('@/assets/icons/eye.svg')"
                 alt="show password icon"
                 class="password-toggle"
                 @click="togglePasswordVisibility"
@@ -43,19 +43,19 @@
           <div class="login-interface__integration">
             <a class="login-interface__integration__box">
               <img
-                :src="require('../assets/icons/bxl-google.svg')"
+                :src="require('@/assets/icons/bxl-google.svg')"
                 alt="google icon"
               />
             </a>
             <a class="login-interface__integration__box">
               <img
-                :src="require('../assets/icons/bxl-apple.svg')"
+                :src="require('@/assets/icons/bxl-apple.svg')"
                 alt="apple icon"
               />
             </a>
             <a class="login-interface__integration__box">
               <img
-                :src="require('../assets/icons/bxl-facebook.svg')"
+                :src="require('@/assets/icons/bxl-facebook.svg')"
                 alt="facebook icon"
               />
             </a>
@@ -66,7 +66,7 @@
       </div>
       <div class="login__illustration">
         <img
-          :src="require('../assets/images/illustration.png')"
+          :src="require('@/assets/images/illustration.png')"
           alt="illustration image"
         />
       </div>
@@ -75,8 +75,8 @@
 </template>
 
 <script>
-import LoginBtn from "../components/LoginBtn.vue";
-import CreateAccount from "../components/CreateAccount.vue";
+import LoginBtn from "./LoginBtn.vue";
+import CreateAccount from "./CreateAccount.vue";
 export default {
   emits: ["hideLogin"],
   components: { LoginBtn, CreateAccount },
@@ -94,5 +94,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/main.scss";
+@import "@/assets/scss/main.scss";
 </style>

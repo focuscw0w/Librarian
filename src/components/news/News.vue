@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import NewsAside from "../components/NewsAside.vue";
-import AnimationIcon from "../components/AnimationIcon.vue";
-import NewsArticle from "../components/NewsArticle.vue";
+import NewsAside from "./NewsAside.vue";
+import AnimationIcon from "../AnimationIcon.vue";
+import NewsArticle from "./NewsArticle.vue";
 export default {
   components: { NewsAside, AnimationIcon, NewsArticle },
   data() {
@@ -70,5 +70,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/main.scss";
+@import "@/assets/scss/main.scss";
 </style>

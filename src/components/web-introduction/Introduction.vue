@@ -26,7 +26,7 @@
       </div>
       <div class="first-introduction__illustration">
         <img
-          :src="require('../assets/images/introduction-img.png')"
+          :src="require('@/assets/images/introduction-img.png')"
           alt="introduction image"
         />
       </div>
@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import SlideItem from "../components/SlideItem.vue";
-import SlideIndicator from "../components/SlideIndicator.vue";
+import SlideItem from "./SlideItem.vue";
+import SlideIndicator from "./SlideIndicator.vue";
 export default {
   emits: ['hideBlur'],
   components: { SlideItem, SlideIndicator },
@@ -92,5 +92,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/main.scss";
+@import "@/assets/scss/main.scss";
 </style>
