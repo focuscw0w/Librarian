@@ -1,28 +1,117 @@
-.book-list__header {
-  background-color: $high-emphasys-inverse;
-  margin-top: 4em;
-  height: 5em;
+.book-list-page {
+  padding-top: 4.2em;
+  height: 100vh;
+  .book-list__header {
+    background-color: $high-emphasys-inverse;
+    height: 5em;
 
-  .container {
-    display: flex;
-    align-items: center;
-    height: 100%;
-
-    .flex-container {
+    .container {
+      display: flex;
       align-items: center;
-      gap: 1.5625em;
-    }
-  }
+      height: 100%;
 
-  .book-list__btn-previous {
-    img {
+      .flex-container {
+        align-items: center;
+        gap: 1.5625em;
+      }
+    }
+
+    .book-list__btn-previous {
+      img {
         width: 16px;
         height: 19px;
+      }
+    }
+
+    .book-list__header__heading {
+      display: flex;
+      gap: 0.75em;
     }
   }
 
-  .book-list__header__heading {
-    display: flex;
-    gap: .75em;
+  .book-list__product {
+    padding: 5em 0;
+    background-color: $background;
+
+    .flex-container {
+      height: 43em;
+      gap: 2em;
+
+      .book-list__product_image {
+        flex: 1;
+        flex-basis: 40px;
+        img {
+          height: 100%;
+        }
+      }
+
+      .book-list__product-info {
+        flex: 2;
+        padding: 3em;
+        background-color: $high-emphasys-inverse;
+        border-radius: 4px;
+
+        .flex-container {
+          flex-direction: column;
+          gap: 1em;
+        }
+
+        .book-list__product__genres {
+          display: flex;
+          gap: 0.75em;
+        }
+
+        .book-list__product__author {
+          display: flex;
+          gap: 0.5em;
+        }
+
+        .book-list__product__info {
+          font-weight: $font-weight-normal;
+          font-size: $font-size-15;
+          color: $medium-emphasys;
+          line-height: $line-spacing-21;
+        }
+
+        .book-list__product__library {
+          display: flex;
+          gap: 1.875em;
+
+          li {
+           @include direction-column;
+           gap: .5em;
+          }
+        }
+
+        .book-list__product__controls {
+          display: flex;
+          gap: .75em;
+        }
+      }
+    }
+  }
+
+  .book-list__footer {
+    padding: 8.625em 0;
+
+    .book-list__footer__heading {
+      display: inline-block;
+      margin-bottom: 1px;
+      background-color: $black-10;
+      padding: 0 5px;
+    }
+
+    .book-list__footer__paragraph {
+      margin-top: 1.3125em;
+    }
+  }
+
+  .book-list__sub-footer {
+    background-color: $black-10;
+    padding: 1.875em 0;
+
+    .sub-footer__text {
+      text-align: center;
+    }
   }
 }

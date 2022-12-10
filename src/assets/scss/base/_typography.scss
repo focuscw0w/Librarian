@@ -315,3 +315,83 @@ a {
     color: $medium-emphasys;
   }
 }
+
+.book-list__product {
+  .book-list__product__genres {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-13;
+    color: $medium-emphasys;
+  }
+
+  .book-list__product__genre {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-13;
+    color: $high-emphasys;
+  }
+
+  .book-list__product__name {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-13;
+    color: $medium-emphasys;
+  }
+
+  .book-list__product__heading {
+    font-weight: $font-weight-600;
+    font-size: $font-size-26;
+    color: $high-emphasys;
+  }
+
+  .book-list__product__author {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $primary-80;
+  }
+
+  .book-list__product__next-author {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $medium-emphasys;
+  }
+
+  .book-list__product__library {
+    li {
+      font-weight: $font-weight-normal;
+      font-size: $font-size-13;
+      color: $medium-emphasys;
+    }
+
+    strong {
+      font-weight: $font-weight-normal;
+      font-size: $font-size-15;
+      color: $high-emphasys;
+    }
+  }
+
+  .book-list__product__find-book{
+    font-weight: medium;
+    font-size: $font-size-15;
+    color: $high-emphasys-inverse;
+  }
+}
+
+.book-list__footer {
+  .book-list__footer__heading {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-22;
+    color: $high-emphasys-inverse;
+  }
+  
+  .book-list__footer__paragraph {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $high-emphasys;
+  }
+}
+
+.book-list__sub-footer {
+  .sub-footer__text {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $high-emphasys-inverse;
+  }
+}

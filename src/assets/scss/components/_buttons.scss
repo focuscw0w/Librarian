@@ -132,3 +132,21 @@
   background-color: transparent;
   cursor: pointer;
 }
+
+.book-list-page {
+  .like-btn {
+    background-color: $grey-10;
+    border: none;
+    padding: 0;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.book-list__product__find-book {
+  border: none;
+  background-color: $primary;
+  border-radius: 4px;
+  padding: .8125em 1.375em;
+  cursor: pointer;
+}

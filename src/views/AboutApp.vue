@@ -95,7 +95,6 @@ export default {
     onIconAnimationEnds() {
       this.animating = false;
     },
-    closeAll() {},
   },
   created() {
     this.$emit("hideBlur");
