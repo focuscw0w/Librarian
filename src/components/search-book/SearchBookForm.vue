@@ -68,6 +68,7 @@
 </template>
 
 <script>
+import { objectExpression } from "@babel/types";
 import axios from "axios";
 import SearchBookList from "./SearchBookList.vue";
 export default {
@@ -81,6 +82,8 @@ export default {
       searchForBook: "",
       bookName: "",
       books: [],
+      creators: [],
+      test: [],
     };
   },
   watch: {
@@ -118,17 +121,13 @@ export default {
     },
   },
   async mounted() {
-    /*
-    await axios
-      .get(
-        "https://librarian.sk/api/v1/libraries?fbclid=IwAR30KArgSArjG6F1QLOaJN5b0DvG05bO7gQ0BM9SUuN0WVyuB7Kv8ex0sFE"
-      )
-      .then((response) => (this.books = response.data));
-    */
-
     await axios
       .get("https://www.librarian.sk/api/books")
       .then((response) => (this.books = response.data));
+
+    await axios
+      .get("https://www.librarian.sk/api/creators")
+      .then((response) => (this.creators = response.data));
   },
 };
 </script>

@@ -7,15 +7,15 @@
         class="product-img"
       />
       <div class="books__info">
-        <h3 class="books__name">{{ bookName }}</h3>
+        <router-link to="/zoznam-knih">
+          <h3 class="books__name">{{ bookName }}</h3>
+        </router-link>
         <!--
         <button class="books__link" @click="shareData">
           <p class="books__author">Andrzej Sapkowski</p>
         </button>
         -->
-        <router-link to="/zoznam-knih">
-          <p class="books__author">Andrzej Sapkowski</p>
-        </router-link>
+        <p class="books__author">Andrzej Sapkowski</p>
       </div>
 
       <img
@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       selectedBook: false,
-      data: []
+      data: [],
     };
   },
   watch: {
@@ -51,7 +51,7 @@ export default {
     shareData() {
       this.$router.push({
         name: "zoznam-knih",
-        params: {name: this.data}
+        params: { name: this.data },
       });
     },
   },
