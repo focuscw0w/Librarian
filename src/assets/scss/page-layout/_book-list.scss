@@ -1,7 +1,10 @@
 .book-list-page {
-  padding-top: 4.2em;
+  padding-top: 4.1em;
   height: 100vh;
   .book-list__header {
+    position: fixed;
+    z-index: 500;
+    width: 100%;
     background-color: $high-emphasys-inverse;
     height: 5em;
 
@@ -30,7 +33,7 @@
   }
 
   .book-list__product {
-    padding: 5em 0;
+    padding: 9.5em 0 5em 0;
     background-color: $background;
 
     .flex-container {
@@ -38,10 +41,16 @@
       gap: 2em;
 
       .book-list__product_image {
+        position: relative;
         flex: 1;
         flex-basis: 40px;
         img {
           height: 100%;
+        }
+
+        .fullscreen-img {
+          width: 25px;
+          height: 25px;
         }
       }
 
@@ -103,15 +112,6 @@
 
     .book-list__footer__paragraph {
       margin-top: 1.3125em;
-    }
-  }
-
-  .book-list__sub-footer {
-    background-color: $black-10;
-    padding: 1.875em 0;
-
-    .sub-footer__text {
-      text-align: center;
     }
   }
 }

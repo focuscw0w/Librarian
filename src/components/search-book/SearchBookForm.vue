@@ -128,6 +128,13 @@ export default {
     await axios
       .get("https://www.librarian.sk/api/creators")
       .then((response) => (this.creators = response.data));
+
+    /*
+    this.creators = this.creators.slice(0, 10)
+
+    let merge = {...this.creators, ...this.books}
+    console.log(merge)
+    */
   },
 };
 </script>

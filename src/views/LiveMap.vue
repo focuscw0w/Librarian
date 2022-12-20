@@ -1,13 +1,13 @@
 <template>
-  <div :class="{ blur: blurEffect || openRegister || openLogin}">
+  <div :class="{ blur: blurEffect || openRegister || openLogin }">
     <div class="map-container">
       <GMapMap
         :center="center"
         :zoom="zoom"
         map-type-id="terrain"
         style="width: 100%; height: 100vh"
-        :class="{dark: darkGoogleMap}"
-        @click=" openedInfo = false;"
+        :class="{ dark: darkGoogleMap }"
+        @click="openedInfo = false"
       >
         <GMapMarker
           :key="index"
@@ -31,15 +31,13 @@
         />
       </div>
     </div>
+    <FilterProduct v-if="activeFilterProduct" />
+    <SelectedBook
+      v-if="activeFilterProduct"
+      :bookName="bookName"
+      @hideFilterProduct="activeFilterProduct = false"
+    />
   </div>
-
-  <FilterProduct v-if="activeFilterProduct"/>
-
-  <SelectedBook
-    v-if="activeFilterProduct"
-    :bookName="bookName"
-    @hideFilterProduct="activeFilterProduct = false"
-  />
 
   <Introduction @hideBlur="blur" />
 
@@ -55,8 +53,8 @@ import FilterProduct from "../components/filter-book/FilterProduct.vue";
 import Introduction from "../components/web-introduction/Introduction.vue";
 
 export default {
-  props: ['openRegister', 'openLogin'],
-  emits: ['hideBlur', 'hideRegister'],
+  props: ["openRegister", "openLogin"],
+  emits: ["hideBlur", "hideRegister"],
   components: {
     SearchBookForm,
     SearchBookList,

@@ -13,9 +13,13 @@
     />
   </main>
 
-  <Register v-if="visibleRegister" @hideRegister="closeRegister" />
+  <transition name="show-modal">
+    <Register v-if="visibleRegister" @hideRegister="closeRegister" />
+  </transition>
 
-  <Login v-if="visibleLogin" @hideLogin="closeLogin" />
+  <transition name="show-modal">
+    <Login v-if="visibleLogin" @hideLogin="closeLogin" />
+  </transition>
 
   <div v-if="blurEffect" class="dead-background" @click="closeAll"></div>
 </template>

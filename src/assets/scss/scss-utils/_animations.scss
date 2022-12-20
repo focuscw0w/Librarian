@@ -1,23 +1,6 @@
-/*
-.slide-fade-enter-active {
-  transition: all 0.3s ease;
-}
+.slide-fade-enter-active,
 .slide-fade-leave-active {
-  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.slide-fade-enter,
-.slide-fade-leave-to {
-  transform: translateX(10px);
-  opacity: 0;
-}
-*/
-
-.slide-fade-enter-active {
   transition: all 0.3s ease-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-enter-from,
@@ -78,8 +61,8 @@ $icon-border-color: hsl(0, 0%, 10%);
   position: relative;
 
   &__icon {
-   width: 19px;
-   height: 20px;
+    width: 19px;
+    height: 20px;
 
     // Transition mainly for when un-favoriting
     transition: fill-opacity 0.2s, stroke 0.2s;
@@ -110,4 +93,31 @@ $icon-border-color: hsl(0, 0%, 10%);
     width: 3em;
     height: 3em;
   }
+}
+
+.show-modal-enter-from {
+  opacity: 0;
+  margin-top: -125px;
+}
+
+.show-modal-enter-to {
+  opacity: 1;
+  margin-top: 0px;
+}
+
+.show-modal-leave-from {
+  opacity: 1;
+  margin-top: 0px;
+}
+
+.show-modal-leave-to {
+  opacity: 0;
+  margin-top: -125px;
+}
+
+.show-modal-enter-active {
+  transition: all .3s ease-in; 
+}
+.show-modal-leave-active {
+  transition: all .2s ease-out;
 }

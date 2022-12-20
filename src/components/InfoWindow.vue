@@ -18,14 +18,16 @@
           </router-link>
           <p class="opened-p"><span class="opened">Otvorené</span>do 19:00</p>
           <p class="store-informations__address">
-            Samuela Nováka 1763, 026 01 <br />
-            Dolný Kubín
+            Samuela Nováka 1763, <br />
+            026 01, Dolný Kubín
           </p>
           <div class="store-informations__media">
             <div class="flex-container">
               <button class="book-list">Zoznam kníh</button>
               <span class="media-icon"
-                ><img :src="require('../assets/icons/location-arrow.svg')" alt="route icon"
+                ><img
+                  :src="require('../assets/icons/location-arrow.svg')"
+                  alt="route icon"
               /></span>
               <span class="media-icon" @click="toggle">
                 <AnimationIcon
@@ -77,8 +79,8 @@ export default {
     },
     onIconAnimationEnds() {
       this.animating = false;
-    }
-  }
+    },
+  },
 };
 </script>
 

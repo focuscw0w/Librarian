@@ -19,8 +19,19 @@
     <main class="book-list__product">
       <div class="container">
         <div class="flex-container">
-          <div class="book-list__product_image">
-            <img src="../assets/images/book-product.jpg" alt="book" />
+          <div
+            class="book-list__product_image"
+            @mouseover="fullScreenBtn = true"
+            @mouseleave="fullScreenBtn = false"
+          >
+            <img src="@/assets/images/book-product.jpg" alt="book" />
+            <button v-if="fullScreenBtn" type="submit" class="fullscreen-btn">
+              <img
+                src="@/assets/icons/bx-fullscreen.svg"
+                alt="see book"
+                class="fullscreen-img"
+              />
+            </button>
           </div>
           <article class="book-list__product-info">
             <div class="flex-container">
@@ -42,7 +53,7 @@
               </h3>
               <figcaption class="book-list__product__author">
                 Andrzej Sapkowski, Druhy Autor
-                <span class="book-list__product__next-author">dalsi...</span>
+                <span class="book-list__product__next-author">ďaľší...</span>
               </figcaption>
               <p class="book-list__product__info">
                 Magický rozprávač na výprave do hraničných oblastí sveta temnoty
@@ -107,20 +118,20 @@
         </p>
       </div>
     </footer>
-    <footer class="book-list__sub-footer">
-      <p class="sub-footer__text">All rights reserved</p>
-    </footer>
+    <PageFooter />
   </section>
 </template>
 
 <script>
 import AnimationIcon from "@/components/AnimationIcon.vue";
+import PageFooter from '../components/PageFooter.vue';
 export default {
-  components: { AnimationIcon },
+  components: { AnimationIcon, PageFooter },
   data() {
     return {
       favorited: false,
       animating: false,
+      fullScreenBtn: false,
     };
   },
   computed: {

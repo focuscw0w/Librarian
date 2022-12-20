@@ -51,6 +51,8 @@
 
     <router-view />
 
+    <PageFooter />
+
     <div v-if="openRegister || openLogin" class="dead-background"></div>
   </div>
 </template>
@@ -60,12 +62,13 @@ import SecondaryNavigation from "../components/SecondaryNavigation.vue";
 import News from "../components/news/News.vue";
 import Gallery from "../components/news/Gallery.vue";
 import AnimationIcon from "../components/AnimationIcon.vue";
+import PageFooter from "../components/PageFooter.vue"
 
 export default {
   props: ["openRegister", "openLogin"],
   emits: ["showContent", "hideBlur", "hideRegister"],
   name: "HomePage",
-  components: { SecondaryNavigation, News, Gallery, AnimationIcon },
+  components: { SecondaryNavigation, News, Gallery, AnimationIcon, PageFooter },
   data() {
     return {
       currentComponent: "news",

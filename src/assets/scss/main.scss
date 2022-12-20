@@ -1,36 +1,34 @@
-
-
 /* 
     IMPORTING FILES
                     */
-                    
+
 /* scss utilities */
-@import './scss-utils/variables';
-@import './scss-utils/mixins';
-@import './scss-utils/containers';
-@import './scss-utils/animations';
+@import "./scss-utils/variables";
+@import "./scss-utils/mixins";
+@import "./scss-utils/containers";
+@import "./scss-utils/animations";
 
 /* base */
-@import './base/typography';
-@import './base/reset';
+@import "./base/typography";
+@import "./base/reset";
 
 /* components */
-@import './components/buttons';
-@import './components/icons';
-@import './components/navigation';
-@import './components/secondary-navigation';
-@import './components/news';
-@import './components/news-aside';
-@import './components/searchbookform';
-@import './components/gallery';
-@import './components/infowindow';
-@import './components/filterproduct';
-@import './components/selectedbook';
-@import './components/introduction';
-@import './components/register';
-@import './components/login';
+@import "./components/buttons";
+@import "./components/icons";
+@import "./components/navigation";
+@import "./components/secondary-navigation";
+@import "./components/news";
+@import "./components/news-aside";
+@import "./components/searchbookform";
+@import "./components/gallery";
+@import "./components/infowindow";
+@import "./components/filterproduct";
+@import "./components/selectedbook";
+@import "./components/introduction";
+@import "./components/register";
+@import "./components/login";
+@import "./components/page-footer";
 
 /* page layout */
-@import './page-layout/home-page';
-@import './page-layout/book-list';
-
+@import "./page-layout/home-page";
+@import "./page-layout/book-list";
