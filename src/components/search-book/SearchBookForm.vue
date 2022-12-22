@@ -28,6 +28,8 @@
             alt="arrow icon"
           />
         </a>
+
+    
       </div>
 
       <div v-if="showDropDown" class="sub-menu">
@@ -68,7 +70,6 @@
 </template>
 
 <script>
-import { objectExpression } from "@babel/types";
 import axios from "axios";
 import SearchBookList from "./SearchBookList.vue";
 export default {

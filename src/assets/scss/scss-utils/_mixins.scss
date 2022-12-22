@@ -41,7 +41,7 @@
 @mixin user-access {
   position: absolute;
   z-index: 9999;
-  top: 20%;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
   border-radius: $border-radius;

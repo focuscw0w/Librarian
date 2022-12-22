@@ -14,12 +14,16 @@
             tag="h4"
             class="store-informations__heading"
             to="/details"
-            >Oravská knižnica Antóna Habovštiaka
+          >
+            Oravská knižnica Antóna Habovštiaka
           </router-link>
-          <p class="opened-p"><span class="opened">Otvorené</span>do 19:00</p>
+          <p class="opened-p">
+            <span class="opened">{{ libraryStatus }}</span
+            >do {{ libraryTime }}
+          </p>
           <p class="store-informations__address">
-            Samuela Nováka 1763, <br />
-            026 01, Dolný Kubín
+            {{ libraryName }} {{ libraryHouseNumber }}, <br />
+            {{ libraryPostCode }}, {{ libraryCity }}
           </p>
           <div class="store-informations__media">
             <div class="flex-container">
@@ -35,14 +39,6 @@
                   :class="iconClasses"
                   @animationend="onIconAnimationEnds"
                 />
-                <!--
-                  <transition name="favorite-particles-transition">
-                    <div
-                      v-if="animating"
-                      class="toggle-favorite__particles"
-                    ></div>
-                  </transition>
-                -->
               </span>
             </div>
           </div>
@@ -55,6 +51,16 @@
 <script>
 import AnimationIcon from "./AnimationIcon.vue";
 export default {
+  props: [
+    "id",
+    "libraryName",
+    "libraryCity",
+    "libraryPostCode",
+    "libraryHouseNumber",
+    "libraryTimeDirection",
+    "libraryTime",
+    "libraryStatus",
+  ],
   components: { AnimationIcon },
   data() {
     return {

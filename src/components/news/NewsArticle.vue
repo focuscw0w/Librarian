@@ -7,9 +7,7 @@
       </header>
 
       <a class="news__article__settings" href="#"
-        ><img
-          :src="require('@/assets/icons/ellipsis.svg')"
-          alt="settings icon"
+        ><img :src="require('@/assets/icons/ellipsis.svg')" alt="settings icon"
       /></a>
     </div>
 

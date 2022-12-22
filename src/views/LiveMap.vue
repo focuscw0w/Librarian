@@ -7,18 +7,26 @@
         map-type-id="terrain"
         style="width: 100%; height: 100vh"
         :class="{ dark: darkGoogleMap }"
-        @click="openedInfo = false"
+        @click="currentLibrary = null"
       >
         <GMapMarker
           :key="index"
-          v-for="(m, index) in markers"
-          :position="m.position"
+          v-for="(m, index) in libraryLocation"
+          :position="m"
           :clickable="true"
-          :draggable="true"
-          @click="showStore"
+          @click="showStore(index)"
         >
-          <GMapInfoWindow :opened="openedInfo">
-            <InfoWindow />
+          <GMapInfoWindow :opened="currentLibrary === index">
+            <InfoWindow
+              :id="index"
+              :libraryName="m.libraryName"
+              :libraryCity="m.libraryCity"
+              :libraryPostCode="m.libraryPostCode"
+              :libraryHouseNumber="m.libraryHouseNumber"
+              :libraryTimeDirection="m.libraryTimeDirection"
+              :libraryTime="m.libraryTime"
+              :libraryStatus="m.libraryStatus"
+            />
           </GMapInfoWindow>
         </GMapMarker>
       </GMapMap>
@@ -31,7 +39,9 @@
         />
       </div>
     </div>
+
     <FilterProduct v-if="activeFilterProduct" />
+
     <SelectedBook
       v-if="activeFilterProduct"
       :bookName="bookName"
@@ -51,6 +61,7 @@ import SelectedBook from "../components/filter-book/SelectedBook.vue";
 import InfoWindow from "../components/InfoWindow.vue";
 import FilterProduct from "../components/filter-book/FilterProduct.vue";
 import Introduction from "../components/web-introduction/Introduction.vue";
+import axios from "axios";
 
 export default {
   props: ["openRegister", "openLogin"],
@@ -65,6 +76,9 @@ export default {
   },
   data() {
     return {
+      currentLibrary: null,
+      libraries: [],
+      libraryLocation: [],
       bookName: "",
       showBook: null,
       hideFilterProduct: null,
@@ -75,14 +89,6 @@ export default {
       activeFilterProduct: false,
       zoom: 11,
       center: { lat: 49.219631, lng: 18.74222 },
-      markers: [
-        {
-          position: {
-            lat: 0,
-            lng: 0,
-          },
-        },
-      ],
       iconSettings: {
         url: require("../assets/icons/bx-book-open.svg"),
       },
@@ -112,24 +118,35 @@ export default {
     getAddressFrom(lat, long) {
       this.center.lat = lat;
       this.center.lng = long;
-
       this.zoom = 12;
-
-      let marker = this.markers[0].position;
-      marker.lat = lat;
-      marker.lng = long;
     },
-    showStore() {
-      this.openedInfo = !this.openedInfo;
+    showStore(id) {
+      this.currentLibrary = id;
     },
     blur() {
       this.$emit("hideBlur");
       this.blurEffect = false;
     },
   },
-  created() {
+  async created() {
     this.blurEffect =
       localStorage.getItem("activeIntroduction") == null ? true : false;
+
+    await axios
+      .get("https://api.librarian.sk/api/libraries")
+      .then((response) => (this.libraries = response.data));
+
+    this.libraryLocation = this.libraries.map((library) => ({
+      id: library.id,
+      libraryName: library.name,
+      libraryCity: library.city,
+      libraryPostCode: library.post_code,
+      libraryHouseNumber: library.house_number,
+      libraryTime: library.todayBusinessHoursStatusMarginTime,
+      libraryStatus: library.todayBusinessHoursStatus,
+      lat: parseFloat(library.lat),
+      lng: parseFloat(library.long),
+    }));
   },
   mounted() {
     this.getCurrentPosition();
