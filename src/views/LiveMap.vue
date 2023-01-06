@@ -2,8 +2,14 @@
   <div :class="{ blur: blurEffect || openRegister || openLogin }">
     <div class="map-container">
       <GMapMap
+        ref="myMapRef"
         :center="center"
+        :maxZoom="10"
         :zoom="zoom"
+        :restriction="{
+          latLngBounds: slovakiaBounds,
+          strictBounds: false
+        }"
         map-type-id="terrain"
         style="width: 100%; height: 100vh"
         :class="{ dark: darkGoogleMap }"
@@ -76,9 +82,10 @@ export default {
   },
   data() {
     return {
-      currentLibrary: null,
       libraries: [],
       libraryLocation: [],
+      map: null,
+      currentLibrary: null,
       bookName: "",
       showBook: null,
       hideFilterProduct: null,
@@ -87,10 +94,16 @@ export default {
       close: false,
       openedInfo: false,
       activeFilterProduct: false,
-      zoom: 11,
+      zoom: 10,
       center: { lat: 49.219631, lng: 18.74222 },
       iconSettings: {
         url: require("../assets/icons/bx-book-open.svg"),
+      },
+      slovakiaBounds: {
+        north: 49.87026137082037,
+        south: 47.65664527385194,
+        east: 23.590802234193244,
+        west: 16.313703742420486,
       },
     };
   },
@@ -127,6 +140,24 @@ export default {
       this.$emit("hideBlur");
       this.blurEffect = false;
     },
+    bounds() {
+      return false
+    }
+  },
+  computed: {
+    mapCoordinates() {
+      if (!this.map) {
+        return {
+          lat: 0,
+          lng: 0,
+        };
+      }
+
+      return {
+        lat: this.test,
+        lng: this.map.getCenter().lng(),
+      };
+    },
   },
   async created() {
     this.blurEffect =
@@ -150,6 +181,9 @@ export default {
   },
   mounted() {
     this.getCurrentPosition();
+    this.$refs.myMapRef.$mapPromise.then((mapObject) => {
+      this.map = mapObject;
+    });
   },
 };
 </script>

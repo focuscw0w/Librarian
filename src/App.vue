@@ -13,6 +13,8 @@
     />
   </main>
 
+  <!-- try to use transition-group -->
+
   <transition name="show-modal">
     <Register v-if="visibleRegister" @hideRegister="closeRegister" />
   </transition>
