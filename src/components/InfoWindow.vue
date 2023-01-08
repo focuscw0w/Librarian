@@ -15,14 +15,14 @@
             class="store-informations__heading"
             to="/details"
           >
-            Oravská knižnica Antóna Habovštiaka
+          {{ libraryName }}
           </router-link>
           <p class="opened-p">
             <span class="opened">{{ libraryStatus }}</span
             >do {{ libraryTime }}
           </p>
           <p class="store-informations__address">
-            {{ libraryName }} {{ libraryHouseNumber }}, <br />
+            {{ libraryStreet }} {{ libraryHouseNumber }}, <br />
             {{ libraryPostCode }}, {{ libraryCity }}
           </p>
           <div class="store-informations__media">
@@ -55,6 +55,7 @@ export default {
     "id",
     "libraryName",
     "libraryCity",
+    "libraryStreet",
     "libraryPostCode",
     "libraryHouseNumber",
     "libraryTimeDirection",

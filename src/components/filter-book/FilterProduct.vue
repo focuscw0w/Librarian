@@ -28,7 +28,24 @@
               :src="require('@/assets/icons/angle-down.svg')"
               alt="arrow icon"
               class="drop-down-icon"
+              @click="dropDown"
             />
+           
+            <div class="dropdown">
+              <div
+                v-if="showDropDown"
+                class="dropdown-menu"
+                id="dropdown-menu3"
+                role="menu"
+              >
+                <div class="dropdown-content">
+                  <a href="#" class="dropdown-item"> 10km </a>
+                  <a href="#" class="dropdown-item"> 25km </a>
+                  <a href="#" class="dropdown-item"> 50km </a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </span>
       </div>
@@ -179,11 +196,17 @@ export default {
     return {
       checkedInputs: [],
       visibleFilterButton: false,
+      showDropDown: false,
     };
   },
   watch: {
     checkedInputs() {
       this.visibleFilterButton = this.checkedInputs.length == 0 ? false : true;
+    },
+  },
+  methods: {
+    dropDown() {
+      this.showDropDown = !this.showDropDown;
     },
   },
 };

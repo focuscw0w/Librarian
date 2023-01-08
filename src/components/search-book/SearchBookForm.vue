@@ -19,7 +19,7 @@
           />
         </div>
 
-        <a href="#" class="drop-down flex-container" @click="dropDown">
+        <a href="#" class="drop-down flex-container dropdown" @click="dropDown">
           <span class="split"></span>
           Knihy
           <img
@@ -29,17 +29,20 @@
           />
         </a>
 
-    
-      </div>
+        <!-- spraviť komponent -->
 
-      <div v-if="showDropDown" class="sub-menu">
-        <ul class="sub-menu__ul">
-          <li><a href="#">Knižnice</a></li>
-          <li><a href="#">Autori</a></li>
-        </ul>
+        <div class="dropdown">
+          <div v-if="showDropDown" class="dropdown-menu" id="dropdown-menu3" role="menu">
+            <div class="dropdown-content">
+              <a href="#" class="dropdown-item"> Knihy </a>
+              <a href="#" class="dropdown-item"> Knižnice </a>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </article>
-  </div>
+  </article>
+</div>
 
   <div v-if="this.searchForBook != '' && visibleBlookList" class="books">
     <ul

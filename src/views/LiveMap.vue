@@ -27,6 +27,7 @@
               :id="index"
               :libraryName="m.libraryName"
               :libraryCity="m.libraryCity"
+              :libraryStreet="m.libraryStreet"
               :libraryPostCode="m.libraryPostCode"
               :libraryHouseNumber="m.libraryHouseNumber"
               :libraryTimeDirection="m.libraryTimeDirection"
@@ -140,9 +141,6 @@ export default {
       this.$emit("hideBlur");
       this.blurEffect = false;
     },
-    bounds() {
-      return false
-    }
   },
   computed: {
     mapCoordinates() {
@@ -171,6 +169,7 @@ export default {
       id: library.id,
       libraryName: library.name,
       libraryCity: library.city,
+      libraryStreet: library.street,
       libraryPostCode: library.post_code,
       libraryHouseNumber: library.house_number,
       libraryTime: library.todayBusinessHoursStatusMarginTime,

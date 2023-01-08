@@ -48,7 +48,12 @@
       .flex-container {
         flex-direction: row;
         justify-content: flex-start;
+        align-items: center;
         gap: 0.5em;
+      }
+
+      .media-icon {
+        height: 100%;
       }
     }
   }

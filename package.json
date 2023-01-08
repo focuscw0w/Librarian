@@ -9,6 +9,7 @@
   "dependencies": {
     "@fawmi/vue-google-maps": "^0.9.79",
     "axios": "^0.27.2",
+    "bulma": "^0.9.4",
     "mitt": "^3.0.0",
     "swiper": "^8.4.4",
     "vue": "^3.2.13",
