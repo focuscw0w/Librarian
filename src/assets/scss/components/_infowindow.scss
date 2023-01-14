@@ -41,7 +41,7 @@
 
     .flex-container {
       @include direction-column;
-      gap: 1.2em;
+      gap: .75em;
     }
 
     .store-informations__media {

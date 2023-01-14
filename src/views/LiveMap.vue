@@ -20,6 +20,7 @@
           v-for="(m, index) in libraryLocation"
           :position="m"
           :clickable="true"
+          :icon="iconSettings"
           @click="showStore(index)"
         >
           <GMapInfoWindow :opened="currentLibrary === index">
@@ -98,7 +99,7 @@ export default {
       zoom: 10,
       center: { lat: 49.219631, lng: 18.74222 },
       iconSettings: {
-        url: require("../assets/icons/bx-book-open.svg"),
+        url: require("../assets/icons/Point_book.png"),
       },
       slovakiaBounds: {
         north: 49.87026137082037,
@@ -183,21 +184,8 @@ export default {
     this.$refs.myMapRef.$mapPromise.then((mapObject) => {
       this.map = mapObject;
     });
+
+    // dokončiť štýl iconky po kliknutí -> toggle icon source 
   },
 };
 </script>
-
-<style lang="scss">
-@import "../assets/scss/main.scss";
-.blur {
-  filter: blur(5px);
-}
-.dead-background {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 500;
-}
-</style>

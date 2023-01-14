@@ -56,6 +56,17 @@
     }
   }
 
+  .filter-split__type {
+    label {
+      cursor: pointer;
+
+      &::selection {
+        color: none;
+        background-color: none;
+      }
+    }
+  }
+
   .filter-split__type.flex-container {
     justify-content: flex-start;
     align-items: center;

@@ -31,20 +31,7 @@
               @click="dropDown"
             />
            
-            <div class="dropdown">
-              <div
-                v-if="showDropDown"
-                class="dropdown-menu"
-                id="dropdown-menu3"
-                role="menu"
-              >
-                <div class="dropdown-content">
-                  <a href="#" class="dropdown-item"> 10km </a>
-                  <a href="#" class="dropdown-item"> 25km </a>
-                  <a href="#" class="dropdown-item"> 50km </a>
-                </div>
-              </div>
-            </div>
+           <DropDown v-if="showDropDown" :dropDownItems="dropDownContent" />
 
           </div>
         </span>
@@ -58,9 +45,10 @@
           <div class="filter-split__type flex-container">
             <label class="label">
               <input
-                value="academic"
                 type="checkbox"
+                value="academic"
                 name="academic"
+                id="academic"
                 v-model="checkedInputs"
               />
               <span class="checkmark"></span>
@@ -70,9 +58,10 @@
           <div class="filter-split__type flex-container">
             <label class="label">
               <input
-                value="corporate"
                 type="checkbox"
+                value="corporate"
                 name="corporate"
+                id="corporate"
                 v-model="checkedInputs"
               />
               <span class="checkmark"></span>
@@ -82,23 +71,25 @@
           <div class="filter-split__type flex-container">
             <label class="label">
               <input
-                value="country"
                 type="checkbox"
-                name="regional"
+                value="country"
+                name="country"
+                id="country"
                 v-model="checkedInputs"
               />
               <span class="checkmark"></span>
             </label>
-            <label for="regional">Krajská</label>
+            <label for="country">Krajská</label>
           </div>
         </div>
         <div class="right">
           <div class="filter-split__type flex-container">
             <label class="label">
               <input
-                value="communal"
                 type="checkbox"
+                value="communal"
                 name="communal"
+                id="communal"
                 v-model="checkedInputs"
               />
               <span class="checkmark"></span>
@@ -108,9 +99,10 @@
           <div class="filter-split__type flex-container">
             <label class="label">
               <input
-                value="regional"
                 type="checkbox"
+                value="regional"
                 name="regional"
+                id="regional"
                 v-model="checkedInputs"
               />
               <span class="checkmark"></span>
@@ -128,9 +120,10 @@
           <div class="filter-split__type flex-container">
             <label class="label">
               <input
-                value="wifi"
                 type="checkbox"
+                value="wifi"
                 name="wifi"
+                id="wifi"
                 v-model="checkedInputs"
               />
               <span class="checkmark"></span>
@@ -140,9 +133,10 @@
           <div class="filter-split__type flex-container">
             <label class="label">
               <input
-                value="printer"
                 type="checkbox"
+                value="printer"
                 name="printer"
+                id="printer"
                 v-model="checkedInputs"
               />
               <span class="checkmark"></span>
@@ -154,9 +148,10 @@
           <div class="filter-split__type flex-container">
             <label class="label">
               <input
-                value="cafe"
                 type="checkbox"
+                value="cafe"
                 name="cafe"
+                id="cafe"
                 v-model="checkedInputs"
               />
               <span class="checkmark"></span>
@@ -166,9 +161,10 @@
           <div class="filter-split__type flex-container">
             <label class="label">
               <input
-                value="access"
                 type="checkbox"
+                value="access"
                 name="access"
+                id="access"
                 v-model="checkedInputs"
               />
               <span class="checkmark"></span>
@@ -191,10 +187,13 @@
 </template>
 
 <script>
+import DropDown from "../DropDown.vue";
 export default {
+  components: { DropDown },
   data() {
     return {
       checkedInputs: [],
+      dropDownContent: [{ content: "10km"},{content: "20km"}, {content:"50km"}],
       visibleFilterButton: false,
       showDropDown: false,
     };
@@ -212,6 +211,3 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "@/assets/scss/main.scss";
-</style>

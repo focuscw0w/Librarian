@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
 
 body {
-  font-family: $font-family;
+  font-family: $font-family!important;
 }
 
 a {
@@ -49,7 +49,7 @@ a {
 .news__article {
   .article-heading {
     font-size: $font-size-15;
-    font-weight: $font-weight-medium;
+    font-weight: normal;
     color: $high-emphasys;
   }
 
@@ -118,6 +118,7 @@ a {
 
 .search-article {
   #search-book {
+    font-family: $font-family;
     font-size: $font-size-15;
   }
 
@@ -141,6 +142,7 @@ a {
 .info-window {
   .store-informations {
     .store-informations__heading {
+      font-family: $font-family;
       font-size: $font-size-17;
       font-weight: $font-weight-bold;
       color: $high-emphasys;
@@ -187,6 +189,7 @@ a {
   }
 
   input[name="place"] {
+    font-family: $font-family;
     font-weight: $font-weight-normal;
     font-size: $font-size-15;
     color: $low-emphasys;
@@ -219,6 +222,7 @@ a {
 }
 
 .filter-book {
+  font-family: $font-family;
   font-size: $font-size-15;
   color: $high-emphasys-inverse;
 }
@@ -264,6 +268,7 @@ a {
 }
 
 .login-btn {
+  font-family: $font-family;
   font-weight: $font-weight-normal;
   font-size: $font-size-15;
   color: $high-emphasys-inverse;
@@ -277,6 +282,7 @@ a {
 
 .register {
   .integration__btn {
+    font-family: $font-family;
     font-weight: $font-weight-bold;
     font-size: $font-size-15;
     color: $high-emphasys;

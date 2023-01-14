@@ -29,20 +29,10 @@
           />
         </a>
 
-        <!-- spraviť komponent -->
-
-        <div class="dropdown">
-          <div v-if="showDropDown" class="dropdown-menu" id="dropdown-menu3" role="menu">
-            <div class="dropdown-content">
-              <a href="#" class="dropdown-item"> Knihy </a>
-              <a href="#" class="dropdown-item"> Knižnice </a>
-            </div>
-          </div>
-        </div>
-
+        <DropDown v-if="showDropDown" :dropDownItems="dropDownContent" />
       </div>
-  </article>
-</div>
+    </article>
+  </div>
 
   <div v-if="this.searchForBook != '' && visibleBlookList" class="books">
     <ul
@@ -75,8 +65,9 @@
 <script>
 import axios from "axios";
 import SearchBookList from "./SearchBookList.vue";
+import DropDown from "../DropDown.vue";
 export default {
-  components: { SearchBookList },
+  components: { SearchBookList, DropDown },
   emits: ["addBook", "activeFilterProduct", "darkGoogleMap"],
   data() {
     return {
@@ -88,6 +79,7 @@ export default {
       books: [],
       creators: [],
       test: [],
+      dropDownContent: [{ content: "Knihy"},{content: "Knižnice"}],
     };
   },
   watch: {

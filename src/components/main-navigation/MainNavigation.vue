@@ -56,10 +56,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-@import "@/assets/scss/main.scss";
-.blur {
-  filter: blur(5px) !important;
-}
-</style>

@@ -75,17 +75,4 @@ export default {
 
 <style lang="scss">
 @import "./assets/scss/main.scss";
-.blur {
-  filter: blur(5px);
-  max-height: 100vh;
-  overflow-y: hidden;
-}
-.dead-background {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 500;
-}
 </style>

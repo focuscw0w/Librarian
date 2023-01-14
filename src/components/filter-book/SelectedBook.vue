@@ -1,11 +1,13 @@
 <template>
   <article class="selected-book">
     <div class="flex-container">
-      <img
-        :src="require('@/assets/images/book-product.jpg')"
-        alt="book"
-        class="product-img"
-      />
+      <router-link to="/zoznam-knih">
+        <img
+          :src="require('@/assets/images/book-product.jpg')"
+          alt="book"
+          class="product-img"
+        />
+      </router-link>
       <div class="books__info">
         <router-link to="/zoznam-knih">
           <h3 class="books__name">{{ bookName }}</h3>
@@ -58,6 +60,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "@/assets/scss/main.scss";
-</style>
+
