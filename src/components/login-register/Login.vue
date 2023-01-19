@@ -18,11 +18,25 @@
           </figcaption>
           <div class="user-access__get-in">
             <div class="user-access__get-in__box">
-              <label for="username">Username</label>
+              <label for="username">
+                Username
+                <img
+                  src="@/assets/icons/bxs-star.svg"
+                  alt="required"
+                  class="required-symbol"
+                />
+              </label>
               <input type="text" name="username" />
             </div>
             <div class="user-access__get-in__box">
-              <label for="password">Password</label>
+              <label for="password">
+                Password
+                <img
+                  src="@/assets/icons/bxs-star.svg"
+                  alt="required"
+                  class="required-symbol"
+                />
+              </label>
               <input :type="type" name="password" />
               <img
                 :src="require('@/assets/icons/eye.svg')"
@@ -33,8 +47,9 @@
             </div>
           </div>
           <div class="login__interface__stay-logged-ing">
-            <label for="logged-in">
-              <input type="checkbox" name="logged-in" />
+            <label for="logged-in" class="label">
+              <input type="checkbox" name="logged-in" id="logged-in" />
+              <span class="checkmark"></span>
               Ostať prihlásený
             </label>
             <a class="forgotten-password">Zabudnuté heslo?</a>
@@ -92,4 +107,3 @@ export default {
   },
 };
 </script>
-

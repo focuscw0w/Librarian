@@ -18,7 +18,8 @@
     "vue-carousel": "^0.18.0",
     "vue-lazyload": "^3.0.0-rc.2",
     "vue-router": "^4.0.3",
-    "vue-snap": "^1.0.0-alpha.5"
+    "vue-snap": "^1.0.0-alpha.5",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",

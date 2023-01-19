@@ -19,14 +19,16 @@
           />
         </div>
 
-        <a href="#" class="drop-down flex-container dropdown" @click="dropDown">
+        <a href="#" class="drop-down flex-container dropdown">
           <span class="split"></span>
-          Knihy
-          <img
+          <p @click="dropDown">
+            Knihy
+            <img
             class="drop-down-icon"
             :src="require('@/assets/icons/angle-down.svg')"
             alt="arrow icon"
-          />
+            />
+          </p>
         </a>
 
         <DropDown v-if="showDropDown" :dropDownItems="dropDownContent" />
@@ -134,7 +136,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-@import "@/assets/scss/main.scss";
-</style>

@@ -31,12 +31,7 @@
                     @animationend="onIconAnimationEnds"
                   />
                 </button>
-
-                <!--
-                <button class="save-btn">
-                  <img src="../assets/icons/bookmark.svg" alt="save button" />
-                </button>
-              --></div>
+              </div>
             </div>
           </div>
         </article>
@@ -62,7 +57,7 @@ import SecondaryNavigation from "../components/SecondaryNavigation.vue";
 import News from "../components/news/News.vue";
 import Gallery from "../components/news/Gallery.vue";
 import AnimationIcon from "../components/AnimationIcon.vue";
-import PageFooter from "../components/PageFooter.vue"
+import PageFooter from "../components/PageFooter.vue";
 
 export default {
   props: ["openRegister", "openLogin"],

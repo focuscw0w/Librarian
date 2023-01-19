@@ -22,8 +22,8 @@
             >do {{ libraryTime }}
           </p>
           <p class="store-informations__address">
-            {{ libraryStreet }} {{ libraryHouseNumber }}, <br />
-            {{ libraryPostCode }}, {{ libraryCity }}
+            {{ libraryStreet }} {{ libraryHouseNumber }} <br />
+            {{ libraryPostCode }} {{ libraryCity }}
           </p>
           <div class="store-informations__media">
             <div class="flex-container">
