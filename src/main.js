@@ -5,6 +5,7 @@ import VueGoogleMaps from "@fawmi/vue-google-maps";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import VueLazyload from "vue-lazyload";
+import Store from "./store/store";
 
 createApp(App)
   .use(router)
@@ -16,4 +17,5 @@ createApp(App)
   })
   .use(VueLazyload)
   .use(VueAxios, axios)
+  .use(Store)
   .mount("#app");

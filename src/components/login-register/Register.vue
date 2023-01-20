@@ -23,7 +23,7 @@
           <div class="user-access__get-in">
             <div class="user-access__get-in__box">
               <label for="username">
-                Username
+                Meno používateľa
                 <img
                   src="@/assets/icons/bxs-star.svg"
                   alt="required"
@@ -45,7 +45,7 @@
             </div>
             <div class="user-access__get-in__box">
               <label for="password">
-                Password
+                Heslo
                 <img
                   src="@/assets/icons/bxs-star.svg"
                   alt="required"

@@ -19,7 +19,7 @@
           <div class="user-access__get-in">
             <div class="user-access__get-in__box">
               <label for="username">
-                Username
+                Meno používateľa
                 <img
                   src="@/assets/icons/bxs-star.svg"
                   alt="required"
@@ -30,7 +30,7 @@
             </div>
             <div class="user-access__get-in__box">
               <label for="password">
-                Password
+                Heslo
                 <img
                   src="@/assets/icons/bxs-star.svg"
                   alt="required"
@@ -76,7 +76,7 @@
             </a>
           </div>
           <p class="user-access__paragraph">Nemáte registráciu?</p>
-          <CreateAccount />
+          <CreateAccount @click="$emit('createAccount')" />
         </div>
       </div>
       <div class="login__illustration">
@@ -93,7 +93,7 @@
 import LoginBtn from "./LoginBtn.vue";
 import CreateAccount from "./CreateAccount.vue";
 export default {
-  emits: ["hideLogin"],
+  emits: ["hideLogin", "createAccount"],
   components: { LoginBtn, CreateAccount },
   data() {
     return {

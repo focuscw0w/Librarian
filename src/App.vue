@@ -20,7 +20,7 @@
   </transition>
 
   <transition name="show-modal">
-    <Login v-if="visibleLogin" @hideLogin="closeLogin" />
+    <Login v-if="visibleLogin" @hideLogin="closeLogin" @createAccount="createAccount" />
   </transition>
 
   <div v-if="blurEffect" class="dead-background" @click="closeAll"></div>
@@ -65,6 +65,10 @@ export default {
       this.visibleLogin = false;
       this.blurEffect = false;
     },
+    createAccount() {
+      this.visibleLogin = false;
+      this.visibleRegister = true;
+    }
   },
   created() {
     this.blurEffect =

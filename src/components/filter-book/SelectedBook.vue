@@ -10,7 +10,7 @@
       </router-link>
       <div class="books__info">
         <router-link to="/zoznam-knih">
-          <h3 class="books__name">{{ bookName }}</h3>
+          <h3 class="books__name" @click="$store.commit('CURRENT_BOOK', bookName)">{{ bookName }}</h3>
         </router-link>
         <!--
         <button class="books__link" @click="shareData">

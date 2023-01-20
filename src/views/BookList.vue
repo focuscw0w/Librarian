@@ -10,7 +10,8 @@
           <h4 class="book-list__heading">
             <strong class="book-list__page-name">Zoznam kníh</strong> /
             <span class="book-list__book-name">
-              Zaklínač IV.: Čas opovrhnutia
+              <!--  Zaklínač IV.: Čas opovrhnutia  -->
+              {{ $store.state.currentBook }}
             </span>
           </h4>
         </div>
@@ -45,11 +46,11 @@
                 <strong class="book-list__product__genre">Fantasy</strong>
                 /
                 <span class="book-list__product__name"
-                  >Zaklínač IV: Čas opovrhnutia</span
+                  >{{$store.state.currentBook}}</span
                 >
               </h5>
               <h3 class="book-list__product__heading">
-                Zaklínač IV.: Čas opovrhnutia
+                {{$store.state.currentBook}}
               </h3>
               <figcaption class="book-list__product__author">
                 Andrzej Sapkowski, Druhy Autor
@@ -124,7 +125,7 @@
 
 <script>
 import AnimationIcon from "@/components/AnimationIcon.vue";
-import PageFooter from '../components/PageFooter.vue';
+import PageFooter from "../components/PageFooter.vue";
 export default {
   components: { AnimationIcon, PageFooter },
   data() {
@@ -156,4 +157,3 @@ export default {
   },
 };
 </script>
-
