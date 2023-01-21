@@ -98,7 +98,7 @@ export default {
       this.showDropDown = !this.showDropDown;
     },
     addBook(book) {
-      this.$emit("addBook", book.name);
+      this.$emit("addBook", book);
       this.$emit("activeFilterProduct");
       this.$emit("darkGoogleMap", false);
 

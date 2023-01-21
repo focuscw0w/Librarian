@@ -28,7 +28,7 @@
                   class="navigation-icon"
               /></a>
             </li>
-            <router-link to="/details">O aplikácii</router-link>
+            <router-link to="/kniznica/oravska-kniznica-antona-habovstiaka">O aplikácii</router-link>
           </ul>
         </nav>
       </div>

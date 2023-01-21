@@ -20,8 +20,10 @@
           v-for="(m, index) in libraryLocation"
           :position="m"
           :clickable="true"
-          :icon="iconSettings"
+          :icon="m.icon"
           @click="showStore(index)"
+          @mouseover="this.libraryLocation[index].icon = require('../assets/icons/Point_book_active.png')"
+          @mouseleave="this.libraryLocation[index].icon = require('../assets/icons/Point_book.png')"
         >
           <GMapInfoWindow :opened="currentLibrary === index">
             <InfoWindow
@@ -41,7 +43,7 @@
 
       <div class="search-wrapper">
         <SearchBookForm
-          @addBook="bookName = $event"
+          @addBook="book = $event"
           @activeFilterProduct="activeFilterProduct = true"
           @darkGoogleMap="darkGoogleMap = $event"
         />
@@ -52,7 +54,7 @@
 
     <SelectedBook
       v-if="activeFilterProduct"
-      :bookName="bookName"
+      :bookData="book"
       @hideFilterProduct="activeFilterProduct = false"
     />
   </div>
@@ -86,9 +88,9 @@ export default {
     return {
       libraries: [],
       libraryLocation: [],
+      book: {},
       map: null,
       currentLibrary: null,
-      bookName: "",
       showBook: null,
       hideFilterProduct: null,
       blurEffect: true,
@@ -98,9 +100,6 @@ export default {
       activeFilterProduct: false,
       zoom: 10,
       center: { lat: 49.219631, lng: 18.74222 },
-      iconSettings: {
-        url: require("../assets/icons/Point_book.png"),
-      },
       slovakiaBounds: {
         north: 49.87026137082037,
         south: 47.65664527385194,
@@ -143,21 +142,6 @@ export default {
       this.blurEffect = false;
     },
   },
-  computed: {
-    mapCoordinates() {
-      if (!this.map) {
-        return {
-          lat: 0,
-          lng: 0,
-        };
-      }
-
-      return {
-        lat: this.test,
-        lng: this.map.getCenter().lng(),
-      };
-    },
-  },
   async created() {
     this.blurEffect =
       localStorage.getItem("activeIntroduction") == null ? true : false;
@@ -177,13 +161,11 @@ export default {
       libraryStatus: library.todayBusinessHoursStatus,
       lat: parseFloat(library.lat),
       lng: parseFloat(library.long),
+      icon: require("../assets/icons/Point_book.png"),
     }));
   },
   mounted() {
     this.getCurrentPosition();
-    this.$refs.myMapRef.$mapPromise.then((mapObject) => {
-      this.map = mapObject;
-    });
 
     // dokončiť štýl iconky po kliknutí -> toggle icon source 
   },

@@ -1,7 +1,7 @@
 <template>
   <article class="selected-book">
     <div class="flex-container">
-      <router-link to="/zoznam-knih">
+      <router-link :to="`/kniha/${bookData.slug}`">
         <img
           :src="require('@/assets/images/book-product.jpg')"
           alt="book"
@@ -9,8 +9,8 @@
         />
       </router-link>
       <div class="books__info">
-        <router-link to="/zoznam-knih">
-          <h3 class="books__name" @click="$store.commit('CURRENT_BOOK', bookName)">{{ bookName }}</h3>
+        <router-link :to="`/kniha/${bookData.slug}`">
+          <h3 class="books__name" @click="$store.commit('CURRENT_BOOK', bookData)">{{ bookData.name }}</h3>
         </router-link>
         <!--
         <button class="books__link" @click="shareData">
@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  props: ["bookName"],
+  props: ["bookData"],
   emits: ["hideFilterProduct"],
   data() {
     return {
@@ -49,12 +49,6 @@ export default {
     hideFilterProduct() {
       this.selectedBook = false;
       this.$emit("hideFilterProduct");
-    },
-    shareData() {
-      this.$router.push({
-        name: "zoznam-knih",
-        params: { name: this.data },
-      });
     },
   },
 };

@@ -10,12 +10,12 @@ const routes = [
     component: LiveMap,
   },
   {
-    path: "/details",
+    path: "/kniznica/oravska-kniznica-antona-habovstiaka",
     name: "details",
     component: AboutApp,
   },
   {
-    path: "/zoznam-knih",
+    path: "/kniha/:slug",
     name: "zoznam-knih",
     props: true,
     component: BookList,

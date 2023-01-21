@@ -11,7 +11,7 @@
             <strong class="book-list__page-name">Zoznam kníh</strong> /
             <span class="book-list__book-name">
               <!--  Zaklínač IV.: Čas opovrhnutia  -->
-              {{ $store.state.currentBook }}
+              {{ $store.state.currentBook.name }}
             </span>
           </h4>
         </div>
@@ -46,11 +46,11 @@
                 <strong class="book-list__product__genre">Fantasy</strong>
                 /
                 <span class="book-list__product__name"
-                  >{{$store.state.currentBook}}</span
+                  >{{$store.state.currentBook.name}}</span
                 >
               </h5>
               <h3 class="book-list__product__heading">
-                {{$store.state.currentBook}}
+                {{$store.state.currentBook.name}}
               </h3>
               <figcaption class="book-list__product__author">
                 Andrzej Sapkowski, Druhy Autor

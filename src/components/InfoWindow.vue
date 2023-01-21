@@ -13,7 +13,7 @@
           <router-link
             tag="h4"
             class="store-informations__heading"
-            to="/details"
+            to="/kniznica/oravska-kniznica-antona-habovstiaka"
           >
           {{ libraryName }}
           </router-link>
