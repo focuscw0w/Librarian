@@ -1,5 +1,5 @@
 <template>
-  <div class="split-page container">
+  <div class="split-page ">
     <section class="news">
       <div class="articles" v-for="article in articleData" :key="article.id">
         <NewsArticle

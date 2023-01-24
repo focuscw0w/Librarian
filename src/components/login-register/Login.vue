@@ -6,10 +6,10 @@
           <header class="user-access__header">
             <h3 class="user-access__heading">Prihlásenie</h3>
             <img
-              :src="require('@/assets/icons/close-icon.svg')"
-              alt="close icon"
-              class="close-icon"
-              @click="$emit('hideLogin')"
+                :src="require('@/assets/icons/close-icon.svg')"
+                alt="close icon"
+                class="close-icon"
+                @click="$emit('hideLogin')"
             />
           </header>
           <figcaption class="user-access__figcaption">
@@ -19,70 +19,61 @@
           <div class="user-access__get-in">
             <div class="user-access__get-in__box">
               <label for="username">
-                Meno používateľa
-                <img
-                  src="@/assets/icons/bxs-star.svg"
-                  alt="required"
-                  class="required-symbol"
-                />
+                Meno používateľa<span style="color: red">*</span>
               </label>
-              <input type="text" name="username" />
+              <input type="text" name="username"/>
             </div>
             <div class="user-access__get-in__box">
               <label for="password">
-                Heslo
-                <img
-                  src="@/assets/icons/bxs-star.svg"
-                  alt="required"
-                  class="required-symbol"
-                />
+                Heslo<span style="color: red">*</span>
               </label>
-              <input :type="type" name="password" />
+              <input :type="type" name="password"/>
               <img
-                :src="require('@/assets/icons/eye.svg')"
-                alt="show password icon"
-                class="password-toggle"
-                @click="togglePasswordVisibility"
+                  :src="require('@/assets/icons/eye.svg')"
+                  alt="show password icon"
+                  class="password-toggle"
+                  @click="togglePasswordVisibility"
               />
             </div>
           </div>
           <div class="login__interface__stay-logged-ing">
             <label for="logged-in" class="label">
-              <input type="checkbox" name="logged-in" id="logged-in" />
+              <input type="checkbox" name="logged-in" id="logged-in"/>
               <span class="checkmark"></span>
               Ostať prihlásený
             </label>
             <a class="forgotten-password">Zabudnuté heslo?</a>
           </div>
-          <LoginBtn />
+
+          <button class="login-btn" type="submit">Prihlásiť sa</button>
+
           <div class="login-interface__integration">
             <a class="login-interface__integration__box">
               <img
-                :src="require('@/assets/icons/bxl-google.svg')"
-                alt="google icon"
+                  :src="require('@/assets/icons/bxl-google.svg')"
+                  alt="google icon"
               />
             </a>
             <a class="login-interface__integration__box">
               <img
-                :src="require('@/assets/icons/bxl-apple.svg')"
-                alt="apple icon"
+                  :src="require('@/assets/icons/bxl-apple.svg')"
+                  alt="apple icon"
               />
             </a>
             <a class="login-interface__integration__box">
               <img
-                :src="require('@/assets/icons/bxl-facebook.svg')"
-                alt="facebook icon"
+                  :src="require('@/assets/icons/bxl-facebook.svg')"
+                  alt="facebook icon"
               />
             </a>
           </div>
-          <p class="user-access__paragraph">Nemáte registráciu?</p>
-          <CreateAccount @click="$emit('createAccount')" />
+          <p class="user-access__paragraph">Nemáte registráciu? <span class="text-underlined cursor-pointerff" @click="$emit('createAccount')">Vytvorte si účet</span></p>
         </div>
       </div>
       <div class="login__illustration">
         <img
-          :src="require('@/assets/images/illustration.png')"
-          alt="illustration image"
+            :src="require('@/assets/images/illustration.png')"
+            alt="illustration image"
         />
       </div>
     </div>
@@ -90,11 +81,10 @@
 </template>
 
 <script>
-import LoginBtn from "./LoginBtn.vue";
-import CreateAccount from "./CreateAccount.vue";
+
 export default {
-  emits: ["hideLogin", "createAccount"],
-  components: { LoginBtn, CreateAccount },
+  emits: ["hideLogin"],
+  components: {},
   data() {
     return {
       type: "password",

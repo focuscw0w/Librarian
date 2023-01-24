@@ -1,5 +1,5 @@
 <template>
-  <article class="selected-book">
+  <div class="selected-book">
     <div class="flex-container">
       <router-link :to="`/kniha/${bookData.slug}`">
         <img
@@ -17,7 +17,7 @@
           <p class="books__author">Andrzej Sapkowski</p>
         </button>
         -->
-        <p class="books__author">Andrzej Sapkowski</p>
+        <a class="books__author">Andrzej Sapkowski</a>
       </div>
 
       <img
@@ -27,7 +27,7 @@
         class="close-icon"
       />
     </div>
-  </article>
+  </div>
 </template>
 
 <script>

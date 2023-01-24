@@ -1,5 +1,12 @@
 <template>
   <div :class="{ blur: blurEffect || openRegister || openLogin }">
+    <FilterProduct v-if="activeFilterProduct" />
+
+    <SelectedBook
+        v-if="activeFilterProduct"
+        :bookData="book"
+        @hideFilterProduct="activeFilterProduct = false"
+    />
     <div class="map-container">
       <GMapMap
         ref="myMapRef"
@@ -49,14 +56,6 @@
         />
       </div>
     </div>
-
-    <FilterProduct v-if="activeFilterProduct" />
-
-    <SelectedBook
-      v-if="activeFilterProduct"
-      :bookData="book"
-      @hideFilterProduct="activeFilterProduct = false"
-    />
   </div>
 
   <Introduction @hideBlur="blur" />
@@ -110,24 +109,24 @@ export default {
   },
   methods: {
     getCurrentPosition() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            this.getAddressFrom(
-              position.coords.latitude,
-              position.coords.longitude
-            );
-          },
-          (error) => {
-            //SLOVAKIA
-            this.center.lat = 48.669026;
-            this.center.lng = 19.699024;
-            this.zoom = 9;
-          }
-        );
-      } else {
-        console.log("lokácia neprebehla úspešne");
-      }
+      // if (navigator.geolocation) {
+      //   navigator.geolocation.getCurrentPosition(
+      //     (position) => {
+      //       this.getAddressFrom(
+      //         position.coords.latitude,
+      //         position.coords.longitude
+      //       );
+      //     },
+      //     (error) => {
+      //       //SLOVAKIA
+      //       this.center.lat = 48.669026;
+      //       this.center.lng = 19.699024;
+      //       this.zoom = 9;
+      //     }
+      //   );
+      // } else {
+      //   console.log("lokácia neprebehla úspešne");
+      // }
     },
     getAddressFrom(lat, long) {
       this.center.lat = lat;

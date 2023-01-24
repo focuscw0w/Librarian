@@ -4,10 +4,8 @@
 }
 
 .filter-product {
-  position: absolute;
+  float: left;
   padding: 6em 1.5em;
-  top: 0;
-  left: 0;
   z-index: 900;
   background-color: $high-emphasys-inverse;
   box-shadow: $shadow-bottom;
@@ -20,6 +18,8 @@
 
   .flex-container {
     @include direction-row;
+    gap: 1.25em;
+
   }
 
   .search-location {
@@ -27,25 +27,30 @@
     margin-bottom: 1.5em;
 
     input[name="place"] {
-      width: 15em;
       background-color: $background;
       border-radius: $border-radius;
       border: none;
-      padding: 1em 1.5em 1em 3em;
-      margin-right: 1em;
+      padding-left: 0.75em;
       outline: none;
     }
+
 
     .radius {
       .flex-container {
         gap: 0.5em;
       }
     }
+
+    .search-location-input-wrapper {
+      background-color: #F2F2F2;
+      padding: 0.75em;
+    }
   }
 }
 
 .filter-split {
   margin-top: 1em;
+
   .flex-container {
     align-items: flex-start;
     justify-content: space-between;

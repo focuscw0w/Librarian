@@ -1,6 +1,6 @@
 .selected-book {
   position: absolute;
-  padding: 0.4em;
+  padding: 0.5em;
   top: 5em;
   left: 25.5em;
   z-index: 500;
@@ -25,7 +25,7 @@
     margin: 0 1em;
 
     .books__name {
-      margin-bottom: 0.5em;
+      margin-bottom: 0.25em;
     }
   }
 }

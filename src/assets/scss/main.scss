@@ -1,6 +1,7 @@
 /* 
     IMPORTING FILES
                     */
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
 
 /* scss utilities */
 @import "./scss-utils/variables";
@@ -11,6 +12,7 @@
 /* base */
 @import "./base/typography";
 @import "./base/reset";
+@import "./base/reusable";
 
 /* components */
 @import "./components/buttons";
@@ -31,5 +33,8 @@
 @import "./components/dropdown";
 
 /* page layout */
-@import "./page-layout/about-app";
-@import "./page-layout/book-list";
+@import "page-layout/library-detail";
+@import "page-layout/book-detail";
+
+
+//@import 'node_modules/bootstrap-vue/src/index.scss';

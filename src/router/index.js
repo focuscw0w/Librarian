@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import AboutApp from "../views/AboutApp.vue";
+import LibraryDetail from "../views/LibraryDetail.vue";
 import LiveMap from "../views/LiveMap.vue";
-import BookList from "../views/BookList.vue";
+import BookDetail from "../views/BookDetail.vue";
 
 const routes = [
   {
@@ -12,13 +12,13 @@ const routes = [
   {
     path: "/kniznica/oravska-kniznica-antona-habovstiaka",
     name: "details",
-    component: AboutApp,
+    component: LibraryDetail,
   },
   {
     path: "/kniha/:slug",
-    name: "zoznam-knih",
+    name: "detail-knihy",
     props: true,
-    component: BookList,
+    component: BookDetail,
   },
 ];
 

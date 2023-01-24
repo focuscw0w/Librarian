@@ -1,7 +1,7 @@
 <template>
   <section class="book-list-page">
     <header class="book-list__header">
-      <div class="container">
+      <div class="">
         <div class="flex-container">
           <!-- Router link -->
           <button class="book-list__btn-previous">
@@ -18,7 +18,7 @@
       </div>
     </header>
     <main class="book-list__product">
-      <div class="container">
+      <div class="">
         <div class="flex-container">
           <div
             class="book-list__product_image"
@@ -106,7 +106,7 @@
       </div>
     </main>
     <footer class="book-list__footer">
-      <div class="container">
+      <div class="">
         <h4>
           <strong class="book-list__footer__heading">Foooooter</strong>
           <br />

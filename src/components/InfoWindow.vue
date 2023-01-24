@@ -17,14 +17,14 @@
           >
           {{ libraryName }}
           </router-link>
-          <p class="opened-p">
+          <div class="opened-p">
             <span class="opened">{{ libraryStatus }}</span
             >do {{ libraryTime }}
-          </p>
-          <p class="store-informations__address">
+          </div>
+          <div class="store-informations__address">
             {{ libraryStreet }} {{ libraryHouseNumber }} <br />
             {{ libraryPostCode }} {{ libraryCity }}
-          </p>
+          </div>
           <div class="store-informations__media">
             <div class="flex-container">
               <button class="book-list">Zoznam kníh</button>

@@ -1,13 +1,11 @@
 <template>
   <div :class="{ dark: darkBackground }">
-    <article class="search-article">
+    <div class="search-article">
       <div class="flex-container">
         <div class="search-container flex-container">
-          <img
-            :src="require('@/assets/icons/bx-search.svg')"
-            alt="search icon"
-            class="search-icon"
-          />
+          <BIconSearch alt="search icon"
+                       class="search-icon ms-3"/>
+
           <input
             type="text"
             id="search-book"
@@ -15,25 +13,19 @@
             size="25"
             autocomplete="off"
             placeholder="Akú knihu hľadáš?"
+            class="w-100"
             v-model="searchForBook"
           />
         </div>
+        <span class="split"></span>
+        <select name="" id="" class="form-control w-auto  form-select border-0 shadow-none cursor-pointer">
+          <option value="">Knihy</option>
+          <option value="">Autori</option>
+        </select>
 
-        <a href="#" class="drop-down flex-container dropdown">
-          <span class="split"></span>
-          <p @click="dropDown">
-            Knihy
-            <img
-            class="drop-down-icon"
-            :src="require('@/assets/icons/angle-down.svg')"
-            alt="arrow icon"
-            />
-          </p>
-        </a>
 
-        <DropDown v-if="showDropDown" :dropDownItems="dropDownContent" />
       </div>
-    </article>
+    </div>
   </div>
 
   <div v-if="this.searchForBook != '' && visibleBlookList" class="books">
@@ -52,8 +44,8 @@
             class="product-img"
           />
           <div class="books__info">
-            <h3 class="books__name">{{ (bookName = book.name) }}</h3>
-            <p class="books__author">Andrzej Sapkowski</p>
+            <span class="books__name">{{ (bookName = book.name) }}</span>
+            <span class="books__author">Andrzej Sapkowski</span>
           </div>
         </div>
       </li>
@@ -68,8 +60,10 @@
 import axios from "axios";
 import SearchBookList from "./SearchBookList.vue";
 import DropDown from "../DropDown.vue";
+import { BIconSearch } from 'bootstrap-icons-vue';
+
 export default {
-  components: { SearchBookList, DropDown },
+  components: { SearchBookList, DropDown ,BIconSearch},
   emits: ["addBook", "activeFilterProduct", "darkGoogleMap"],
   data() {
     return {

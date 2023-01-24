@@ -1,6 +1,6 @@
 <template>
   <nav class="secondary-nav">
-    <ul>
+    <ul class="mb-0 ps-0">
       <li class="info" @click="emitId(this.$el.querySelector('.info'))"><a :class="{active: activeInfo}">Informácie o knižnici</a></li>
       <li class="gallery" @click="emitId(this.$el.querySelector('.gallery'))"><a :class="{active: activeGallery}">Galéria (27)</a></li>
     </ul>

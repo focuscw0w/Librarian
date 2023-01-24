@@ -1,7 +1,7 @@
 <template>
   <div :class="{ blur: openRegister || openLogin }">
-    <section class="introduction">
-      <div class="container">
+    <section class="introduction container">
+      <div class="">
         <div class="introduction__background">
           <img
             :src="require('../assets/images/background.webp')"
@@ -40,9 +40,9 @@
       </div>
     </section>
 
-    <main class="main">
+    <div class="main container pt-4">
       <component :is="currentComponent"></component>
-    </main>
+    </div>
 
     <router-view />
 

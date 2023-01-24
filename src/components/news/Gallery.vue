@@ -1,5 +1,5 @@
 <template>
-   <section class="gallery container">
+   <section class="gallery ">
     <!--namiesto vložených obrázkov, spraviť boxy a tým nastaviť background-->
       <div class="grid-container">
         <div class="grid-container__wrapper">

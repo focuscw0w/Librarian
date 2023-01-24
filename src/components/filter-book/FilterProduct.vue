@@ -4,34 +4,28 @@
 
     <div class="search-location">
       <label for="place" class="filter-product__label">Miesto hľadania</label>
-      <div class="flex-container">
-        <img
-          class="search-icon"
-          :src="require('@/assets/icons/bx-search-alt-2.svg')"
-          alt="search icon"
-        />
+      <div class="flex-container justify-content-between">
+        <div class="search-location-input-wrapper align-items-center d-flex">
+        <BIconSearch alt="search icon"
+                     class="search-icon"/>
         <input
           type="text"
           name="place"
           placeholder="Zadajte miesto..."
           autocomplete="off"
         />
+        </div>
         <span class="radius">
           <div class="flex-container">
-            <img
-              :src="require('@/assets/icons/marker-icon.svg')"
-              alt="marker icon"
-              class="marker-icon"
-            />
-            +10km
-            <img
-              :src="require('@/assets/icons/angle-down.svg')"
-              alt="arrow icon"
-              class="drop-down-icon"
-              @click="dropDown"
-            />
-           
-           <DropDown v-if="showDropDown" :dropDownItems="dropDownContent" />
+            <BIconGeoAlt alt="marker icon"
+                         class="marker-icon"/>
+
+            <select name="" id="" class="form-control w-auto  form-select border-0 shadow-none cursor-pointer ps-0">
+          <option value="">+10km</option>
+          <option value="">+25km</option>
+          <option value="">+50km</option>
+d        </select>
+
 
           </div>
         </span>
@@ -188,8 +182,10 @@
 
 <script>
 import DropDown from "../DropDown.vue";
+import { BIconSearch,BIconGeoAlt } from 'bootstrap-icons-vue';
+
 export default {
-  components: { DropDown },
+  components: { DropDown,BIconSearch,BIconGeoAlt },
   data() {
     return {
       checkedInputs: [],
