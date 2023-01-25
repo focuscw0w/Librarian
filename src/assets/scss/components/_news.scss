@@ -30,25 +30,26 @@
     .news__article__footer {
       .about-event {
         flex: 2;
-
-        .location-img {
-          position: relative;
-          top: 0.4em;
-        }
       }
 
       .media {
-        flex: 1;
+        position: relative;
         display: flex;
         justify-content: flex-end;
+        flex: 1;
         gap: 1.5em;
         margin-right: 1em;
 
         img {
-          cursor: pointer;
           width: 19px;
           height: 19px;
+          cursor: pointer;
         }
+
+        svg {
+          vertical-align: unset;
+        }
+
       }
 
       .wrapper {

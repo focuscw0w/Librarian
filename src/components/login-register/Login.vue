@@ -67,7 +67,7 @@
               />
             </a>
           </div>
-          <p class="user-access__paragraph">Nemáte registráciu? <span class="text-underlined cursor-pointerff" @click="$emit('createAccount')">Vytvorte si účet</span></p>
+          <p class="user-access__paragraph">Nemáte registráciu? <span class="text-underlined cursor-pointer" @click="$emit('createAccount')">Vytvorte si účet</span></p>
         </div>
       </div>
       <div class="login__illustration">
