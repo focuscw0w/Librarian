@@ -1,6 +1,6 @@
 <template>
-  <section class="book-list-page">
-    <header class="book-list__header">
+  <section class="book-list-page ">
+    <div class="book-list__header container">
       <div class="">
         <div class="flex-container">
           <!-- Router link -->
@@ -16,9 +16,9 @@
           </h4>
         </div>
       </div>
-    </header>
-    <main class="book-list__product">
-      <div class="">
+    </div>
+    <div class="book-list__product ">
+      <div class="container">
         <div class="flex-container">
           <div
             class="book-list__product_image"
@@ -104,7 +104,7 @@
           </article>
         </div>
       </div>
-    </main>
+    </div>
     <footer class="book-list__footer">
       <div class="">
         <h4>

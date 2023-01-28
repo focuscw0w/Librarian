@@ -1,13 +1,13 @@
 <template>
   <header class="main-header" :class="{blur: hideBlurProp}">
     <div class="flex-container justify-content-between">
-      <div class="d-flex gap-2 align-items-center">
+      <div class="d-flex gap-2em align-items-center">
         <div class="logo">
           <router-link to="/"
           ><img :src="require('@/assets/images/logo-web.png')" alt="logo" class="logo"
           /></router-link>
         </div>
-        <ul class="d-flex gap-2 mb-0">
+        <ul class="d-flex gap-2em mb-0">
           <li>
             <a href="#"
             >Zoznam kníh

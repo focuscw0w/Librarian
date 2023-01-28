@@ -1,11 +1,17 @@
-.text-underlined{
+.text-underlined {
   text-decoration: underline;
 }
 
-.gap-2{
+.gap-2em {
   gap: 2em !important;
 }
 
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
+}
+
+.d-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
