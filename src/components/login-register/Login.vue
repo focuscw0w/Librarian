@@ -83,7 +83,7 @@
 <script>
 
 export default {
-  emits: ["hideLogin"],
+  emits: ["hideLogin", "createAccount"],
   components: {},
   data() {
     return {

@@ -3,9 +3,9 @@
     <FilterProduct v-if="activeFilterProduct" />
 
     <SelectedBook
-        v-if="activeFilterProduct"
-        :bookData="book"
-        @hideFilterProduct="activeFilterProduct = false"
+      v-if="activeFilterProduct"
+      :bookData="book"
+      @hideFilterProduct="activeFilterProduct = false"
     />
     <div class="map-container">
       <GMapMap
@@ -15,7 +15,7 @@
         :zoom="zoom"
         :restriction="{
           latLngBounds: slovakiaBounds,
-          strictBounds: false
+          strictBounds: false,
         }"
         map-type-id="terrain"
         style="width: 100%; height: 100vh"
@@ -29,8 +29,8 @@
           :clickable="true"
           :icon="m.icon"
           @click="showStore(index)"
-          @mouseover="this.libraryLocation[index].icon = require('../assets/icons/Point_book_active.png')"
-          @mouseleave="this.libraryLocation[index].icon = require('../assets/icons/Point_book.png')"
+          @mouseover="toggleIcon(true, index)"
+          @mouseout="toggleIcon(false, index)"
         >
           <GMapInfoWindow :opened="currentLibrary === index">
             <InfoWindow
@@ -140,6 +140,12 @@ export default {
       this.$emit("hideBlur");
       this.blurEffect = false;
     },
+    toggleIcon(statement, index) {
+      this.libraryLocation[index].icon =
+        statement === true
+          ? require("../assets/icons/Point_book_active.png")
+          : require("../assets/icons/Point_book.png");
+    },
   },
   async created() {
     this.blurEffect =
@@ -166,7 +172,7 @@ export default {
   mounted() {
     this.getCurrentPosition();
 
-    // dokončiť štýl iconky po kliknutí -> toggle icon source 
+    // dokončiť štýl iconky po kliknutí -> toggle icon source
   },
 };
 </script>

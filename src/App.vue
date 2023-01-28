@@ -21,7 +21,7 @@
   <!-- try to use transition-group -->
 
   <transition name="show-modal">
-    <Register v-if="visibleRegister" @hideRegister="closeRegister" />
+    <Register v-if="visibleRegister" @hideRegister="closeRegister" @loginAccount="openLogin" />
   </transition>
 
   <transition name="show-modal">

@@ -3,8 +3,7 @@
     <div class="search-article">
       <div class="flex-container">
         <div class="search-container flex-container">
-          <BIconSearch alt="search icon"
-                       class="search-icon ms-3"/>
+          <BIconSearch alt="search icon" class="search-icon ms-3" />
 
           <input
             type="text"
@@ -18,12 +17,14 @@
           />
         </div>
         <span class="split"></span>
-        <select name="" id="" class="form-control w-auto  form-select border-0 shadow-none cursor-pointer">
+        <select
+          name=""
+          id=""
+          class="form-control w-auto form-select border-0 shadow-none cursor-pointer"
+        >
           <option value="">Knihy</option>
           <option value="">Autori</option>
         </select>
-
-
       </div>
     </div>
   </div>
@@ -45,7 +46,12 @@
           />
           <div class="books__info">
             <span class="books__name">{{ (bookName = book.name) }}</span>
-            <span class="books__author">Andrzej Sapkowski</span>
+            <span
+              class="books__author"
+              v-for="creator in book.creators"
+              :key="creator.id"
+              >{{ creator.name }}</span
+            >
           </div>
         </div>
       </li>
@@ -60,10 +66,10 @@
 import axios from "axios";
 import SearchBookList from "./SearchBookList.vue";
 import DropDown from "../DropDown.vue";
-import { BIconSearch } from 'bootstrap-icons-vue';
+import { BIconSearch } from "bootstrap-icons-vue";
 
 export default {
-  components: { SearchBookList, DropDown ,BIconSearch},
+  components: { SearchBookList, DropDown, BIconSearch },
   emits: ["addBook", "activeFilterProduct", "darkGoogleMap"],
   data() {
     return {
@@ -75,7 +81,7 @@ export default {
       books: [],
       creators: [],
       test: [],
-      dropDownContent: [{ content: "Knihy"},{content: "Knižnice"}],
+      dropDownContent: [{ content: "Knihy" }, { content: "Knižnice" }],
     };
   },
   watch: {
@@ -114,12 +120,8 @@ export default {
   },
   async mounted() {
     await axios
-      .get("https://www.librarian.sk/api/books")
+      .get("https://api.librarian.sk/api/books")
       .then((response) => (this.books = response.data));
-
-    await axios
-      .get("https://www.librarian.sk/api/creators")
-      .then((response) => (this.creators = response.data));
 
     /*
     this.creators = this.creators.slice(0, 10)
