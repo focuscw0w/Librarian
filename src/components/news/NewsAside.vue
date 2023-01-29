@@ -5,17 +5,17 @@
       <div class="aside__informations">
         <div>
           <h5 class="aside__informations__heading">Typ knižnice</h5>
-          <p>Verejna kniznica</p>
+          <div>Verejna kniznica</div>
         </div>
 
         <div>
           <h5 class="aside__informations__heading">Lokalita</h5>
-          <p>Samuela Nováka 1763/2, 026 01 Dolný Kubín</p>
+          <div>Samuela Nováka 1763/2, 026 01 Dolný Kubín</div>
         </div>
 
         <div>
           <h5 class="aside__informations__heading">Otváracie hodiny</h5>
-          <p><strong class="opened">Otvorené</strong> do 16:00</p>
+          <div><strong class="opened">Otvorené</strong> do 16:00</div>
         </div>
 
         <a href="#" class="more-informations">Viac informácii</a>
@@ -28,49 +28,32 @@
           <h5 class="aside__informations__heading">Webstránka</h5>
         </div>
 
-        <div class="features">
-          <div>
-            <p>
-              <span class="features__icon">
-                <img
-                :src="require('@/assets/icons/wifi.png')"
-                alt="wifi icon"
-                
-              />
+        <div class="features row">
+          <div class="col-6 d-flex align-items-center gap-3">
+              <span class="features__icon d-flex-center">
+<WifiIcon :size="16"/>
               </span>
-              Wi-fi pripojenie
-            </p>
-            <p>
-              <span class="features__icon">
-                <img
-                :src="require('@/assets/icons/handicap-icon.svg')"
-                alt="handicap icon"
-        
-              />
+            Wi-fi pripojenie
+          </div>
+          <div class="col-6  d-flex align-items-center gap-3">
+              <span class="features__icon d-flex-center">
+
+                <WheelChairIcon :size="16"/>
               </span>
-              Bezbarierový prístup
-            </p>
+            Bezbarierový prístup
           </div>
 
-          <div>
-            <p>
-              <span class="features__icon features__icon-grey">
-                <img
-                :src="require('@/assets/icons/coffee.png')"
-                alt="coffee icon"
-              />
-              </span>
+          <div class="col-6  d-flex align-items-center gap-3">
+              <div class="features__icon features__icon-grey d-flex-center">
+                <CoffeeIcon :size="16"/>
+              </div>
             Kaviareň
-            </p>
-            <p>
-              <span class="features__icon">
-                <img
-                :src="require('@/assets/icons/bx-printer.svg')"
-                alt="printer logo"
-              />
-              </span>
-              Možnosť tlače
-            </p>
+          </div>
+          <div class="col-6  d-flex align-items-center gap-3">
+              <div class="features__icon d-flex-center">
+                <PrinterIcon :size="16"/>
+              </div>
+            Možnosť tlače
           </div>
         </div>
       </div>
@@ -79,5 +62,12 @@
 </template>
 
 <script>
-export default {};
+import PrinterIcon from 'vue-material-design-icons/Printer.vue'
+import CoffeeIcon from 'vue-material-design-icons/Coffee.vue'
+import WheelChairIcon from 'vue-material-design-icons/Wheelchair.vue'
+import WifiIcon from 'vue-material-design-icons/Wifi.vue'
+
+export default {
+  components: {WheelChairIcon, PrinterIcon, CoffeeIcon, WifiIcon},
+};
 </script>
