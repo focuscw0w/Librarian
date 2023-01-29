@@ -1,7 +1,7 @@
 <template>
-  <section class="book-list-page ">
-    <div class="book-list__header container">
-      <div class="">
+  <section class="book-list-page">
+    <div class="book-list__header">
+      <div class="container">
         <div class="flex-container">
           <!-- Router link -->
           <button class="book-list__btn-previous">
@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <div class="book-list__product ">
+    <div class="book-list__product">
       <div class="container">
         <div class="flex-container">
           <div
@@ -45,12 +45,12 @@
                 /
                 <strong class="book-list__product__genre">Fantasy</strong>
                 /
-                <span class="book-list__product__name"
-                  >{{$store.state.currentBook.name}}</span
-                >
+                <span class="book-list__product__name">{{
+                  $store.state.currentBook.name
+                }}</span>
               </h5>
               <h3 class="book-list__product__heading">
-                {{$store.state.currentBook.name}}
+                {{ $store.state.currentBook.name }}
               </h3>
               <figcaption class="book-list__product__author">
                 Andrzej Sapkowski, Druhy Autor
@@ -106,7 +106,7 @@
       </div>
     </div>
     <footer class="book-list__footer">
-      <div class="">
+      <div class="container">
         <h4>
           <strong class="book-list__footer__heading">Foooooter</strong>
           <br />

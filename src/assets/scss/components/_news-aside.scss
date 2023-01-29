@@ -1,6 +1,10 @@
 .aside {
   flex: 1;
 
+  svg {
+    vertical-align: middle;
+  }
+
   article {
     padding: $padding-2em;
   }

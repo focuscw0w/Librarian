@@ -6,10 +6,10 @@
           <header class="user-access__header">
             <h3 class="user-access__heading">Prihlásenie</h3>
             <img
-                :src="require('@/assets/icons/close-icon.svg')"
-                alt="close icon"
-                class="close-icon"
-                @click="$emit('hideLogin')"
+              :src="require('@/assets/icons/close-icon.svg')"
+              alt="close icon"
+              class="close-icon"
+              @click="$emit('hideLogin')"
             />
           </header>
           <figcaption class="user-access__figcaption">
@@ -21,24 +21,24 @@
               <label for="username">
                 Meno používateľa<span style="color: red">*</span>
               </label>
-              <input type="text" name="username"/>
+              <input type="text" name="username" />
             </div>
             <div class="user-access__get-in__box">
               <label for="password">
                 Heslo<span style="color: red">*</span>
               </label>
-              <input :type="type" name="password"/>
+              <input :type="type" name="password" />
               <img
-                  :src="require('@/assets/icons/eye.svg')"
-                  alt="show password icon"
-                  class="password-toggle"
-                  @click="togglePasswordVisibility"
+                :src="require('@/assets/icons/eye.svg')"
+                alt="show password icon"
+                class="password-toggle"
+                @click="togglePasswordVisibility"
               />
             </div>
           </div>
           <div class="login__interface__stay-logged-ing">
             <label for="logged-in" class="label">
-              <input type="checkbox" name="logged-in" id="logged-in"/>
+              <input type="checkbox" name="logged-in" id="logged-in" />
               <span class="checkmark"></span>
               Ostať prihlásený
             </label>
@@ -50,30 +50,37 @@
           <div class="login-interface__integration">
             <a class="login-interface__integration__box">
               <img
-                  :src="require('@/assets/icons/bxl-google.svg')"
-                  alt="google icon"
+                :src="require('@/assets/icons/bxl-google.svg')"
+                alt="google icon"
               />
             </a>
             <a class="login-interface__integration__box">
               <img
-                  :src="require('@/assets/icons/bxl-apple.svg')"
-                  alt="apple icon"
+                :src="require('@/assets/icons/bxl-apple.svg')"
+                alt="apple icon"
               />
             </a>
             <a class="login-interface__integration__box">
               <img
-                  :src="require('@/assets/icons/bxl-facebook.svg')"
-                  alt="facebook icon"
+                :src="require('@/assets/icons/bxl-facebook.svg')"
+                alt="facebook icon"
               />
             </a>
           </div>
-          <p class="user-access__paragraph">Nemáte registráciu? <span class="text-underlined cursor-pointer" @click="$emit('createAccount')">Vytvorte si účet</span></p>
+          <p class="user-access__paragraph">
+            Nemáte registráciu?
+            <span
+              class="text-underlined cursor-pointer"
+              @click="$emit('createAccount')"
+              >Vytvorte si účet</span
+            >
+          </p>
         </div>
       </div>
       <div class="login__illustration">
         <img
-            :src="require('@/assets/images/illustration.png')"
-            alt="illustration image"
+          :src="require('@/assets/images/illustration.png')"
+          alt="illustration image"
         />
       </div>
     </div>
@@ -81,7 +88,7 @@
 </template>
 
 <script>
-
+import axios from "axios";
 export default {
   emits: ["hideLogin", "createAccount"],
   components: {},
@@ -95,5 +102,6 @@ export default {
       this.type = this.type === "text" ? "password" : "text";
     },
   },
+  async created() {},
 };
 </script>

@@ -75,13 +75,6 @@
           gap: 0.5em;
         }
 
-        .book-list__product__info {
-          font-weight: $font-weight-normal;
-          font-size: $font-size-15;
-          color: $medium-emphasys;
-          line-height: $line-spacing-21;
-        }
-
         .book-list__product__library {
           display: flex;
           gap: 1.875em;
@@ -95,6 +88,10 @@
         .book-list__product__controls {
           display: flex;
           gap: .75em;
+
+          .like-btn {
+            height: 100%;
+          }
         }
       }
     }
