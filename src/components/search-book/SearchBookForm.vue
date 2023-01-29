@@ -46,12 +46,14 @@
           />
           <div class="books__info">
             <span class="books__name">{{ (bookName = book.name) }}</span>
-            <span
-              class="books__author"
-              v-for="creator in book.creators"
-              :key="creator.id"
-              >{{ creator.name }}</span
-            >
+            <div class="d-flex gap-1">
+              <span
+                class="books__author"
+                v-for="creator in book.creators"
+                :key="creator.id"
+                >{{ creator.name }},</span
+              >
+            </div>
           </div>
         </div>
       </li>
