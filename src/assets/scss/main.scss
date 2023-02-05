@@ -31,10 +31,13 @@
 @import "./components/login";
 @import "./components/page-footer";
 @import "./components/dropdown";
+@import "./components/subheader";
+@import "./components/subfooter";
 
 /* page layout */
 @import "page-layout/library-detail";
 @import "page-layout/book-detail";
+@import "page-layout/creator-detail";
 
 
 //@import 'node_modules/bootstrap-vue/src/index.scss';

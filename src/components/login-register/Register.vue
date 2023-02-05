@@ -2,7 +2,7 @@
   <div class="register">
     <div class="flex-container">
       <div class="register__interface">
-        <form class="wrapper-padding" @submit="validateForm">
+        <form class="wrapper-padding" @submit="validateRegister">
           <header class="user-access__header">
             <h3 class="user-access__heading">Registrácia</h3>
             <img
@@ -64,7 +64,7 @@
               />
             </div>
           </div>
-          <button class="login-btn" type="submit" @click="validateForm">
+          <button class="login-btn" type="submit" @click="validateRegister">
             Prihlásiť sa
           </button>
           <p class="user-access__paragraph">
@@ -112,7 +112,7 @@ export default {
     togglePasswordVisibility() {
       this.type = this.type === "text" ? "password" : "text";
     },
-    async validateForm(e) {
+    async validateRegister(e) {
       e.preventDefault();
       this.v$.$validate();
 
@@ -122,10 +122,8 @@ export default {
         .post("https://api.librarian.sk/api/register", {
           email: this.email,
           name: this.username,
-          password: this.password,
+          password: this.password
         })
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
 
       this.$emit("hideRegister");
     },

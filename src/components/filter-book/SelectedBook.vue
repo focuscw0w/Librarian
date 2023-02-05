@@ -12,12 +12,10 @@
         <router-link :to="`/kniha/${bookData.slug}`">
           <h3 class="books__name" @click="$store.commit('CURRENT_BOOK', bookData)">{{ bookData.name }}</h3>
         </router-link>
-        <!--
-        <button class="books__link" @click="shareData">
-          <p class="books__author">Andrzej Sapkowski</p>
-        </button>
-        -->
+       
+       <router-link :to="`/creator/`">
         <a class="books__author">Andrzej Sapkowski</a>
+       </router-link>
       </div>
 
       <img

@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
-import LibraryDetail from "../views/LibraryDetail.vue";
 import LiveMap from "../views/LiveMap.vue";
+import LibraryDetail from "../views/LibraryDetail.vue";
 import BookDetail from "../views/BookDetail.vue";
+import CreatorDetail from "../views/CreatorDetail.vue";
 
 const routes = [
   {
@@ -11,7 +12,7 @@ const routes = [
   },
   {
     path: "/kniznica/oravska-kniznica-antona-habovstiaka",
-    name: "details",
+    name: "detail-kniznice",
     component: LibraryDetail,
   },
   {
@@ -20,6 +21,11 @@ const routes = [
     props: true,
     component: BookDetail,
   },
+  {
+    path: "/creator/",
+    name: "detail-autora",
+    component: CreatorDetail,
+  }
 ];
 
 const router = createRouter({
