@@ -1,19 +1,17 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
 
 const store = createStore({
-    state() {
-        return {
-            currentBook: {},
-        }
+  state() {
+    return {
+      currentBook: {},
+    };
+  },
+  mutations: {
+    CURRENT_BOOK(state, book) {
+      state.currentBook = book;
     },
-    mutations: {
-        CURRENT_BOOK (state, book ) {
-            state.currentBook = book
-        }
-    },
-    getters: {
+  },
+  getters: {},
+});
 
-    }
-})
-
-export default store
+export default store;
