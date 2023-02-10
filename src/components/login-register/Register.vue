@@ -124,10 +124,7 @@ export default {
           name: this.username,
           password: this.password
         })
-<<<<<<< HEAD
         .then((res) => console.log(res))
-=======
->>>>>>> fdfbd7a2b7ba4fa63e2f1b5839ef95380464c550
 
       this.$emit("hideRegister");
     },

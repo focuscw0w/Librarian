@@ -4,22 +4,24 @@ const store = createStore({
   state() {
     return {
       currentBook: {},
-<<<<<<< HEAD
-=======
-      loggedUser: {},
->>>>>>> fdfbd7a2b7ba4fa63e2f1b5839ef95380464c550
+      loggedUser: null,
+      blurEffect: null,
     };
   },
   mutations: {
     CURRENT_BOOK(state, book) {
       state.currentBook = book;
     },
-<<<<<<< HEAD
-=======
-    LOG_USER(state, user) {
-      state.loggedUser = user;
+    LOG_USER(state) {
+      state.loggedUser = JSON.parse(localStorage.getItem("user"));
     },
->>>>>>> fdfbd7a2b7ba4fa63e2f1b5839ef95380464c550
+    LOGOUT_USER(state) {
+      localStorage.removeItem("user");
+      state.loggedUser = null;
+    },
+    TOGGLE_BLUR(state, value) {
+      state.blurEffect = value
+    }
   },
   getters: {},
 });

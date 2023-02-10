@@ -37,7 +37,14 @@
       </div>
 
       <div class="main-header__aside">
-        <LoginButton @click="$emit('openLogin')" />
+        <div
+          class="logged-user d-flex gap-2em align-items-center"
+          v-if="$store.state.loggedUser"
+        >
+          <p>{{ $store.state.loggedUser.name }}</p>
+          <a class="user" role="button" @click="logOut">Odhlásiť sa</a>
+        </div>
+        <LoginButton @click="$emit('openLogin')" v-else />
       </div>
     </div>
   </header>
@@ -46,17 +53,23 @@
 <script>
 import RegisterButton from "./RegisterButton.vue";
 import LoginButton from "./LoginButton.vue";
-import axios from "axios"
 
 export default {
   props: ["hideBlurProp"],
   emits: ["openRegister", "openLogin"],
   components: { RegisterButton, LoginButton },
   data() {
-    return {};
+    return {
+      user: {},
+    };
   },
-  async created() {
-      
+  methods: {
+    logOut() {
+      this.$store.commit("LOGOUT_USER");
+    },
+  },
+  created() {
+    this.$store.commit("LOG_USER");
   },
 };
 </script>

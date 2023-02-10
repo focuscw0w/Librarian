@@ -90,6 +90,7 @@
 </template>
 
 <script>
+import { logicalExpression } from "@babel/types";
 import axios from "axios";
 export default {
   emits: ["hideLogin", "createAccount"],
@@ -115,7 +116,8 @@ export default {
         .then((response) => {
           localStorage.setItem("token", response.data.token);
           localStorage.setItem("user", JSON.stringify(response.data.user));
-          this.$store.commit("LOG_USER", response.data.user);
+          this.$emit("hideLogin")
+          window.location.reload()
         })
         .catch((err) => console.log(err));
     },
