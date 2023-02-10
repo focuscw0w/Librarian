@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap");
 
 body {
-  font-family: $font-family!important;
+  font-family: $font-family !important;
 }
 
 a {
@@ -353,18 +353,6 @@ a {
     color: $high-emphasys;
   }
 
-  .book-list__product__author {
-    font-weight: $font-weight-normal;
-    font-size: $font-size-15;
-    color: $primary-80;
-  }
-
-  .book-list__product__next-author {
-    font-weight: $font-weight-normal;
-    font-size: $font-size-15;
-    color: $medium-emphasys;
-  }
-
   .book-list__product__info {
     font-weight: $font-weight-normal;
     font-size: $font-size-15;
@@ -385,22 +373,33 @@ a {
       color: $high-emphasys;
     }
   }
-
-  .book-list__product__find-book{
-    font-weight: medium;
-    font-size: $font-size-15;
-    color: $high-emphasys-inverse;
-  }
 }
 
-.book-list__footer {
-  .book-list__footer__heading {
+.product__author-name {
+  font-weight: $font-weight-normal;
+  font-size: $font-size-15;
+  color: $primary-80;
+}
+
+.product__next-author {
+  font-weight: $font-weight-normal;
+  font-size: $font-size-15;
+  color: $medium-emphasys;
+}
+
+.find-book-btn {
+  font-weight: medium;
+  font-size: $font-size-15;
+}
+
+.subfooter {
+  .subfooter__heading {
     font-weight: $font-weight-normal;
     font-size: $font-size-22;
     color: $high-emphasys-inverse;
   }
-  
-  .book-list__footer__paragraph {
+
+  .subfooter__paragraph {
     font-weight: $font-weight-normal;
     font-size: $font-size-15;
     color: $high-emphasys;
@@ -412,5 +411,39 @@ a {
     font-weight: $font-weight-normal;
     font-size: $font-size-15;
     color: $high-emphasys-inverse;
+  }
+}
+
+.author {
+  .author__information__heading {
+    font-weight: $font-weight-600;
+    font-size: $font-size-26;
+    color: $high-emphasys;
+  }
+
+  .author__information__biography {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $medium-emphasys;
+  }
+}
+
+.product-items__ul__product {
+  .book-info__genre {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-13;
+    color: $high-emphasys;
+  }
+
+  .book-info__heading {
+    font-weight: $font-weight-600;
+    font-size: $font-size-22;
+    color: $high-emphasys;
+  }
+
+  .book-info__paragraph {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $medium-emphasys;
   }
 }

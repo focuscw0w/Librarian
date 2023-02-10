@@ -2,7 +2,7 @@
   <div class="login">
     <div class="flex-container">
       <div class="login__interface">
-        <div class="wrapper-padding">
+        <form class="wrapper-padding" @submit="validateLogin">
           <header class="user-access__header">
             <h3 class="user-access__heading">Prihlásenie</h3>
             <img
@@ -21,13 +21,13 @@
               <label for="username">
                 Meno používateľa<span style="color: red">*</span>
               </label>
-              <input type="text" name="username" />
+              <input type="text" name="username" v-model="email" />
             </div>
             <div class="user-access__get-in__box">
               <label for="password">
                 Heslo<span style="color: red">*</span>
               </label>
-              <input :type="type" name="password" />
+              <input :type="type" name="password" v-model="password" />
               <img
                 :src="require('@/assets/icons/eye.svg')"
                 alt="show password icon"
@@ -45,7 +45,9 @@
             <a class="forgotten-password">Zabudnuté heslo?</a>
           </div>
 
-          <button class="login-btn" type="submit">Prihlásiť sa</button>
+          <button class="login-btn" type="submit" @click="validateLogin">
+            Prihlásiť sa
+          </button>
 
           <div class="login-interface__integration">
             <a class="login-interface__integration__box">
@@ -75,7 +77,7 @@
               >Vytvorte si účet</span
             >
           </p>
-        </div>
+        </form>
       </div>
       <div class="login__illustration">
         <img
@@ -95,13 +97,28 @@ export default {
   data() {
     return {
       type: "password",
+      email: "",
+      password: "",
     };
   },
   methods: {
     togglePasswordVisibility() {
       this.type = this.type === "text" ? "password" : "text";
     },
+    async validateLogin(e) {
+      e.preventDefault();
+      await axios
+        .post("https://api.librarian.sk/api/login", {
+          email: this.email,
+          password: this.password,
+        })
+        .then((response) => {
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("user", JSON.stringify(response.data.user));
+          this.$store.commit("LOG_USER", response.data.user);
+        })
+        .catch((err) => console.log(err));
+    },
   },
-  async created() {},
 };
 </script>

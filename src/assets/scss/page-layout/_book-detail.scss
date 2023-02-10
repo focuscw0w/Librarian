@@ -1,36 +1,5 @@
 .book-list-page {
-  padding-top: 4.1em;
   height: 100vh;
-  .book-list__header {
-    position: fixed;
-    z-index: 100;
-    width: 100%;
-    background-color: $high-emphasys-inverse;
-    height: 5em;
-
-    .container {
-      display: flex;
-      align-items: center;
-      height: 100%;
-
-      .flex-container {
-        align-items: center;
-        gap: 1.5625em;
-      }
-    }
-
-    .book-list__btn-previous {
-      img {
-        width: 16px;
-        height: 19px;
-      }
-    }
-
-    .book-list__header__heading {
-      display: flex;
-      gap: 0.75em;
-    }
-  }
 
   .book-list__product {
     padding: 9.5em 0 5em 0;
@@ -65,14 +34,13 @@
           gap: 1em;
         }
 
+        .find-book-btn {
+          @include find-book-btn($primary, $high-emphasys-inverse);
+        }
+
         .book-list__product__genres {
           display: flex;
           gap: 0.75em;
-        }
-
-        .book-list__product__author {
-          display: flex;
-          gap: 0.5em;
         }
 
         .book-list__product__library {
@@ -80,35 +48,20 @@
           gap: 1.875em;
 
           li {
-           @include direction-column;
-           gap: .5em;
+            @include direction-column;
+            gap: 0.5em;
           }
         }
 
         .book-list__product__controls {
           display: flex;
-          gap: .75em;
+          gap: 0.75em;
 
           .like-btn {
             height: 100%;
           }
         }
       }
-    }
-  }
-
-  .book-list__footer {
-    padding: 8.625em 0;
-
-    .book-list__footer__heading {
-      display: inline-block;
-      margin-bottom: 1px;
-      background-color: $black-10;
-      padding: 0 5px;
-    }
-
-    .book-list__footer__paragraph {
-      margin-top: 1.3125em;
     }
   }
 }

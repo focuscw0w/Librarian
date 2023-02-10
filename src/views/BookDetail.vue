@@ -1,22 +1,6 @@
 <template>
-  <section class="book-list-page">
-    <div class="book-list__header">
-      <div class="container">
-        <div class="flex-container">
-          <!-- Router link -->
-          <button class="book-list__btn-previous">
-            <img src="@/assets/icons/arrow-left.svg" alt="previous page" />
-          </button>
-          <h4 class="book-list__heading">
-            <strong class="book-list__page-name">Zoznam kníh</strong> /
-            <span class="book-list__book-name">
-              <!--  Zaklínač IV.: Čas opovrhnutia  -->
-              {{ $store.state.currentBook.name }}
-            </span>
-          </h4>
-        </div>
-      </div>
-    </div>
+  <section class="book-list-page detail-page">
+    <SubHeader :displayBook="true" />
     <div class="book-list__product">
       <div class="container">
         <div class="flex-container">
@@ -52,9 +36,9 @@
               <h3 class="book-list__product__heading">
                 {{ $store.state.currentBook.name }}
               </h3>
-              <figcaption class="book-list__product__author">
+              <figcaption class="product__author-name">
                 Andrzej Sapkowski, Druhy Autor
-                <span class="book-list__product__next-author">ďaľší...</span>
+                <span class="product__next-author">ďaľší...</span>
               </figcaption>
               <p class="book-list__product__info">
                 Magický rozprávač na výprave do hraničných oblastí sveta temnoty
@@ -96,38 +80,26 @@
                     @animationend="onIconAnimationEnds"
                   />
                 </button>
-                <button type="submit" class="book-list__product__find-book">
-                  Hľadať v knižniciach
-                </button>
+                <FindBookBtn />
               </div>
             </div>
           </article>
         </div>
       </div>
     </div>
-    <footer class="book-list__footer">
-      <div class="container">
-        <h4>
-          <strong class="book-list__footer__heading">Foooooter</strong>
-          <br />
-          <strong class="book-list__footer__heading">librarianu</strong>
-        </h4>
-        <p class="book-list__footer__paragraph">
-          Vyhľadávanie kníh v knižniciach nikdy <br />
-          nebolo jednoduchšie. Vytvorené <br />
-          (budúcim bc.) Jakubom Rončakom.
-        </p>
-      </div>
-    </footer>
+    <SubFooter />
     <PageFooter />
   </section>
 </template>
 
 <script>
 import AnimationIcon from "@/components/AnimationIcon.vue";
-import PageFooter from "../components/PageFooter.vue";
+import PageFooter from "@/components/PageFooter.vue";
+import SubHeader from "@/components/SubHeader.vue";
+import SubFooter from "@/components/SubFooter.vue";
+import FindBookBtn from "@/components/FindBookBtn";
 export default {
-  components: { AnimationIcon, PageFooter },
+  components: { AnimationIcon, PageFooter, SubHeader, FindBookBtn, SubFooter },
   data() {
     return {
       favorited: false,
