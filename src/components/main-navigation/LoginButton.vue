@@ -1,5 +1,5 @@
 <template>
-    <a class="login-nav-btn" type="submit">Prihlásiť sa</a>
+    <a class="login-nav-btn">Prihlásiť sa</a>
 </template>
 
 <script>

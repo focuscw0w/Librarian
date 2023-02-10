@@ -21,8 +21,8 @@ export default {
       if (this.slide.buttonText != "Dokončiť") {
         this.$emit("next");
       } else {
-        this.$emit("hideIntroduction");
-        this.$emit("hideBlur");
+        this.$store.state.activeIntroduction = false;
+        this.$store.commit("TOGGLE_BLUR", false);
         localStorage.setItem("activeIntroduction", false);
       }
     },

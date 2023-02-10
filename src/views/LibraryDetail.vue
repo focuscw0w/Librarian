@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ blur: openRegister || openLogin }">
+  <div>
     <section class="introduction">
       <div class="container">
         <div class="introduction__background">
@@ -50,7 +50,7 @@
 
     <PageFooter />
 
-    <div v-if="openRegister || openLogin" class="dead-background"></div>
+    <div v-if="$store.state.blurEffect" class="dead-background"></div>
   </div>
 </template>
 
@@ -62,8 +62,6 @@ import AnimationIcon from "../components/AnimationIcon.vue";
 import PageFooter from "../components/PageFooter.vue";
 
 export default {
-  props: ["openRegister", "openLogin"],
-  emits: ["showContent", "hideBlur", "hideRegister"],
   name: "HomePage",
   components: { SecondaryNavigation, News, Gallery, AnimationIcon, PageFooter },
   data() {
@@ -95,10 +93,6 @@ export default {
     onIconAnimationEnds() {
       this.animating = false;
     },
-  },
-  created() {
-    this.$emit("hideBlur");
-    this.$emit("hideRegister");
   },
 };
 </script>

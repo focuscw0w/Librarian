@@ -9,7 +9,7 @@
               :src="require('@/assets/icons/close-icon.svg')"
               alt="close icon"
               class="close-icon"
-              @click="$emit('hideLogin')"
+              @click="close"
             />
           </header>
           <figcaption class="user-access__figcaption">
@@ -73,7 +73,7 @@
             Nemáte registráciu?
             <span
               class="text-underlined cursor-pointer"
-              @click="$emit('createAccount')"
+              @click="showRegister"
               >Vytvorte si účet</span
             >
           </p>
@@ -90,10 +90,8 @@
 </template>
 
 <script>
-import { logicalExpression } from "@babel/types";
 import axios from "axios";
 export default {
-  emits: ["hideLogin", "createAccount"],
   components: {},
   data() {
     return {
@@ -105,6 +103,14 @@ export default {
   methods: {
     togglePasswordVisibility() {
       this.type = this.type === "text" ? "password" : "text";
+    },
+    showRegister() {
+      this.$store.commit("TOGGLE_LOGIN", false);
+      this.$store.commit("TOGGLE_REGISTER", true);
+    },
+    close() {
+      this.$store.commit("TOGGLE_LOGIN", false);
+      this.$store.commit("TOGGLE_BLUR", false)
     },
     async validateLogin(e) {
       e.preventDefault();

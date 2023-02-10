@@ -6,6 +6,9 @@ const store = createStore({
       currentBook: {},
       loggedUser: null,
       blurEffect: null,
+      activeLogin: null,
+      activeRegister: null,
+      activeIntroduction: null,
     };
   },
   mutations: {
@@ -20,8 +23,21 @@ const store = createStore({
       state.loggedUser = null;
     },
     TOGGLE_BLUR(state, value) {
-      state.blurEffect = value
-    }
+      state.blurEffect = value;
+    },
+    TOGGLE_LOGIN(state, value) {
+      state.activeLogin = value;
+      state.blurEffect = true;
+    },
+    TOGGLE_REGISTER(state, value) {
+      state.activeRegister = value;
+      state.blurEffect = true;
+    },
+    CLOSE_ALL(state) {
+      state.activeLogin = false;
+      state.activeRegister = false;
+      state.blurEffect = false;
+    },
   },
   getters: {},
 });

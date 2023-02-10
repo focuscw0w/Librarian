@@ -1,38 +1,27 @@
 <template>
-  <MainNavigation
-    @openRegister="openRegister"
-    @openLogin="openLogin"
-    :hideBlurProp="blurEffect"
-  />
+  <MainNavigation />
 
-  <main id="main-content">
-    <router-view
-      @hideBlur="blurOff"
-      :openRegister="visibleRegister"
-      :openLogin="visibleLogin"
-      v-slot="{ Component }"
-    >
+  <main id="main-content" :class="{ blur: $store.state.blurEffect }">
+    <router-view v-slot="{ Component }">
       <keep-alive>
         <component :is="Component"></component>
       </keep-alive>
     </router-view>
   </main>
 
-  <!-- try to use transition-group -->
-
   <transition name="show-modal">
-    <Register v-if="visibleRegister" @hideRegister="closeRegister" @loginAccount="openLogin" />
+    <Register v-if="$store.state.activeRegister" />
   </transition>
 
   <transition name="show-modal">
-    <Login
-      v-if="visibleLogin"
-      @hideLogin="closeLogin"
-      @createAccount="createAccount"
-    />
+    <Login v-if="$store.state.activeLogin" />
   </transition>
 
-  <div v-if="blurEffect" class="dead-background" @click="closeAll"></div>
+  <div
+    v-if="$store.state.blurEffect"
+    class="dead-background"
+    @click="$store.commit('CLOSE_ALL')"
+  ></div>
 </template>
 
 <script>
@@ -42,47 +31,6 @@ import Login from "./components/login-register/Login.vue";
 import MainNavigation from "./components/main-navigation/MainNavigation.vue";
 export default {
   components: { RegisterButton, MainNavigation, Register, Login },
-  data() {
-    return {
-      blurEffect: false,
-      visibleRegister: false,
-      visibleLogin: false,
-    };
-  },
-  methods: {
-    blurOff() {
-      this.blurEffect = false;
-    },
-    openRegister() {
-      this.visibleRegister = true;
-      this.blurEffect = true;
-    },
-    closeRegister() {
-      this.visibleRegister = false;
-      this.blurEffect = false;
-    },
-    openLogin() {
-      this.visibleLogin = true;
-      this.blurEffect = true;
-    },
-    closeLogin() {
-      this.visibleLogin = false;
-      this.blurEffect = false;
-    },
-    closeAll() {
-      this.visibleRegister = false;
-      this.visibleLogin = false;
-      this.blurEffect = false;
-    },
-    createAccount() {
-      this.visibleLogin = false;
-      this.visibleRegister = true;
-    },
-  },
-  created() {
-    this.blurEffect =
-      localStorage.getItem("activeIntroduction") == null ? true : false;
-  },
 };
 </script>
 

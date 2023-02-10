@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ blur: blurEffect || openRegister || openLogin }">
+  <div>
     <FilterProduct v-if="activeFilterProduct" />
 
     <SelectedBook
@@ -58,7 +58,7 @@
     </div>
   </div>
 
-  <Introduction @hideBlur="blur" />
+  <Introduction v-if="$store.state.activeIntroduction" />
 
   <div v-if="openRegister" class="dead-background"></div>
 </template>
@@ -74,7 +74,6 @@ import axios from "axios";
 
 export default {
   props: ["openRegister", "openLogin"],
-  emits: ["hideBlur", "hideRegister"],
   components: {
     SearchBookForm,
     SearchBookList,
@@ -136,10 +135,6 @@ export default {
     showStore(id) {
       this.currentLibrary = id;
     },
-    blur() {
-      this.$emit("hideBlur");
-      this.blurEffect = false;
-    },
     toggleIcon(statement, index) {
       this.libraryLocation[index].icon =
         statement === true
@@ -148,8 +143,15 @@ export default {
     },
   },
   async created() {
-    this.blurEffect =
+    this.$store.state.blurEffect =
       localStorage.getItem("activeIntroduction") == null ? true : false;
+
+    this.$store.state.activeIntroduction =
+      localStorage.getItem("activeIntroduction") == null ? true : false;
+
+    if (localStorage.getItem("activeIntroduction") === null)
+      this.$store.state.blurEffect = true;
+    else this.$store.state.blurEffect = false;
 
     await axios
       .get("https://api.librarian.sk/api/libraries")
@@ -171,8 +173,6 @@ export default {
   },
   mounted() {
     this.getCurrentPosition();
-
-    // dokončiť štýl iconky po kliknutí -> toggle icon source
   },
 };
 </script>

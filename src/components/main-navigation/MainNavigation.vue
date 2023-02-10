@@ -1,5 +1,5 @@
 <template>
-  <header class="main-header" :class="{ blur: hideBlurProp }">
+  <header class="main-header" :class="{ blur: $store.state.blurEffect }">
     <div class="flex-container justify-content-between">
       <div class="d-flex gap-2em align-items-center">
         <div class="logo">
@@ -32,7 +32,6 @@
           <li>
             <a href="#">O aplikácii </a>
           </li>
-          <!--          <router-link to="/kniznica/oravska-kniznica-antona-habovstiaka">O aplikácii</router-link>-->
         </ul>
       </div>
 
@@ -42,9 +41,14 @@
           v-if="$store.state.loggedUser"
         >
           <p>{{ $store.state.loggedUser.name }}</p>
-          <a class="user" role="button" @click="logOut">Odhlásiť sa</a>
+          <a
+            class="user"
+            role="button"
+            @click="this.$store.commit('LOGOUT_USER')"
+            >Odhlásiť sa</a
+          >
         </div>
-        <LoginButton @click="$emit('openLogin')" v-else />
+        <LoginButton @click="$store.commit('TOGGLE_LOGIN', true)" v-else />
       </div>
     </div>
   </header>
@@ -55,19 +59,7 @@ import RegisterButton from "./RegisterButton.vue";
 import LoginButton from "./LoginButton.vue";
 
 export default {
-  props: ["hideBlurProp"],
-  emits: ["openRegister", "openLogin"],
   components: { RegisterButton, LoginButton },
-  data() {
-    return {
-      user: {},
-    };
-  },
-  methods: {
-    logOut() {
-      this.$store.commit("LOGOUT_USER");
-    },
-  },
   created() {
     this.$store.commit("LOG_USER");
   },

@@ -9,7 +9,7 @@
               :src="require('@/assets/icons/close-icon.svg')"
               alt="close icon"
               class="close-icon"
-              @click="$emit('hideRegister')"
+              @click="close"
             />
           </header>
           <figcaption class="user-access__figcaption">
@@ -69,7 +69,7 @@
           </button>
           <p class="user-access__paragraph">
             Ste zaregistrovaný?
-            <span class="text-underlined cursor-pointer" @click="openLogin"
+            <span class="text-underlined cursor-pointer" @click="showLogin"
               >Prihlásite sa</span
             >
           </p>
@@ -90,7 +90,6 @@ import { useVuelidate } from "@vuelidate/core";
 import { required, email } from "@vuelidate/validators";
 import axios from "axios";
 export default {
-  emits: ["hideRegister", "loginAccount"],
   components: {},
   data() {
     return {
@@ -112,6 +111,10 @@ export default {
     togglePasswordVisibility() {
       this.type = this.type === "text" ? "password" : "text";
     },
+    close() {
+      this.$store.commit("TOGGLE_REGISTER", false);
+      this.$store.commit("TOGGLE_BLUR", false)
+    },
     async validateRegister(e) {
       e.preventDefault();
       this.v$.$validate();
@@ -122,15 +125,15 @@ export default {
         .post("https://api.librarian.sk/api/register", {
           email: this.email,
           name: this.username,
-          password: this.password
+          password: this.password,
         })
-        .then((res) => console.log(res))
+        .then((res) => console.log(res));
 
-      this.$emit("hideRegister");
+      this.$store.commit("TOGGLE_REGISTER", false);
     },
-    openLogin() {
-      this.$emit("hideRegister");
-      this.$emit("loginAccount");
+    showLogin() {
+      this.$store.commit("TOGGLE_REGISTER", false);
+      this.$store.commit("TOGGLE_LOGIN", true);
     },
   },
 };

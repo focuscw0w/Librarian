@@ -38,7 +38,6 @@
 import SlideItem from "./SlideItem.vue";
 import SlideIndicator from "./SlideIndicator.vue";
 export default {
-  emits: ['hideBlur'],
   components: { SlideItem, SlideIndicator },
   data() {
     return {
