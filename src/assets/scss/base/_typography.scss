@@ -13,10 +13,6 @@ a {
     font-size: $font-size-15;
     font-weight: $font-weight-normal;
   }
-
-  .login-nav-btn {
-    color: $high-emphasys;
-  }
 }
 
 .main-heading {
@@ -38,11 +34,11 @@ a {
 .secondary-nav {
   a.active {
     font-weight: $font-weight-medium;
-    color: $high-emphasys;
+    color: $high-emphasys!important;
   }
 
   a {
-    color: $medium-emphasys;
+    color: $medium-emphasys!important;
   }
 }
 

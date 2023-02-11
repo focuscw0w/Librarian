@@ -149,10 +149,6 @@ export default {
     this.$store.state.activeIntroduction =
       localStorage.getItem("activeIntroduction") == null ? true : false;
 
-    if (localStorage.getItem("activeIntroduction") === null)
-      this.$store.state.blurEffect = true;
-    else this.$store.state.blurEffect = false;
-
     await axios
       .get("https://api.librarian.sk/api/libraries")
       .then((response) => (this.libraries = response.data));

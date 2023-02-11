@@ -36,7 +36,7 @@
           </div>
         </article>
 
-        <SecondaryNavigation @showContent="showComponent($event)" />
+        <SecondaryNavigation @showContent="showComponent($event)"/>
       </div>
     </section>
 

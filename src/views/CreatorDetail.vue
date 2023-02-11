@@ -33,10 +33,14 @@
             </p>
           </article>
         </div>
-        <SecondaryNavigation
-          class="pb-3"
-          @showContent="showComponent($event)"
-        />
+        <nav class="secondary-nav pb-3">
+          <ul class="mb-0 ps-0">
+            <li><a class="active">Beletria</a></li>
+            <li><a>Sci-fi</a></li>
+            <li><a>Fantasy</a></li>
+            <li><a>A oveľa viac</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
     <div class="product-items">
