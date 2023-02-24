@@ -13,7 +13,7 @@
           <router-link
             tag="h4"
             class="store-informations__heading"
-            to="/kniznica/oravska-kniznica-antona-habovstiaka"
+            to="/kniznica/{{ slug }}"
           >
           {{ libraryName }}
           </router-link>
@@ -53,6 +53,7 @@ import AnimationIcon from "./AnimationIcon.vue";
 export default {
   props: [
     "id",
+    "slug",
     "libraryName",
     "libraryCity",
     "libraryStreet",

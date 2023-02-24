@@ -83,7 +83,6 @@ export default {
       books: [],
       creators: [],
       test: [],
-      dropDownContent: [{ content: "Knihy" }, { content: "Knižnice" }],
     };
   },
   watch: {

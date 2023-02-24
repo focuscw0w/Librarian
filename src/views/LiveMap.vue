@@ -20,21 +20,23 @@
           v-bind:options="mapStyle"
           style="width: 100%; height: 100vh"
           :class="{ dark: darkGoogleMap }"
-          @click="currentLibrary = null"
+          @click="showInfoWindow(null)"
       >
         <GMapMarker
+            class="w-75"
             :key="index"
             v-for="(m, index) in libraryLocation"
             :position="m"
             :clickable="true"
             :icon="m.icon"
-            @click="showStore(index)"
+            @click="showInfoWindow(index)"
             @mouseover="toggleIcon(true, index)"
             @mouseout="toggleIcon(false, index)"
         >
           <GMapInfoWindow :opened="currentLibrary === index">
             <InfoWindow
                 :id="index"
+                :slug="m.slug"
                 :libraryName="m.libraryName"
                 :libraryCity="m.libraryCity"
                 :libraryStreet="m.libraryStreet"
@@ -48,8 +50,9 @@
         </GMapMarker>
       </GMapMap>
 
-      <div class="search-wrapper">
+      <div class="search-wrapper" @click="showInfoWindow(null)">
         <SearchBookForm
+
             @addBook="book = $event"
             @activeFilterProduct="activeFilterProduct = true"
             @darkGoogleMap="darkGoogleMap = $event"
@@ -57,9 +60,7 @@
       </div>
     </div>
   </div>
-
-  <Introduction v-if="$store.state.activeIntroduction"/>
-
+    <Introduction v-if="$store.state.activeIntroduction"/>
   <div v-if="openRegister" class="dead-background"></div>
 </template>
 
@@ -105,6 +106,7 @@ export default {
         west: 16.313703742420486,
       },
       mapStyle: {
+        // TODO: toto by bolo super dat niekde do ineho suboru
         styles: [
           {
             "featureType": "landscape.natural",
@@ -228,39 +230,48 @@ export default {
     };
   },
   methods: {
-    getCurrentPosition() {
-      // if (navigator.geolocation) {
-      //   navigator.geolocation.getCurrentPosition(
-      //     (position) => {
-      //       this.getAddressFrom(
-      //         position.coords.latitude,
-      //         position.coords.longitude
-      //       );
-      //     },
-      //     (error) => {
-      //       //SLOVAKIA
-      //       this.center.lat = 48.669026;
-      //       this.center.lng = 19.699024;
-      //       this.zoom = 9;
-      //     }
-      //   );
-      // } else {
-      //   console.log("lokácia neprebehla úspešne");
-      // }
-    },
-    getAddressFrom(lat, long) {
-      this.center.lat = lat;
-      this.center.lng = long;
-      this.zoom = 12;
-    },
-    showStore(id) {
-      this.currentLibrary = id;
+    // getCurrentPosition() {
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.getCurrentPosition(
+    //     (position) => {
+    //       this.getAddressFrom(
+    //         position.coords.latitude,
+    //         position.coords.longitude
+    //       );
+    //     },
+    //     (error) => {
+    //       //SLOVAKIA
+    //       this.center.lat = 48.669026;
+    //       this.center.lng = 19.699024;
+    //       this.zoom = 9;
+    //     }
+    //   );
+    // } else {
+    //   console.log("lokácia neprebehla úspešne");
+    // }
+    // },
+    // getAddressFrom(lat, long) {
+    //   this.center.lat = lat;
+    //   this.center.lng = long;
+    //   this.zoom = 12;
+    // },
+    showInfoWindow(index) {
+      if (this.currentLibrary || index === null) {
+        this.libraryLocation[this.currentLibrary].icon = require("../assets/icons/Point_book.png");
+      }
+      this.currentLibrary = index;
+      if (index !== null) {
+        this.libraryLocation[index].icon = require("../assets/icons/Point_book_active.png");
+      }
     },
     toggleIcon(statement, index) {
-      this.libraryLocation[index].icon =
-          statement === true
-              ? require("../assets/icons/Point_book_active.png")
-              : require("../assets/icons/Point_book.png");
+      // Ak už je aktívna, nechcem s ňou nič robiť
+      if (index !== this.currentLibrary) {
+        this.libraryLocation[index].icon =
+            statement === true
+                ? require("../assets/icons/Point_book_active.png")
+                : require("../assets/icons/Point_book.png");
+      }
     },
   },
   async created() {
@@ -289,7 +300,7 @@ export default {
     }));
   },
   mounted() {
-    this.getCurrentPosition();
+    // this.getCurrentPosition();
   },
 };
 </script>
