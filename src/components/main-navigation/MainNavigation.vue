@@ -48,7 +48,27 @@
             >Odhlásiť sa</a
           >
         </div>
-        <LoginButton @click="$store.commit('TOGGLE_LOGIN', true)" v-else />
+        <bs-modal>
+          <button class="btn btn-info" slot="trigger"> Bootstrap modal </button>
+          <div slot="target" class="modal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </bs-modal>
+<!--        <LoginButton @click="$store.commit('TOGGLE_LOGIN', true)" v-else />-->
       </div>
     </div>
   </header>
@@ -57,9 +77,9 @@
 <script>
 import RegisterButton from "./RegisterButton.vue";
 import LoginButton from "./LoginButton.vue";
-
+import bsModal from "@/components/bsModal.vue";
 export default {
-  components: { RegisterButton, LoginButton },
+  components: { RegisterButton, LoginButton ,bsModal},
   created() {
     this.$store.commit("LOG_USER");
   },
