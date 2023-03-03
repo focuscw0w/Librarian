@@ -1,20 +1,21 @@
 <template>
-  <section class="book-list-page detail-page">
-    <SubHeader :displayBook="true" />
+  <section class="book-list-page detail-page" v-if="book">
+    <VueTitle :title="book.name"/>
+    <SubHeader category="Zoznam kníh" :title="book.name"/>
     <div class="book-list__product">
       <div class="container">
         <div class="flex-container">
           <div
-            class="book-list__product_image"
-            @mouseover="fullScreenBtn = true"
-            @mouseleave="fullScreenBtn = false"
+              class="book-list__product_image"
+              @mouseover="fullScreenBtn = true"
+              @mouseleave="fullScreenBtn = false"
           >
-            <img src="@/assets/images/book-product.jpg" alt="book" />
+            <img src="@/assets/images/book-product.jpg" alt="book"/>
             <button v-if="fullScreenBtn" type="submit" class="fullscreen-btn">
               <img
-                src="@/assets/icons/bx-fullscreen.svg"
-                alt="see book"
-                class="fullscreen-img"
+                  src="@/assets/icons/bx-fullscreen.svg"
+                  alt="see book"
+                  class="fullscreen-img"
               />
             </button>
           </div>
@@ -24,41 +25,32 @@
                 <strong class="book-list__product__genre">Beletria</strong>
                 /
                 <strong class="book-list__product__genre"
-                  >Scifi a fantasy</strong
+                >Scifi a fantasy</strong
                 >
                 /
                 <strong class="book-list__product__genre">Fantasy</strong>
                 /
                 <span class="book-list__product__name">{{
-                  $store.state.currentBook.name
-                }}</span>
+                    book.name
+                  }}</span>
               </h5>
               <h3 class="book-list__product__heading">
-                {{ $store.state.currentBook.name }}
+                {{ book.name }}
               </h3>
               <figcaption class="product__author-name">
-                Andrzej Sapkowski, Druhy Autor
-                <span class="product__next-author">ďaľší...</span>
+                <router-link v-for="creator in book.creators" :key="creator.id" :to="'/autor/'+creator.slug">
+                  {{ creator.name }}
+                </router-link>
+                <!--                <span class="product__next-author">ďaľší...</span>-->
               </figcaption>
               <p class="book-list__product__info">
-                Magický rozprávač na výprave do hraničných oblastí sveta temnoty
-                a chaosu. Geralt naďalej pátra po zlopovestnom tajomnom
-                Riencovi, ktorý Ciri vytrvalo prenasleduje. Mierová dohoda je
-                krehká a schyľuje sa k vojne s Nilfgaardom. Cintra v jeho
-                područí je tiež ohrozená. Na veľkom sneme čarodejov, ktorých
-                vylúčili z mocenských bojov, dôjde k nebezpečnému prevratu a
-                Ciri v dôsledku intríg len o vlások unikne smrteľnému
-                nebezpečenstvu. Bojuje sa potichu, zákerne a kruto. Na tomto
-                vojnovom besnení sa priživuje čudná zberba, ktorá z neho vzišla,
-                a ľudia zoči-voči smrti opovrhujú svetom plným chaosu. Ciri,
-                opustená a stratená v neznámom púštnom svete, nemôže uveriť, že
-                ju zradili...
+                {{ book.long_description }}
               </p>
               <ul class="book-list__product__library">
                 <li>
                   Vydavateľstvo
                   <strong class="book-list__library-publisher"
-                    >Verejná knižnica</strong
+                  >Verejná knižnica</strong
                   >
                 </li>
                 <li>
@@ -75,20 +67,20 @@
               <div class="book-list__product__controls">
                 <button type="submit" class="like-btn" @click="toggle">
                   <AnimationIcon
-                    class="toggle-favorite__icon"
-                    :class="iconClasses"
-                    @animationend="onIconAnimationEnds"
+                      class="toggle-favorite__icon"
+                      :class="iconClasses"
+                      @animationend="onIconAnimationEnds"
                   />
                 </button>
-                <FindBookBtn />
+                <FindBookBtn/>
               </div>
             </div>
           </article>
         </div>
       </div>
     </div>
-    <SubFooter />
-    <PageFooter />
+    <SubFooter/>
+    <PageFooter/>
   </section>
 </template>
 
@@ -98,14 +90,32 @@ import PageFooter from "@/components/PageFooter.vue";
 import SubHeader from "@/components/SubHeader.vue";
 import SubFooter from "@/components/SubFooter.vue";
 import FindBookBtn from "@/components/FindBookBtn";
+import axios from "axios";
+import VueTitle from "@/utilities/vue-title.vue";
+
 export default {
-  components: { AnimationIcon, PageFooter, SubHeader, FindBookBtn, SubFooter },
+  components: {AnimationIcon, PageFooter, SubHeader, FindBookBtn, SubFooter, VueTitle},
   data() {
     return {
       favorited: false,
       animating: false,
       fullScreenBtn: false,
+      title: '',
+      // loadedItem: false,
+      book: null,
     };
+  },
+  created() {
+    // watch the params of the route to fetch the data again
+    this.$watch(
+        () => this.$route.params,
+        () => {
+          this.fetchData()
+        },
+        // fetch the data when the view is created and the data is
+        // already being observed
+        {immediate: true}
+    )
   },
   computed: {
     iconClasses() {
@@ -125,6 +135,15 @@ export default {
     },
     onIconAnimationEnds() {
       this.animating = false;
+    },
+    async fetchData() {
+      await axios
+          .get('books/' + this.$route.params.slug
+          )
+          .then((response) => {
+                this.book = response.data
+              }
+          );
     },
   },
 };

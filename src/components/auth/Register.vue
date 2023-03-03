@@ -10,7 +10,7 @@
                   :src="require('@/assets/icons/close-icon.svg')"
                   alt="close icon"
                   class="close-icon"
-                  @click="close"
+                  @click="hide"
               />
             </header>
             <figcaption class="user-access__figcaption">
@@ -145,7 +145,7 @@ export default {
       if (this.v$.$error) return;
 
       await axios
-        .post("https://api.librarian.sk/api/register", {
+        .post("register", {
           email: this.email,
           name: this.username,
           password: this.password,

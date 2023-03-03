@@ -11,18 +11,19 @@ const routes = [
     component: LiveMap,
   },
   {
-    path: "/kniznica/oravska-kniznica-antona-habovstiaka",
+    path: "/kniznica/:slug",
+    // props: true,
     name: "detail-kniznice",
     component: LibraryDetail,
   },
   {
     path: "/kniha/:slug",
     name: "detail-knihy",
-    props: true,
+    // props: true,
     component: BookDetail,
   },
   {
-    path: "/creator/",
+    path: "/autor/:slug",
     name: "detail-autora",
     component: CreatorDetail,
   }

@@ -13,7 +13,7 @@
           <router-link
             tag="h4"
             class="store-informations__heading"
-            to="/kniznica/{{ slug }}"
+            :to="'/kniznica/'+slug"
           >
           {{ libraryName }}
           </router-link>

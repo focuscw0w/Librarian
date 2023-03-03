@@ -1,11 +1,13 @@
 <template>
-  <div>
+  <div v-if="library">
+    <VueTitle :title="library.name"/>
+
     <section class="introduction">
       <div class="container">
         <div class="introduction__background">
           <img
-            :src="require('../assets/images/background.webp')"
-            alt="background image"
+              :src="require('../assets/images/background.webp')"
+              alt="background image"
           />
         </div>
 
@@ -21,14 +23,14 @@
             <div class="about__library__media">
               <div class="flex-container">
                 <router-link tag="a" to="/" class="navigate-btn"
-                  >Navigovať</router-link
-                >
+                >Navigovať
+                </router-link>
 
                 <button class="like-btn" @click="toggle">
                   <AnimationIcon
-                    class="toggle-favorite__icon"
-                    :class="iconClasses"
-                    @animationend="onIconAnimationEnds"
+                      class="toggle-favorite__icon"
+                      :class="iconClasses"
+                      @animationend="onIconAnimationEnds"
                   />
                 </button>
               </div>
@@ -46,9 +48,9 @@
       </div>
     </div>
 
-    <router-view />
+    <router-view/>
 
-    <PageFooter />
+    <PageFooter/>
 
     <div v-if="$store.state.blurEffect" class="dead-background"></div>
   </div>
@@ -60,16 +62,31 @@ import News from "../components/news/News.vue";
 import Gallery from "../components/news/Gallery.vue";
 import AnimationIcon from "../components/AnimationIcon.vue";
 import PageFooter from "../components/PageFooter.vue";
+import axios from "axios";
+import VueTitle from "@/utilities/vue-title.vue";
 
 export default {
-  name: "HomePage",
-  components: { SecondaryNavigation, News, Gallery, AnimationIcon, PageFooter },
+  // title: 'Knižnica',
+  components: {SecondaryNavigation, News, Gallery, AnimationIcon, PageFooter, VueTitle},
   data() {
     return {
       currentComponent: "news",
       favorited: false,
       animating: false,
+      library: null,
     };
+  },
+  created() {
+    // watch the params of the route to fetch the data again
+    this.$watch(
+        () => this.$route.params,
+        () => {
+          this.fetchData()
+        },
+        // fetch the data when the view is created and the data is
+        // already being observed
+        {immediate: true}
+    )
   },
   computed: {
     iconClasses() {
@@ -92,6 +109,16 @@ export default {
     },
     onIconAnimationEnds() {
       this.animating = false;
+    },
+    async fetchData() {
+      await axios
+          .get('libraries/' + this.$route.params.slug
+          )
+          .then((response) => {
+                console.log(response.data)
+                this.library = response.data
+              }
+          );
     },
   },
 };

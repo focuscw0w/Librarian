@@ -131,7 +131,7 @@ export default {
     async validateLogin(e) {
       e.preventDefault();
       await axios
-          .post("https://api.librarian.sk/api/login", {
+          .post("login", {
             email: this.email,
             password: this.password,
           })

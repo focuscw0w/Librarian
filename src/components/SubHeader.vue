@@ -5,18 +5,16 @@
         <!-- Router link -->
         <!-- refactor class names -->
         <button class="book-list__btn-previous">
-          <img src="@/assets/icons/arrow-left.svg" alt="previous page" />
+          <img src="@/assets/icons/arrow-left.svg" @click="$router.go(-1)" alt="previous page" />
         </button>
         <h4 class="book-list__heading">
-          <strong class="book-list__page-name" v-if="displayBook"
-            >Zoznam kníh</strong
+          <strong class="book-list__page-name"
+            >{{ category }}</strong
           >
-          <strong v-else class="book-list__page-name">Zoznam autorov</strong>
           /
-          <span class="book-list__book-name" v-if="displayBook">
-            {{ $store.state.currentBook.name }}
+          <span class="book-list__book-name" >
+            {{title}}
           </span>
-          <span v-else class="book-list__book-name">Andrzej Sapkowski</span>
         </h4>
       </div>
     </div>
@@ -25,6 +23,6 @@
 
 <script>
 export default {
-  props: ["displayBook"],
+  props: ["category",'title'],
 };
 </script>

@@ -60,7 +60,7 @@
       </div>
     </div>
   </div>
-    <Introduction v-if="$store.state.activeIntroduction"/>
+  <Introduction v-if="$store.state.activeIntroduction"/>
   <div v-if="openRegister" class="dead-background"></div>
 </template>
 
@@ -256,7 +256,8 @@ export default {
     //   this.zoom = 12;
     // },
     showInfoWindow(index) {
-      if (this.currentLibrary || index === null) {
+      if (this.currentLibrary// || index === null
+      ) {
         this.libraryLocation[this.currentLibrary].icon = require("../assets/icons/Point_book.png");
       }
       this.currentLibrary = index;
@@ -282,11 +283,15 @@ export default {
         localStorage.getItem("activeIntroduction") == null ? true : false;
 
     await axios
-        .get("https://api.librarian.sk/api/libraries")
-        .then((response) => (this.libraries = response.data));
+        .get("libraries")
+        .then((response) => {
+          console.log(response.data);
+          this.libraries = response.data
+        });
 
     this.libraryLocation = this.libraries.map((library) => ({
       id: library.id,
+      slug: library.slug,
       libraryName: library.name,
       libraryCity: library.city,
       libraryStreet: library.street,

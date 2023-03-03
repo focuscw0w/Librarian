@@ -12,7 +12,7 @@
 
 <script>
 import {Modal} from 'bootstrap'
-import Id from '@/js/utilities/utilities-unique-id'
+import Id from '@/utilities/utilities-unique-id'
 
 export default {
   name: "TestModal",
