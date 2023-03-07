@@ -2,51 +2,34 @@
   <div class="d-flex gap-2em">
 
     <section class="news">
-      <div class="articles" v-for="article in articleData" :key="article.id">
-        <NewsArticle
-            :text="article.text"
-            :image="article.image"
-            :competition="article.competition"
+      <div class="articles" v-for="event in 3" :key="event.id">
+        <NewsEventArticle
+            event="event"
         />
       </div>
+      <p class="text-center" v-if="events.length === 0">
+        Nástenka knižnice je zatiaľ prázdna :(
+      </p>
     </section>
 
-    <NewsAside/>
+    <NewsAside :library="library"/>
   </div>
 </template>
 
 <script>
 import NewsAside from "./NewsAside.vue";
 import AnimationIcon from "../AnimationIcon.vue";
-import NewsArticle from "./NewsArticle.vue";
+import NewsEventArticle from "./NewsEventArticle.vue";
 
 export default {
-  components: {NewsAside, AnimationIcon, NewsArticle},
+  components: {NewsAside, AnimationIcon, NewsEventArticle},
   data() {
     return {
-      favorited: false,
-      animating: false,
-      articleData: [
-        {
-          id: 0,
-          text: "| Túto krásnu lúku sme kúpili, aby sme ju zaliali betónom a postavili na nom garáže a parkovacie miesta pre vás všetkých",
-          image: "article-img.jpg",
-          competition: false,
-        },
-        {
-          id: 1,
-          text: "Chcete vyhrať balíček kníh od Ikaru? Zapojte sa do súťaže tak , že nám na email tvojpipikjekratky@haha.com fotku vašej poličky s ...",
-          image: "background-competition.png",
-          competition: true,
-        },
-        {
-          id: 2,
-          text: "Chcete vyhrať balíček kníh od Ikaru? Zapojte sa do súťaže tak , že nám na email tvojpipikjekratky@haha.com fotku vašej poličky s ...",
-          image: "background-competition.png",
-          competition: true,
-        },
-      ],
-    };
+      events: [],
+    }
+  },
+  props: {
+    library: null,
   },
   computed: {
     iconClasses() {

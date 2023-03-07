@@ -3,7 +3,7 @@
     <h2 class="filter-product__heading">Filtrovanie</h2>
 
     <div class="search-location">
-      <label for="place" class="filter-product__label">Miesto hľadania</label>
+      <label for="place" class="filter-product__label">Mesto hľadania</label>
       <div class="flex-container justify-content-between">
         <div class="search-location-input-wrapper align-items-center d-flex">
           <BIconSearch alt="search icon"
@@ -12,8 +12,9 @@
               type="text"
               name="place"
               class="bg-1"
-              placeholder="Zadajte miesto..."
+              placeholder="Zadajte mesto..."
               autocomplete="off"
+              v-model="city"
           />
         </div>
         <span class="radius">
@@ -21,10 +22,12 @@
             <BIconGeoAlt alt="marker icon"
                          class="marker-icon"/>
 
-            <select name="" id="" class="form-control w-auto  form-select border-0 shadow-none cursor-pointer ps-0">
-          <option value="">+10km</option>
-          <option value="">+25km</option>
-          <option value="">+50km</option>
+            <select v-model="distance" name="" id=""
+                    class="form-control w-auto  form-select border-0 shadow-none cursor-pointer ps-0">
+          <option value="0">0km</option>
+          <option value="10">+10km</option>
+          <option value="25">+25km</option>
+          <option value="50">+50km</option>
 d        </select>
 
 
@@ -44,7 +47,7 @@ d        </select>
                   value="academic"
                   name="academic"
                   id="academic"
-                  v-model="checkedInputs"
+                  v-model="library_types"
               />
               <span class="checkmark bg-2"></span>
             </label>
@@ -57,7 +60,7 @@ d        </select>
                   value="corporate"
                   name="corporate"
                   id="corporate"
-                  v-model="checkedInputs"
+                  v-model="library_types"
               />
               <span class="checkmark bg-2"></span>
             </label>
@@ -70,7 +73,7 @@ d        </select>
                   value="country"
                   name="country"
                   id="country"
-                  v-model="checkedInputs"
+                  v-model="library_types"
               />
               <span class="checkmark bg-2"></span>
             </label>
@@ -85,7 +88,7 @@ d        </select>
                   value="communal"
                   name="communal"
                   id="communal"
-                  v-model="checkedInputs"
+                  v-model="library_types"
               />
               <span class="checkmark bg-2"></span>
             </label>
@@ -98,7 +101,7 @@ d        </select>
                   value="regional"
                   name="regional"
                   id="regional"
-                  v-model="checkedInputs"
+                  v-model="library_types"
               />
               <span class="checkmark bg-2"></span>
             </label>
@@ -119,7 +122,7 @@ d        </select>
                   value="wifi"
                   name="wifi"
                   id="wifi"
-                  v-model="checkedInputs"
+                  v-model="services"
               />
               <span class="checkmark bg-2"></span>
             </label>
@@ -132,7 +135,7 @@ d        </select>
                   value="printer"
                   name="printer"
                   id="printer"
-                  v-model="checkedInputs"
+                  v-model="services"
               />
               <span class="checkmark bg-2"></span>
             </label>
@@ -147,7 +150,7 @@ d        </select>
                   value="cafe"
                   name="cafe"
                   id="cafe"
-                  v-model="checkedInputs"
+                  v-model="services"
               />
               <span class="checkmark bg-2"></span>
             </label>
@@ -160,7 +163,7 @@ d        </select>
                   value="access"
                   name="access"
                   id="access"
-                  v-model="checkedInputs"
+                  v-model="services"
               />
               <span class="checkmark bg-2"></span>
             </label>
@@ -170,13 +173,13 @@ d        </select>
       </div>
     </div>
     <div v-if="visibleFilterButton" class="filter-book-wrapper">
-      <button class="filter-book">Aplikuj filter</button>
+      <button class="filter-book" @click="applyFilter">Aplikuj filter</button>
       <img
           class="close-icon"
           src="@/assets/icons/close-icon.svg"
           alt="close icon"
-          @click="checkedInputs.length = 0"
       />
+      <!--                @click="checkedInputs.length = 0"-->
     </div>
   </div>
 </template>
@@ -187,22 +190,34 @@ import {BIconSearch, BIconGeoAlt} from 'bootstrap-icons-vue';
 
 export default {
   components: {DropDown, BIconSearch, BIconGeoAlt},
+  emits: ['onApplyFilter'],
   data() {
     return {
-      checkedInputs: [],
-      dropDownContent: [{content: "10km"}, {content: "20km"}, {content: "50km"}],
-      visibleFilterButton: false,
-      showDropDown: false,
+      library_types: [],
+      services: [],
+      city: '',
+      distance: 10,
+      // dropDownContent: [{content: "10km"}, {content: "20km"}, {content: "50km"}],
+      visibleFilterButton: true,
+      // showDropDown: false,
     };
   },
-  watch: {
-    checkedInputs() {
-      this.visibleFilterButton = this.checkedInputs.length == 0 ? false : true;
-    },
-  },
+  // watch: {
+  //   checkedInputs() {
+  //     this.visibleFilterButton = this.checkedInputs.length == 0 ? false : true;
+  //   },
+  // },
   methods: {
-    dropDown() {
-      this.showDropDown = !this.showDropDown;
+    // dropDown() {
+    //   this.showDropDown = !this.showDropDown;
+    // },
+    applyFilter() {
+      this.$emit("onApplyFilter", {
+        'city': this.city,
+        'distance': this.distance,
+        'library_types': this.library_types,
+        'services': this.services,
+      })
     },
   },
 };

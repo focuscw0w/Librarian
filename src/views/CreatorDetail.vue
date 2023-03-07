@@ -47,7 +47,7 @@
 
 
 <script>
-import SecondaryNavigation from "@/components/SecondaryNavigation";
+// import SecondaryNavigation from "@/components/SecondaryLibraryNavigation.vue";
 import SubHeader from "@/components/SubHeader.vue";
 import SubFooter from "@/components/SubFooter";
 import PageFooter from "@/components/PageFooter";
@@ -59,7 +59,7 @@ import dateFormat, {masks} from "dateformat";
 export default {
   components: {
     SubHeader,
-    SecondaryNavigation,
+    // SecondaryNavigation,
     SubFooter,
     PageFooter,
     BookDetail,

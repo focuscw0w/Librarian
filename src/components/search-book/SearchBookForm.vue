@@ -30,37 +30,40 @@
   </div>
 
   <div v-if="this.searchForBook != '' && visibleBlookList" class="books bg-2">
-    <ul
-        v-for="book in results.slice(0, 9)"
-        :key="book.id"
-        ref="book"
-        class="books__ul bg-2"
-        @click="addBook(book)"
-    >
-      <li class="books__li">
-        <div class="flex-container">
-          <img
-              :src="require('@/assets/images/book-product.jpg')"
-              alt="book"
-              class="product-img"
-          />
-          <div class="books__info">
-            <span class="books__name">{{ (bookName = book.name) }}</span>
-            <div class="d-flex gap-2">
+    <div v-if="loading" class="text-center">
+<!--      Nacitavam...-->
+    </div>
+    <div v-else>
+
+      <div
+          v-for="(book, index) in results"
+          :key="book.id"
+          ref="book"
+          class="books-result-item bg-2 flex-container pt-1 pb-1"
+          @click="addBook(book)"
+      >
+        <img
+            :src="require('@/assets/images/book-product.jpg')"
+            alt="book"
+            class="product-img me-3"
+        />
+        <div class="books__info justify-content-center">
+          <span class="books__name">{{ (bookName = book.name) }}</span>
+          <div class="d-flex gap-2 mb-2">
               <span
                   class="books__author"
                   v-for="creator in book.creators"
                   :key="creator.id"
               >{{ creator.name }}</span
               >
-            </div>
           </div>
         </div>
-      </li>
-    </ul>
-    <p class="text-center" v-if="results.length === 0">
-      Nenašli sa žiadne výsledky :(
-    </p>
+      </div>
+      <p class="text-center" v-if="results.length === 0">
+        Nenašli sa žiadne výsledky :(
+      </p>
+    </div>
+
   </div>
 </template>
 
@@ -79,6 +82,7 @@ export default {
   data() {
     return {
       visibleBlookList: false,
+      loading: false,
       darkBackground: false,
       searchForBook: "",
       bookName: "",
@@ -101,13 +105,15 @@ export default {
       if (inputValue !== '') {
         q += '?search_word=' + inputValue
       }
-
+      this.loading = true
       await axios
           .get((this.type === 'book' ? 'books' : 'creators') + q
           )
           .then((response) => {
                 console.log(response.data)
                 this.results = response.data
+                this.loading = false
+
               }
           );
     },

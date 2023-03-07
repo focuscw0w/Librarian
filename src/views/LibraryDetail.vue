@@ -38,13 +38,13 @@
           </div>
         </article>
 
-        <SecondaryNavigation @showContent="showComponent($event)"/>
+        <SecondaryLibraryNavigation :library="library" @showContent="showComponent($event)"/>
       </div>
     </section>
 
     <div class="main pt-4">
       <div class="container">
-        <component :is="currentComponent"></component>
+        <component :library="library" :is="currentComponent"></component>
       </div>
     </div>
 
@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import SecondaryNavigation from "../components/SecondaryNavigation.vue";
+import SecondaryLibraryNavigation from "../components/SecondaryLibraryNavigation.vue";
 import News from "../components/news/News.vue";
 import Gallery from "../components/news/Gallery.vue";
 import AnimationIcon from "../components/AnimationIcon.vue";
@@ -67,7 +67,7 @@ import VueTitle from "@/utilities/vue-title.vue";
 
 export default {
   // title: 'Knižnica',
-  components: {SecondaryNavigation, News, Gallery, AnimationIcon, PageFooter, VueTitle},
+  components: {SecondaryLibraryNavigation, News, Gallery, AnimationIcon, PageFooter, VueTitle},
   data() {
     return {
       currentComponent: "news",

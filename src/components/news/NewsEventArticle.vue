@@ -7,23 +7,21 @@
       </header>
 
       <a class="news__article__settings" href="#"
-        ><img :src="require('@/assets/icons/ellipsis.svg')" alt="settings icon"
+      ><img :src="require('@/assets/icons/ellipsis.svg')" alt="settings icon"
       /></a>
     </div>
 
-    <div class="news__article__image">
-      <img :src="require(`@/assets/images/${image}`)" alt="Article image" />
+    <div v-if="image" class="news__article__image mb-3">
+      <img :src="require(`@/assets/images/${image}`)" alt="Article image"/>
     </div>
 
-    <footer class="news__article__footer p-3">
+    <footer class="news__article__footer px-3 pb-3">
       <div class="flex-container">
         <div class="wrapper">
           <div class="details" v-if="competition">
             <p class="mark">
-              <img
-                :src="require('@/assets/icons/bx-trophy.svg')"
-                alt="competition icon"
-              />Súťaž
+              <BIconAward class="me-1"/>
+              Súťaž
             </p>
             <p>Dátum a čas <span class="date">15. August, 15:00</span></p>
             <p>Trvanie: <span class="date">2 hodiny</span></p>
@@ -31,11 +29,11 @@
 
           <p class="about-event">
             <span class="location" v-if="!competition"
-              ><img
+            ><img
                 class="location-img"
                 :src="require('@/assets/icons/bx-current-location.svg')"
                 alt="location icon"
-              />
+            />
               Zemianská Lúčka</span
             >
             {{ text }}
@@ -44,12 +42,12 @@
 
         <div class="media">
           <AnimationIcon
-            class="toggle-favorite__icon"
-            :class="iconClasses"
-            @animationend="onIconAnimationEnds"
-            @click="toggle"
+              class="toggle-favorite__icon"
+              :class="iconClasses"
+              @animationend="onIconAnimationEnds"
+              @click="toggle"
           />
-          <img :src="require('@/assets/icons/share.svg')" alt="share button" />
+          <img :src="require('@/assets/icons/share.svg')" alt="share button"/>
         </div>
       </div>
     </footer>
@@ -58,9 +56,11 @@
 
 <script>
 import AnimationIcon from "../AnimationIcon.vue";
+import {BIconAward} from "bootstrap-icons-vue";
+
 export default {
-  props: ["text", "image", "competition"],
-  components: { AnimationIcon },
+  props: ["event"],
+  components: {AnimationIcon, BIconAward},
   data() {
     return {
       favorited: false,
@@ -86,7 +86,8 @@ export default {
       this.animating = false;
     },
   },
-  created() {},
+  created() {
+  },
 };
 </script>
 

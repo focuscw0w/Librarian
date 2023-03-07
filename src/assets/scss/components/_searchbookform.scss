@@ -51,10 +51,10 @@
   border-radius: $border-radius;
   margin-top: .5em;
   padding: 1em 0;
+  height: 397px;
+  overflow: scroll;
 
-  .books__ul {
-    padding-top: .5em;
-    padding-bottom: .5em;
+  .books-result-item {
     padding-left: 1em;
     width: 100%;
     cursor: pointer;
@@ -69,15 +69,13 @@
       gap: 1em;
     }
 
-    .books__li {
-      .product-img {
-        @include product-img;
-      }
+    .product-img {
+      @include product-img;
+    }
 
-      .books__info {
-        @include direction-column;
-        gap: 0.4em;
-      }
+    .books__info {
+      @include direction-column;
+      gap: 0.4em;
     }
   }
 
