@@ -1,5 +1,5 @@
 <template>
-  <article class="books">
+  <article class="books bg-2">
     
   
   </article>

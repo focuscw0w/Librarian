@@ -1,6 +1,6 @@
 <template>
-  <article class="news__article">
-    <div class="flex-container padding">
+  <article class="news__article bg-2">
+    <div class="flex-container p-3">
       <header class="news__article__header">
         <h4 class="article-heading">Oravská knižnica Antóna Hrabovštiaka</h4>
         <figcaption class="date-figcaption">8. augusta</figcaption>
@@ -15,7 +15,7 @@
       <img :src="require(`@/assets/images/${image}`)" alt="Article image" />
     </div>
 
-    <footer class="news__article__footer padding">
+    <footer class="news__article__footer p-3">
       <div class="flex-container">
         <div class="wrapper">
           <div class="details" v-if="competition">

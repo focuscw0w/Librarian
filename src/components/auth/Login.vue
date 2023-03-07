@@ -40,7 +40,7 @@
               <div class="login__interface__stay-logged-ing">
                 <label for="logged-in" class="label">
                   <input type="checkbox" name="logged-in" id="logged-in"/>
-                  <span class="checkmark"></span>
+                  <span class="checkmark bg-2"></span>
                   Ostať prihlásený
                 </label>
                 <a class="forgotten-password">Zabudnuté heslo?</a>

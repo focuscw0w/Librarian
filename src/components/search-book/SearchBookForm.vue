@@ -1,6 +1,6 @@
 <template>
   <div :class="{ dark: darkBackground }">
-    <div class="search-article">
+    <div class="search-article bg-2">
       <div class="flex-container">
         <div class="search-container flex-container">
           <BIconSearch alt="search icon" class="search-icon ms-3"/>
@@ -29,12 +29,12 @@
     </div>
   </div>
 
-  <div v-if="this.searchForBook != '' && visibleBlookList" class="books">
+  <div v-if="this.searchForBook != '' && visibleBlookList" class="books bg-2">
     <ul
         v-for="book in results.slice(0, 9)"
         :key="book.id"
         ref="book"
-        class="books__ul"
+        class="books__ul bg-2"
         @click="addBook(book)"
     >
       <li class="books__li">

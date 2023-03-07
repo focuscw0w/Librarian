@@ -11,12 +11,12 @@
           />
         </div>
 
-        <article class="about">
+        <article class="about bg-2">
           <div class="flex-container">
             <div class="about__library">
-              <h2 class="main-heading">Oravská knižnica Antona Habovštiaka</h2>
+              <h2 class="main-heading">{{ library.name }}</h2>
               <figcaption class="heading-figcaption">
-                Verejná knižnica
+                {{ library.type.name }}
               </figcaption>
             </div>
 

@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   padding: 0.75em;
-  background-color: $high-emphasys-inverse;
   box-shadow: $shadow-bottom;
   border-radius: 0.3em;
 
@@ -46,30 +45,14 @@
     }
   }
 
-  .sub-menu {
-    position: absolute;
-    padding: 0 0.5em 0.5em 0.5em;
-    top: 3em;
-    right: 0;
-    background-color: $high-emphasys-inverse;
-    border-radius: $border-radius;
-
-    .sub-menu__ul {
-      li {
-        margin-top: .5em;
-      }
-    }
-  }
 }
 
 .books {
   border-radius: $border-radius;
-  background-color: $high-emphasys-inverse;
   margin-top: .5em;
   padding: 1em 0;
 
   .books__ul {
-    background-color: $high-emphasys-inverse;
     padding-top: .5em;
     padding-bottom: .5em;
     padding-left: 1em;

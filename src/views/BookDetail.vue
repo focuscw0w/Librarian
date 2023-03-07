@@ -19,7 +19,7 @@
               />
             </button>
           </div>
-          <article class="book-list__product-info">
+          <article class="book-list__product-info bg-2">
             <div class="flex-container">
               <h5 class="book-list__product__genres">
                 <strong class="book-list__product__genre">Beletria</strong>
@@ -50,18 +50,18 @@
                 <li>
                   Vydavateľstvo
                   <strong class="book-list__library-publisher"
-                  >Verejná knižnica</strong
+                  >{{ book.publisher.name ?? '-' }}</strong
                   >
                 </li>
                 <li>
                   Dátum
                   <strong class="book-list__release-date">
-                    Verejná knižnica
+                    {{ formattedPublishedOn }}
                   </strong>
                 </li>
                 <li>
                   ISBN
-                  <strong class="book-list__isbn"> Verejná knižnica </strong>
+                  <strong class="book-list__isbn"> {{ book.isbn_10 ?? book.isbn_13 ?? '-'}} </strong>
                 </li>
               </ul>
               <div class="book-list__product__controls">
@@ -92,6 +92,7 @@ import SubFooter from "@/components/SubFooter.vue";
 import FindBookBtn from "@/components/FindBookBtn";
 import axios from "axios";
 import VueTitle from "@/utilities/vue-title.vue";
+import dateFormat, {masks} from "dateformat";
 
 export default {
   components: {AnimationIcon, PageFooter, SubHeader, FindBookBtn, SubFooter, VueTitle},
@@ -124,6 +125,13 @@ export default {
         "toggle-favorite__icon--animate": this.animating,
       };
     },
+    formattedPublishedOn() {
+      if (this.book.published_on) {
+        return dateFormat(new Date(this.book.published_on), "d.m.yyyy");
+      } else {
+        return null;
+      }
+    },
   },
   methods: {
     toggle() {
@@ -141,6 +149,7 @@ export default {
           .get('books/' + this.$route.params.slug
           )
           .then((response) => {
+                console.log(response.data)
                 this.book = response.data
               }
           );

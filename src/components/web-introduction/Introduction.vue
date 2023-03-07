@@ -1,5 +1,5 @@
 <template>
-  <article v-if="activeIntroduction" class="first-introduction">
+  <div v-if="activeIntroduction" class="first-introduction bg-1">
     <div class="flex-container">
       <div class="first-introduction__text">
         <div class="flex-container">
@@ -31,7 +31,7 @@
         />
       </div>
     </div>
-  </article>
+  </div>
 </template>
 
 <script>

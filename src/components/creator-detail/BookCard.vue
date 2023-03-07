@@ -1,12 +1,12 @@
 <template>
-  <li class="product-items__ul__product">
+  <li class="product-items__ul__product bg-2">
     <div class="flex-container">
       <img
         src="@/assets/images/book-product.jpg"
         class="product-items__ul__image"
         alt="book"
       />
-      <article class="product-items__ul__book-info">
+      <article class="product-items__ul__book-info bg-2">
         <span class="book-info__genre">Fantasy</span>
         <h4 class="book-info__heading">Zaklínač IV.: Čas opovrhnutia</h4>
         <figcaption class="product__author-name">

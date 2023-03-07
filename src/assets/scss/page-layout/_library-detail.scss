@@ -5,6 +5,7 @@
 article {
   border-radius: $border-radius;
 }
+
 .introduction {
   background-color: $grey-10;
   padding-bottom: 1em;
@@ -44,28 +45,4 @@ article {
     @include direction-row;
     justify-content: space-between;
   }
-}
-
-/* MAIN */
-
-.main {
-  //padding: 2em 0;
-  background-color: $background;
-
-  article {
-    background-color: $high-emphasys-inverse;
-  }
-}
-
-.margin-top {
-  margin-top: 1.5em;
-}
-
-.padding {
-  padding: 1em;
-}
-
-.split-page {
-  display: flex;
-  gap: 2em;
 }

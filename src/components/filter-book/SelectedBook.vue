@@ -1,5 +1,5 @@
 <template>
-  <div class="selected-book">
+  <div class="selected-book bg-2">
     <div class="flex-container">
       <router-link :to="`/kniha/${bookData.slug}`">
         <img

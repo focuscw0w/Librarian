@@ -2,12 +2,12 @@
   <div>
     <FilterProduct v-if="activeFilterProduct"/>
 
-    <SelectedBook
-        v-if="activeFilterProduct"
-        :bookData="book"
-        @hideFilterProduct="activeFilterProduct = false"
-    />
     <div class="map-container">
+      <SelectedBook
+          v-if="activeFilterProduct"
+          :bookData="book"
+          @hideFilterProduct="activeFilterProduct = false"
+      />
       <GMapMap
           ref="myMapRef"
           :center="center"
@@ -17,6 +17,7 @@
           latLngBounds: slovakiaBounds,
           strictBounds: false,
         }"
+          mapTypeControl: false
           v-bind:options="mapStyle"
           style="width: 100%; height: 100vh"
           :class="{ dark: darkGoogleMap }"
@@ -25,27 +26,16 @@
         <GMapMarker
             class="w-75"
             :key="index"
-            v-for="(m, index) in libraryLocation"
-            :position="m"
+            v-for="(library, index) in libraries"
+            :position="library"
             :clickable="true"
-            :icon="m.icon"
+            :icon="library.icon"
             @click="showInfoWindow(index)"
             @mouseover="toggleIcon(true, index)"
             @mouseout="toggleIcon(false, index)"
         >
           <GMapInfoWindow :opened="currentLibrary === index">
-            <InfoWindow
-                :id="index"
-                :slug="m.slug"
-                :libraryName="m.libraryName"
-                :libraryCity="m.libraryCity"
-                :libraryStreet="m.libraryStreet"
-                :libraryPostCode="m.libraryPostCode"
-                :libraryHouseNumber="m.libraryHouseNumber"
-                :libraryTimeDirection="m.libraryTimeDirection"
-                :libraryTime="m.libraryTime"
-                :libraryStatus="m.libraryStatus"
-            />
+            <InfoWindow :library="library"/>
           </GMapInfoWindow>
         </GMapMarker>
       </GMapMap>
@@ -86,7 +76,6 @@ export default {
   data() {
     return {
       libraries: [],
-      libraryLocation: [],
       book: {},
       map: null,
       currentLibrary: null,
@@ -258,17 +247,17 @@ export default {
     showInfoWindow(index) {
       if (this.currentLibrary// || index === null
       ) {
-        this.libraryLocation[this.currentLibrary].icon = require("../assets/icons/Point_book.png");
+        this.libraries[this.currentLibrary].icon = require("../assets/icons/Point_book.png");
       }
       this.currentLibrary = index;
       if (index !== null) {
-        this.libraryLocation[index].icon = require("../assets/icons/Point_book_active.png");
+        this.libraries[index].icon = require("../assets/icons/Point_book_active.png");
       }
     },
     toggleIcon(statement, index) {
       // Ak už je aktívna, nechcem s ňou nič robiť
       if (index !== this.currentLibrary) {
-        this.libraryLocation[index].icon =
+        this.libraries[index].icon =
             statement === true
                 ? require("../assets/icons/Point_book_active.png")
                 : require("../assets/icons/Point_book.png");
@@ -289,20 +278,28 @@ export default {
           this.libraries = response.data
         });
 
-    this.libraryLocation = this.libraries.map((library) => ({
-      id: library.id,
-      slug: library.slug,
-      libraryName: library.name,
-      libraryCity: library.city,
-      libraryStreet: library.street,
-      libraryPostCode: library.post_code,
-      libraryHouseNumber: library.house_number,
-      libraryTime: library.todayBusinessHoursStatusMarginTime,
-      libraryStatus: library.todayBusinessHoursStatus,
-      lat: parseFloat(library.lat),
-      lng: parseFloat(library.long),
-      icon: require("../assets/icons/Point_book.png"),
-    }));
+    this.libraries = this.libraries.map((library) => {
+      library.icon = require("../assets/icons/Point_book.png")
+      library.lat = parseFloat(library.lat)
+      library.lng = parseFloat(library.long)
+      delete library.long;
+      return library;
+      // return library
+      //     {
+      //   id: library.id,
+      //   slug: library.slug,
+      //   libraryName: library.name,
+      //   libraryCity: library.city,
+      //   libraryStreet: library.street,
+      //   libraryPostCode: library.post_code,
+      //   libraryHouseNumber: library.house_number,
+      //   libraryTime: library.todayBusinessHoursStatusMarginTime,
+      //   libraryStatus: library.todayBusinessHoursStatus,
+      //   lat: parseFloat(library.lat),
+      //   lng: parseFloat(library.long),
+      //   icon: require("../assets/icons/Point_book.png"),
+      // }
+    });
   },
   mounted() {
     // this.getCurrentPosition();

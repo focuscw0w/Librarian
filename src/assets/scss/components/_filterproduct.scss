@@ -7,7 +7,6 @@
   float: left;
   padding: 6em 1.5em;
   z-index: 900;
-  background-color: $high-emphasys-inverse;
   box-shadow: $shadow-bottom;
   width: 25em;
   height: 100vh;
@@ -27,7 +26,6 @@
     margin-bottom: 1.5em;
 
     input[name="place"] {
-      background-color: $background;
       border-radius: $border-radius;
       border: none;
       padding-left: 0.75em;
@@ -123,14 +121,13 @@
   left: 0;
   height: 13px;
   width: 13px;
-  background-color: $high-emphasys-inverse;
   border-radius: .1em;
   outline: 1px solid $high-emphasys;
 }
 
-.label:hover input ~ .checkmark {
-  background-color: $high-emphasys-inverse;
-}
+//.label:hover input ~ .checkmark {
+//  background-color: $high-emphasys-inverse;
+//}
 
 .label input:checked ~ .checkmark {
   outline: 1px solid $primary;

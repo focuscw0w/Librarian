@@ -4,6 +4,11 @@ body {
   font-family: $font-family !important;
 }
 
+main {
+  background-color: $background;
+  min-height: 100vh;
+}
+
 a {
   color: $high-emphasys;
 }
@@ -34,11 +39,11 @@ a {
 .secondary-nav {
   a.active {
     font-weight: $font-weight-medium;
-    color: $high-emphasys!important;
+    color: $high-emphasys !important;
   }
 
   a {
-    color: $medium-emphasys!important;
+    color: $medium-emphasys !important;
   }
 }
 
@@ -125,13 +130,6 @@ a {
   .find-book {
     font-size: $font-size-15;
     color: $high-emphasys-inverse;
-  }
-}
-
-.sub-menu {
-  a {
-    font-size: $font-size-15;
-    font-weight: $font-weight-medium;
   }
 }
 

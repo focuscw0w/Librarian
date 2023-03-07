@@ -1,16 +1,17 @@
 <template>
-  <div class="split-page ">
+  <div class="d-flex gap-2em">
+
     <section class="news">
       <div class="articles" v-for="article in articleData" :key="article.id">
         <NewsArticle
-          :text="article.text"
-          :image="article.image"
-          :competition="article.competition"
+            :text="article.text"
+            :image="article.image"
+            :competition="article.competition"
         />
       </div>
     </section>
 
-    <NewsAside />
+    <NewsAside/>
   </div>
 </template>
 
@@ -18,8 +19,9 @@
 import NewsAside from "./NewsAside.vue";
 import AnimationIcon from "../AnimationIcon.vue";
 import NewsArticle from "./NewsArticle.vue";
+
 export default {
-  components: { NewsAside, AnimationIcon, NewsArticle },
+  components: {NewsAside, AnimationIcon, NewsArticle},
   data() {
     return {
       favorited: false,
@@ -65,7 +67,8 @@ export default {
       this.animating = false;
     },
   },
-  created() {},
+  created() {
+  },
 };
 </script>
 

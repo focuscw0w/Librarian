@@ -1,5 +1,5 @@
 <template>
-  <article class="info-window">
+  <div class="info-window bg-2">
     <div class="flex-container info-window-container">
       <div class="info-window__store">
         <img
@@ -13,17 +13,18 @@
           <router-link
             tag="h4"
             class="store-informations__heading"
-            :to="'/kniznica/'+slug"
+            :to="'/kniznica/'+library.slug"
           >
-          {{ libraryName }}
+          {{ library.name }}
           </router-link>
           <div class="opened-p">
-            <span class="opened">{{ libraryStatus }}</span
-            >do {{ libraryTime }}
+            <span :class="'fw-bold text-'+( library.todayBusinessHoursStatus === 'closed' ? 'danger' : 'success' )">{{ library.todayBusinessHoursStatusTranslated }}</span> {{library.todayBusinessHoursStatusMarginTimeDirectionTranslated}} {{
+              library.todayBusinessHoursStatusMarginTime
+            }}
           </div>
           <div class="store-informations__address">
-            {{ libraryStreet }} {{ libraryHouseNumber }} <br />
-            {{ libraryPostCode }} {{ libraryCity }}
+            {{ library.street }} {{ library.house_number }} <br />
+            {{ library.post_code }} {{ library.city }}
           </div>
           <div class="store-informations__media">
             <div class="flex-container">
@@ -45,23 +46,14 @@
         </div>
       </div>
     </div>
-  </article>
+  </div>
 </template>
 
 <script>
 import AnimationIcon from "./AnimationIcon.vue";
 export default {
   props: [
-    "id",
-    "slug",
-    "libraryName",
-    "libraryCity",
-    "libraryStreet",
-    "libraryPostCode",
-    "libraryHouseNumber",
-    "libraryTimeDirection",
-    "libraryTime",
-    "libraryStatus",
+    "library",
   ],
   components: { AnimationIcon },
   data() {

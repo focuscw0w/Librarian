@@ -1,7 +1,7 @@
 <template>
-  <MainNavigation />
+  <MainNavigation/>
 
-  <main id="main-content" :class="{ blur: $store.state.blurEffect }">
+  <main id="main-content" :class="{ blur: $store.state.blurEffect}" class="bg-1" style="padding-top:4em">
     <router-view v-slot="{ Component }">
       <keep-alive>
         <component :is="Component"></component>
@@ -10,9 +10,9 @@
   </main>
 
   <div
-    v-if="$store.state.blurEffect"
-    class="dead-background"
-    @click="$store.commit('CLOSE_ALL')"
+      v-if="$store.state.blurEffect"
+      class="dead-background"
+      @click="$store.commit('CLOSE_ALL')"
   ></div>
 </template>
 
@@ -20,8 +20,9 @@
 import Register from "./components/auth/Register.vue";
 import Login from "./components/auth/Login.vue";
 import MainNavigation from "./components/main-navigation/MainNavigation.vue";
+
 export default {
-  components: { MainNavigation, Register, Login },
+  components: {MainNavigation, Register, Login},
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <header class="main-header" :class="{ blur: $store.state.blurEffect }">
+  <header class="main-header bg-2" :class="{ blur: $store.state.blurEffect }">
     <div class="flex-container justify-content-between">
       <div class="d-flex gap-2em align-items-center">
         <div class="logo">
@@ -12,13 +12,13 @@
         </div>
         <ul class="d-flex gap-2em mb-0">
           <li>
-            <a href="#"
+            <router-link to="/knihy"
             >Zoznam kníh
               <img
                   :src="require('@/assets/icons/bx-book.svg')"
                   alt="book icon"
                   class="navigation-icon"
-              /></a>
+              /></router-link>
           </li>
           <li>
             <a href="#"

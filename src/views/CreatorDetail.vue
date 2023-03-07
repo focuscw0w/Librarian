@@ -10,7 +10,7 @@
               class="author__image"
               alt="author"
           />
-          <article class="author__information">
+          <article class="author__information bg-2">
             <h4 class="author__information__heading">{{ creator.name }}</h4>
             <p class="author__information__life-length">
               * {{ formattedBirthDate }}
@@ -33,10 +33,10 @@
         </nav>
       </div>
     </div>
-    <div class="product-items">
+    <div class="product-items bg-1">
       <div class="container">
         <ul class="product-items__ul grid-container">
-          <AuthorProduct v-for="Product in 12" :key="Product"/>
+          <BookDetail v-for="Product in 12" :key="Product"/>
         </ul>
       </div>
     </div>
@@ -51,7 +51,7 @@ import SecondaryNavigation from "@/components/SecondaryNavigation";
 import SubHeader from "@/components/SubHeader.vue";
 import SubFooter from "@/components/SubFooter";
 import PageFooter from "@/components/PageFooter";
-import AuthorProduct from "@/components/creator-detail/AuthorProduct.vue";
+import BookDetail from "@/components/creator-detail/BookCard.vue";
 import axios from "axios";
 import VueTitle from "@/utilities/vue-title.vue";
 import dateFormat, {masks} from "dateformat";
@@ -62,7 +62,7 @@ export default {
     SecondaryNavigation,
     SubFooter,
     PageFooter,
-    AuthorProduct,
+    BookDetail,
     VueTitle,
   },
   data() {
@@ -81,14 +81,14 @@ export default {
     },
     formattedBirthDate() {
       if (this.creator.birth_date) {
-        return dateFormat(new Date(this.creator.birth_date), "d, mmm, yyyy");
+        return dateFormat(new Date(this.creator.birth_date), "d.m.yyyy");
       } else {
         return null;
       }
     },
     formattedDeathDate() {
       if (this.creator.death_date) {
-        return dateFormat(new Date(this.creator.death_date), "d, mmm, yyyy");
+        return dateFormat(new Date(this.creator.death_date), "d.m.yyyy");
 
       } else {
         return null;

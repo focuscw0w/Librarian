@@ -3,12 +3,18 @@ import LiveMap from "../views/LiveMap.vue";
 import LibraryDetail from "../views/LibraryDetail.vue";
 import BookDetail from "../views/BookDetail.vue";
 import CreatorDetail from "../views/CreatorDetail.vue";
+import BookList from "@/views/BookList.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
     component: LiveMap,
+  },
+  {
+    path: "/knihy",
+    name: "zoznam-knih",
+    component: BookList,
   },
   {
     path: "/kniznica/:slug",
