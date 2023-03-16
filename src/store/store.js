@@ -17,6 +17,7 @@ const store = createStore({
         // },
         LOG_USER(state) {
             state.loggedUser = JSON.parse(localStorage.getItem("user"));
+
         },
         LOGOUT_USER(state) {
             localStorage.removeItem("user");

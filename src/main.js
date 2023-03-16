@@ -49,7 +49,6 @@ Sentry.init({
     // We recommend adjusting this value in production
     tracesSampleRate: 1.0,
 });
-
 app.use(router)
     .component('font-awesome-icon', FontAwesomeIcon)
     .use(BootstrapVue3)
@@ -63,5 +62,3 @@ app.use(router)
     .use(VueAxios, axios)
     .use(Store)
     .mount("#app");
-
-console.log(process.env)
