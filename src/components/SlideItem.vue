@@ -15,14 +15,14 @@
 <script>
 export default {
   props: ["slide", "currentSlide", "index"],
-  emits: ["next", "hideBlurEffect", "test"],
+  emits: ["next", "hideBlur", "hideIntroduction"],
   methods: {
     emitNext() {
       if (this.slide.buttonText != "Dokončiť") {
         this.$emit("next");
       } else {
-        this.$emit("hideBlurEffect");
-        this.$emit("test")
+        this.$store.state.activeIntroduction = false;
+        this.$store.commit("TOGGLE_BLUR", false);
         localStorage.setItem("activeIntroduction", false);
       }
     },
@@ -31,5 +31,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/main.scss";
+@import "@/assets/scss/main.scss";
 </style>

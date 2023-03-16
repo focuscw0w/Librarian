@@ -13,7 +13,6 @@
 
 .info-window {
   overflow-y: hidden;
-  background-color: $background-very-light;
   max-width: 500px;
   max-height: 200px;
 
@@ -35,20 +34,22 @@
 
   .store-informations {
     padding: .8em 0;
-    .opened {
-      margin-right: 0.5em;
-    }
 
     .flex-container {
       @include direction-column;
-      gap: 1.2em;
+      gap: .75em;
     }
 
     .store-informations__media {
       .flex-container {
         flex-direction: row;
         justify-content: flex-start;
+        align-items: center;
         gap: 0.5em;
+      }
+
+      .media-icon {
+        height: 100%;
       }
     }
   }

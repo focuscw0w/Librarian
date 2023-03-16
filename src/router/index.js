@@ -1,23 +1,43 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import AboutApp from '../views/AboutApp.vue'
-import LiveMap from '../views/LiveMap.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import LiveMap from "../views/LiveMap.vue";
+import LibraryDetail from "../views/LibraryDetail.vue";
+import BookDetail from "../views/BookDetail.vue";
+import CreatorDetail from "../views/CreatorDetail.vue";
+import BookList from "@/views/BookList.vue";
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: LiveMap
+    path: "/",
+    name: "home",
+    component: LiveMap,
   },
   {
-    path: '/details',
-    name: 'details',
-    component: AboutApp
+    path: "/knihy",
+    name: "zoznam-knih",
+    component: BookList,
+  },
+  {
+    path: "/kniznica/:slug",
+    // props: true,
+    name: "detail-kniznice",
+    component: LibraryDetail,
+  },
+  {
+    path: "/kniha/:slug",
+    name: "detail-knihy",
+    // props: true,
+    component: BookDetail,
+  },
+  {
+    path: "/autor/:slug",
+    name: "detail-autora",
+    component: CreatorDetail,
   }
-]
+];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

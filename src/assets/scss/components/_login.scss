@@ -1,0 +1,59 @@
+.login {
+  @include user-access;
+
+  .flex-container {
+    @include split-equally;
+    height: 100%;
+  }
+
+  .login__interface {
+    .user-access__header {
+      @include user-access-header;
+    }
+
+    .user-access__figcaption {
+      margin-bottom: 1.5em;
+    }
+
+    .login__interface__stay-logged-ing {
+      position: relative;
+      margin-top: 1.5em;
+      display: flex;
+      justify-content: space-between;
+
+      .checkmark {
+        transform: translateY(15%);
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: 1.2em;
+      }
+
+      .label {
+        input {
+          position: static;
+        }
+      }
+    }
+
+    .login-interface__integration {
+      margin-top: 1.5em;
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+    }
+
+    .user-access__paragraph {
+      text-align: center;
+      margin-top: 2em;
+    }
+  }
+
+  .login__illustration {
+    img {
+      @include user-access-img;
+    }
+  }
+}

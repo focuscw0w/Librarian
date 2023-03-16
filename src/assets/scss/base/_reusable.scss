@@ -1,0 +1,58 @@
+.text-underlined {
+  text-decoration: underline;
+}
+
+.gap-2em {
+  gap: 2em !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.d-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-list__product__author {
+  display: flex;
+  gap: 0.5em;
+}
+
+.bg-1 {
+  background-color: $background;
+}
+
+.bg-2 {
+  background-color: $high-emphasys-inverse;
+}
+
+.pt-32 {
+  padding-top: 2em;
+}
+
+.pb-32 {
+  padding-bottom: 2em;
+}
+
+.mt-32 {
+  margin-top: 2em;
+}
+
+.mb-32 {
+  margin-bottom: 2em;
+}
+
+.text-md-emp {
+  color: $medium-emphasys;
+}
+
+.text-h-emp {
+  color: $high-emphasys;
+}
+
+.my-primary-btn {
+  @include my-btn($primary, $high-emphasys-inverse);
+}

@@ -1,37 +1,35 @@
 <template>
-  <div :class="{blur: this.blurEffect}">
-    <MainNavigation />
+  <div
+      style="padding-top: 70px"
+  >
+  <MainNavigation/>
+
+  <main id="main-content" :class="{ blur: $store.state.blurEffect}" class="bg-1">
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component"></component>
+      </keep-alive>
+    </router-view>
+  </main>
+
+  <div
+      v-if="$store.state.blurEffect"
+      class="dead-background"
+      @click="$store.commit('CLOSE_ALL')"
+  ></div>
   </div>
-  
-    <main id="main-content">
-      <router-view @test="test"/>
-    </main>
 </template>
 
 <script>
-import RegisterButton from "./components/RegisterButton.vue";
-import MainNavigation from "./components/MainNavigation.vue";
+import Register from "./components/auth/Register.vue";
+import Login from "./components/auth/Login.vue";
+import MainNavigation from "./components/main-navigation/MainNavigation.vue";
+
 export default {
-  components: { RegisterButton, MainNavigation },
-  data() {
-    return {
-      blurEffect: true
-    }
-  },
-  methods: {
-    test() {
-      this.blurEffect = false
-    }
-  },
-  created() {
-    this.blurEffect = localStorage.getItem("activeIntroduction") == null ? true : false
-  }
+  components: {MainNavigation, Register, Login},
 };
 </script>
 
 <style lang="scss">
 @import "./assets/scss/main.scss";
-.blur {
-  filter: blur(5px);
-}
 </style>

@@ -2,10 +2,9 @@
   overflow: hidden;
   position: absolute;
   z-index: 9999;
-  top: 20%;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: $background-very-light;
   border-radius: $border-radius;
   box-shadow: $shadow-bottom;
   width: 56.25em;
@@ -46,6 +45,7 @@
 
       img {
         height: 100%;
+        width: 100%;
       }
     }
 

@@ -1,5 +1,5 @@
 <template>
-  <article v-if="activeIntroduction" class="first-introduction">
+  <div v-if="activeIntroduction" class="first-introduction bg-1">
     <div class="flex-container">
       <div class="first-introduction__text">
         <div class="flex-container">
@@ -10,8 +10,8 @@
             :current-slide="currentSlide"
             :index="index"
             @next="nextSlide"
-            @hideBlurEffect="hideBlurEffect"
-            @test="$emit('test')"
+            @hideIntroduction="activeIntroduction = false;"
+            @hideBlur="$emit('hideBlur')"
           />
 
           <div class="controls">
@@ -26,19 +26,18 @@
       </div>
       <div class="first-introduction__illustration">
         <img
-          src="../assets/images/introduction-img.png"
+          :src="require('@/assets/images/introduction-img.png')"
           alt="introduction image"
         />
       </div>
     </div>
-  </article>
+  </div>
 </template>
 
 <script>
-import SlideItem from "../components/SlideItem.vue";
-import SlideIndicator from "../components/SlideIndicator.vue";
+import SlideItem from "./SlideItem.vue";
+import SlideIndicator from "./SlideIndicator.vue";
 export default {
-  emits: ['test'],
   components: { SlideItem, SlideIndicator },
   data() {
     return {
@@ -76,7 +75,7 @@ export default {
         this.currentSlide < this.slides.length - 1 ? this.currentSlide + 1 : 0;
       this.setCurrentSlide(index);
     },
-    hideBlurEffect() {
+    hideIntroduction() {
       this.activeIntroduction = false;
     },
   },
@@ -92,5 +91,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/main.scss";
+@import "@/assets/scss/main.scss";
 </style>

@@ -1,32 +1,68 @@
 @mixin container {
-    max-width: $container-width;
-    padding: 0 1em;
+  max-width: $container-width;
+  padding: 0 1em;
+}
+
+@mixin split-equally {
+  display: flex;
+  & > * {
+    flex: 1;
+  }
 }
 
 @mixin direction-column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 @mixin direction-row {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 @mixin column-space-around {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 @mixin live-map-btn {
-    background-color: $primary-background;
-    border-radius: $border-radius;
-    border: none;
-    cursor: pointer;
+  background-color: $primary;
+  border-radius: $border-radius;
+  border: none;
+  cursor: pointer;
 }
 
 @mixin product-img {
-    width: 40px;
-    height: 65px;
+  width: 40px;
+  height: 65px;
+}
+
+@mixin user-access {
+  position: absolute;
+  z-index: 9999;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: $border-radius;
+  background-color: $high-emphasys-inverse;
+  width: 62.5em;
+}
+
+@mixin user-access-img {
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+  object-fit: cover;
+}
+
+@mixin user-access-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5625em;
+}
+
+@mixin my-btn ($background, $color) {
+  background-color: $background;
+  color: $color;
 }

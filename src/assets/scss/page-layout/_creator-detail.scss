@@ -1,0 +1,73 @@
+.author-list-page {
+  .author {
+    padding-top: 3.75em;
+    margin-top: 5em;
+    background-color: $grey-10;
+
+    .flex-container {
+      gap: 3.4375em;
+    }
+
+    .author__image {
+      width: 225px;
+    }
+
+    .author__information {
+      max-width: 600px;
+
+      .author__information__life-length {
+        margin: 0.75em 0;
+      }
+    }
+  }
+
+  .secondary-nav {
+    margin-top: 4.28125em;
+  }
+
+}
+
+.product-items {
+
+  .flex-container {
+    gap: 1.375em;
+    align-items: center;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5em;
+
+    .product-items__ul__product {
+      border-radius: $border-radius;
+      padding: 1.5em;
+
+      .product-items__ul__image {
+        max-width: 140px;
+        height: auto
+      }
+
+      .my-btn {
+        @include my-btn($grey-10, $high-emphasys);
+      }
+
+      .book-info__heading {
+        margin: 0.2em 0;
+      }
+
+      .book-info__paragraph {
+        margin: 0.75em 0;
+      }
+
+      .book-info__media {
+        gap: 0.75em;
+
+        .like-btn {
+          background-color: $grey-10;
+          border: 1px solid $grey-10;
+        }
+      }
+    }
+  }
+}

@@ -1,220 +1,437 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap");
 
 body {
-  font-family: $font-family;
+  font-family: $font-family !important;
+}
+
+main {
+  background-color: $background;
+  min-height: 100vh;
 }
 
 a {
-  color: $text-color-dark;
+  color: $high-emphasys;
 }
 
 .main-header {
   a {
-    font-size: $font-size-small;
-    font-weight: $font-weight-regular;
+    font-size: $font-size-15;
+    font-weight: $font-weight-normal;
   }
 }
 
 .main-heading {
-  font-size: $font-size-large;
+  font-size: $font-size-26;
   font-weight: $font-weight-medium;
 }
 
 .heading-figcaption {
-  color: $text-color-primary;
-  font-size: $font-size-small;
+  color: $primary-80;
+  font-size: $font-size-15;
   font-weight: $font-weight-medium;
 }
 
 .navigate-btn {
-  font-size: $font-size-small;
-  color: $text-color-very-light;
+  font-size: $font-size-15;
+  color: $high-emphasys-inverse;
 }
 
 .secondary-nav {
   a.active {
     font-weight: $font-weight-medium;
-    color: $text-color-dark;
+    color: $high-emphasys !important;
   }
 
   a {
-    color: $text-color-light;
+    color: $medium-emphasys !important;
   }
 }
 
 .news__article {
   .article-heading {
-    font-size: $font-size-small;
-    font-weight: $font-weight-medium;
-    color: $text-color-dark;
+    font-size: $font-size-15;
+    font-weight: normal;
+    color: $high-emphasys;
   }
 
   .date-figcaption {
-    font-size: $font-size-very-small;
-    color: $text-color-light;
+    font-size: $font-size-13;
+    color: $medium-emphasys;
   }
 
   .news__article__footer {
     .location {
-      font-size: $font-size-very-small;
-      color: $text-color-primary;
+      font-size: $font-size-13;
+      color: $primary-80;
     }
 
     p {
-      font-size: $font-size-small;
-      color: $text-color-dark;
+      font-size: $font-size-15;
+      color: $high-emphasys;
     }
 
     .details {
       p {
-        font-size: $font-size-very-small;
-        color: $text-color-dark;
+        font-size: $font-size-13;
+        color: $high-emphasys;
       }
 
       .mark {
-        color: $text-color-very-light;
+        color: $high-emphasys-inverse;
       }
 
       .date {
         font-weight: $font-weight-medium;
-        color: $text-color-primary;
+        color: $primary-80;
       }
     }
   }
 }
 
 .opened {
-  font-size: $font-size-small;
+  font-size: $font-size-15;
   font-weight: $font-weight-medium;
   color: $text-color-opened;
 }
 
 .aside {
   .aside__heading {
-    color: $text-color-dark;
+    color: $high-emphasys;
   }
 
   .aside__informations__heading {
-    font-size: $font-size-very-small;
-    font-weight: $font-weight-medium;
-    color: $text-color-light;
+    font-size: $font-size-13;
+    font-weight: $font-weight-normal;
+    color: $medium-emphasys;
   }
 
   p {
-    font-size: $font-size-small;
-    font-weight: $font-weight-medium;
-    color: $text-color-dark;
+    font-size: $font-size-15;
+    font-weight: normal;
+    color: $high-emphasys;
   }
 
   .more-informations {
-    font-size: $font-size-very-small;
-    color: $text-color-light;
+    font-size: $font-size-13;
+    color: $medium-emphasys;
   }
 }
 
 .search-article {
   #search-book {
-    font-size: $font-size-small;
+    font-size: $font-size-15;
   }
 
   .drop-down {
-    font-weight: $font-weight-regular;
+    font-weight: $font-weight-normal;
   }
 
   .find-book {
-    font-size: $font-size-small;
-    color: $text-color-very-light;
-  }
-}
-
-.sub-menu {
-  a {
-    font-size: $font-size-small;
-    font-weight: $font-weight-medium;
+    font-size: $font-size-15;
+    color: $high-emphasys-inverse;
   }
 }
 
 .info-window {
   .store-informations {
     .store-informations__heading {
-      font-size: $font-size-medium;
+      font-size: $font-size-17;
       font-weight: $font-weight-bold;
-      color: $text-color-dark;
+      color: $high-emphasys;
     }
 
     .opened-p {
-      font-size: $font-size-small;
+      font-size: $font-size-15;
       font-weight: normal;
-      color: $text-color-dark;
+      color: $high-emphasys;
     }
 
     .store-informations__address {
-      font-size: $font-size-small;
-      font-weight: normal;
-      color: $text-color-light;
+      font-size: $font-size-15;
+      font-weight: $font-weight-normal;
+      color: $medium-emphasys;
     }
 
     .book-list {
-      font-size: $font-size-very-small;
-      color: $text-color-very-light;
+      font-size: $font-size-13;
+      color: $high-emphasys-inverse;
     }
   }
 }
 
-  .books__name {
-    font-size: $font-size-small;
-    font-weight: $font-weight-regular;
-  }
+.books__name {
+  font-size: $font-size-15;
+  font-weight: $font-weight-normal;
+}
 
-  .books__author {
-    font-size: $font-size-very-small;
-    color: $text-color-light;
-  }
+.books__author {
+  font-size: $font-size-13;
+  color: $medium-emphasys;
+}
 
 .filter-product {
   .filter-product__heading {
-    font-size: $font-size-filter-h2;
+    font-size: $font-size-22;
   }
 
   .filter-product__label {
-    font-weight: normal;
-    font-size: $font-size-very-small;
-    color: $text-color-light;
+    font-weight: $font-weight-normal;
+    font-size: $font-size-13;
+    color: $medium-emphasys;
   }
 
   input[name="place"] {
-    font-weight: $font-weight-regular;
-    font-size: $font-size-small;
-    color: $text-color-emphasys;
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $low-emphasys;
   }
 
   .filter-split__type {
     label {
-      font-weight: $font-weight-regular;
-      font-size: $font-size-small;
-      color: $text-color-dark;
+      font-weight: $font-weight-normal;
+      font-size: $font-size-15;
+      color: $high-emphasys;
     }
   }
 }
 
 .slide-item {
   .slide-heading {
-    font-weight: $font-weight-regular;
-    font-size: $font-size-filter-h2;
-    color: $text-color-very-light;
-    background-color: $text-color-dark;
+    font-weight: $font-weight-normal;
+    font-size: $font-size-22;
+    color: $high-emphasys-inverse;
+    background-color: $high-emphasys;
   }
 
   .slide-paragraph {
-    font-size: $font-size-small;
+    font-size: $font-size-15;
   }
 
   .new-slide {
-    font-size: $font-size-small;
+    font-size: $font-size-15;
   }
 }
 
 .filter-book {
-  font-size: $font-size-small;
-  color: $text-color-very-light;
+  font-size: $font-size-15;
+  color: $high-emphasys-inverse;
+}
+
+.user-access__heading {
+  font-weight: $font-weight-600;
+  font-size: $font-size-22;
+  color: $high-emphasys;
+}
+
+.user-access__figcaption {
+  font-weight: $font-weight-normal;
+  font-size: $font-size-13;
+  color: $high-emphasys;
+}
+
+.user-access__get-in__box {
+  input {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $high-emphasys;
+  }
+
+  label {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-13;
+    color: $high-emphasys;
+  }
+}
+
+.login__interface__stay-logged-ing {
+  input {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $high-emphasys;
+  }
+
+  .forgotten-password {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $medium-emphasys;
+  }
+
+  .label {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $high-emphasys;
+  }
+}
+
+.login-btn {
+  font-weight: $font-weight-normal;
+  font-size: $font-size-15;
+  color: $high-emphasys-inverse;
+}
+
+.user-access__paragraph {
+  font-weight: $font-weight-normal;
+  font-size: $font-size-15;
+  color: $medium-emphasys;
+}
+
+.register {
+  .integration__btn {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-15;
+    color: $high-emphasys;
+  }
+}
+
+.login {
+  .user-access__figcaption {
+    line-height: $line-spacing-21;
+  }
+}
+
+.create-account-btn {
+  font-weight: $font-weight-medium;
+  font-size: $font-size-15;
+  color: $high-emphasys;
+  line-height: $line-spacing-21;
+}
+
+.book-list__header {
+  .book-list__heading {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $medium-emphasys;
+  }
+
+  .book-list__page-name {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $high-emphasys;
+  }
+
+  .book-list__book-name {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $medium-emphasys;
+  }
+}
+
+.book-list__product {
+  .book-list__product__genres {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-13;
+    color: $medium-emphasys;
+  }
+
+  .book-list__product__genre {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-13;
+    color: $high-emphasys;
+  }
+
+  .book-list__product__name {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-13;
+    color: $medium-emphasys;
+  }
+
+  .book-list__product__heading {
+    font-weight: $font-weight-600;
+    font-size: $font-size-26;
+    color: $high-emphasys;
+  }
+
+  .book-list__product__info {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $medium-emphasys;
+    line-height: $line-spacing-21;
+  }
+
+  .book-list__product__library {
+    li {
+      font-weight: $font-weight-normal;
+      font-size: $font-size-13;
+      color: $medium-emphasys;
+    }
+
+    strong {
+      font-weight: $font-weight-normal;
+      font-size: $font-size-15;
+      color: $high-emphasys;
+    }
+  }
+}
+
+.product__author-name {
+  font-weight: $font-weight-normal;
+  font-size: $font-size-15;
+  color: $primary-80;
+}
+
+.product__next-author {
+  font-weight: $font-weight-normal;
+  font-size: $font-size-15;
+  color: $medium-emphasys;
+}
+
+.my-btn {
+  font-weight: medium;
+  font-size: $font-size-15;
+}
+
+.subfooter {
+  .subfooter__heading {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-22;
+    color: $high-emphasys-inverse;
+  }
+
+  .subfooter__paragraph {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $high-emphasys;
+  }
+}
+
+.page-footer__sub-footer {
+  .page-footer__sub-footer__text {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $high-emphasys-inverse;
+  }
+}
+
+.author {
+  .author__information__heading {
+    font-weight: $font-weight-600;
+    font-size: $font-size-26;
+    color: $high-emphasys;
+  }
+
+  .author__information__biography {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $medium-emphasys;
+  }
+}
+
+.product-items__ul__product {
+  .book-info__genre {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-13;
+    color: $high-emphasys;
+  }
+
+  .book-info__heading {
+    font-weight: $font-weight-600;
+    font-size: $font-size-22;
+    color: $high-emphasys;
+  }
+
+  .book-info__paragraph {
+    font-weight: $font-weight-normal;
+    font-size: $font-size-15;
+    color: $medium-emphasys;
+  }
 }

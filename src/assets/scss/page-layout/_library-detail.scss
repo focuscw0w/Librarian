@@ -1,0 +1,48 @@
+.flex-container {
+  display: flex;
+}
+
+article {
+  border-radius: $border-radius;
+}
+
+.introduction {
+  background-color: $grey-10;
+  padding-bottom: 1em;
+
+  .introduction__background {
+    text-align: center;
+
+    img {
+      width: 100%;
+      height: $intro-image-height;
+      border-radius: $border-radius-bottom;
+    }
+  }
+
+  article {
+    background-color: $background;
+    padding: 1em;
+    margin-top: 0.5em;
+
+    .about__library__media {
+      .flex-container {
+        gap: 0.5em;
+      }
+
+      img {
+        width: 19px;
+        height: 19px;
+      }
+
+      svg {
+        vertical-align: unset
+      }
+    }
+  }
+
+  .flex-container {
+    @include direction-row;
+    justify-content: space-between;
+  }
+}
