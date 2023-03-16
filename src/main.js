@@ -27,12 +27,30 @@ import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
 import {faWifi, faWheelchair, faPrint, faCoffee,faGear,faRightFromBracket,faHeart} from '@fortawesome/free-solid-svg-icons'
+import * as Sentry from "@sentry/vue";
+import {BrowserTracing} from "@sentry/tracing";
 
 /* add icons to the library */
 library.add(faWifi, faWheelchair, faPrint, faCoffee,faHeart,faGear,faRightFromBracket)
 
-createApp(App)
-    .use(router)
+const app = createApp(App)
+
+Sentry.init({
+    app,
+    dsn: "https://81bcb51ee5fe434cb6dbe0f8b0334e0d@o4504797849911296.ingest.sentry.io/4504847333326848",
+    integrations: [
+        new BrowserTracing({
+            routingInstrumentation: Sentry.vueRouterInstrumentation(router),
+            tracePropagationTargets: ["localhost", "my-site-url.com", /^\//],
+        }),
+    ],
+    // Set tracesSampleRate to 1.0 to capture 100%
+    // of transactions for performance monitoring.
+    // We recommend adjusting this value in production
+    tracesSampleRate: 1.0,
+});
+
+app.use(router)
     .component('font-awesome-icon', FontAwesomeIcon)
     .use(BootstrapVue3)
     .use(VueGoogleMaps, {
@@ -46,10 +64,4 @@ createApp(App)
     .use(Store)
     .mount("#app");
 
-
-// const DEFAULT_TITLE = "";
-// router.afterEach((to) => {
-//     nextTick(() => {
-//         document.title = (to.meta.title != null ? to.meta.title + ' | ' : DEFAULT_TITLE) + 'Librarian';
-//     });
-// });
+console.log(process.env)
