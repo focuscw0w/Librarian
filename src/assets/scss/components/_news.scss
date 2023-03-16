@@ -1,5 +1,6 @@
 .news {
   flex: 2;
+  margin-bottom: 5em;
 
   .flex-container {
     justify-content: space-between;
@@ -13,6 +14,8 @@
   }
 
   .news__article {
+    margin-bottom: 1em;
+
     .article-heading {
       margin-bottom: 0.3em;
     }
@@ -50,13 +53,14 @@
 
       .wrapper {
         flex: 2;
+        align-items: flex-start;
 
         .details {
           @include direction-row;
 
           .mark {
             @include direction-row;
-            background-color: $primary-dark-background;
+            background-color: $primary-80;
             border-radius: 2px;
             gap: 0.2em;
             padding: 0.1em 0.8em;
