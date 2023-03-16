@@ -1,7 +1,10 @@
 <template>
+  <div
+      style="padding-top: 70px"
+  >
   <MainNavigation/>
 
-  <main id="main-content" :class="{ blur: $store.state.blurEffect}" class="bg-1" style="padding-top:4em">
+  <main id="main-content" :class="{ blur: $store.state.blurEffect}" class="bg-1">
     <router-view v-slot="{ Component }">
       <keep-alive>
         <component :is="Component"></component>
@@ -14,6 +17,7 @@
       class="dead-background"
       @click="$store.commit('CLOSE_ALL')"
   ></div>
+  </div>
 </template>
 
 <script>

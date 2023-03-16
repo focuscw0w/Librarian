@@ -1,5 +1,5 @@
 <template>
-  <button type="submit" class="find-book-btn">
+  <button type="submit" class="my-btn">
     Hľadať v knižniciach
   </button>
 </template>

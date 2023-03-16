@@ -2,12 +2,12 @@
   <div class="d-flex gap-2em">
 
     <section class="news">
-      <div class="articles" v-for="event in 3" :key="event.id">
+      <div class="articles" v-for="event in library.events" :key="event.id">
         <NewsEventArticle
-            event="event"
+            :event="event" :creatorName="library.name"
         />
       </div>
-      <p class="text-center" v-if="events.length === 0">
+      <p class="text-center" v-if="library.events.length === 0">
         Nástenka knižnice je zatiaľ prázdna :(
       </p>
     </section>

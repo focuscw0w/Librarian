@@ -137,6 +137,7 @@ export default {
           })
           .then((response) => {
             localStorage.setItem("token", response.data.token);
+            localStorage.setItem("roles", response.data.roles);
             localStorage.setItem("user", JSON.stringify(response.data.user));
             this.$emit("hideLogin")
             window.location.reload()

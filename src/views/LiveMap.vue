@@ -1,6 +1,8 @@
 <template>
   <div>
-    <FilterProduct v-if="activeFilterProduct" @onApplyFilter="reloadLibraries"/>
+    <FilterProduct v-if="activeFilterProduct"
+                   @onApplyFilter="reloadLibraries"
+    />
 
     <div class="map-container">
       <SelectedBook
@@ -255,25 +257,25 @@ export default {
       }
     },
     reloadLibraries(data) {
+      // console.log('prisloo')
+      // console.log(data)
       this.fetchLibraries(data)
     },
+
     async fetchLibraries(data) {
       await axios
-          .get("libraries",{ params: data })
+          .get("libraries", {params: data})
           .then((response) => {
             console.log(response.data);
-            this.libraries = response.data
+            this.libraries = response.data.map((library) => {
+              library.icon = require("../assets/icons/Point_book.png")
+              library.lat = parseFloat(library.lat)
+              library.lng = parseFloat(library.long)
+              delete library.long;
+              return library;
+            })
           });
-
-      this.libraries = this.libraries.map((library) => {
-        library.icon = require("../assets/icons/Point_book.png")
-        library.lat = parseFloat(library.lat)
-        library.lng = parseFloat(library.long)
-        delete library.long;
-        return library;
-      })
     },
-
     toggleIcon(statement, index) {
       // Ak už je aktívna, nechcem s ňou nič robiť
       if (index !== this.currentLibrary) {
@@ -283,30 +285,33 @@ export default {
                 : require("../assets/icons/Point_book.png");
       }
     },
-    async created() {
-      this.$store.state.blurEffect =
-          localStorage.getItem("activeIntroduction") == null ? true : false;
+  },
+  async created() {
+    this.$store.state.blurEffect =
+        localStorage.getItem("activeIntroduction") == null ? true : false;
 
-      this.$store.state.activeIntroduction =
-          localStorage.getItem("activeIntroduction") == null ? true : false;
-      await this.fetchLibraries(null)
-
-      // return library
-      //     {
-      //   id: library.id,
-      //   slug: library.slug,
-      //   libraryName: library.name,
-      //   libraryCity: library.city,
-      //   libraryStreet: library.street,
-      //   libraryPostCode: library.post_code,
-      //   libraryHouseNumber: library.house_number,
-      //   libraryTime: library.todayBusinessHoursStatusMarginTime,
-      //   libraryStatus: library.todayBusinessHoursStatus,
-      //   lat: parseFloat(library.lat),
-      //   lng: parseFloat(library.long),
-      //   icon: require("../assets/icons/Point_book.png"),
-      // }
-    }
-  }
-}
+    this.$store.state.activeIntroduction =
+        localStorage.getItem("activeIntroduction") == null ? true : false;
+    this.fetchLibraries({})
+    // return library
+    //     {
+    //   id: library.id,
+    //   slug: library.slug,
+    //   libraryName: library.name,
+    //   libraryCity: library.city,
+    //   libraryStreet: library.street,
+    //   libraryPostCode: library.post_code,
+    //   libraryHouseNumber: library.house_number,
+    //   libraryTime: library.todayBusinessHoursStatusMarginTime,
+    //   libraryStatus: library.todayBusinessHoursStatus,
+    //   lat: parseFloat(library.lat),
+    //   lng: parseFloat(library.long),
+    //   icon: require("../assets/icons/Point_book.png"),
+    // }
+    // });
+  },
+  // mounted() {
+  //   // this.getCurrentPosition();
+  // },
+};
 </script>

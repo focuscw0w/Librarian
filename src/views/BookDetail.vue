@@ -38,9 +38,11 @@
                 {{ book.name }}
               </h3>
               <figcaption class="product__author-name">
-                <router-link v-for="creator in book.creators" :key="creator.id" :to="'/autor/'+creator.slug">
+                <span v-for="(creator,index) in book.creators">
+                <router-link :key="creator.id" :to="'/autor/'+creator.slug">
                   {{ creator.name }}
-                </router-link>
+                </router-link><span v-if="index !==book.creators.length-1">, </span>
+                </span>
                 <!--                <span class="product__next-author">ďaľší...</span>-->
               </figcaption>
               <p class="book-list__product__info">

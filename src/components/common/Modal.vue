@@ -1,8 +1,9 @@
 <template>
   <teleport to="#modals">
     <div :id="id" class="modal fade" ref="exampleModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog" :class="[size !== null ? 'modal-'+size : null]">
         <div class="modal-content">
+
           <slot/>
         </div>
       </div>
@@ -15,18 +16,17 @@ import {Modal} from 'bootstrap'
 import Id from '@/utilities/utilities-unique-id'
 
 export default {
-  name: "TestModal",
+  name: "Modal",
   data: () => ({
     modalInstance: null,
     // title: '',
     id: 'modal',
   }),
-  // props: {
-    // showModal: {
-    //   type: Boolean,
-    //   default: false,
-    // },
-  // },
+  props: {
+    size: {
+      type: String,
+    },
+  },
   // watch: {
   //   showModal(newValue, oldValue) {
   //     console.log(newValue);
@@ -36,7 +36,7 @@ export default {
   //   }
   // },
   mounted() {
-    this.id = 'modal-'+Id()
+    this.id = 'modal-' + Id()
   },
   methods: {
     show: function () {

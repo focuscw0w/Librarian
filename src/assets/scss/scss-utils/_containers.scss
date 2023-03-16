@@ -3,11 +3,6 @@
   position: relative;
 }
 
-.container {
-  @include container;
-  margin: 0 auto;
-}
-
 .search-wrapper {
   position: absolute;
   top: 1em;

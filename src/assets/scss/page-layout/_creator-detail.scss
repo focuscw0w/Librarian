@@ -48,8 +48,8 @@
         height: auto
       }
 
-      .find-book-btn {
-        @include find-book-btn($grey-10, $high-emphasys);
+      .my-btn {
+        @include my-btn($grey-10, $high-emphasys);
       }
 
       .book-info__heading {

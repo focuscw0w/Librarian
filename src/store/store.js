@@ -20,6 +20,8 @@ const store = createStore({
         },
         LOGOUT_USER(state) {
             localStorage.removeItem("user");
+            localStorage.removeItem("roles");
+            localStorage.removeItem("token");
             state.loggedUser = null;
         },
         TOGGLE_BLUR(state, value) {

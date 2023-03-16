@@ -119,7 +119,6 @@ a {
 
 .search-article {
   #search-book {
-    font-family: $font-family;
     font-size: $font-size-15;
   }
 
@@ -136,7 +135,6 @@ a {
 .info-window {
   .store-informations {
     .store-informations__heading {
-      font-family: $font-family;
       font-size: $font-size-17;
       font-weight: $font-weight-bold;
       color: $high-emphasys;
@@ -183,7 +181,6 @@ a {
   }
 
   input[name="place"] {
-    font-family: $font-family;
     font-weight: $font-weight-normal;
     font-size: $font-size-15;
     color: $low-emphasys;
@@ -216,7 +213,6 @@ a {
 }
 
 .filter-book {
-  font-family: $font-family;
   font-size: $font-size-15;
   color: $high-emphasys-inverse;
 }
@@ -268,7 +264,6 @@ a {
 }
 
 .login-btn {
-  font-family: $font-family;
   font-weight: $font-weight-normal;
   font-size: $font-size-15;
   color: $high-emphasys-inverse;
@@ -282,7 +277,6 @@ a {
 
 .register {
   .integration__btn {
-    font-family: $font-family;
     font-weight: $font-weight-bold;
     font-size: $font-size-15;
     color: $high-emphasys;
@@ -381,7 +375,7 @@ a {
   color: $medium-emphasys;
 }
 
-.find-book-btn {
+.my-btn {
   font-weight: medium;
   font-size: $font-size-15;
 }

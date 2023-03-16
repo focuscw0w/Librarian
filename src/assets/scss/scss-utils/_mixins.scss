@@ -62,7 +62,7 @@
   margin-bottom: 1.5625em;
 }
 
-@mixin find-book-btn ($background, $color) {
+@mixin my-btn ($background, $color) {
   background-color: $background;
   color: $color;
 }
