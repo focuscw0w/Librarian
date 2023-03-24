@@ -22,7 +22,7 @@
 
             <div class="about__library__media">
               <div class="flex-container">
-                <router-link tag="a" to="/" class="navigate-btn"
+                <router-link to="/" class="navigate-btn"
                 >Navigovať
                 </router-link>
 
@@ -115,9 +115,7 @@ export default {
           .get('libraries/' + this.$route.params.slug
           )
           .then((response) => {
-                console.log(response.data)
                 this.library = response.data
-
               }
           );
     },

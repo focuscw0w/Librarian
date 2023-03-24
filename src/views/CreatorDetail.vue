@@ -125,7 +125,6 @@ export default {
           .get('creators/' + this.$route.params.slug
           )
           .then((response) => {
-                console.log(response.data)
                 this.creator = response.data
                 // this.loadedItem = true
               }

@@ -56,3 +56,20 @@
 .my-primary-btn {
   @include my-btn($primary, $high-emphasys-inverse);
 }
+
+.profile-settings {
+  max-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+    #number-input-sm {
+      padding-right: 0 !important;
+      max-width: 80px;
+    }
+
+    #about-me {
+      input {
+        height: 200px;
+      }
+    }
+}

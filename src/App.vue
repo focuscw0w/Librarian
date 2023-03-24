@@ -1,22 +1,24 @@
 <template>
-  <div
-      style="padding-top: 70px"
-  >
-  <MainNavigation/>
+  <div style="padding-top: 70px">
+    <MainNavigation />
 
-  <main id="main-content" :class="{ blur: $store.state.blurEffect}" class="bg-1">
-    <router-view v-slot="{ Component }">
-      <keep-alive>
-        <component :is="Component"></component>
-      </keep-alive>
-    </router-view>
-  </main>
+    <main
+      id="main-content"
+      :class="{ blur: $store.state.blurEffect }"
+      class="bg-1"
+    >
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component"></component>
+        </keep-alive>
+      </router-view>
+    </main>
 
-  <div
+    <div
       v-if="$store.state.blurEffect"
       class="dead-background"
       @click="$store.commit('CLOSE_ALL')"
-  ></div>
+    ></div>
   </div>
 </template>
 
@@ -26,7 +28,7 @@ import Login from "./components/auth/Login.vue";
 import MainNavigation from "./components/main-navigation/MainNavigation.vue";
 
 export default {
-  components: {MainNavigation, Register, Login},
+  components: { MainNavigation, Register, Login },
 };
 </script>
 

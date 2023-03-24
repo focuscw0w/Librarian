@@ -266,7 +266,6 @@ export default {
       await axios
           .get("libraries", {params: data})
           .then((response) => {
-            console.log(response.data);
             this.libraries = response.data.map((library) => {
               library.icon = require("../assets/icons/Point_book.png")
               library.lat = parseFloat(library.lat)

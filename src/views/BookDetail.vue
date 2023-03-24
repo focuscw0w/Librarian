@@ -38,7 +38,7 @@
                 {{ book.name }}
               </h3>
               <figcaption class="product__author-name">
-                <span v-for="(creator,index) in book.creators">
+                <span v-for="(creator,index) in book.creators" :key=index>
                 <router-link :key="creator.id" :to="'/autor/'+creator.slug">
                   {{ creator.name }}
                 </router-link><span v-if="index !==book.creators.length-1">, </span>
@@ -151,7 +151,6 @@ export default {
           .get('books/' + this.$route.params.slug
           )
           .then((response) => {
-                console.log(response.data)
                 this.book = response.data
               }
           );
