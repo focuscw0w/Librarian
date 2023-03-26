@@ -57,14 +57,22 @@
   @include my-btn($primary, $high-emphasys-inverse);
 }
 
+.size-15 {
+  font-size: 15px;
+}
+
 .profile-settings {
-  max-height: 400px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-y: scroll!important;
+  overflow-x: hidden!important;
+  max-height: 510px !important;
 
     #number-input-sm {
       padding-right: 0 !important;
       max-width: 80px;
+    }
+
+    #number-input-sm-2 {
+      padding-left: .4em !important;
     }
 
     #about-me {
@@ -72,4 +80,8 @@
         height: 200px;
       }
     }
+}
+
+.about-user {
+  background-color: #F2F2F2 !important;
 }

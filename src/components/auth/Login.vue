@@ -23,7 +23,10 @@
                   Meno používateľa<span style="color: red"> *</span>
                 </label>
                 <input type="text" name="username" v-model="email" />
-                <p class="position-absolute text-danger top-100" v-if=emptyInputs>
+                <p
+                  class="position-absolute text-danger top-100"
+                  v-if="emptyInputs"
+                >
                   Políčka nesmú byť prázdne!
                 </p>
               </div>
@@ -90,7 +93,7 @@
       </div>
       <transition name="slide-in">
         <div
-          class="warning-modal position-absolute bg-warning p-3"
+          class="warning-modal position-absolute bg-light p-3"
           v-if="loginError"
         >
           <p class="text-dark">Prihlásenie nebolo úspešné!</p>
@@ -134,12 +137,12 @@ export default {
     },
     hide() {
       this.$refs.modal.hide();
-      this.clearForm()
+      this.clearForm();
     },
     clearForm() {
-      this.email = ""
-      this.password = ""
-      this.emptyInputs = false
+      this.email = "";
+      this.password = "";
+      this.emptyInputs = false;
     },
     triggerWarning() {
       this.loginError = true;
@@ -155,11 +158,12 @@ export default {
       e.preventDefault();
 
       if (
-        (this.email === "" && this.password === "") ||
-        this.email === "" ||
-        this.password === ""
+        (this.email !== "" && this.password !== "") ||
+        this.email !== "" ||
+        this.password !== ""
       )
-        this.emptyInputs = true;
+        return;
+      else this.emptyInputs = true;
 
       await axios
         .post("login", {

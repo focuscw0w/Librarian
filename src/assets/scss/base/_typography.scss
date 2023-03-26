@@ -435,3 +435,15 @@ a {
     color: $medium-emphasys;
   }
 }
+
+.user-photo {
+  p {
+    font-weight: $font-weight-normal;
+  }
+
+  .upload-photo {
+    font-weight: $font-weight-medium;
+    color: $primary;
+    text-decoration: underline;
+  }
+}
