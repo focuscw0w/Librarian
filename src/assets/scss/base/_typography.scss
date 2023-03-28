@@ -447,3 +447,10 @@ a {
     text-decoration: underline;
   }
 }
+
+.list-introduction {
+  .list-introduction__content-heading {
+    font-weight: $font-weight-600;
+    font-size: $font-size-32;
+  }
+}

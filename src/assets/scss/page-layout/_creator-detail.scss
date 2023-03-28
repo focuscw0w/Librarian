@@ -1,7 +1,6 @@
 .author-list-page {
   .author {
-    padding-top: 3.75em;
-    margin-top: 5em;
+    padding-top: 9em;
     background-color: $grey-10;
 
     .flex-container {
@@ -32,6 +31,14 @@
   .flex-container {
     gap: 1.375em;
     align-items: center;
+  }
+
+  ul {
+    margin-bottom: 0em!important;
+  }
+
+  .product-items__ul {
+    padding: 3.75em 0!important;
   }
 
   .grid-container {

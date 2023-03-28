@@ -10,7 +10,7 @@
               class="author__image"
               alt="author"
           />
-          <article class="author__information bg-2">
+          <article class="author__information">
             <h4 class="author__information__heading">{{ creator.name }}</h4>
             <p class="author__information__life-length">
               * {{ formattedBirthDate }}
@@ -40,7 +40,7 @@
         </ul>
       </div>
     </div>
-    <SubFooter/>
+    <SubFooter class="bg-2"/>
     <PageFooter/>
   </section>
 </template>

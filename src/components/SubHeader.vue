@@ -10,7 +10,7 @@
         <strong class="book-list__page-name"
         >{{ category }}</strong
         >
-        /
+        <span v-if="category"> / </span>
         <span class="book-list__book-name">
             {{ title }}
           </span>
