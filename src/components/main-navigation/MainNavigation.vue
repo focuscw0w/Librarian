@@ -21,13 +21,13 @@
             /></router-link>
           </li>
           <li>
-            <a href="#"
+            <router-link to="/autori"
               >Zoznam autorov
               <img
                 :src="require('@/assets/icons/bx-pen.svg')"
                 alt="pen icon"
                 class="navigation-icon"
-            /></a>
+            /></router-link>
           </li>
           <li>
             <a href="#">O aplikácii </a>

@@ -4,6 +4,7 @@ import LibraryDetail from "../views/LibraryDetail.vue";
 import BookDetail from "../views/BookDetail.vue";
 import CreatorDetail from "../views/CreatorDetail.vue";
 import BookList from "@/views/BookList.vue";
+import CreatorList from "@/views/CreatorList.vue";
 
 const routes = [
   {
@@ -15,6 +16,11 @@ const routes = [
     path: "/knihy",
     name: "zoznam-knih",
     component: BookList,
+  },
+  {
+    path: "/autori",
+    name: "zoznam-autorov",
+    component: CreatorList,
   },
   {
     path: "/kniznica/:slug",
@@ -32,7 +38,7 @@ const routes = [
     path: "/autor/:slug",
     name: "detail-autora",
     component: CreatorDetail,
-  }
+  },
 ];
 
 const router = createRouter({

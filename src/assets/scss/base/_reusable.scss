@@ -49,6 +49,10 @@
   margin-bottom: 2em;
 }
 
+.mb-16 {
+  margin-bottom: 1em;
+}
+
 .text-md-emp {
   color: $medium-emphasys;
 }
@@ -65,27 +69,32 @@
   font-size: 15px;
 }
 
+.size-18 {
+  font-size: 18px;
+}
+
 .profile-settings {
-  overflow-y: scroll!important;
-  overflow-x: hidden!important;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
   max-height: 510px !important;
 
-    #number-input-sm {
-      padding-right: 0 !important;
-      max-width: 80px;
-    }
+  #number-input-sm {
+    padding-right: 0 !important;
+    max-width: 80px;
+  }
 
-    #number-input-sm-2 {
-      padding-left: .4em !important;
-    }
+  #number-input-sm-2 {
+    padding-left: 0.4em !important;
+  }
 
-    #about-me {
-      input {
-        height: 200px;
-      }
+  #about-me {
+    input {
+      height: 200px;
     }
+  }
 }
 
 .about-user {
-  background-color: #F2F2F2 !important;
+  background-color: #f2f2f2 !important;
 }
+

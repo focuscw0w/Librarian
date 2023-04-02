@@ -23,22 +23,20 @@
   .secondary-nav {
     margin-top: 4.28125em;
   }
-
 }
 
 .product-items {
-
   .flex-container {
     gap: 1.375em;
     align-items: center;
   }
 
   ul {
-    margin-bottom: 0em!important;
+    margin-bottom: 0em !important;
   }
 
   .product-items__ul {
-    padding: 3.75em 0!important;
+    padding: 3.75em 0;
   }
 
   .grid-container {
@@ -52,7 +50,7 @@
 
       .product-items__ul__image {
         max-width: 140px;
-        height: auto
+        height: auto;
       }
 
       .my-btn {
