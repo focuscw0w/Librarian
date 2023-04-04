@@ -38,4 +38,16 @@
     position: relative;
     left: 2em;
   }
+
+  .filter-buttons {
+    button {
+      display: flex;
+      align-items: center;
+    }
+
+    .filter-buttons__svg {
+      position: static;
+      font-size: 1em;
+    }
+  }
 }

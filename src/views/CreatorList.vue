@@ -12,7 +12,15 @@
           A, Á, a, á
         </p>
         <ul class="product-items__ul grid-container">
-          <BookDetail v-for="Product in 4" :key="Product" />
+           <BookDetail
+              v-for="Product in 4"
+              :key="Product"
+              :isBook="false"
+              :isListPage="true"
+              heading="Andrzej Sapkowski"
+              :description="null"
+              image="author-img.jpg"
+            />
         </ul>
       </div>
     </div>
@@ -21,7 +29,15 @@
       <div class="container">
         <p class="product-items__first-letters size-15 text-md-emp">B, b</p>
         <ul class="product-items__ul grid-container">
-          <BookDetail v-for="Product in 4" :key="Product" />
+           <BookDetail
+              v-for="Product in 4"
+              :key="Product"
+              :isBook="false"
+              :isListPage="true"
+              heading="Andrzej Sapkowski"
+              :description="null"
+              image="author-img.jpg"
+            />
         </ul>
       </div>
     </div>

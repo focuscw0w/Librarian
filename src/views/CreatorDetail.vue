@@ -36,7 +36,15 @@
     <div class="product-items bg-1">
       <div class="container">
         <ul class="product-items__ul grid-container">
-          <BookDetail v-for="Product in 12" :key="Product"/>
+           <BookDetail
+              v-for="Product in 12"
+              :key="Product"
+              :isBook="true"
+              :isListPage="false"
+              heading="Zaklínač IV.: Čas opovrhnutia"
+              :description="null"
+              image="book-product.jpg"
+            />
         </ul>
       </div>
     </div>
