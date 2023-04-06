@@ -26,6 +26,11 @@ article {
     margin-top: 0.5em;
 
     .about__library__media {
+
+      a:hover {
+        color: $high-emphasys-inverse;
+      }
+
       .flex-container {
         gap: 0.5em;
       }

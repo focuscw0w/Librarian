@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="padding-top: 70px">
     <VueTitle title="Zoznam kníh" />
     <SubHeader title="Zoznam kníh" />
     <ListIntroduction heading="Zoznam kníh" :paragraph="null" />

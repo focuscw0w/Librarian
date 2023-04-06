@@ -1,4 +1,5 @@
 <template>
+<section style="padding-top: 70px">
   <VueTitle title="Zoznam autorov" />
   <SubHeader title="Zoznam autorov a tvorcov" />
   <ListIntroduction heading="Zoznam autorov" :paragraph="null" />
@@ -45,6 +46,7 @@
 
   <SubFooter class="bg-2" />
   <PageFooter />
+</section>
 </template>
 
 <script>

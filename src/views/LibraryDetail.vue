@@ -1,13 +1,13 @@
 <template>
   <div v-if="library">
-    <VueTitle :title="library.name"/>
+    <VueTitle :title="library.name" />
 
     <section class="introduction">
       <div class="container">
         <div class="introduction__background">
           <img
-              :src="require('../assets/images/background.webp')"
-              alt="background image"
+            :src="require('../assets/images/background.webp')"
+            alt="background image"
           />
         </div>
 
@@ -23,14 +23,14 @@
             <div class="about__library__media">
               <div class="flex-container">
                 <router-link to="/" class="navigate-btn"
-                >Navigovať
+                  >Navigovať
                 </router-link>
 
                 <button class="like-btn" @click="toggle">
                   <AnimationIcon
-                      class="toggle-favorite__icon"
-                      :class="iconClasses"
-                      @animationend="onIconAnimationEnds"
+                    class="toggle-favorite__icon"
+                    :class="iconClasses"
+                    @animationend="onIconAnimationEnds"
                   />
                 </button>
               </div>
@@ -38,7 +38,11 @@
           </div>
         </article>
 
-        <SecondaryLibraryNavigation :library="library" @showContent="showComponent($event)"/>
+        <SecondaryLibraryNavigation
+          :library="library"
+          @showInfo="showComponent($event)"
+          @showGallery="showComponent($event)"
+        />
       </div>
     </section>
 
@@ -48,9 +52,9 @@
       </div>
     </div>
 
-    <router-view/>
+    <router-view />
 
-    <PageFooter/>
+    <PageFooter />
 
     <div v-if="$store.state.blurEffect" class="dead-background"></div>
   </div>
@@ -67,7 +71,14 @@ import VueTitle from "@/utilities/vue-title.vue";
 
 export default {
   // title: 'Knižnica',
-  components: {SecondaryLibraryNavigation, News, Gallery, AnimationIcon, PageFooter, VueTitle},
+  components: {
+    SecondaryLibraryNavigation,
+    News,
+    Gallery,
+    AnimationIcon,
+    PageFooter,
+    VueTitle,
+  },
   data() {
     return {
       currentComponent: "news",
@@ -79,14 +90,14 @@ export default {
   created() {
     // watch the params of the route to fetch the data again
     this.$watch(
-        () => this.$route.params,
-        () => {
-          this.fetchData()
-        },
-        // fetch the data when the view is created and the data is
-        // already being observed
-        {immediate: true}
-    )
+      () => this.$route.params,
+      () => {
+        this.fetchData();
+      },
+      // fetch the data when the view is created and the data is
+      // already being observed
+      { immediate: true }
+    );
   },
   computed: {
     iconClasses() {
@@ -112,12 +123,10 @@ export default {
     },
     async fetchData() {
       await axios
-          .get('libraries/' + this.$route.params.slug
-          )
-          .then((response) => {
-                this.library = response.data
-              }
-          );
+        .get("libraries/" + this.$route.params.slug)
+        .then((response) => {
+          this.library = response.data;
+        });
     },
   },
 };

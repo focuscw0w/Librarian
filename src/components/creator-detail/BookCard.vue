@@ -22,16 +22,28 @@
           Ciri vytrvalo prenasleduje citaj viac…
         </p>
         <div class="book-info__media d-flex align-items-center">
-          <button v-if="isListPage" type="submit" class="my-btn">Zobraziť detail</button>
-          <button v-else type="submit" class="my-btn">Hľadať v knižniciach</button>
-          <button v-if="!isListPage" type="submit" class="like-btn" @click="toggle">
+          <button v-if="isListPage" type="submit" class="my-btn">
+            Zobraziť detail
+          </button>
+          <button v-else type="submit" class="my-btn">
+            Hľadať v knižniciach
+          </button>
+          <button
+            v-if="!isListPage"
+            type="submit"
+            class="like-btn"
+            @click="toggle"
+          >
             <AnimationIcon
+              v-if="$store.state.loggedUser"
               class="toggle-favorite__icon"
               :class="iconClasses"
               @animationend="onIconAnimationEnds"
             />
           </button>
-            <p v-if="isBook && isListPage" class="size-15 text-h-emp">Hľadať v knižniciach</p>
+          <p v-if="isBook && isListPage" class="size-15 text-h-emp">
+            Hľadať v knižniciach
+          </p>
         </div>
       </article>
     </div>

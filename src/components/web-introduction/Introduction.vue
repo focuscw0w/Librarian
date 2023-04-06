@@ -10,7 +10,7 @@
             :current-slide="currentSlide"
             :index="index"
             @next="nextSlide"
-            @hideIntroduction="activeIntroduction = false;"
+            @hideIntroduction="activeIntroduction = false"
             @hideBlur="$emit('hideBlur')"
           />
 

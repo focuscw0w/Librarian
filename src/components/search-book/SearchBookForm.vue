@@ -36,7 +36,7 @@
     <div v-else>
 
       <div
-          v-for="(book, index) in results"
+          v-for="(book) in results"
           :key="book.id"
           ref="book"
           class="books-result-item bg-2 flex-container pt-1 pb-1"
