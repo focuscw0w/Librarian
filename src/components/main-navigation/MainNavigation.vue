@@ -45,8 +45,10 @@
         >
           Prihlásiť sa
         </button>
+
         <LoginModal ref="LoginModal" />
         <RegisterModal ref="RegisterModal" />
+
       </div>
     </div>
     <!--    </div>-->

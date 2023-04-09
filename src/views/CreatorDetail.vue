@@ -1,5 +1,5 @@
 <template>
-  <section class="author-list-page detail-page">
+  <section class="author-list-page detail-page" style="padding-top: 70px">
     <VueTitle :title="creator.name"/>
     <SubHeader category="Zoznam autorov" :title="creator.name"/>
     <div class="author">

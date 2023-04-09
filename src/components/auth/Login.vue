@@ -109,7 +109,7 @@ import Modal from "@/components/common/Modal.vue";
 
 export default {
   components: { Modal },
-  emits: ["show"],
+  emits: ["show", "hideLogin"],
 
   data() {
     return {
@@ -157,30 +157,25 @@ export default {
     async validateLogin(e) {
       e.preventDefault();
 
-      if (
-        (this.email !== "" && this.password !== "") ||
-        this.email !== "" ||
-        this.password !== ""
-      )
-        return;
-      else this.emptyInputs = true;
-
-      await axios
-        .post("login", {
-          email: this.email,
-          password: this.password,
-        })
-        .then((response) => {
-          localStorage.setItem("token", response.data.token);
-          localStorage.setItem("roles", response.data.roles);
-          localStorage.setItem("user", JSON.stringify(response.data.user));
-          this.$emit("hideLogin");
-          window.location.reload();
-          console.log(response.data);
-        })
-        .catch((err) => {
-          this.triggerWarning();
-        });
+      if (!this.email || !this.password) {
+        this.emptyInputs = true;
+      } else {
+        await axios
+          .post("login", {
+            email: this.email,
+            password: this.password,
+          })
+          .then((response) => {
+            localStorage.setItem("token", response.data.token);
+            localStorage.setItem("roles", response.data.roles);
+            localStorage.setItem("user", JSON.stringify(response.data.user));
+            this.$emit("hideLogin");
+            window.location.reload();
+          })
+          .catch((err) => {
+            this.triggerWarning();
+          });
+      }
     },
   },
 };

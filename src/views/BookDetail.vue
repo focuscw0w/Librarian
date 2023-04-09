@@ -1,5 +1,5 @@
 <template>
-  <section class="book-list-page detail-page" v-if="book">
+  <section class="book-list-page detail-page" v-if="book" style="padding-top: 70px">
     <VueTitle :title="book.name" />
     <SubHeader category="Zoznam kníh" :title="book.name" />
     <div class="book-list__product">

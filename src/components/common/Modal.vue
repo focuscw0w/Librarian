@@ -26,7 +26,6 @@ import { Modal } from "bootstrap";
 import Id from "@/utilities/utilities-unique-id";
 
 export default {
-  props: ["id"],
   name: "Modal",
   data: () => ({
     modalInstance: null,

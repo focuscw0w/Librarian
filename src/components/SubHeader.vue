@@ -1,7 +1,6 @@
 <template>
   <div class="book-list__header bg-2">
     <div class="container d-flex align-items-center mt-4 mb-3">
-      <!-- Router link -->
       <!-- refactor class names -->
       <button class="book-list__btn-previous me-3">
         <img src="@/assets/icons/arrow-left.svg" @click="$router.go(-1)" alt="previous page"/>
@@ -21,6 +20,6 @@
 
 <script>
 export default {
-  props: ["category", 'title'],
+  props: ["category", "title"],
 };
 </script>
