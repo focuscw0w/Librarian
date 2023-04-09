@@ -52,7 +52,7 @@
       </div>
     </div>
   </div>
-  <Introduction v-if="$store.state.activeIntroduction"/>
+  
   <div v-if="openRegister" class="dead-background"></div>
 </template>
 
@@ -62,7 +62,6 @@ import SearchBookList from "../components/search-book/SearchBookList.vue";
 import SelectedBook from "../components/filter-book/SelectedBook.vue";
 import InfoWindow from "../components/InfoWindow.vue";
 import FilterProduct from "../components/filter-book/FilterProduct.vue";
-import Introduction from "../components/web-introduction/Introduction.vue";
 import axios from "axios";
 
 export default {
@@ -73,7 +72,6 @@ export default {
     InfoWindow,
     FilterProduct,
     SelectedBook,
-    Introduction,
   },
   data() {
     return {

@@ -4,8 +4,8 @@
 
     <main
       id="main-content"
-      :class="{ blur: $store.state.blurEffect }"
       class="bg-1"
+      :class="{ blur: $store.state.blurEffect }"
     >
       <router-view v-slot="{ Component }">
         <keep-alive>
@@ -13,6 +13,8 @@
         </keep-alive>
       </router-view>
     </main>
+
+    <Introduction v-if="$store.state.activeIntroduction" />
 
     <div
       v-if="$store.state.blurEffect"
@@ -26,9 +28,10 @@
 import Register from "./components/auth/Register.vue";
 import Login from "./components/auth/Login.vue";
 import MainNavigation from "./components/main-navigation/MainNavigation.vue";
+import Introduction from "@/components/web-introduction/Introduction.vue";
 
 export default {
-  components: { MainNavigation, Register, Login },
+  components: { MainNavigation, Register, Login, Introduction },
 };
 </script>
 
