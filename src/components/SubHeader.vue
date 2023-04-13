@@ -1,18 +1,18 @@
 <template>
-  <div class="book-list__header bg-2">
+  <div class="list__sub-header bg-2">
     <div class="container d-flex align-items-center mt-4 mb-3">
-      <!-- refactor class names -->
-      <button class="book-list__btn-previous me-3">
-        <img src="@/assets/icons/arrow-left.svg" @click="$router.go(-1)" alt="previous page"/>
+      <button @click="$router.go(-1)" class="list__btn-previous me-3">
+        <img src="@/assets/icons/arrow-left.svg" alt="previous page" />
       </button>
-      <h4 class="book-list__heading">
-        <strong class="book-list__page-name"
-        >{{ category }}</strong
-        >
-        <span v-if="category"> / </span>
-        <span class="book-list__book-name">
+      <h4 class="list__heading d-flex gap-1">
+        <strong class="list__page-name">{{ category }}</strong>
+        <div v-if="category">
+          <span> / </span>
+          <span class="list__book-name">
             {{ title }}
           </span>
+        </div>
+        <strong v-else class="list__page-name">{{ title }}</strong>
       </h4>
     </div>
   </div>

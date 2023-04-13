@@ -296,20 +296,20 @@ a {
   line-height: $line-spacing-21;
 }
 
-.book-list__header {
-  .book-list__heading {
+.list__sub-header {
+  .list__heading {
     font-weight: $font-weight-normal;
     font-size: $font-size-15;
     color: $medium-emphasys;
   }
 
-  .book-list__page-name {
+  .list__page-name {
     font-weight: $font-weight-normal;
     font-size: $font-size-15;
     color: $high-emphasys;
   }
 
-  .book-list__book-name {
+  .list__book-name {
     font-weight: $font-weight-normal;
     font-size: $font-size-15;
     color: $medium-emphasys;

@@ -7,19 +7,24 @@
         alt="book"
       />
       <article class="product-items__ul__book-info bg-2">
-        <span v-if="isBook" class="book-info__genre">Fantasy</span>
-        <h4 class="book-info__heading">{{ heading }}</h4>
+        <div v-if="isBook" class="book-info__genre">
+          <span>
+            {{ productData.category.name }}
+          </span>
+        </div>
+        <h4 class="book-info__heading">{{ productData.name }}</h4>
         <figcaption v-if="isBook" class="product__author-name">
-          Andrzej Sapkowski, Druhy Autor
+          <!-- Andrzej Sapkowski, Druhy Autor -->
+          <span v-for="creator in productData.creators" :key="creator">
+            {{ creator.name }},
+          </span>
           <span class="product__next-author">ďaľší...</span>
         </figcaption>
         <figcaption v-else class="product__author-name">
           Beletria, Sci-fi, Fantasy
         </figcaption>
         <p class="book-info__paragraph">
-          Magický rozprávač na výprave do hraničných oblastí sveta temnoty a
-          chaosu. Geralt naďalej pátra po zlopovestnom tajomnom Riencovi, ktorý
-          Ciri vytrvalo prenasleduje citaj viac…
+          {{ productData.short_description }}
         </p>
         <div class="book-info__media d-flex align-items-center">
           <button v-if="isListPage" type="submit" class="my-btn">
@@ -55,7 +60,7 @@ import FindBookBtn from "@/components/FindBookBtn.vue";
 import AnimationIcon from "@/components/AnimationIcon.vue";
 export default {
   components: { FindBookBtn, AnimationIcon },
-  props: ["heading", "isBook", "isListPage", "image"],
+  props: ["isBook", "isListPage", "image", "productData"],
   data() {
     return {
       favorited: false,
@@ -71,7 +76,6 @@ export default {
     },
   },
   methods: {
-    showComponent(contentToShow) {},
     toggle() {
       if (!this.favorited) {
         this.animating = true;

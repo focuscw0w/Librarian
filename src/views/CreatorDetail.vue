@@ -1,22 +1,22 @@
 <template>
   <section class="author-list-page detail-page" style="padding-top: 70px">
-    <VueTitle :title="creator.name"/>
-    <SubHeader category="Zoznam autorov" :title="creator.name"/>
+    <VueTitle :title="creator.name" />
+    <SubHeader category="Zoznam autorov" :title="creator.name" />
     <div class="author">
       <div class="container">
         <div class="flex-container">
           <img
-              src="@/assets/images/author-img.jpg"
-              class="author__image"
-              alt="author"
+            src="@/assets/images/author-img.jpg"
+            class="author__image"
+            alt="author"
           />
           <article class="author__information">
             <h4 class="author__information__heading">{{ creator.name }}</h4>
             <p class="author__information__life-length">
               * {{ formattedBirthDate }}
-              <span class="ms-3" v-if="creator.death_date !== null"> † {{
-                  formattedDeathDate
-                }}</span>
+              <span class="ms-3" v-if="creator.death_date !== null">
+                † {{ formattedDeathDate }}</span
+              >
             </p>
             <p class="author__information__biography mb-4">
               {{ creator.description }}
@@ -36,23 +36,22 @@
     <div class="product-items bg-1">
       <div class="container">
         <ul class="product-items__ul grid-container">
-           <BookDetail
-              v-for="Product in 12"
-              :key="Product"
-              :isBook="true"
-              :isListPage="false"
-              heading="Zaklínač IV.: Čas opovrhnutia"
-              :description="null"
-              image="book-product.jpg"
-            />
+          <BookDetail
+            v-for="Product in 12"
+            :key="Product"
+            :isBook="true"
+            :isListPage="false"
+            heading="Zaklínač IV.: Čas opovrhnutia"
+            :description="null"
+            image="book-product.jpg"
+          />
         </ul>
       </div>
     </div>
-    <SubFooter class="bg-2"/>
-    <PageFooter/>
+    <SubFooter class="bg-2" />
+    <PageFooter />
   </section>
 </template>
-
 
 <script>
 // import SecondaryNavigation from "@/components/SecondaryLibraryNavigation.vue";
@@ -62,7 +61,7 @@ import PageFooter from "@/components/PageFooter";
 import BookDetail from "@/components/creator-detail/BookCard.vue";
 import axios from "axios";
 import VueTitle from "@/utilities/vue-title.vue";
-import dateFormat, {masks} from "dateformat";
+import dateFormat, { masks } from "dateformat";
 
 export default {
   components: {
@@ -97,7 +96,6 @@ export default {
     formattedDeathDate() {
       if (this.creator.death_date) {
         return dateFormat(new Date(this.creator.death_date), "d.m.yyyy");
-
       } else {
         return null;
       }
@@ -106,18 +104,17 @@ export default {
   created() {
     // watch the params of the route to fetch the data again
     this.$watch(
-        () => this.$route.params,
-        () => {
-          this.fetchData()
-        },
-        // fetch the data when the view is created and the data is
-        // already being observed
-        {immediate: true}
-    )
+      () => this.$route.params,
+      () => {
+        this.fetchData();
+      },
+      // fetch the data when the view is created and the data is
+      // already being observed
+      { immediate: true }
+    );
   },
   methods: {
-    showComponent(contentToShow) {
-    },
+    showComponent(contentToShow) {},
     toggle() {
       if (!this.favorited) {
         this.animating = true;
@@ -130,13 +127,11 @@ export default {
     },
     async fetchData() {
       await axios
-          .get('creators/' + this.$route.params.slug
-          )
-          .then((response) => {
-                this.creator = response.data
-                // this.loadedItem = true
-              }
-          );
+        .get("creators/" + this.$route.params.slug)
+        .then((response) => {
+          this.creator = response.data;
+          // this.loadedItem = true
+        });
     },
   },
 };

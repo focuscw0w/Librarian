@@ -14,7 +14,7 @@
         </header>
         <div class="mt-32">
 
-          <div v-for="book in books">
+          <div v-for="book in books" :key="book">
             {{ book.name }}
           </div>
         </div>

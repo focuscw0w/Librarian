@@ -48,7 +48,6 @@
 
         <LoginModal ref="LoginModal" />
         <RegisterModal ref="RegisterModal" />
-
       </div>
     </div>
     <!--    </div>-->

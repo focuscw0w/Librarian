@@ -6,37 +6,20 @@
 
     <SearchDetail :aboutAuthor="false" placeholder="Zadajte názov knihy" />
 
-    <div class="product-detail bg-1 pb-32">
+    <div v-for="(products, letter) in books" :key="letter" class="product-detail bg-1 pb-32">
       <div class="product-items mb-16">
         <div class="container">
           <p class="product-items__first-letters size-15 text-md-emp">
-            A, Á, a, á
+            {{ letter }}
           </p>
           <ul class="product-items__ul grid-container">
             <BookDetail
-              v-for="Product in 4"
-              :key="Product"
+              v-for="product in products"
+              :key="product"
+              :productData="product"
               :isBook="true"
               :isListPage="true"
               :likeBtn="false"
-              heading="Zaklínač IV.: Čas opovrhnutia"
-              :description="null"
-              image="book-product.jpg"
-            />
-          </ul>
-        </div>
-      </div>
-
-      <div class="product-items">
-        <div class="container">
-          <p class="product-items__first-letters size-15 text-md-emp">B, b</p>
-          <ul class="product-items__ul grid-container">
-             <BookDetail
-              v-for="Product in 4"
-              :key="Product"
-              :isBook="true"
-              :isListPage="true"
-              heading="Zaklínač IV.: Čas opovrhnutia"
               :description="null"
               image="book-product.jpg"
             />
@@ -78,10 +61,12 @@ export default {
   },
   async mounted() {
     // watch the params of the route to fetch the data again
-    await axios.get("books").then((response) => {
-      console.log(response.data);
-      this.libraries = response.data;
+    await axios.get("/books?group_by=name").then((response) => {
+      this.books = response.data
     });
+
+  console.log(this.books)
+
   },
 };
 </script>
