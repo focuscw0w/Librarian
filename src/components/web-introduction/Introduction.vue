@@ -1,4 +1,5 @@
 <template>
+<!-- opraviť, aby background nebol klikateľný -->
   <div v-if="activeIntroduction" class="first-introduction bg-1">
     <div class="flex-container">
       <div class="first-introduction__text">

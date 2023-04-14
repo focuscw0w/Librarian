@@ -9,6 +9,7 @@ const store = createStore({
       activeLogin: null,
       activeRegister: null,
       activeIntroduction: null,
+      typeOfUser: null
     };
   },
   mutations: {
@@ -40,6 +41,9 @@ const store = createStore({
       state.activeRegister = false;
       state.blurEffect = false;
     },
+    SET_TYPE_OF_USER(state, value) {
+      state.typeOfUser = value
+    }
   },
   getters: {},
 });

@@ -65,13 +65,30 @@ export default {
   data() {
     return {};
   },
-  created() {
-    this.$store.commit("LOG_USER");
-  },
   methods: {
     openLoginModal() {
       this.$refs.LoginModal.show();
     },
+    checkTypeOfUser(data) {
+      const allUsers = {
+        admin: "admin@lib.sk",
+        librarian: "librarian@lib.sk",
+        reader: "reader@lib.sk",
+      };
+
+      if (Object.values(allUsers).includes(data.email)) {
+        const typeOfUser = Object.keys(allUsers).find(
+          (mail) => allUsers[mail] === data.email
+        );
+        this.$store.commit("SET_TYPE_OF_USER", typeOfUser);
+      }
+    },
+  },
+  created() {
+    this.$store.commit("LOG_USER");
+
+    const userData = JSON.parse(localStorage.getItem("user"));
+    if (userData !== null) this.checkTypeOfUser(userData);
   },
 };
 </script>

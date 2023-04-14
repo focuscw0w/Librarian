@@ -34,6 +34,7 @@ import {
   faGear,
   faRightFromBracket,
   faHeart,
+  faWrench
 } from "@fortawesome/free-solid-svg-icons";
 import * as Sentry from "@sentry/vue";
 import { BrowserTracing } from "@sentry/tracing";
@@ -46,7 +47,8 @@ library.add(
   faCoffee,
   faHeart,
   faGear,
-  faRightFromBracket
+  faRightFromBracket,
+  faWrench
 );
 
 const app = createApp(App);
