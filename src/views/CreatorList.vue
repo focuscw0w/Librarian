@@ -1,55 +1,39 @@
 <template>
-<section style="padding-top: 70px">
-  <VueTitle title="Zoznam autorov" />
-  <SubHeader title="Zoznam autorov a tvorcov" />
-  <ListIntroduction heading="Zoznam autorov" :paragraph="null" />
+  <section style="padding-top: 70px">
+    <VueTitle title="Zoznam autorov" />
+    <SubHeader title="Zoznam autorov a tvorcov" />
+    <ListIntroduction heading="Zoznam autorov" :paragraph="null" />
 
-  <SearchDetail :aboutAuthor="true" placeholder="Zadajte názov autora" />
+    <SearchDetail :aboutAuthor="true" placeholder="Zadajte názov autora" />
 
-  <div class="product-detail bg-1 pb-32">
-    <div class="product-items mb-16">
-      <div class="container">
-        <p class="product-items__first-letters size-15 text-md-emp">
-          A, Á, a, á
-        </p>
-        <ul class="product-items__ul grid-container">
-           <BookDetail
-              v-for="Product in 4"
-              :key="Product"
+    <div v-for="(creators, letter) in allCreators" :key="letter" class="product-detail bg-1 pb-32">
+      <div class="product-items mb-16">
+        <div class="container">
+          <p class="product-items__first-letters size-15 text-md-emp">
+            {{ letter }}
+          </p>
+          <ul class="product-items__ul grid-container">
+            <BookDetail
+              v-for="creator in creators"
+              :key="creator"
+              :productData="creator"
               :isBook="false"
               :isListPage="true"
-              heading="Andrzej Sapkowski"
-              :description="null"
+              :likeBtn="false"
               image="author-img.jpg"
             />
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div class="product-items">
-      <div class="container">
-        <p class="product-items__first-letters size-15 text-md-emp">B, b</p>
-        <ul class="product-items__ul grid-container">
-           <BookDetail
-              v-for="Product in 4"
-              :key="Product"
-              :isBook="false"
-              :isListPage="true"
-              heading="Andrzej Sapkowski"
-              :description="null"
-              image="author-img.jpg"
-            />
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <SubFooter class="bg-2" />
-  <PageFooter />
-</section>
+    <SubFooter class="bg-2" />
+    <PageFooter />
+  </section>
 </template>
 
 <script>
+import axios from "axios";
 import VueTitle from "@/utilities/vue-title.vue";
 import BookDetail from "@/components/creator-detail/BookCard.vue";
 import SearchDetail from "@/components/list-page/SearchDetail.vue";
@@ -66,6 +50,17 @@ export default {
     VueTitle,
     BookDetail,
     SearchDetail,
+  },
+  data() {
+    return {
+      allCreators: [],
+    };
+  },
+  async mounted() {
+    // watch the params of the route to fetch the data again
+    await axios.get("/creators?group_by=name").then((response) => {
+      this.allCreators = response.data;
+    });
   },
 };
 </script>

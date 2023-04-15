@@ -6,7 +6,11 @@
 
     <SearchDetail :aboutAuthor="false" placeholder="Zadajte názov knihy" />
 
-    <div v-for="(products, letter) in books" :key="letter" class="product-detail bg-1 pb-32">
+    <div
+      v-for="(products, letter) in books"
+      :key="letter"
+      class="product-detail bg-1 pb-32"
+    >
       <div class="product-items mb-16">
         <div class="container">
           <p class="product-items__first-letters size-15 text-md-emp">
@@ -20,7 +24,6 @@
               :isBook="true"
               :isListPage="true"
               :likeBtn="false"
-              :description="null"
               image="book-product.jpg"
             />
           </ul>
@@ -56,17 +59,14 @@ export default {
   },
   data() {
     return {
-      books: [],
+      books: []
     };
   },
   async mounted() {
     // watch the params of the route to fetch the data again
     await axios.get("/books?group_by=name").then((response) => {
-      this.books = response.data
+      this.books = response.data;
     });
-
-  console.log(this.books)
-
   },
 };
 </script>

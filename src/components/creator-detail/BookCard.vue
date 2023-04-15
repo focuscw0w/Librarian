@@ -1,4 +1,5 @@
 <template>
+  <!-- refactor class names -->
   <li class="product-items__ul__product bg-2">
     <div class="flex-container">
       <img
@@ -23,8 +24,11 @@
         <figcaption v-else class="product__author-name">
           Beletria, Sci-fi, Fantasy
         </figcaption>
-        <p class="book-info__paragraph">
+        <p v-if="isBook" class="book-info__paragraph">
           {{ productData.short_description }}
+        </p>
+        <p v-else class="book-info__paragraph">
+          {{ productData.description }}
         </p>
         <div class="book-info__media d-flex align-items-center">
           <button v-if="isListPage" type="submit" class="my-btn">
@@ -34,7 +38,7 @@
             Hľadať v knižniciach
           </button>
           <button
-            v-if="!isListPage"
+            v-if="!isListPage && $store.state.loggedUser"
             type="submit"
             class="like-btn"
             @click="toggle"
@@ -60,7 +64,7 @@ import FindBookBtn from "@/components/FindBookBtn.vue";
 import AnimationIcon from "@/components/AnimationIcon.vue";
 export default {
   components: { FindBookBtn, AnimationIcon },
-  props: ["isBook", "isListPage", "image", "productData"],
+  props: ["isBook", "isListPage", "image", "productData",],
   data() {
     return {
       favorited: false,

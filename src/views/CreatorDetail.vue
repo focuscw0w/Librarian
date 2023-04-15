@@ -39,10 +39,9 @@
           <BookDetail
             v-for="Product in 12"
             :key="Product"
+            :productData="productData"
             :isBook="true"
             :isListPage="false"
-            heading="Zaklínač IV.: Čas opovrhnutia"
-            :description="null"
             image="book-product.jpg"
           />
         </ul>
@@ -77,6 +76,14 @@ export default {
       favorited: false,
       animating: false,
       creator: false,
+      productData: {
+        short_description:
+          "Magický rozprávač na výprave do hraničných oblastí sveta temnoty a chaosu. Geralt naďalej pátra po zlopovestnom tajomnom Riencovi, ktorý Ciri vytrvalo prenasleduje citaj viac…",
+        name: "Zaklínač IV.: Čas opovrhnutia",
+        category: {
+          name: "Fantasy"
+        }
+      },
     };
   },
   computed: {
@@ -125,12 +132,11 @@ export default {
     onIconAnimationEnds() {
       this.animating = false;
     },
-    async fetchData() {
+    async fetchData() {   
       await axios
         .get("creators/" + this.$route.params.slug)
         .then((response) => {
           this.creator = response.data;
-          // this.loadedItem = true
         });
     },
   },
