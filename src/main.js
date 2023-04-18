@@ -18,6 +18,7 @@ axios.defaults.baseURL = process.env.VUE_APP_API_URL;
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.defaults.headers.post["Accept"] = "application/json";
+axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
 
 /* import the fontawesome core */
 import { library } from "@fortawesome/fontawesome-svg-core";

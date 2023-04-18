@@ -4,9 +4,11 @@
       <li class="info" @click="emitId('info')">
         <a :class="{ active: activeInfo }">Informácie o knižnici</a>
       </li>
+      <!-- 
       <li class="gallery" @click="emitId('gallery')">
         <a :class="{ active: activeGallery }">Galéria (27)</a>
       </li>
+      -->
     </ul>
   </nav>
 </template>

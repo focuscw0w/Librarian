@@ -102,3 +102,11 @@
   background-color: #f2f2f2 !important;
 }
 
+.modal-action-btn {
+  background-color: $primary;
+  border: none;
+  
+  &:hover {
+    background-color: lighten($primary, 20%);
+  }
+}

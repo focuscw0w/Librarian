@@ -84,7 +84,7 @@ export default {
       }
     },
   },
-  created() {
+ async created() {
     this.$store.commit("LOG_USER");
 
     const userData = JSON.parse(localStorage.getItem("user"));
