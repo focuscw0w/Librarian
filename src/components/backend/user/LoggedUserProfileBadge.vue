@@ -11,8 +11,8 @@
         <span class="me-1">Christine Smith</span>
       </template>
 
-       <b-dropdown-item
-       v-if="$store.state.typeOfUser === 'admin'"
+      <b-dropdown-item
+        v-if="$store.state.typeOfUser === 'admin'"
         class="d-flex align-items-center"
         @click="openAdminAdministrationModal"
       >
@@ -21,7 +21,7 @@
       </b-dropdown-item>
 
       <b-dropdown-item
-       v-if="$store.state.typeOfUser === 'librarian'"
+        v-if="$store.state.typeOfUser === 'librarian'"
         class="d-flex align-items-center"
         @click="openLibrarianAdministrationModal"
       >
@@ -30,7 +30,7 @@
       </b-dropdown-item>
 
       <b-dropdown-item
-       v-if="$store.state.typeOfUser === 'reader'"
+        v-if="$store.state.typeOfUser === 'reader'"
         class="d-flex align-items-center"
         @click="openReaderFavouriteBooksModal"
       >
@@ -39,7 +39,7 @@
       </b-dropdown-item>
 
       <b-dropdown-item
-       v-if="$store.state.typeOfUser === 'reader'"
+        v-if="$store.state.typeOfUser === 'reader'"
         class="d-flex align-items-center"
         @click="openReaderReservedBooksModal"
       >
@@ -60,15 +60,17 @@
         <font-awesome-icon :icon="['fas', 'right-from-bracket']" class="me-2" />
         Odhlásiť sa
       </b-dropdown-item>
-
     </b-dropdown>
 
     <ProfileSettingsModal ref="profileSettingsModalRef" />
     <ReaderFavouriteBooksModal ref="readerFavouriteBooksModalRef" />
     <ReaderReservedBooksModal ref="readerReservedBooksModalRef" />
-    <AdminAdministrationModal ref="adminAdministrationModalRef" />
+    <AdminAdministrationModal
+      @hideModal="hideAdminAdministration"
+      @openModal="openAdminAdministrationModal"
+      ref="adminAdministrationModalRef"
+    />
     <LibrarianAdministrationModal ref="librarianAdministrationModalRef" />
-
   </div>
 </template>
 
@@ -87,7 +89,7 @@ export default {
     ReaderFavouriteBooksModal,
     ProfileSettingsModal,
     AdminAdministrationModal,
-    LibrarianAdministrationModal
+    LibrarianAdministrationModal,
   },
   data() {
     return {
@@ -113,11 +115,14 @@ export default {
       this.$refs.readerReservedBooksModalRef.show();
     },
     openAdminAdministrationModal() {
-      this.$refs.adminAdministrationModalRef.show()
+      this.$refs.adminAdministrationModalRef.show();
     },
     openLibrarianAdministrationModal() {
-      this.$refs.librarianAdministrationModalRef.show()
-    }
+      this.$refs.librarianAdministrationModalRef.show();
+    },
+    hideAdminAdministration() {
+      this.$refs.adminAdministrationModalRef.hide();
+    },
   },
 };
 </script>
