@@ -15,6 +15,7 @@
         >Pridať knižnicu</b-button
       >
 
+      <!-- 
       <b-table :items="items" class="admin-table mt-3" outlined striped>
         <template #cell(Edit)>
           <div class="d-flex gap-3">
@@ -23,12 +24,31 @@
           </div>
         </template>
       </b-table>
+      -->
+
+      <div class="table-responsive mt-5">
+        <DataTable
+          :data="libraries"
+          :columns="columns"
+          class="table table-bordered display hover"
+          width="100%"
+        >
+          <thead>
+            <tr>
+              <th>Názov</th>
+              <th>Typ</th>
+              <th>Adresa</th>
+              <th>Edit</th>
+            </tr>            
+          </thead>
+
+        </DataTable>
+      </div>
     </div>
   </Modal>
 
   <AddLibraryModal ref="addLibraryModalRef" />
   <RemoveModal @openModal="$emit('openModal')" ref="removeModalRef" />
-
 </template>
 
 <script>
@@ -38,6 +58,10 @@ import NotificationTab from "@/components/backend/user/profile-settings/tabs/Not
 import ViewTab from "@/components/backend/user/profile-settings/tabs/ViewTab.vue";
 import AddLibraryModal from "@/components/backend/admin/AddLibrary.vue";
 import RemoveModal from "@/components/backend/admin/RemoveModal.vue";
+import axios from "axios";
+import DataTable from "datatables.net-vue3";
+import DataTablesCore from "datatables.net";
+DataTable.use(DataTablesCore);
 
 export default {
   components: {
@@ -47,6 +71,7 @@ export default {
     ViewTab,
     AddLibraryModal,
     RemoveModal,
+    DataTable,
   },
   emits: ["show", "hideModal", "openModal"],
   data() {
@@ -57,6 +82,21 @@ export default {
         { Názov: "Larsen", Typ: "Shaw", Adresa: "Bratislava", Edit: "" },
         { Názov: "Geneva", Typ: "Wilson", Adresa: "Trnava", Edit: "" },
         { Názov: "Jami", Typ: "Carney", Adresa: "Nitra", Edit: "" },
+      ],
+      libraries: null,
+      columns: [
+        { data: "name" },
+        { data: "street" },
+        { data: "city" },
+        {
+          data: null,
+          render: function (data, type, row, meta) {
+            return (
+              '<b-button @click="openRemoveModal" variant="danger" size="sm"> Vymazať </b-button>' +
+              '<b-button size="sm"> Upraviť </b-button>'
+            );
+          },
+        },
       ],
     };
   },
@@ -75,9 +115,19 @@ export default {
       this.$emit("hideModal");
     },
     openRemoveModal() {
-      this.$refs.removeModalRef.show()
+      this.$refs.removeModalRef.show();
       this.$emit("hideModal");
-    }
+    },
+  },
+  async created() {
+    await axios.get("libraries").then((response) => {
+      this.libraries = response.data;
+      console.log(this.libraries);
+    });
   },
 };
 </script>
+
+<style lang="scss">
+@import "datatables.net-dt";
+</style>
