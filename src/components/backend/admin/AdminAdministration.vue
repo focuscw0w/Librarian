@@ -122,7 +122,6 @@ export default {
   async created() {
     await axios.get("libraries").then((response) => {
       this.libraries = response.data;
-      console.log(this.libraries);
     });
   },
 };
