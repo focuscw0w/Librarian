@@ -13,9 +13,16 @@
           />
         </header>
         <div class="mt-32">
-          <div v-for="book in books" :key="book">
-            {{ book.name }}
-          </div>
+          <b-table striped hover :items="reservations" :fields="fields" show-empty>
+            <template #cell(functions)="row">
+              <b-button size="sm" @click="remove(row)" class="mr-2 btn-danger">
+                Odstrániť
+              </b-button>
+            </template>
+            <template #empty="scope">
+              Nenašli sa žiadne záznamy
+            </template>
+          </b-table>
         </div>
       </div>
 
@@ -36,7 +43,21 @@ export default {
 
   data() {
     return {
-      books: [{'name': 'meeno 1'}, {'name': 'meeno 2'}]
+      reservations: [],
+      fields: [{
+        key: "bookName",
+        label: 'Názov knihy',
+        sortable: true,
+        formatter: (value, key, item) => item.book.name
+      },{
+        key: "libName",
+        label: 'Názov knižnice',
+        sortable: true,
+        formatter: (value, key, item) => item.library.name
+      }, {
+        key: 'functions',
+        label: 'Funkcie'
+      }],
     };
   },
   // mounted() {
@@ -47,26 +68,31 @@ export default {
       this.type = this.type === "text" ? "password" : "text";
     },
     show() {
-      this.$refs.modalRef.show()
+      this.load()
+      this.$refs.modalRef.show();
     },
     hide() {
-      this.$refs.modalRef.hide()
+      this.$refs.modalRef.hide();
     },
-    async sendForm(e) {
-      e.preventDefault();
-      // await axios
-      //     .post("login", {
-      //       email: this.email,
-      //       password: this.password,
-      //     })
-      //     .then((response) => {
-      //       localStorage.setItem("token", response.data.token);
-      //       localStorage.setItem("roles", response.data.roles);
-      //       localStorage.setItem("user", JSON.stringify(response.data.user));
-      //       this.$emit("hideLogin")
-      //       window.location.reload()
-      //     })
-      //     .catch((err) => console.log(err));
+    load() {
+      axios
+          .get("/reservations")
+          .then((response) => {
+            this.reservations = response.data;
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+    },
+    async remove(row) {
+      axios
+          .delete("/reservations/" + row.item.id)
+          .then((response) => {
+            this.load()
+          })
+          .catch((err) => {
+            console.log(err);
+          });
     },
   },
 };

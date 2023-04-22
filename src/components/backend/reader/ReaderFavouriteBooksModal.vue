@@ -5,16 +5,24 @@
         <header class="d-flex align-items-center justify-content-between">
           <h3 class="user-access__heading">Obľúbené knihy</h3>
           <img
-            :src="require('@/assets/icons/close-icon.svg')"
-            alt="close icon"
-            class="close-icon"
-            @click="hide"
+              :src="require('@/assets/icons/close-icon.svg')"
+              alt="close icon"
+              class="close-icon"
+              @click="hide"
           />
         </header>
         <div class="mt-32">
-          <div v-for="book in favoriteBooks" :key="book">
-            {{ book.name }}
-          </div>
+          <b-table striped hover :items="books" :fields="fields"  show-empty>
+            <template #cell(functions)="row">
+              <b-button size="sm" @click="remove(row)" class="mr-2 btn-danger">
+                Odstrániť
+              </b-button>
+            </template>
+            <template #empty="scope">
+              Nenašli sa žiadne záznamy
+            </template>
+          </b-table>
+
         </div>
       </div>
     </Modal>
@@ -29,13 +37,13 @@ import NotificationTab from "@/components/backend/user/profile-settings/tabs/Not
 import ViewTab from "@/components/backend/user/profile-settings/tabs/ViewTab.vue";
 
 export default {
-  components: { Modal, InfoFormTab, NotificationTab, ViewTab },
+  components: {Modal, InfoFormTab, NotificationTab, ViewTab},
   emits: ["show"],
 
   data() {
     return {
-      books: [{ name: "meeno 1" }, { name: "meeno 2" }],
-      favoriteBooks: [],
+      books: [],
+      fields: [{key: 'name', label: 'Názov'}, {key: 'functions', label: 'Funkcie'}],
     };
   },
   // mounted() {
@@ -46,37 +54,32 @@ export default {
       this.type = this.type === "text" ? "password" : "text";
     },
     show() {
+      this.load()
       this.$refs.modalRef.show();
     },
     hide() {
       this.$refs.modalRef.hide();
     },
-    async sendForm(e) {
-      e.preventDefault();
-      // await axios
-      //     .post("login", {
-      //       email: this.email,
-      //       password: this.password,
-      //     })
-      //     .then((response) => {
-      //       localStorage.setItem("token", response.data.token);
-      //       localStorage.setItem("roles", response.data.roles);
-      //       localStorage.setItem("user", JSON.stringify(response.data.user));
-      //       this.$emit("hideLogin")
-      //       window.location.reload()
-      //     })
-      //     .catch((err) => console.log(err));
+    load(){
+      axios
+          .get("/books/favourite")
+          .then((response) => {
+            this.books = response.data;
+          })
+          .catch((err) => {
+            console.log(err);
+          });
     },
-  },
-   created() {
-     axios
-      .get("/books/favourite")
-      .then((response) => {
-        this.favoriteBooks = response.data;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    async remove(row) {
+      axios
+          .post("/books/favourite/"+row.item.id)
+          .then((response) => {
+            this.load()
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+    },
   },
 };
 </script>
