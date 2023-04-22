@@ -1,5 +1,9 @@
 <template>
-  <section class="book-list-page detail-page" v-if="book" style="padding-top: 70px">
+  <section
+    class="book-list-page detail-page"
+    v-if="book"
+    style="padding-top: 70px"
+  >
     <VueTitle :title="book.name" />
     <SubHeader category="Zoznam kníh" :title="book.name" />
     <div class="book-list__product">
@@ -79,13 +83,16 @@
                     @animationend="onIconAnimationEnds"
                   />
                 </button>
-                <FindBookBtn />
+                <button type="submit" class="my-btn">Rezervovať</button>
               </div>
             </div>
           </article>
         </div>
       </div>
     </div>
+
+    <b-button variant="success" @click="makeToast('success')" class="mb-2">Success</b-button>
+
     <SubFooter />
     <PageFooter />
   </section>
@@ -148,12 +155,18 @@ export default {
     },
   },
   methods: {
-    toggle() {
-      if (!this.favorited) {
-        this.animating = true;
-      }
+    async toggle() {
+      const id = this.book.id;
+      const url = "/books/" + id + (this.favorited ? "/dislike" : "/like");
 
-      this.favorited = !this.favorited;
+      try {
+        this.animating = true;
+        this.favorited = !this.favorited;
+        await axios.post(url);
+        window.location.reload();
+      } catch (err) {
+        console.log(err);
+      }
     },
     onIconAnimationEnds() {
       this.animating = false;
@@ -163,6 +176,13 @@ export default {
         this.book = response.data;
       });
     },
+     makeToast(variant = null) {
+        this.$bvToast.toast('Toast body content', {
+          title: `Variant ${variant || 'default'}`,
+          variant: variant,
+          solid: true
+        })
+      }
   },
 };
 </script>

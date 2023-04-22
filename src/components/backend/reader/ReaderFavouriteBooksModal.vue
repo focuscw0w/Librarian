@@ -1,25 +1,22 @@
 <template>
   <div>
     <Modal ref="modalRef" class="profile-settings-modal" size="lg">
-
       <div class="p-5">
         <header class="d-flex align-items-center justify-content-between">
           <h3 class="user-access__heading">Obľúbené knihy</h3>
           <img
-              :src="require('@/assets/icons/close-icon.svg')"
-              alt="close icon"
-              class="close-icon"
-              @click="hide"
+            :src="require('@/assets/icons/close-icon.svg')"
+            alt="close icon"
+            class="close-icon"
+            @click="hide"
           />
         </header>
         <div class="mt-32">
-
-          <div v-for="book in books" :key="book">
+          <div v-for="book in favoriteBooks" :key="book">
             {{ book.name }}
           </div>
         </div>
       </div>
-
     </Modal>
   </div>
 </template>
@@ -32,12 +29,13 @@ import NotificationTab from "@/components/backend/user/profile-settings/tabs/Not
 import ViewTab from "@/components/backend/user/profile-settings/tabs/ViewTab.vue";
 
 export default {
-  components: {Modal, InfoFormTab, NotificationTab, ViewTab},
+  components: { Modal, InfoFormTab, NotificationTab, ViewTab },
   emits: ["show"],
 
   data() {
     return {
-      books: [{'name': 'meeno 1'}, {'name': 'meeno 2'}]
+      books: [{ name: "meeno 1" }, { name: "meeno 2" }],
+      favoriteBooks: [],
     };
   },
   // mounted() {
@@ -48,10 +46,10 @@ export default {
       this.type = this.type === "text" ? "password" : "text";
     },
     show() {
-      this.$refs.modalRef.show()
+      this.$refs.modalRef.show();
     },
     hide() {
-      this.$refs.modalRef.hide()
+      this.$refs.modalRef.hide();
     },
     async sendForm(e) {
       e.preventDefault();
@@ -69,6 +67,16 @@ export default {
       //     })
       //     .catch((err) => console.log(err));
     },
+  },
+   created() {
+     axios
+      .get("/books/favourite")
+      .then((response) => {
+        this.favoriteBooks = response.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 };
 </script>

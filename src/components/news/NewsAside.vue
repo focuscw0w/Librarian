@@ -1,5 +1,5 @@
 <template>
-  <aside class="aside">
+  <aside class="aside mb-5">
     <article class="bg-2">
       <h3 class="aside__heading">Základné informacie</h3>
       <div class="aside__informations">

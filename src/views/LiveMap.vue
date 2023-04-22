@@ -37,7 +37,7 @@
             @mouseout="toggleIcon(false, index)"
         >
           <GMapInfoWindow :opened="currentLibrary === index">
-            <InfoWindow :library="library"/>
+            <InfoWindow :currentId="library.id" :library="library"/>
           </GMapInfoWindow>
         </GMapMarker>
       </GMapMap>

@@ -11,16 +11,23 @@
       <div class="store-informations">
         <div class="flex-container">
           <router-link
-            tag="h4"
             class="store-informations__heading"
-            :to="'/kniznica/'+library.slug"
+            :to="'/kniznica/' + library.slug"
           >
-          {{ library.name }}
+            {{ library.name }}
           </router-link>
           <div class="opened-p">
-            <span :class="'fw-bold text-'+( library.todayBusinessHoursStatus === 'closed' ? 'danger' : 'success' )">{{ library.todayBusinessHoursStatusTranslated }}</span> {{library.todayBusinessHoursStatusMarginTimeDirectionTranslated}} {{
-              library.todayBusinessHoursStatusMarginTime
-            }}
+            <span
+              :class="
+                'fw-bold text-' +
+                (library.todayBusinessHoursStatus === 'closed'
+                  ? 'danger'
+                  : 'success')
+              "
+              >{{ library.todayBusinessHoursStatusTranslated }}</span
+            >
+            {{ library.todayBusinessHoursStatusMarginTimeDirectionTranslated }}
+            {{ library.todayBusinessHoursStatusMarginTime }}
           </div>
           <div class="store-informations__address">
             {{ library.street }} {{ library.house_number }} <br />
@@ -28,12 +35,15 @@
           </div>
           <div class="store-informations__media">
             <div class="flex-container">
-              <button class="book-list">Zoznam kníh</button>
+              <button @click="addToFavorite" class="book-list">
+                Rezervovať
+              </button>
               <span class="media-icon"
                 ><img
                   :src="require('../assets/icons/location-arrow.svg')"
                   alt="route icon"
               /></span>
+              <!-- 
               <span class="media-icon" @click="toggle">
                 <AnimationIcon
                   class="toggle-favorite__icon"
@@ -41,6 +51,7 @@
                   @animationend="onIconAnimationEnds"
                 />
               </span>
+              -->
             </div>
           </div>
         </div>
@@ -51,10 +62,9 @@
 
 <script>
 import AnimationIcon from "./AnimationIcon.vue";
+import axios from "axios";
 export default {
-  props: [
-    "library",
-  ],
+  props: ["library", "currentId"],
   components: { AnimationIcon },
   data() {
     return {
@@ -71,17 +81,27 @@ export default {
     },
   },
   methods: {
-    toggle() {
-      if (!this.favorited) {
+    async toggle() {
+      const id = this.library.id;
+      const url = "/books/" + id + (this.favorited ? "/dislike" : "/like");
+
+      try {
         this.animating = true;
+        this.favorited = !this.favorited;
+        await axios.post(url);
+        window.location.reload();
+      } catch (err) {
+        console.log(err);
       }
-      this.favorited = !this.favorited;
     },
     onIconAnimationEnds() {
       this.animating = false;
     },
+    async addToFavorite() {
+      /*
+       */
+      console.log(this.favorited);
+    },
   },
 };
 </script>
-
-
