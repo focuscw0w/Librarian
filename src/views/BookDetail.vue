@@ -74,6 +74,7 @@
                 <button
                   v-if="$store.state.loggedUser"
                   type="submit"
+                  style="width: 50px; height: 50px;"
                   class="like-btn"
                   @click="toggle"
                 >
@@ -83,7 +84,9 @@
                     @animationend="onIconAnimationEnds"
                   />
                 </button>
+                <!--   
                 <button type="submit" class="my-btn">Rezervovať</button>
+                -->
               </div>
             </div>
           </article>
@@ -91,11 +94,20 @@
       </div>
     </div>
 
-    <b-button variant="success" @click="makeToast('success')" class="mb-2">Success</b-button>
-
     <SubFooter />
     <PageFooter />
   </section>
+
+  <!-- refactor -->
+
+  <transition name="slide-in">
+    <div
+      v-if="addedBook"
+      class="success-modal position-absolute bg-light p-3 top-O right-3"
+    >
+      <p class="text-dark">Podarilo sa!</p>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -125,6 +137,7 @@ export default {
       title: "",
       // loadedItem: false,
       book: null,
+      addedBook: null,
     };
   },
   created() {
@@ -160,10 +173,14 @@ export default {
       const url = "/books/" + id + (this.favorited ? "/dislike" : "/like");
 
       try {
+        this.triggerNotification();
         this.animating = true;
         this.favorited = !this.favorited;
         await axios.post(url);
-        window.location.reload();
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 2500);
       } catch (err) {
         console.log(err);
       }
@@ -176,13 +193,12 @@ export default {
         this.book = response.data;
       });
     },
-     makeToast(variant = null) {
-        this.$bvToast.toast('Toast body content', {
-          title: `Variant ${variant || 'default'}`,
-          variant: variant,
-          solid: true
-        })
-      }
+    triggerNotification() {
+      this.addedBook = true;
+      setTimeout(() => {
+        this.addedBook = false;
+      }, 2000);
+    },
   },
 };
 </script>

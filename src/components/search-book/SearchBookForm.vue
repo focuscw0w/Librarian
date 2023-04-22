@@ -3,24 +3,24 @@
     <div class="search-article bg-2">
       <div class="flex-container">
         <div class="search-container flex-container">
-          <BIconSearch alt="search icon" class="search-icon ms-3"/>
+          <BIconSearch alt="search icon" class="search-icon ms-3" />
 
           <input
-              type="text"
-              id="search-book"
-              name="search"
-              size="25"
-              autocomplete="off"
-              :placeholder="placeholder"
-              class="w-100"
-              v-model="searchForBook"
+            type="text"
+            id="search-book"
+            name="search"
+            size="25"
+            autocomplete="off"
+            :placeholder="placeholder"
+            class="w-100"
+            v-model="searchForBook"
           />
         </div>
         <span class="split"></span>
         <select
-            v-model="type"
-            id=""
-            class="form-control w-auto form-select border-0 shadow-none cursor-pointer"
+          v-model="type"
+          id=""
+          class="form-control w-auto form-select border-0 shadow-none cursor-pointer"
         >
           <option value="book">Knihy</option>
           <option value="author">Autori</option>
@@ -31,31 +31,30 @@
 
   <div v-if="this.searchForBook != '' && visibleBlookList" class="books bg-2">
     <div v-if="loading" class="text-center">
-<!--      Nacitavam...-->
+      <!--      Nacitavam...-->
     </div>
     <div v-else>
-
       <div
-          v-for="(book) in results"
-          :key="book.id"
-          ref="book"
-          class="books-result-item bg-2 flex-container pt-1 pb-1"
-          @click="addBook(book)"
+        v-for="book in results"
+        :key="book.id"
+        ref="book"
+        class="books-result-item bg-2 flex-container pt-1 pb-1"
+        @click="addBook(book)"
       >
         <img
-            :src="require('@/assets/images/book-product.jpg')"
-            alt="book"
-            class="product-img me-3"
+          :src="require('@/assets/images/book-product.jpg')"
+          alt="book"
+          class="product-img me-3"
         />
         <div class="books__info justify-content-center">
           <span class="books__name">{{ (bookName = book.name) }}</span>
           <div class="d-flex gap-2 mb-2">
-              <span
-                  class="books__author"
-                  v-for="creator in book.creators"
-                  :key="creator.id"
+            <span
+              class="books__author"
+              v-for="creator in book.creators"
+              :key="creator.id"
               >{{ creator.name }}</span
-              >
+            >
           </div>
         </div>
       </div>
@@ -63,20 +62,19 @@
         Nenašli sa žiadne výsledky :(
       </p>
     </div>
-
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import SearchBookList from "./SearchBookList.vue";
-import {BIconSearch} from "bootstrap-icons-vue";
+import { BIconSearch } from "bootstrap-icons-vue";
 import login from "@/components/auth/Login.vue";
 
 export default {
   components: {
     SearchBookList,
-    BIconSearch
+    BIconSearch,
   },
   emits: ["addBook", "activeFilterProduct", "darkGoogleMap"],
   data() {
@@ -95,33 +93,29 @@ export default {
   },
   watch: {
     searchForBook: async function (inputValue) {
-
       this.visibleBlookList = inputValue !== "";
       this.darkBackground =
-          inputValue === ""
-              ? this.$emit("darkGoogleMap", false)
-              : this.$emit("darkGoogleMap", true);
-      let q = '';
-      if (inputValue !== '') {
-        q += '?search_word=' + inputValue
+        inputValue === ""
+          ? this.$emit("darkGoogleMap", false)
+          : this.$emit("darkGoogleMap", true);
+      let q = "";
+      if (inputValue !== "") {
+        q += "?search_word=" + inputValue;
       }
-      this.loading = true
+      this.loading = true;
       await axios
-          .get((this.type === 'book' ? 'books' : 'creators') + q
-          )
-          .then((response) => {
-                console.log(response.data)
-                this.results = response.data
-                this.loading = false
-
-              }
-          );
+        .get((this.type === "book" ? "books" : "creators") + q)
+        .then((response) => {
+          console.log(response.data);
+          this.results = response.data;
+          this.loading = false;
+        });
     },
     type: function (value) {
-      if (value === 'book') {
-        this.placeholder = "Akú knihu hľadáš?"
+      if (value === "book") {
+        this.placeholder = "Akú knihu hľadáš?";
       } else {
-        this.placeholder = "Akého autora hľadáš?"
+        this.placeholder = "Akého autora hľadáš?";
       }
     },
   },
@@ -133,6 +127,9 @@ export default {
 
       this.visibleBlookList = false;
       this.searchForBook = "";
+
+      const id = book.id
+
     },
     emitDarkBackground() {
       this.$emit("darkGoogleMap", true);

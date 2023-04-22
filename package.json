@@ -20,6 +20,7 @@
     "axios": "^0.27.2",
     "bootstrap": "^5.2.3",
     "bootstrap-icons-vue": "^1.10.3",
+    "bootstrap-vue": "^2.23.1",
     "bootstrap-vue-3": "^0.5.1",
     "datatables.net-vue3": "^2.1.0",
     "dateformat": "^5.0.3",

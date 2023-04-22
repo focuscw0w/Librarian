@@ -12,7 +12,6 @@ import "bootstrap-vue-3/dist/bootstrap-vue-3.css";
 import { BootstrapVue3 } from "bootstrap-vue-3";
 import Popper from "popper.js";
 Popper.Defaults.modifiers.computeStyle.gpuAcceleration = false;
-import { BToast } from 'bootstrap-vue';
 
 axios.defaults.baseURL = process.env.VUE_APP_API_URL;
 // axios.defaults.baseURL = "http://127.0.0.1:8000/api/";
@@ -73,7 +72,6 @@ Sentry.init({
 app
   .use(router)
   .component("font-awesome-icon", FontAwesomeIcon)
-  .component('b-toast', BToast)
   .use(BootstrapVue3)
   .use(VueGoogleMaps, {
     load: {
