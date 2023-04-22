@@ -7,29 +7,29 @@
             <header class="user-access__header">
               <h3 class="user-access__heading">Registrácia</h3>
               <img
-                :src="require('@/assets/icons/close-icon.svg')"
-                alt="close icon"
-                class="close-icon"
-                @click="hide"
+                  :src="require('@/assets/icons/close-icon.svg')"
+                  alt="close icon"
+                  class="close-icon"
+                  @click="hide"
               />
             </header>
             <figcaption class="user-access__figcaption">
               Zaregistrujte sa a odomknite pravú tvar Librarianu
             </figcaption>
-            <div class="register__interface__integration">
-              <button class="integration__btn" type="submit">Apple</button>
-              <button class="integration__btn" type="submit">Google</button>
-            </div>
+            <!--            <div class="register__interface__integration">-->
+            <!--              <button class="integration__btn" type="submit">Apple</button>-->
+            <!--              <button class="integration__btn" type="submit">Google</button>-->
+            <!--            </div>-->
             <p class="user-access__paragraph">Alebo</p>
             <div class="user-access__get-in">
               <div class="user-access__get-in__box">
                 <label for="username">
                   Meno používateľa<span style="color: red" class=""> *</span>
                 </label>
-                <input type="text" name="username" v-model="username" />
+                <input type="text" name="username" v-model="username"/>
                 <span
-                  v-if="v$.username.$error"
-                  class="position-absolute top-100 text-danger"
+                    v-if="v$.username.$error"
+                    class="position-absolute top-100 text-danger"
                 >
                   Nesprávne meno
                 </span>
@@ -38,28 +38,28 @@
                 <label for="mail">
                   Email<span style="color: red" class=""> *</span>
                 </label>
-                <input type="email" name="mail" v-model="email" />
+                <input type="email" name="mail" v-model="email"/>
                 <span
-                  v-if="v$.email.$error"
-                  class="position-absolute top-100 text-danger"
-                  >Nesprávny mail</span
+                    v-if="v$.email.$error"
+                    class="position-absolute top-100 text-danger"
+                >Nesprávny mail</span
                 >
               </div>
               <div class="user-access__get-in__box">
                 <label for="password">
                   Heslo<span style="color: red" class=""> *</span>
                 </label>
-                <input :type="type" name="password" v-model="password" />
+                <input :type="type" name="password" v-model="password"/>
                 <span
-                  v-if="v$.password.$error"
-                  class="position-absolute top-100 text-danger"
-                  >Nesprávne heslo</span
+                    v-if="v$.password.$error"
+                    class="position-absolute top-100 text-danger"
+                >Nesprávne heslo</span
                 >
                 <img
-                  :src="require('@/assets/icons/eye.svg')"
-                  alt="show password icon"
-                  class="password-toggle"
-                  @click="togglePasswordVisibility"
+                    :src="require('@/assets/icons/eye.svg')"
+                    alt="show password icon"
+                    class="password-toggle"
+                    @click="togglePasswordVisibility"
                 />
               </div>
             </div>
@@ -69,15 +69,15 @@
             <p class="user-access__paragraph">
               Ste zaregistrovaný?
               <span class="text-underlined cursor-pointer" @click="showLogin"
-                >Prihlásite sa</span
+              >Prihlásite sa</span
               >
             </p>
           </form>
         </div>
         <div class="register__illustration">
           <img
-            :src="require('@/assets/images/illustration.png')"
-            alt="illustration image"
+              :src="require('@/assets/images/illustration.png')"
+              alt="illustration image"
           />
         </div>
       </div>
@@ -89,11 +89,12 @@
 // import {reactive, onMounted} from 'vue'
 import Modal from "@/components/common/Modal.vue";
 
-import { useVuelidate } from "@vuelidate/core";
-import { required, email } from "@vuelidate/validators";
+import {useVuelidate} from "@vuelidate/core";
+import {required, email} from "@vuelidate/validators";
 import axios from "axios";
+
 export default {
-  components: { Modal },
+  components: {Modal},
   data() {
     return {
       v$: useVuelidate(),
@@ -106,9 +107,9 @@ export default {
   },
   validations() {
     return {
-      username: { required },
-      email: { required, email },
-      password: { required },
+      username: {required},
+      email: {required, email},
+      password: {required},
     };
   },
   mounted() {
@@ -142,12 +143,12 @@ export default {
       if (this.v$.$error) return;
 
       await axios
-        .post("register", {
-          email: this.email,
-          name: this.username,
-          password: this.password,
-        })
-        .then((res) => console.log(res));
+          .post("register", {
+            email: this.email,
+            name: this.username,
+            password: this.password,
+          })
+          .then((res) => console.log(res));
 
       this.$store.commit("TOGGLE_REGISTER", false);
     },

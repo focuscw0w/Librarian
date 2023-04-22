@@ -2,18 +2,23 @@
   <!-- refactor class names -->
   <li class="product-items__ul__product bg-2">
     <div class="flex-container">
+      <router-link :to="`/kniha/${productData.slug}`" >
       <img
-        :src="require(`@/assets/images/${image}`)"
-        class="product-items__ul__image"
-        alt="book"
+          :src="require(`@/assets/images/${image}`)"
+          class="product-items__ul__image"
+          alt="book"
       />
+      </router-link>
+
       <article class="product-items__ul__book-info bg-2">
         <div v-if="isBook" class="book-info__genre">
           <span>
             {{ productData.category.name }}
           </span>
         </div>
-        <h4 class="book-info__heading">{{ productData.name }}</h4>
+        <router-link :to="`/kniha/${productData.slug}`" class="book-info__heading">
+          {{ productData.name }}
+        </router-link>
         <figcaption v-if="isBook" class="product__author-name">
           <!-- Andrzej Sapkowski, Druhy Autor -->
           <span v-for="creator in productData.creators" :key="creator">
@@ -31,23 +36,23 @@
           {{ productData.description }}
         </p>
         <div class="book-info__media d-flex align-items-center">
-          <button v-if="isListPage" type="submit" class="my-btn">
+          <router-link :to="`/kniha/${productData.slug}`" v-if="isListPage" class="my-btn">
             Zobraziť detail
-          </button>
+          </router-link>
           <button v-else type="submit" class="my-btn">
             Hľadať v knižniciach
           </button>
           <button
-            v-if="!isListPage && $store.state.loggedUser"
-            type="submit"
-            class="like-btn"
-            @click="toggle"
+              v-if="!isListPage && $store.state.loggedUser"
+              type="submit"
+              class="like-btn"
+              @click="toggle"
           >
             <AnimationIcon
-              v-if="$store.state.loggedUser"
-              class="toggle-favorite__icon"
-              :class="iconClasses"
-              @animationend="onIconAnimationEnds"
+                v-if="$store.state.loggedUser"
+                class="toggle-favorite__icon"
+                :class="iconClasses"
+                @animationend="onIconAnimationEnds"
             />
           </button>
           <p v-if="isBook && isListPage" class="size-15 text-h-emp">
@@ -62,8 +67,9 @@
 <script>
 import FindBookBtn from "@/components/FindBookBtn.vue";
 import AnimationIcon from "@/components/AnimationIcon.vue";
+
 export default {
-  components: { FindBookBtn, AnimationIcon },
+  components: {FindBookBtn, AnimationIcon},
   props: ["isBook", "isListPage", "image", "productData",],
   data() {
     return {

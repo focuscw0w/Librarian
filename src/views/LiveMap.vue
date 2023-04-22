@@ -8,7 +8,7 @@
       <SelectedBook
           v-if="activeFilterProduct"
           :bookData="book"
-          @hideFilterProduct="activeFilterProduct = false"
+          @hideFilterProduct="activeFilterProduct = false;reloadLibraries()"
       />
       <GMapMap
           ref="myMapRef"
@@ -37,7 +37,7 @@
             @mouseout="toggleIcon(false, index)"
         >
           <GMapInfoWindow :opened="currentLibrary === index">
-            <InfoWindow :currentId="library.id" :library="library"/>
+            <InfoWindow :library="library" :selectedBook="book"/>
           </GMapInfoWindow>
         </GMapMarker>
       </GMapMap>
@@ -45,14 +45,15 @@
       <div class="search-wrapper" @click="showInfoWindow(null)">
         <SearchBookForm
 
-            @addBook="book = $event"
+            @addBook="book = $event;
+            reloadLibraries({'book_id' : book.id})"
             @activeFilterProduct="activeFilterProduct = true"
             @darkGoogleMap="darkGoogleMap = $event"
         />
       </div>
     </div>
   </div>
-  
+
   <div v-if="openRegister" class="dead-background"></div>
 </template>
 
