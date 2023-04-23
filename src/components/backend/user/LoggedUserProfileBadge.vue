@@ -74,6 +74,7 @@
     <ReaderFavouriteBooksModal ref="readerFavouriteBooksModalRef" />
     <ReaderReservedBooksModal ref="readerReservedBooksModalRef" />
     <LibrarianReservedBooksModal ref="librarianReservedBooksModalRef" />
+
     <AdminAdministrationModal
       @hideModal="hideAdminAdministration"
       @openModal="openAdminAdministrationModal"
