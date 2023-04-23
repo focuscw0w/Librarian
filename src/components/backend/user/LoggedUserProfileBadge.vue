@@ -87,14 +87,14 @@
 import axios from "axios";
 import ProfileSettingsModal from "@/components/backend/user/profile-settings/ProfileSettingsModal.vue";
 import ReaderFavouriteBooksModal from "@/components/backend/reader/ReaderFavouriteBooksModal.vue";
-import ReaderReservedBooksModal from "@/components/backend/librarian/ReaderReservedBooksModal.vue";
+import LibrarianReservedBooksModal from "@/components/backend/librarian/LibrarianReservedBooksModal.vue";
 import AdminAdministrationModal from "@/components/backend/admin/AdminAdministration.vue";
 import LibrarianAdministrationModal from "@/components/backend/librarian/LibrarianAdministration.vue";
 
 export default {
   name: "LoggedUserProfileBadge",
   components: {
-    ReaderReservedBooksModal,
+    LibrarianReservedBooksModal,
     ReaderFavouriteBooksModal,
     ProfileSettingsModal,
     AdminAdministrationModal,
