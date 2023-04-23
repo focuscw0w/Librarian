@@ -28,6 +28,14 @@
         <font-awesome-icon :icon="['fas', 'wrench']" class="me-2" />
         Správa knižnice
       </b-dropdown-item>
+      <b-dropdown-item
+        v-if="$store.state.typeOfUser === 'librarian'"
+        class="d-flex align-items-center"
+        @click="openLibrarianReservationsAdministrationModal"
+      >
+        <font-awesome-icon :icon="['fas', 'heart']" class="me-2" />
+        Rezervované knihy
+      </b-dropdown-item>
 
       <b-dropdown-item
         v-if="$store.state.typeOfUser === 'reader'"
@@ -48,13 +56,13 @@
       </b-dropdown-item>
 
       <b-dropdown-divider></b-dropdown-divider>
-      <b-dropdown-item
-        class="d-flex align-items-center"
-        @click="openProfileSettingsModal"
-      >
-        <font-awesome-icon :icon="['fas', 'gear']" class="me-2" />
-        Nastavenia profilu
-      </b-dropdown-item>
+<!--      <b-dropdown-item-->
+<!--        class="d-flex align-items-center"-->
+<!--        @click="openProfileSettingsModal"-->
+<!--      >-->
+<!--        <font-awesome-icon :icon="['fas', 'gear']" class="me-2" />-->
+<!--        Nastavenia profilu-->
+<!--      </b-dropdown-item>-->
 
       <b-dropdown-item class="d-flex align-items-center" @click="logout">
         <font-awesome-icon :icon="['fas', 'right-from-bracket']" class="me-2" />
@@ -65,6 +73,8 @@
     <ProfileSettingsModal ref="profileSettingsModalRef" />
     <ReaderFavouriteBooksModal ref="readerFavouriteBooksModalRef" />
     <ReaderReservedBooksModal ref="readerReservedBooksModalRef" />
+    <LibrarianReservedBooksModal ref="librarianReservedBooksModalRef" />
+
     <AdminAdministrationModal
       @hideModal="hideAdminAdministration"
       @openModal="openAdminAdministrationModal"
@@ -78,14 +88,19 @@
 import axios from "axios";
 import ProfileSettingsModal from "@/components/backend/user/profile-settings/ProfileSettingsModal.vue";
 import ReaderFavouriteBooksModal from "@/components/backend/reader/ReaderFavouriteBooksModal.vue";
+<<<<<<< HEAD
 import ReaderReservedBooksModal from "@/components/backend/reader/ReaderReservedBooksModal.vue";
 import AdminAdministrationModal from "@/components/backend/admin/LibraryManagement.vue";
+=======
+import LibrarianReservedBooksModal from "@/components/backend/librarian/LibrarianReservedBooksModal.vue";
+import AdminAdministrationModal from "@/components/backend/admin/AdminAdministration.vue";
+>>>>>>> 7763fddd05257fdeb47b3a93171a8bb578002757
 import LibrarianAdministrationModal from "@/components/backend/librarian/LibrarianAdministration.vue";
 
 export default {
   name: "LoggedUserProfileBadge",
   components: {
-    ReaderReservedBooksModal,
+    LibrarianReservedBooksModal,
     ReaderFavouriteBooksModal,
     ProfileSettingsModal,
     AdminAdministrationModal,
@@ -113,6 +128,9 @@ export default {
     },
     openReaderReservedBooksModal() {
       this.$refs.readerReservedBooksModalRef.show();
+    },
+    openLibrarianReservationsAdministrationModal() {
+      this.$refs.librarianReservedBooksModalRef.show();
     },
     openAdminAdministrationModal() {
       this.$refs.adminAdministrationModalRef.show();

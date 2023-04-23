@@ -56,26 +56,26 @@
               Prihlásiť sa
             </button>
 
-            <div class="login-interface__integration">
-              <a class="login-interface__integration__box">
-                <img
-                  :src="require('@/assets/icons/bxl-google.svg')"
-                  alt="google icon"
-                />
-              </a>
-              <a class="login-interface__integration__box">
-                <img
-                  :src="require('@/assets/icons/bxl-apple.svg')"
-                  alt="apple icon"
-                />
-              </a>
-              <a class="login-interface__integration__box">
-                <img
-                  :src="require('@/assets/icons/bxl-facebook.svg')"
-                  alt="facebook icon"
-                />
-              </a>
-            </div>
+<!--            <div class="login-interface__integration">-->
+<!--              <a class="login-interface__integration__box">-->
+<!--                <img-->
+<!--                  :src="require('@/assets/icons/bxl-google.svg')"-->
+<!--                  alt="google icon"-->
+<!--                />-->
+<!--              </a>-->
+<!--              <a class="login-interface__integration__box">-->
+<!--                <img-->
+<!--                  :src="require('@/assets/icons/bxl-apple.svg')"-->
+<!--                  alt="apple icon"-->
+<!--                />-->
+<!--              </a>-->
+<!--              <a class="login-interface__integration__box">-->
+<!--                <img-->
+<!--                  :src="require('@/assets/icons/bxl-facebook.svg')"-->
+<!--                  alt="facebook icon"-->
+<!--                />-->
+<!--              </a>-->
+<!--            </div>-->
             <p class="user-access__paragraph">
               Nemáte registráciu?
               <span class="text-underlined cursor-pointer" @click="showRegister"
@@ -169,6 +169,7 @@ export default {
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("roles", response.data.roles);
             localStorage.setItem("user", JSON.stringify(response.data.user));
+            // axios.defaults.headers['x-access-token'] = response.data.token
             this.$emit("hideLogin");
             window.location.reload();
           })

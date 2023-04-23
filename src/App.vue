@@ -1,11 +1,11 @@
 <template>
   <div>
-    <MainNavigation />
+    <MainNavigation/>
 
     <main
-      id="main-content"
-      class="bg-1"
-      :class="{ blur: $store.state.blurEffect }"
+        id="main-content"
+        class="bg-1"
+        :class="{ blur: $store.state.blurEffect }"
     >
       <router-view v-slot="{ Component }">
         <keep-alive>
@@ -14,12 +14,12 @@
       </router-view>
     </main>
 
-    <Introduction v-if="$store.state.activeIntroduction" />
+    <Introduction v-if="$store.state.activeIntroduction"/>
 
     <div
-      v-if="$store.state.blurEffect"
-      class="dead-background"
-      @click="$store.commit('CLOSE_ALL')"
+        v-if="$store.state.blurEffect"
+        class="dead-background"
+        @click="$store.commit('CLOSE_ALL')"
     ></div>
   </div>
 </template>
@@ -31,7 +31,7 @@ import MainNavigation from "./components/main-navigation/MainNavigation.vue";
 import Introduction from "@/components/web-introduction/Introduction.vue";
 
 export default {
-  components: { MainNavigation, Register, Login, Introduction },
+  components: {MainNavigation, Register, Login, Introduction},
 };
 </script>
 

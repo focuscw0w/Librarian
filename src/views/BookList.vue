@@ -1,15 +1,15 @@
 <template>
   <section style="padding-top: 70px">
-    <VueTitle title="Zoznam kníh" />
-    <SubHeader title="Zoznam kníh" />
-    <ListIntroduction heading="Zoznam kníh" :paragraph="null" />
+    <VueTitle title="Zoznam kníh"/>
+    <SubHeader title="Zoznam kníh"/>
+    <ListIntroduction heading="Zoznam kníh" :paragraph="null"/>
 
-    <SearchDetail :aboutAuthor="false" placeholder="Zadajte názov knihy" />
+    <SearchDetail :aboutAuthor="false" placeholder="Zadajte názov knihy"/>
 
     <div
-      v-for="(products, letter) in books"
-      :key="letter"
-      class="product-detail bg-1 pb-32"
+        v-for="(products, letter) in books"
+        :key="letter"
+        class="product-detail bg-1 pb-32"
     >
       <div class="product-items mb-16">
         <div class="container">
@@ -18,21 +18,21 @@
           </p>
           <ul class="product-items__ul grid-container">
             <BookDetail
-              v-for="product in products"
-              :key="product"
-              :productData="product"
-              :isBook="true"
-              :isListPage="true"
-              :likeBtn="false"
-              image="book-product.jpg"
+                v-for="product in products"
+                :key="product"
+                :productData="product"
+                :isBook="true"
+                :isListPage="true"
+                :likeBtn="false"
+                image="book-product.jpg"
             />
           </ul>
         </div>
       </div>
     </div>
 
-    <SubFooter class="bg-2" />
-    <PageFooter />
+    <SubFooter class="bg-2"/>
+    <PageFooter/>
   </section>
 </template>
 
