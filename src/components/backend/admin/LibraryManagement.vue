@@ -43,6 +43,7 @@
           </thead>
 
         </DataTable>
+
       </div>
     </div>
   </Modal>
@@ -92,8 +93,8 @@ export default {
           data: null,
           render: function (data, type, row, meta) {
             return (
-              '<b-button @click="openRemoveModal" variant="danger" size="sm"> Vymazať </b-button>' +
-              '<b-button size="sm"> Upraviť </b-button>'
+              '<div class="admin-btn-splitter gap-1em">' + '<button @click="openRemoveModal" class="admin-btn danger"> Vymazať </button>' +
+              '<button class="admin-btn edit"> Upraviť </button>' + '</div>'
             );
           },
         },

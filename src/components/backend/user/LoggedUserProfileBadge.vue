@@ -79,7 +79,7 @@ import axios from "axios";
 import ProfileSettingsModal from "@/components/backend/user/profile-settings/ProfileSettingsModal.vue";
 import ReaderFavouriteBooksModal from "@/components/backend/reader/ReaderFavouriteBooksModal.vue";
 import ReaderReservedBooksModal from "@/components/backend/reader/ReaderReservedBooksModal.vue";
-import AdminAdministrationModal from "@/components/backend/admin/AdminAdministration.vue";
+import AdminAdministrationModal from "@/components/backend/admin/LibraryManagement.vue";
 import LibrarianAdministrationModal from "@/components/backend/librarian/LibrarianAdministration.vue";
 
 export default {

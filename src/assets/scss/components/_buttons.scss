@@ -170,3 +170,27 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+.admin-btn {
+  outline: none;
+  border: none;
+  border-radius: .25rem;
+  padding: 0.25rem .5rem;
+  color: $high-emphasys-inverse;
+}
+
+.admin-btn.danger {
+  background-color: #dc3545;
+
+  &:hover {
+    background-color: #bb2d3b;
+  }
+}
+
+.admin-btn.edit {
+  background-color: #6c757d;
+
+  &:hover {
+    background-color: #5c636a;
+  }
+}
