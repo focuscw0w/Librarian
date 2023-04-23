@@ -9,7 +9,8 @@ const store = createStore({
       activeLogin: null,
       activeRegister: null,
       activeIntroduction: null,
-      typeOfUser: null
+      typeOfUser: null,
+      allLibraries: null
     };
   },
   mutations: {
@@ -43,6 +44,9 @@ const store = createStore({
     },
     SET_TYPE_OF_USER(state, value) {
       state.typeOfUser = value
+    },
+    SET_LIBRARIES(state,value) {
+      state.allLibraries = value
     }
   },
   getters: {},

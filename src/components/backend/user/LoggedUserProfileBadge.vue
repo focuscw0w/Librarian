@@ -14,7 +14,7 @@
       <b-dropdown-item
         v-if="$store.state.typeOfUser === 'admin'"
         class="d-flex align-items-center"
-        @click="openAdminAdministrationModal"
+        @click="openLibraryManagementModal"
       >
         <font-awesome-icon :icon="['fas', 'wrench']" class="me-2" />
         Správa knižníc
@@ -75,10 +75,10 @@
     <ReaderReservedBooksModal ref="readerReservedBooksModalRef" />
     <LibrarianReservedBooksModal ref="librarianReservedBooksModalRef" />
 
-    <AdminAdministrationModal
-      @hideModal="hideAdminAdministration"
-      @openModal="openAdminAdministrationModal"
-      ref="adminAdministrationModalRef"
+    <LibraryManagementModal
+      @hideModal="hideLibraryManagementModal"
+      @openModal="openLibraryManagementModal"
+      ref="libraryManagementModalRef"
     />
     <LibrarianAdministrationModal ref="librarianAdministrationModalRef" />
   </div>
@@ -88,13 +88,9 @@
 import axios from "axios";
 import ProfileSettingsModal from "@/components/backend/user/profile-settings/ProfileSettingsModal.vue";
 import ReaderFavouriteBooksModal from "@/components/backend/reader/ReaderFavouriteBooksModal.vue";
-<<<<<<< HEAD
 import ReaderReservedBooksModal from "@/components/backend/reader/ReaderReservedBooksModal.vue";
-import AdminAdministrationModal from "@/components/backend/admin/LibraryManagement.vue";
-=======
 import LibrarianReservedBooksModal from "@/components/backend/librarian/LibrarianReservedBooksModal.vue";
-import AdminAdministrationModal from "@/components/backend/admin/AdminAdministration.vue";
->>>>>>> 7763fddd05257fdeb47b3a93171a8bb578002757
+import LibraryManagementModal from "@/components/backend/admin/LibraryManagement.vue";
 import LibrarianAdministrationModal from "@/components/backend/librarian/LibrarianAdministration.vue";
 
 export default {
@@ -102,8 +98,9 @@ export default {
   components: {
     LibrarianReservedBooksModal,
     ReaderFavouriteBooksModal,
+    ReaderReservedBooksModal,
     ProfileSettingsModal,
-    AdminAdministrationModal,
+    LibraryManagementModal,
     LibrarianAdministrationModal,
   },
   data() {
@@ -132,14 +129,14 @@ export default {
     openLibrarianReservationsAdministrationModal() {
       this.$refs.librarianReservedBooksModalRef.show();
     },
-    openAdminAdministrationModal() {
-      this.$refs.adminAdministrationModalRef.show();
+    openLibraryManagementModal() {
+      this.$refs.libraryManagementModalRef.show();
     },
     openLibrarianAdministrationModal() {
       this.$refs.librarianAdministrationModalRef.show();
     },
-    hideAdminAdministration() {
-      this.$refs.adminAdministrationModalRef.hide();
+    hideLibraryManagementModal() {
+      this.$refs.libraryManagementModalRef.hide();
     },
   },
 };

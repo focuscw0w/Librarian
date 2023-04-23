@@ -4,68 +4,96 @@
       <header class="d-flex align-items-center justify-content-between">
         <h3 class="user-access__heading">Správa knižníc</h3>
         <img
-            :src="require('@/assets/icons/close-icon.svg')"
-            alt="close icon"
-            class="close-icon"
-            @click="hide"
+          :src="require('@/assets/icons/close-icon.svg')"
+          alt="close icon"
+          class="close-icon"
+          @click="hide"
         />
       </header>
 
       <b-button @click="openAddLibraryModal" class="modal-action-btn mt-5"
-      >Pridať knižnicu
-      </b-button
-      >
+        >Pridať knižnicu
+      </b-button>
 
-      <DataTable :columns="columns" :sortKey="sortKey" :sortOrders="sortOrders" @sort="sortBy">
+      <!--      &ndash;&gt;-->
+
+      <!-- 
+      <DataTable
+        :columns="columns"
+        :sortKey="sortKey"
+        :sortOrders="sortOrders"
+      >
         <tbody>
-        <tr v-for="project in projects" :key="project.id">
-          <td>{{project.deadline}}</td>
-          <td>{{project.budget}}</td>
-          <td>{{project.status}}</td>
-        </tr>
+          <tr v-for="project in projects" :key="project.id">
+            <td>{{ project.deadline }}</td>
+            <td>{{ project.budget }}</td>
+            <td>{{ project.status }}</td>
+          </tr>
         </tbody>
       </DataTable>
-      <pagination :pagination="pagination"
-                  @prev="getProjects(pagination.prevPageUrl)"
-                  @next="getProjects(pagination.nextPageUrl)">
+      <pagination
+        :pagination="pagination"
+        @prev="getProjects(pagination.prevPageUrl)"
+        @next="getProjects(pagination.nextPageUrl)"
+      >
       </pagination>
 
-<!--      &lt;!&ndash; -->
       <DataTable :items="items" class="admin-table mt-3" outlined striped>
         <template #cell(Edit)>
           <div class="d-flex gap-3">
-            <b-button @click="openRemoveModal" variant="danger" size="sm"> Vymazať </b-button>
+            <b-button @click="openRemoveModal" variant="danger" size="sm">
+              Vymazať
+            </b-button>
             <b-button size="sm"> Upraviť </b-button>
           </div>
         </template>
       </DataTable>
-<!--      &ndash;&gt;-->
 
+      -->
+
+
+      <!--      &lt;!&ndash; -->
+
+
+      <!-- 
       <div class="table-responsive mt-5">
-
         <DataTable
-            :data="libraries"
-            :columns="columns"
-            class="table table-bordered display hover"
-            width="100%"
+          :data="libraries"
+          :columns="columns"
+          class="table table-bordered display hover"
+          width="100%"
         >
           <thead>
-          <tr>
-            <th>Názov</th>
-            <th>Typ</th>
-            <th>Adresa</th>
-            <th>Edit</th>
-          </tr>
+            <tr>
+              <th>Názov</th>
+              <th>Typ</th>
+              <th>Adresa</th>
+              <th>Edit</th>
+            </tr>
           </thead>
-
         </DataTable>
-
       </div>
+      -->
+
+       <div class="mt-32">
+          <b-table striped hover :items="libraries.slice(0,8)" :fields="fields" show-empty>
+            <template #cell(functions)="row">
+              <b-button size="sm" @click="openRemoveModal(row)" class="mr-2 btn-danger">
+                Odstrániť
+              </b-button>
+            </template>
+            <template>
+              Nenašli sa žiadne záznamy
+            </template>
+          </b-table>
+        </div>
+
     </div>
   </Modal>
 
-  <AddLibraryModal ref="addLibraryModalRef"/>
-  <RemoveModal @openModal="$emit('openModal')" ref="removeModalRef"/>
+  <AddLibraryModal ref="addLibraryModalRef" />
+  <RemoveModal @openModal="$emit('openModal')" ref="removeModalRef" />
+
 </template>
 
 <script>
@@ -78,7 +106,7 @@ import RemoveModal from "@/components/backend/admin/RemoveModal.vue";
 import axios from "axios";
 import DataTable from "datatables.net-vue3";
 import DataTablesCore from "datatables.net";
-import {BButton} from "bootstrap-vue-3";
+import { BButton } from "bootstrap-vue-3";
 import WifiIcon from "vue-material-design-icons/Wifi.vue";
 
 DataTable.use(DataTablesCore);
@@ -92,34 +120,35 @@ export default {
     AddLibraryModal,
     RemoveModal,
     DataTable,
-    WifiIcon
+    WifiIcon,
   },
   emits: ["show", "hideModal", "openModal"],
   data() {
     return {
+      libraries: [],
+      fields: [{
+        key: "name",
+        label: 'Názov knižnice',
+        sortable: true,
+      },{
+        key: "street",
+        label: 'Adresa',
+        sortable: true,
+      }, {
+        key: 'functions',
+        label: 'Funkcie'
+      }],
       isBusy: false,
-      items: [
-        {Názov: "Dickerson", Typ: "MacDonald", Adresa: "Žilina", Edit: ""},
-        {Názov: "Larsen", Typ: "Shaw", Adresa: "Bratislava", Edit: ""},
-        {Názov: "Geneva", Typ: "Wilson", Adresa: "Trnava", Edit: ""},
-        {Názov: "Jami", Typ: "Carney", Adresa: "Nitra", Edit: ""},
-      ],
-      libraries: null,
       columns: [
-        {data: "name"},
-        {data: "street"},
-        {data: "city"},
+        { data: "name" },
+        { data: "street" },
+        { data: "city" },
         {
           data: null,
           render: function (data, type, row, meta) {
             return (
-<<<<<<< HEAD:src/components/backend/admin/LibraryManagement.vue
-              '<div class="admin-btn-splitter gap-1em">' + '<button @click="openRemoveModal" class="admin-btn danger"> Vymazať </button>' +
-              '<button class="admin-btn edit"> Upraviť </button>' + '</div>'
-=======
-                '<b-button @click="openRemoveModal" variant="danger" size="sm"> Vymazať </b-button>' +
-                '<button size="sm" >  </button>'
->>>>>>> 7763fddd05257fdeb47b3a93171a8bb578002757:src/components/backend/admin/AdminAdministration.vue
+              '<b-button @click="openRemoveModal" variant="danger" size="sm"> Vymazať </b-button>' +
+              '<button size="sm" >  </button>'
             );
           },
         },
@@ -140,15 +169,21 @@ export default {
       this.$refs.addLibraryModalRef.show();
       this.$emit("hideModal");
     },
-    openRemoveModal() {
+    openRemoveModal(row) {
       this.$refs.removeModalRef.show();
       this.$emit("hideModal");
+      console.log(row)
     },
+    sortBy() {},
   },
   async created() {
-    await axios.get("libraries").then((response) => {
-      this.libraries = response.data;
-    });
+    if (this.$store.state.typeOfUser === "admin") {
+      await axios.get("libraries").then((response) => {
+        this.libraries = response.data;
+        this.$store.commit("SET_LIBRARIES", this.libraries)
+        console.log(this.libraries)
+      });
+    }
   },
 };
 </script>

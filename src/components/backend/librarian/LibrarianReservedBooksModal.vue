@@ -12,6 +12,8 @@
               @click="hide"
           />
         </header>
+
+        
         <div class="mt-32">
           <b-table striped hover :items="reservations" :fields="fields" show-empty>
             <template #cell(functions)="row">
@@ -19,7 +21,7 @@
                 Odstrániť
               </b-button>
             </template>
-            <template #empty="scope">
+            <template>
               Nenašli sa žiadne záznamy
             </template>
           </b-table>

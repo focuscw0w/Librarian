@@ -11,7 +11,6 @@
       <div class="store-informations">
         <div class="flex-container">
           <router-link
-              tag="h4"
               class="store-informations__heading"
               :to="'/kniznica/'+library.slug"
           >

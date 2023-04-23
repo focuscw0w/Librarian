@@ -123,7 +123,6 @@ export default {
       await axios
           .get((this.type === "book" ? "books" : "creators") + q)
           .then((response) => {
-            console.log(response.data);
             this.results = response.data;
             this.loading = false;
           });

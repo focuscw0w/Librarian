@@ -194,3 +194,12 @@
     background-color: #5c636a;
   }
 }
+
+.modal-action-btn {
+  background-color: $primary;
+  border: none;
+  
+  &:hover {
+    background-color: lighten($primary, 20%);
+  }
+}

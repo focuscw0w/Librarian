@@ -2,8 +2,8 @@
   <Modal ref="modalRef" class="profile-settings-modal" size="lg">
     <h3 class="user-access__heading text-center mt-5">Chceš skutočne vymazať túto knižnicu?</h3>
     <div class="d-flex justify-content-center gap-3 mt-4 pb-5">
-        <b-button variant="danger" size="lg"> Vymazať </b-button>
-        <b-button @click="returnBack" size="lg"> Zrušiť </b-button>
+        <b-button variant="danger" size="md"> Vymazať </b-button>
+        <b-button @click="returnBack" size="md"> Zrušiť </b-button>
     </div>
   </Modal>
 
