@@ -13,7 +13,7 @@
           <h3 class="books__name">{{ bookData.name }}</h3>
         </router-link>
 
-        <router-link v-if="bookData.creators.length > 1" :to="`/autor/${bookData.creators[0].slug}`">
+        <router-link v-if="bookData.creators.length > 0" :to="`/autor/${bookData.creators[0].slug}`">
           <a class="books__author">{{bookData.creators[0].name}}</a>
         </router-link>
       </div>

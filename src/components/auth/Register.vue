@@ -119,9 +119,6 @@ export default {
     showLogin() {
       this.hide();
       this.$parent.$refs.LoginModal.show();
-
-      // this.$store.commit("TOGGLE_LOGIN", false);
-      // this.$store.commit("TOGGLE_REGISTER", true);
     },
     show() {
       this.$refs.modal.show();
