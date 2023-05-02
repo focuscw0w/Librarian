@@ -1,8 +1,6 @@
 <template>
   <div>
-    <FilterProduct v-if="activeFilterProduct"
-                   @onApplyFilter="reloadLibraries"
-    />
+    <FilterProduct v-if="activeFilterProduct" @onApplyFilter="reloadLibraries" />
 
     <div class="map-container">
       <SelectedBook
@@ -44,7 +42,6 @@
 
       <div class="search-wrapper" @click="showInfoWindow(null)">
         <SearchBookForm
-
             @addBook="book = $event;
             reloadLibraries({'book_id' : book.id})"
             @activeFilterProduct="activeFilterProduct = true"

@@ -12,7 +12,7 @@
       </template>
 
       <b-dropdown-item
-        v-if="$store.state.typeOfUser === 'admin'"
+        v-if="typeOfUser === 'admin'"
         class="d-flex align-items-center"
         @click="openLibraryManagementModal"
       >
@@ -21,7 +21,7 @@
       </b-dropdown-item>
 
       <b-dropdown-item
-        v-if="$store.state.typeOfUser === 'librarian'"
+        v-if="typeOfUser === 'librarian'"
         class="d-flex align-items-center"
         @click="openLibrarianAdministrationModal"
       >
@@ -29,7 +29,7 @@
         Správa knižnice
       </b-dropdown-item>
       <b-dropdown-item
-        v-if="$store.state.typeOfUser === 'librarian'"
+        v-if="typeOfUser === 'librarian'"
         class="d-flex align-items-center"
         @click="openLibrarianReservationsAdministrationModal"
       >
@@ -38,7 +38,7 @@
       </b-dropdown-item>
 
       <b-dropdown-item
-        v-if="$store.state.typeOfUser === 'reader'"
+        v-if="typeOfUser === 'reader'"
         class="d-flex align-items-center"
         @click="openReaderFavouriteBooksModal"
       >
@@ -47,7 +47,7 @@
       </b-dropdown-item>
 
       <b-dropdown-item
-        v-if="$store.state.typeOfUser === 'reader'"
+        v-if="typeOfUser === 'reader'"
         class="d-flex align-items-center"
         @click="openReaderReservedBooksModal"
       >
@@ -106,6 +106,7 @@ export default {
   data() {
     return {
       openedPrSetModal: false,
+      typeOfUser: null
     };
   },
   methods: {
@@ -139,6 +140,9 @@ export default {
       this.$refs.libraryManagementModalRef.hide();
     },
   },
+  created() {
+    this.typeOfUser = localStorage.getItem("roles")
+  }
 };
 </script>
 

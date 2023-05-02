@@ -69,6 +69,7 @@ export default {
     openLoginModal() {
       this.$refs.LoginModal.show();
     },
+    /*
     checkTypeOfUser(data) {
       const allUsers = {
         admin: "admin@lib.sk",
@@ -83,12 +84,15 @@ export default {
         this.$store.commit("SET_TYPE_OF_USER", typeOfUser);
       }
     },
+    */
   },
  async created() {
     this.$store.commit("LOG_USER");
 
+    /*
     const userData = JSON.parse(localStorage.getItem("user"));
     if (userData !== null) this.checkTypeOfUser(userData);
+    */
   },
 };
 </script>
