@@ -10,6 +10,7 @@ const store = createStore({
       activeRegister: null,
       activeIntroduction: null,
       typeOfUser: null,
+      user: null,
       allLibraries: null
     };
   },
@@ -17,8 +18,8 @@ const store = createStore({
     // CURRENT_BOOK(state, book) {
     //   state.currentBook = book;
     // },
-    LOG_USER(state) {
-      state.loggedUser = JSON.parse(localStorage.getItem("user"));
+    LOG_USER(state, token) {
+      state.loggedUser = token;
     },
     LOGOUT_USER(state) {
       localStorage.removeItem("user");
@@ -41,9 +42,6 @@ const store = createStore({
       state.activeLogin = false;
       state.activeRegister = false;
       state.blurEffect = false;
-    },
-    SET_TYPE_OF_USER(state, value) {
-      state.typeOfUser = value
     },
     SET_LIBRARIES(state,value) {
       state.allLibraries = value
