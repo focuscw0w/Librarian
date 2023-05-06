@@ -11,23 +11,23 @@
         <span class="me-1">Christine Smith</span>
       </template>
 
-      <b-dropdown-item
-        v-if="typeOfUser === 'admin'"
-        class="d-flex align-items-center"
-        @click="openLibraryManagementModal"
-      >
-        <font-awesome-icon :icon="['fas', 'wrench']" class="me-2" />
-        Správa knižníc
-      </b-dropdown-item>
+<!--      <b-dropdown-item-->
+<!--        v-if="typeOfUser === 'admin'"-->
+<!--        class="d-flex align-items-center"-->
+<!--        @click="openLibraryManagementModal"-->
+<!--      >-->
+<!--        <font-awesome-icon :icon="['fas', 'wrench']" class="me-2" />-->
+<!--        Správa knižníc-->
+<!--      </b-dropdown-item>-->
 
-      <b-dropdown-item
-        v-if="typeOfUser === 'librarian'"
-        class="d-flex align-items-center"
-        @click="openLibrarianAdministrationModal"
-      >
-        <font-awesome-icon :icon="['fas', 'wrench']" class="me-2" />
-        Správa knižnice
-      </b-dropdown-item>
+<!--      <b-dropdown-item-->
+<!--        v-if="typeOfUser === 'librarian'"-->
+<!--        class="d-flex align-items-center"-->
+<!--        @click="openLibrarianAdministrationModal"-->
+<!--      >-->
+<!--        <font-awesome-icon :icon="['fas', 'wrench']" class="me-2" />-->
+<!--        Správa knižnice-->
+<!--      </b-dropdown-item>-->
       <b-dropdown-item
         v-if="typeOfUser === 'librarian'"
         class="d-flex align-items-center"

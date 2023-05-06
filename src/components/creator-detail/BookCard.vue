@@ -2,7 +2,7 @@
   <!-- refactor class names -->
   <li class="product-items__ul__product bg-2">
     <div class="flex-container">
-      <router-link :to="`/kniha/${productData.slug}`" >
+      <router-link :to="(isBook ? '/kniha/' : '/autor/')+productData.slug" >
       <img
           :src="require(`@/assets/images/${image}`)"
           class="product-items__ul__image"
@@ -16,7 +16,7 @@
             {{ productData.category.name }}
           </span>
         </div>
-        <router-link :to="`/kniha/${productData.slug}`" class="book-info__heading">
+        <router-link :to="(isBook ? '/kniha/' : '/autor/')+productData.slug" class="book-info__heading">
           {{ productData.name }}
         </router-link>
         <figcaption v-if="isBook" class="product__author-name">
@@ -36,7 +36,7 @@
           {{ productData.description }}
         </p>
         <div class="book-info__media d-flex align-items-center">
-          <router-link :to="`/kniha/${productData.slug}`" v-if="isListPage" class="my-btn">
+          <router-link :to="(isBook ? '/kniha/' : '/autor/')+productData.slug" v-if="isListPage" class="my-btn">
             Zobraziť detail
           </router-link>
           <button v-else type="submit" class="my-btn">

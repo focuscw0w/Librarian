@@ -177,7 +177,7 @@ export default {
     sortBy() {},
   },
   async created() {
-    if (this.$store.state.typeOfUser === "admin") {
+    if (localStorage.getItem('roles') === "admin") {
       await axios.get("libraries").then((response) => {
         this.libraries = response.data;
         this.$store.commit("SET_LIBRARIES", this.libraries)

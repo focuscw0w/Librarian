@@ -30,7 +30,7 @@
           <div class="store-informations__media">
             <div class="flex-container">
               <button @click="reserve" :class="library.is_reserved ? 'my-btn':'filter-book'"
-                      v-if="selectedBook && 'is_reserved' in library && $store.state.typeOfUser === 'reader'">
+                      v-if="selectedBook && 'is_reserved' in library && actualRole === 'reader'">
                 {{ library.is_reserved ? 'Zrušiť rezerváciu' : 'Rezervovať' }}
               </button>
             </div>
@@ -39,6 +39,14 @@
       </div>
     </div>
   </div>
+  <transition name="slide-in">
+    <div
+        v-if="reservedBook"
+        class="success-modal position-absolute bg-light p-3 top-O right-3"
+    >
+      <p class="text-dark">Akcia bola úspešná!</p>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -54,7 +62,12 @@ export default {
     return {
       favorited: false,
       animating: false,
+      reservedBook: false,
+      actualRole: null,
     };
+  },
+  mounted() {
+    this.actualRole = localStorage.getItem('roles');
   },
   computed: {
     iconClasses() {
@@ -66,6 +79,7 @@ export default {
   },
   methods: {
     toggle() {
+
       if (!this.favorited) {
         this.animating = true;
       }
@@ -77,8 +91,17 @@ export default {
     async reserve() {
       await axios
           .post("/libraries/" + this.library.id + "/reservations/" + this.selectedBook.id)
-          .then((res) => this.library.is_reserved = res.status === 201);
-    }
+          .then((res) => {
+            this.library.is_reserved = res.status === 201;
+            this.triggerNotification()
+          });
+    },
+    triggerNotification() {
+      this.addedBook = true;
+      setTimeout(() => {
+        this.addedBook = false;
+      }, 2000);
+    },
   },
 };
 </script>

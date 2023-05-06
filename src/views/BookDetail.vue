@@ -105,7 +105,7 @@
       v-if="addedBook"
       class="success-modal position-absolute bg-light p-3 top-O right-3"
     >
-      <p class="text-dark">Podarilo sa!</p>
+      <p class="text-dark">Akcia bola úspešná!</p>
     </div>
   </transition>
 </template>
@@ -170,12 +170,12 @@ export default {
   methods: {
     async toggle() {
       try {
-        this.triggerNotification();
         this.animating = true;
 
         this.favorited = !this.favorited;
         await axios.post("/books/favourite/" + this.book.id).then((res) => {
           this.favorited = res.status === 201;
+          this.triggerNotification()
         });
 
         // setTimeout(() => {

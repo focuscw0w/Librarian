@@ -20,6 +20,7 @@ const store = createStore({
     // },
     LOG_USER(state, token) {
       state.loggedUser = token;
+
     },
     LOGOUT_USER(state) {
       localStorage.removeItem("user");
