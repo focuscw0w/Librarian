@@ -13,12 +13,17 @@
           />
         </header>
 
-        
+
         <div class="mt-32">
           <b-table striped hover :items="reservations" :fields="fields" show-empty>
             <template #cell(functions)="row">
-              <b-button size="sm" @click="remove(row)" class="mr-2 btn-danger">
-                Odstrániť
+
+              <b-button size="sm"  class="me-2 btn-success">
+                Potvrdiť
+              </b-button>
+
+              <b-button size="sm"  class="btn-danger">
+                Zamietnuť
               </b-button>
             </template>
             <template>
@@ -51,11 +56,11 @@ export default {
         label: 'Názov knihy',
         sortable: true,
         formatter: (value, key, item) => item.book.name
-      },{
+      }, {
         key: "libName",
-        label: 'Názov knižnice',
+        label: 'Meno čitateľa',
         sortable: true,
-        formatter: (value, key, item) => item.library.name
+        formatter: (value, key, item) => item.user.name
       }, {
         key: 'functions',
         label: 'Funkcie'
@@ -80,7 +85,14 @@ export default {
       axios
           .get("/reservations")
           .then((response) => {
-            this.reservations = response.data;
+            this.reservations = [{
+              book: {
+                name: 'Concepts book'
+              },
+              user: {
+                name: 'John Stanley'
+              },
+            }];
           })
           .catch((err) => {
             console.log(err);

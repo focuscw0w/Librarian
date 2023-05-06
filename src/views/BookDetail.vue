@@ -1,25 +1,25 @@
 <template>
   <section
-    class="book-list-page detail-page"
-    v-if="book"
-    style="padding-top: 70px"
+      class="book-list-page detail-page"
+      v-if="book"
+      style="padding-top: 70px"
   >
-    <VueTitle :title="book.name" />
-    <SubHeader category="Zoznam kníh" :title="book.name" />
+    <VueTitle :title="book.name"/>
+    <SubHeader category="Zoznam kníh" :title="book.name"/>
     <div class="book-list__product">
       <div class="container">
         <div class="flex-container">
           <div
-            class="book-list__product_image"
-            @mouseover="fullScreenBtn = true"
-            @mouseleave="fullScreenBtn = false"
+              class="book-list__product_image"
+              @mouseover="fullScreenBtn = true"
+              @mouseleave="fullScreenBtn = false"
           >
-            <img src="@/assets/images/book-product.jpg" alt="book" />
+            <img src="@/assets/images/book-product.jpg" alt="book"/>
             <button v-if="fullScreenBtn" type="submit" class="fullscreen-btn">
               <img
-                src="@/assets/icons/bx-fullscreen.svg"
-                alt="see book"
-                class="fullscreen-img"
+                  src="@/assets/icons/bx-fullscreen.svg"
+                  alt="see book"
+                  class="fullscreen-img"
               />
             </button>
           </div>
@@ -29,7 +29,7 @@
                 <strong class="book-list__product__genre">Beletria</strong>
                 /
                 <strong class="book-list__product__genre"
-                  >Scifi a fantasy</strong
+                >Scifi a fantasy</strong
                 >
                 /
                 <strong class="book-list__product__genre">Fantasy</strong>
@@ -54,8 +54,8 @@
                 <li>
                   Vydavateľstvo
                   <strong class="book-list__library-publisher">{{
-                    book.publisher.name ?? "-"
-                  }}</strong>
+                      book.publisher.name ?? "-"
+                    }}</strong>
                 </li>
                 <li>
                   Dátum
@@ -72,16 +72,16 @@
               </ul>
               <div class="book-list__product__controls">
                 <button
-                  v-if="$store.state.loggedUser"
-                  type="submit"
-                  style="width: 50px; height: 50px"
-                  class="like-btn"
-                  @click="toggle"
+                    v-if="$store.state.loggedUser"
+                    type="submit"
+                    style="width: 50px; height: 50px"
+                    class="like-btn"
+                    @click="toggle"
                 >
                   <AnimationIcon
-                    class="toggle-favorite__icon"
-                    :class="iconClasses"
-                    @animationend="onIconAnimationEnds"
+                      class="toggle-favorite__icon"
+                      :class="iconClasses"
+                      @animationend="onIconAnimationEnds"
                   />
                 </button>
                 <!--   
@@ -94,16 +94,16 @@
       </div>
     </div>
 
-    <SubFooter />
-    <PageFooter />
+    <SubFooter/>
+    <PageFooter/>
   </section>
 
   <!-- refactor -->
 
   <transition name="slide-in">
     <div
-      v-if="addedBook"
-      class="success-modal position-absolute bg-light p-3 top-O right-3"
+        v-if="addedBook"
+        class="success-modal position-absolute bg-light p-3 top-O right-3"
     >
       <p class="text-dark">Akcia bola úspešná!</p>
     </div>
@@ -118,7 +118,7 @@ import SubFooter from "@/components/SubFooter.vue";
 import FindBookBtn from "@/components/FindBookBtn";
 import axios from "axios";
 import VueTitle from "@/utilities/vue-title.vue";
-import dateFormat, { masks } from "dateformat";
+import dateFormat, {masks} from "dateformat";
 
 export default {
   components: {
@@ -143,13 +143,13 @@ export default {
   created() {
     // watch the params of the route to fetch the data again
     this.$watch(
-      () => this.$route.params,
-      () => {
-        this.fetchData();
-      },
-      // fetch the data when the view is created and the data is
-      // already being observed
-      { immediate: true }
+        () => this.$route.params,
+        () => {
+          this.fetchData();
+        },
+        // fetch the data when the view is created and the data is
+        // already being observed
+        {immediate: true}
     );
   },
   computed: {
