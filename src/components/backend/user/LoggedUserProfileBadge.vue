@@ -29,7 +29,7 @@
 <!--        Správa knižnice-->
 <!--      </b-dropdown-item>-->
       <b-dropdown-item
-        v-if="typeOfUser === 'librarian'"
+        v-if="$store.state.role === 'librarian'"
         class="d-flex align-items-center"
         @click="openLibrarianReservationsAdministrationModal"
       >
@@ -38,7 +38,7 @@
       </b-dropdown-item>
 
       <b-dropdown-item
-        v-if="typeOfUser === 'reader'"
+        v-if="$store.state.role === 'reader'"
         class="d-flex align-items-center"
         @click="openReaderFavouriteBooksModal"
       >
@@ -47,7 +47,7 @@
       </b-dropdown-item>
 
       <b-dropdown-item
-        v-if="typeOfUser === 'reader'"
+        v-if="$store.state.role === 'reader'"
         class="d-flex align-items-center"
         @click="openReaderReservedBooksModal"
       >
@@ -106,7 +106,6 @@ export default {
   data() {
     return {
       openedPrSetModal: false,
-      typeOfUser: null
     };
   },
   methods: {
@@ -140,9 +139,6 @@ export default {
       this.$refs.libraryManagementModalRef.hide();
     },
   },
-  created() {
-    this.typeOfUser = localStorage.getItem("roles")
-  }
 };
 </script>
 

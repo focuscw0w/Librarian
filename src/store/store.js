@@ -9,9 +9,9 @@ const store = createStore({
       activeLogin: null,
       activeRegister: null,
       activeIntroduction: null,
-      typeOfUser: null,
-      user: null,
-      allLibraries: null
+      allLibraries: null,
+      role: null,
+      activeNotification: null,
     };
   },
   mutations: {
@@ -46,6 +46,15 @@ const store = createStore({
     },
     SET_LIBRARIES(state,value) {
       state.allLibraries = value
+    },
+    TOGGLE_NOTIFICATION(state) {
+      state.activeNotification = true;
+      setTimeout(() => {
+        state.activeNotification = false;
+      }, 2000);
+    },
+    SET_ROLE(state, value) {
+      state.role = value
     }
   },
   getters: {},

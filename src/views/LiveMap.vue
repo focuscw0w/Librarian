@@ -51,6 +51,10 @@
     </div>
   </div>
 
+  <transition name="slide-in">
+    <ActionNotification v-if="$store.state.activeNotification" />
+  </transition>
+
   <div v-if="openRegister" class="dead-background"></div>
 </template>
 
@@ -60,6 +64,7 @@ import SearchBookList from "../components/search-book/SearchBookList.vue";
 import SelectedBook from "../components/filter-book/SelectedBook.vue";
 import InfoWindow from "../components/InfoWindow.vue";
 import FilterProduct from "../components/filter-book/FilterProduct.vue";
+import ActionNotification from "@/components/ActionNotification.vue";
 import axios from "axios";
 
 export default {
@@ -70,6 +75,7 @@ export default {
     InfoWindow,
     FilterProduct,
     SelectedBook,
+    ActionNotification
   },
   data() {
     return {

@@ -15,7 +15,7 @@
     </main>
 
     <div v-if="$store.state.activeIntroduction" class="dead-background full">
-        <Introduction v-if="$store.state.activeIntroduction" />
+      <Introduction v-if="$store.state.activeIntroduction" />
     </div>
 
     <div
@@ -34,6 +34,11 @@ import Introduction from "@/components/web-introduction/Introduction.vue";
 
 export default {
   components: { MainNavigation, Register, Login, Introduction },
+
+  created() {
+    this.$store.commit("SET_ROLE", localStorage.getItem("roles"));
+    this.$store.commit("LOG_USER", localStorage.getItem("token"));
+  },
 };
 </script>
 

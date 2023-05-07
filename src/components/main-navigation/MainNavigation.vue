@@ -86,9 +86,7 @@ export default {
     },
     */
   },
- async created() {
-    this.$store.commit("LOG_USER", localStorage.getItem("token"))
-
+  created() {
     /*
     const userData = JSON.parse(localStorage.getItem("user"));
     if (userData !== null) this.checkTypeOfUser(userData);
